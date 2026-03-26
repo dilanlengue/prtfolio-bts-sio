@@ -1,0 +1,25 @@
+import { useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
+import TopNav from './TopNav'
+import CyberBackground from './CyberBackground'
+import Footer from './Footer'
+
+export default function Layout() {
+  const { pathname } = useLocation()
+
+  // Scroll to top on page change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return (
+    <div className="min-h-screen overflow-x-hidden" style={{ backgroundColor: '#080c1a' }}>
+      <CyberBackground />
+      <TopNav />
+      <div className="relative z-10" style={{ paddingTop: '80px' }}>
+        <Outlet />
+        <Footer />
+      </div>
+    </div>
+  )
+}
