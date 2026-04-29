@@ -350,43 +350,41 @@ export default function Dashboard() {
         >
           <div className="px-8 md:px-16 pt-14 pb-12 text-center">
 
-            {/* Name — Orbitron like Sagar */}
+            {/* Name — gradient like Sagar */}
             <h2
               style={{
                 fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: 'clamp(2.2rem, 5.5vw, 3rem)',
-                fontWeight: 800,
-                color: '#e6ecf8',
+                fontSize: 'clamp(2.4rem, 6vw, 3.4rem)',
+                fontWeight: 900,
+                background: 'linear-gradient(135deg, #818cf8, #22d3ee)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
                 letterSpacing: '-0.02em',
                 lineHeight: 1.1,
-                marginBottom: '0.6rem',
+                marginBottom: '0.9rem',
               }}
             >
               Dilan Lengue
             </h2>
 
-            {/* Job title — colored + underline like Sagar */}
-            <div className="flex flex-col items-center mb-5">
-              <p
+            {/* Job title — cyan pill badge like Sagar */}
+            <div className="flex justify-center mb-5">
+              <span
+                className="inline-flex items-center rounded-full"
                 style={{
-                  fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
-                  fontWeight: 700,
+                  background: 'rgba(34,211,238,0.1)',
+                  border: '1px solid rgba(34,211,238,0.3)',
                   color: '#22d3ee',
-                  marginBottom: '0.35rem',
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
+                  fontWeight: 600,
+                  padding: '8px 22px',
+                  letterSpacing: '0.01em',
                 }}
               >
                 Alternant Admin. Syst{'\u00e8'}mes & R{'\u00e9'}seaux
-              </p>
-              {/* Yellow underline decoration like Sagar */}
-              <div
-                style={{
-                  width: '80px',
-                  height: '3px',
-                  borderRadius: '2px',
-                  background: 'linear-gradient(90deg, transparent, #fbbf24, transparent)',
-                }}
-              />
+              </span>
             </div>
 
             {/* Badge — green dot like Sagar */}
