@@ -38,7 +38,7 @@ export default function TopNav() {
   return (
     <>
       <nav
-        className="xl:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        className="lg:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
           height: '80px',
           background: scrolled ? 'rgba(8,12,26,0.95)' : 'rgba(8,12,26,0.8)',

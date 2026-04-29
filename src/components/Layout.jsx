@@ -18,7 +18,7 @@ export default function Layout() {
       <CyberBackground />
       <SideNav />
       <TopNav />
-      <div className="relative z-10 pt-20 xl:pt-0 xl:pl-16">
+      <div className="relative z-10 pt-20 lg:pt-0 lg:pl-16">
         <Outlet />
         <Footer />
       </div>

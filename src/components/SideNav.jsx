@@ -28,7 +28,7 @@ export default function SideNav() {
 
   return (
     <nav
-      className="hidden xl:flex flex-col gap-2 fixed left-0 top-0 bottom-0 z-40"
+      className="hidden lg:flex flex-col gap-2 fixed left-0 top-0 bottom-0 z-40"
       style={{
         width: '64px',
         background: 'rgba(8,12,26,0.92)',
