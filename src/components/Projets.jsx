@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Code2, BookOpen, FileText, ExternalLink, ChevronDown, ArrowLeft, Server, Wifi, Shield, Activity, Search, HardDrive, Terminal, ShoppingCart } from 'lucide-react'
+import { Code2, BookOpen, FileText, ExternalLink, ChevronDown, ArrowLeft, Server, Wifi, Shield, Activity, Search, HardDrive, Terminal, ShoppingCart, Download, Lock, DatabaseBackup } from 'lucide-react'
 
 const projets = [
   {
@@ -7,10 +7,14 @@ const projets = [
     title: 'Infrastructure Active Directory',
     icon: Server,
     date: '2025–2026',
+    domain: 'Système',
+    context: 'Scolaire',
+    image: '/projects/ad.webp',
+    image2: '/projects/ad-2.webp',
     color: '#818cf8',
-    description: 'Installation et configuration d\'un domaine Windows Server complet avec gestion centralisée des utilisateurs, GPO, DNS et DHCP.',
+    description: 'Déploiement complet d\'un domaine Windows Server avec contrôleur de domaine, DNS intégré, DHCP et stratégies de groupe (GPO) pour la gestion centralisée des utilisateurs et postes.',
     backDesc: 'Projet infrastructure BTS SIO SISR. Déploiement d\'un domaine Active Directory complet avec contrôleur de domaine, DNS intégré, DHCP et stratégies de groupe.',
-    technologies: ['Windows Server', 'AD DS', 'GPO', 'DNS'],
+    technologies: ['Windows Server', 'AD DS', 'GPO', 'DNS', 'DHCP'],
     docs: [
       { label: 'Documentation', url: null },
     ],
@@ -20,10 +24,14 @@ const projets = [
     title: 'Infrastructure Réseau Cisco',
     icon: Wifi,
     date: '2025–2026',
+    domain: 'Réseau',
+    context: 'Scolaire',
+    image: '/projects/vlan.webp',
+    image2: '/projects/vlan-2.webp',
     color: '#22d3ee',
-    description: 'Configuration de VLAN sur switch Cisco pour segmenter le réseau et sécuriser les flux inter-services.',
+    description: 'Segmentation d\'un réseau d\'entreprise par VLAN sur switch Cisco avec routage inter-VLAN (Router-on-a-Stick) et liens trunk 802.1Q pour isoler les flux services.',
     backDesc: 'Segmentation réseau par VLAN avec routage inter-VLAN (Router-on-a-Stick). Configuration des liens Trunk 802.1Q entre switch et routeur Cisco.',
-    technologies: ['Cisco IOS', 'VLAN', '802.1Q', 'TCP/IP'],
+    technologies: ['Cisco IOS', 'VLAN', '802.1Q', 'TCP/IP', 'Trunk'],
     docs: [
       { label: 'Documentation', url: null },
     ],
@@ -33,10 +41,14 @@ const projets = [
     title: 'VPN Sécurisé (OpenVPN)',
     icon: Shield,
     date: '2025',
+    domain: 'Cybersécurité',
+    context: 'Scolaire',
+    image: '/projects/vpn.webp',
+    image2: '/projects/vpn-2.webp',
     color: '#a78bfa',
-    description: 'Déploiement d\'un serveur OpenVPN pour connecter des collaborateurs en télétravail via un tunnel chiffré SSL/TLS.',
+    description: 'Déploiement d\'un serveur OpenVPN sur Linux Debian avec gestion PKI complète (CA, certificats serveur et clients) pour un accès distant chiffré SSL/TLS.',
     backDesc: 'Mise en place d\'un accès distant sécurisé via OpenVPN sur Linux Debian. Gestion PKI complète avec génération de certificats CA, serveur et clients.',
-    technologies: ['OpenVPN', 'Linux', 'SSL/TLS', 'PKI'],
+    technologies: ['OpenVPN', 'Linux', 'SSL/TLS', 'PKI', 'iptables'],
     docs: [
       { label: 'Documentation', url: null },
     ],
@@ -46,10 +58,14 @@ const projets = [
     title: 'Supervision Réseau (Nagios)',
     icon: Activity,
     date: '2025',
+    domain: 'Supervision',
+    context: 'Scolaire',
+    image: '/projects/nagios.webp',
+    image2: '/projects/nagios-2.webp',
     color: '#34d399',
-    description: 'Installation et configuration de Nagios pour surveiller en temps réel les serveurs et services réseau.',
+    description: 'Mise en place d\'une supervision proactive de l\'infrastructure avec Nagios Core : surveillance des hôtes, services et seuils, alertes par email via NRPE et SNMP.',
     backDesc: 'Supervision de l\'infrastructure avec Nagios Core. Configuration des hôtes, services, plugins NRPE et alertes automatiques par email.',
-    technologies: ['Nagios', 'Linux', 'SNMP', 'NRPE'],
+    technologies: ['Nagios', 'Linux', 'SNMP', 'NRPE', 'Plugins'],
     docs: [
       { label: 'Documentation', url: null },
     ],
@@ -59,10 +75,14 @@ const projets = [
     title: 'Audit Sécurité (Nessus)',
     icon: Search,
     date: '2025',
+    domain: 'Cybersécurité',
+    context: 'Scolaire',
+    image: '/projects/nessus.webp',
+    image2: '/projects/nessus-2.webp',
     color: '#f87171',
-    description: 'Analyse complète des vulnérabilités de l\'infrastructure réseau avec Nessus et rapports CVE.',
+    description: 'Audit de vulnérabilités d\'une infrastructure réseau avec Nessus : scan complet, classification CVSS des CVE détectées, rapport hiérarchisé et plan de remédiation.',
     backDesc: 'Scan complet du réseau interne avec Nessus. Génération de rapports de vulnérabilités CVE, classification des risques et recommandations.',
-    technologies: ['Nessus', 'CVE', 'Audit', 'Linux'],
+    technologies: ['Nessus', 'CVE', 'CVSS', 'Audit', 'Reporting'],
     docs: [
       { label: 'Documentation', url: null },
     ],
@@ -72,10 +92,14 @@ const projets = [
     title: 'Gestion de Parc (GLPI)',
     icon: HardDrive,
     date: '2025',
+    domain: 'Support / ITSM',
+    context: 'Scolaire',
+    image: '/projects/glpi.webp',
+    image2: '/projects/glpi-2.webp',
     color: '#fbbf24',
-    description: 'Déploiement de GLPI pour l\'inventaire automatisé du parc IT et le ticketing support.',
+    description: 'Déploiement d\'une solution ITSM avec GLPI + FusionInventory : inventaire automatique du parc, ticketing ITIL et gestion du support utilisateur.',
     backDesc: 'Gestion de parc informatique avec GLPI et FusionInventory. Système de ticketing ITIL, inventaire automatique et gestion du support utilisateur.',
-    technologies: ['GLPI', 'Fusion', 'LAMP', 'ITIL'],
+    technologies: ['GLPI', 'FusionInventory', 'LAMP', 'ITIL'],
     docs: [
       { label: 'Documentation', url: null },
     ],
@@ -85,21 +109,46 @@ const projets = [
     title: 'Serveur Linux Multi-Services',
     icon: Terminal,
     date: '2025',
+    domain: 'Système',
+    context: 'Scolaire',
+    image: '/projects/linux.webp',
+    image2: '/projects/linux-2.webp',
     color: '#fb923c',
-    description: 'Déploiement d\'un serveur Linux hébergeant SSH, FTP et Apache, sécurisé avec iptables.',
+    description: 'Installation d\'un serveur Debian hébergeant SSH, FTP (vsftpd) et Apache, sécurisé par pare-feu iptables et authentification par clé publique.',
     backDesc: 'Installation Debian Server avec services SSH, FTP (vsftpd) et Apache2. Sécurisation par pare-feu iptables et authentification par clé.',
-    technologies: ['Debian', 'SSH', 'Apache', 'iptables'],
+    technologies: ['Debian', 'SSH', 'Apache', 'iptables', 'vsftpd'],
     docs: [
       { label: 'Documentation', url: null },
     ],
   },
   {
     id: 8,
+    title: 'Sauvegarde &amp; PRA',
+    icon: DatabaseBackup,
+    date: '2025–2026',
+    domain: 'Système',
+    context: 'Scolaire',
+    image: '/projects/backup.webp',
+    image2: '/projects/backup-2.webp',
+    color: '#06b6d4',
+    description: 'Mise en place d\'une stratégie de sauvegarde 3-2-1 sur Linux (rsync + Borg) avec rotation automatique, chiffrement, vérification d\'intégrité et plan de reprise documenté.',
+    backDesc: 'Politique de sauvegarde 3-2-1 (3 copies, 2 supports, 1 hors-site) avec rsync, Borg Backup et cron. Tests de restauration mensuels et plan de reprise d\'activité.',
+    technologies: ['rsync', 'Borg Backup', 'cron', 'PRA', 'Linux'],
+    docs: [
+      { label: 'Documentation', url: null },
+    ],
+  },
+  {
+    id: 9,
     title: 'Marketplace Web',
     icon: ShoppingCart,
     date: '2024',
+    domain: 'Développement',
+    context: 'Personnel',
+    image: '/projects/marketplace.webp',
+    image2: '/projects/marketplace-2.webp',
     color: '#f472b6',
-    description: 'Développement d\'une marketplace web complète avec authentification et base de données MySQL.',
+    description: 'Développement d\'une marketplace web en PHP / MySQL avec architecture MVC, authentification, gestion de compte et interface responsive HTML/CSS.',
     backDesc: 'Application web e-commerce avec architecture MVC en PHP. Frontend responsive, base MySQL, système d\'authentification et gestion de compte.',
     technologies: ['PHP', 'MySQL', 'HTML/CSS', 'MVC'],
     docs: [
@@ -109,24 +158,35 @@ const projets = [
 ]
 
 const guides = [
-  { title: 'Dossier Technique — Active Directory', desc: 'Infrastructure AD DS, GPO, DNS — Windows Server 2025', url: null, color: '#818cf8' },
-  { title: 'Dossier Technique — Réseau VLAN', desc: 'Segmentation inter-VLAN avec Cisco IOS — 802.1Q', url: null, color: '#22d3ee' },
-  { title: 'Dossier Technique — VPN OpenVPN', desc: 'Accès distant sécurisé, PKI, certificats SSL/TLS', url: null, color: '#a78bfa' },
-  { title: 'Dossier Technique — Supervision Nagios', desc: 'Monitoring infrastructure, alertes SNMP/NRPE', url: null, color: '#34d399' },
-  { title: 'Rapport de Stage — B&A Conseil', desc: 'Technicien Support & Maintenance — Janv/Fév 2026', url: null, color: '#fbbf24' },
-  { title: 'Rapport de Stage — Les Réparateurs Mac & PC', desc: 'Technicien Support Informatique — Mai/Juil 2025', url: null, color: '#fb923c' },
-  { title: 'Attestation SecNumacadémie ANSSI', desc: '4 modules validés — Janvier 2026', url: '/attestation-secnumacademie.pdf', color: '#22d3ee' },
+  { title: 'Dossier Technique — Active Directory', desc: 'Infrastructure AD DS, GPO, DNS — Windows Server 2025', url: '/dossiers/e5-active-directory.pdf', status: 'in-progress', color: '#818cf8' },
+  { title: 'Dossier Technique — Réseau VLAN', desc: 'Segmentation inter-VLAN avec Cisco IOS — 802.1Q', url: '/dossiers/e5-vlan-cisco.pdf', status: 'in-progress', color: '#22d3ee' },
+  { title: 'Dossier Technique — VPN OpenVPN', desc: 'Accès distant sécurisé, PKI, certificats SSL/TLS', url: '/dossiers/e5-openvpn.pdf', status: 'planned', color: '#a78bfa' },
+  { title: 'Dossier Technique — Supervision Nagios', desc: 'Monitoring infrastructure, alertes SNMP/NRPE', url: '/dossiers/e5-nagios.pdf', status: 'planned', color: '#34d399' },
+  { title: 'Rapport de Stage — B&A Conseil', desc: 'Technicien Support & Maintenance — Janv/Fév 2026', url: '/dossiers/rapport-stage-bna.pdf', status: 'in-progress', color: '#fbbf24' },
+  { title: 'Rapport de Stage — Les Réparateurs Mac & PC', desc: 'Technicien Support Informatique — Mai/Juil 2025', url: '/dossiers/rapport-stage-reparateurs.pdf', status: 'planned', color: '#fb923c' },
+  { title: 'Attestation SecNumacadémie ANSSI', desc: '4 modules validés — Janvier 2026', url: '/attestation-secnumacademie.pdf', status: 'available', color: '#22d3ee' },
 ]
 
 /* ─── Flip Card Component ─── */
 function FlipCard({ item }) {
   const [flipped, setFlipped] = useState(false)
 
+  const ctxBg = item.context === 'Stage'
+    ? 'rgba(34,197,94,0.14)'
+    : item.context === 'Personnel'
+      ? 'rgba(244,114,182,0.14)'
+      : 'rgba(99,102,241,0.14)'
+  const ctxColor = item.context === 'Stage'
+    ? '#34d399'
+    : item.context === 'Personnel'
+      ? '#f472b6'
+      : '#a5b4fc'
+
   return (
     <div className="w-full h-full" onClick={() => setFlipped(!flipped)}>
       <div
         className="relative cursor-pointer select-none"
-        style={{ height: '21rem', perspective: '1200px' }}
+        style={{ height: '28rem', perspective: '1200px' }}
       >
         <div
           className="relative w-full h-full transition-all duration-500"
@@ -137,60 +197,130 @@ function FlipCard({ item }) {
         >
           {/* ── FRONT ── */}
           <div
-            className="absolute inset-0 overflow-hidden backdrop-blur-xl"
+            className="absolute inset-0 overflow-hidden backdrop-blur-xl flex flex-col"
             style={{
               backfaceVisibility: 'hidden',
-              background: 'rgba(11,16,32,0.62)',
-              border: `2px solid ${item.color}40`,
+              background: 'rgba(11,16,32,0.72)',
+              border: `1px solid ${item.color}33`,
               borderRadius: '16px',
-              padding: '20px',
             }}
           >
-            {/* Top accent line */}
+            {/* Image banner */}
             <div
-              className="absolute top-0 left-0 right-0"
-              style={{ height: '2px', background: item.color, opacity: 0.5, borderRadius: '16px 16px 0 0' }}
-            />
-
-            <div className="flex flex-col h-full">
-              {/* Icon + Date */}
-              <div className="flex items-center justify-between mb-2">
+              className="relative overflow-hidden"
+              style={{
+                height: '140px',
+                background: `linear-gradient(135deg, ${item.color}22, ${item.color}05)`,
+                borderBottom: `1px solid ${item.color}33`,
+              }}
+            >
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt={`Visuel projet ${item.title}`}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => { e.currentTarget.style.display = 'none' }}
+                />
+              )}
+              {/* Top gradient overlay for legibility */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(180deg, transparent 40%, rgba(11,16,32,0.55) 100%)`,
+                }}
+              />
+              {/* Domain + Context badges (top-left & top-right) */}
+              <div className="absolute top-3 left-3">
                 <span
                   style={{
+                    background: ctxBg,
+                    color: ctxColor,
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '10px',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    padding: '4px 9px',
+                    borderRadius: '6px',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                  }}
+                >
+                  {item.context}
+                </span>
+              </div>
+              <div className="absolute top-3 right-3 flex items-center gap-2">
+                <span
+                  style={{
+                    background: 'rgba(11,16,32,0.7)',
+                    color: '#e2e8f0',
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: '12px',
+                    fontSize: '11px',
                     fontWeight: 600,
-                    color: '#c5d3e8',
+                    letterSpacing: '0.02em',
+                    padding: '4px 9px',
+                    borderRadius: '6px',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                  }}
+                >
+                  {item.domain}
+                </span>
+              </div>
+              {/* Icon — bottom-right */}
+              {item.icon && (
+                <div
+                  className="absolute bottom-3 right-3 flex items-center justify-center rounded-lg"
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    background: `${item.color}22`,
+                    border: `1px solid ${item.color}55`,
+                    color: item.color,
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                  }}
+                >
+                  <item.icon size={20} />
+                </div>
+              )}
+              {/* Date — bottom-left */}
+              <div className="absolute bottom-3 left-3">
+                <span
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    color: '#e2e8f0',
+                    letterSpacing: '0.05em',
+                    background: 'rgba(11,16,32,0.7)',
+                    padding: '3px 8px',
+                    borderRadius: '5px',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                   }}
                 >
                   {item.date}
                 </span>
-                {item.icon && (
-                  <div
-                    className="flex items-center justify-center rounded-lg"
-                    style={{
-                      width: '36px',
-                      height: '36px',
-                      background: `${item.color}12`,
-                      border: `1px solid ${item.color}30`,
-                      color: item.color,
-                    }}
-                  >
-                    <item.icon size={18} />
-                  </div>
-                )}
               </div>
+            </div>
 
+            {/* Body */}
+            <div className="flex flex-col flex-1 p-5">
               {/* Title */}
               <h3
                 style={{
                   fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: '20px',
+                  fontSize: '19px',
                   fontWeight: 800,
                   color: item.color,
-                  letterSpacing: '-0.025em',
-                  lineHeight: 1.2,
-                  marginBottom: '8px',
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.25,
+                  marginBottom: '10px',
                 }}
               >
                 {item.title}
@@ -200,11 +330,12 @@ function FlipCard({ item }) {
               <p
                 style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: '14px',
+                  fontSize: '14.5px',
                   fontWeight: 400,
-                  color: '#e6ecf8',
+                  color: '#e2e8f0',
                   lineHeight: 1.6,
                   flex: 1,
+                  marginBottom: '12px',
                 }}
               >
                 {item.description}
@@ -216,14 +347,14 @@ function FlipCard({ item }) {
                   <span
                     key={tech}
                     style={{
-                      background: `${item.color}20`,
-                      border: `1px solid ${item.color}30`,
+                      background: `${item.color}1a`,
+                      border: `1px solid ${item.color}40`,
                       color: item.color,
                       fontFamily: "'Inter', sans-serif",
-                      fontSize: '10px',
+                      fontSize: '11px',
                       fontWeight: 600,
-                      padding: '4px 8px',
-                      borderRadius: '4px',
+                      padding: '4px 9px',
+                      borderRadius: '5px',
                     }}
                   >
                     {tech}
@@ -236,87 +367,140 @@ function FlipCard({ item }) {
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: '12px',
-                  fontWeight: 400,
-                  color: '#c5d3e8',
+                  fontWeight: 500,
+                  color: '#94a3b8',
                   textAlign: 'center',
+                  marginTop: 'auto',
                 }}
               >
-                Cliquer pour voir les détails
+                Cliquer pour voir les détails {'→'}
               </p>
             </div>
           </div>
 
           {/* ── BACK ── */}
           <div
-            className="absolute inset-0 overflow-hidden backdrop-blur-xl"
+            className="absolute inset-0 overflow-hidden backdrop-blur-xl flex flex-col"
             style={{
               backfaceVisibility: 'hidden',
               transform: 'rotateY(180deg)',
-              background: 'rgba(11,16,32,0.62)',
-              border: `2px solid ${item.color}`,
+              background: 'rgba(11,16,32,0.72)',
+              border: `1px solid ${item.color}66`,
               borderRadius: '16px',
-              padding: '20px',
             }}
           >
-            {/* Top accent line */}
+            {/* Image2 banner — different perspective */}
             <div
-              className="absolute top-0 left-0 right-0"
-              style={{ height: '2px', background: item.color, opacity: 0.8, borderRadius: '16px 16px 0 0' }}
-            />
-
-            <div className="flex flex-col h-full">
-              {/* Title + date */}
-              <div className="flex items-center justify-between mb-3">
-                <h4
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '16px',
-                    fontWeight: 700,
-                    color: item.color,
-                  }}
-                >
-                  {item.title}
-                </h4>
+              className="relative overflow-hidden"
+              style={{
+                height: '110px',
+                background: `linear-gradient(135deg, ${item.color}25, ${item.color}05)`,
+                borderBottom: `1px solid ${item.color}40`,
+              }}
+            >
+              {item.image2 && (
+                <img
+                  src={item.image2}
+                  alt={`Vue détaillée — ${item.title}`}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => { e.currentTarget.style.display = 'none' }}
+                />
+              )}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(180deg, transparent 30%, rgba(11,16,32,0.6) 100%)`,
+                }}
+              />
+              <div className="absolute top-2.5 left-2.5">
                 <span
                   style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '12px',
-                    fontWeight: 400,
-                    color: '#c5d3e8',
+                    background: 'rgba(11,16,32,0.7)',
+                    color: item.color,
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '10px',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    padding: '3px 8px',
+                    borderRadius: '5px',
+                    border: `1px solid ${item.color}44`,
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                  }}
+                >
+                  Vue détaillée
+                </span>
+              </div>
+              <div className="absolute bottom-2.5 right-2.5">
+                <span
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '10.5px',
+                    fontWeight: 700,
+                    color: '#e2e8f0',
+                    letterSpacing: '0.05em',
+                    background: 'rgba(11,16,32,0.7)',
+                    padding: '3px 7px',
+                    borderRadius: '5px',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                   }}
                 >
                   {item.date}
                 </span>
               </div>
+            </div>
+
+            {/* Body */}
+            <div className="flex flex-col flex-1 p-5">
+              {/* Title */}
+              <h4
+                style={{
+                  fontFamily: "'Orbitron', system-ui, sans-serif",
+                  fontSize: '17px',
+                  fontWeight: 800,
+                  color: item.color,
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.25,
+                  marginBottom: '10px',
+                }}
+              >
+                {item.title}
+              </h4>
 
               {/* Back description */}
-              <div
-                className="flex-1 mb-3"
+              <p
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: '14px',
                   fontWeight: 400,
-                  color: '#e6ecf8',
-                  lineHeight: 1.65,
+                  color: '#e2e8f0',
+                  lineHeight: 1.6,
+                  flex: 1,
+                  marginBottom: '12px',
                 }}
               >
                 {item.backDesc}
-              </div>
+              </p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 mb-4">
+              <div className="flex flex-wrap gap-1.5 mb-3">
                 {item.technologies.map(tech => (
                   <span
                     key={tech}
                     style={{
-                      background: `${item.color}20`,
-                      border: `1px solid ${item.color}30`,
+                      background: `${item.color}1a`,
+                      border: `1px solid ${item.color}40`,
                       color: item.color,
                       fontFamily: "'Inter', sans-serif",
-                      fontSize: '10px',
+                      fontSize: '11px',
                       fontWeight: 600,
-                      padding: '4px 8px',
-                      borderRadius: '4px',
+                      padding: '4px 9px',
+                      borderRadius: '5px',
                     }}
                   >
                     {tech}
@@ -334,14 +518,14 @@ function FlipCard({ item }) {
                     rel="noopener noreferrer"
                     className="block w-full text-center transition-all"
                     style={{
-                      background: doc.url ? `${item.color}20` : 'rgba(255,255,255,0.04)',
-                      border: `1px solid ${doc.url ? `${item.color}4d` : 'rgba(255,255,255,0.08)'}`,
+                      background: doc.url ? `${item.color}22` : 'rgba(255,255,255,0.04)',
+                      border: `1px solid ${doc.url ? `${item.color}55` : 'rgba(255,255,255,0.08)'}`,
                       borderRadius: '8px',
                       padding: '8px 0',
                       fontFamily: "'Inter', sans-serif",
                       fontSize: '12px',
                       fontWeight: 600,
-                      color: doc.url ? item.color : '#475569',
+                      color: doc.url ? item.color : '#64748b',
                     }}
                     onClick={e => { if (!doc.url) e.preventDefault(); e.stopPropagation() }}
                   >
@@ -596,40 +780,63 @@ export default function Projets() {
 
             {/* Guides list */}
             <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(59,130,246,0.15)' }}>
-              {guides.map((doc, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-4 px-6 py-4 transition-all"
-                  style={{ borderBottom: i < guides.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}
-                  onMouseEnter={e => e.currentTarget.style.background = 'rgba(59,130,246,0.04)'}
-                  onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-                >
-                  <div className="p-2.5 rounded-xl flex-shrink-0" style={{ background: doc.url ? 'rgba(59,130,246,0.12)' : 'rgba(255,255,255,0.04)', border: `1px solid ${doc.url ? 'rgba(59,130,246,0.25)' : 'rgba(255,255,255,0.08)'}` }}>
-                    <FileText size={16} style={{ color: doc.url ? blueColor : '#475569' }} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold" style={{ color: doc.url ? '#e2e8f0' : '#94a3b8', fontFamily: "'Inter', sans-serif" }}>
-                      {doc.title}
-                    </p>
-                    <p className="text-xs mt-0.5" style={{ color: '#475569' }}>{doc.desc}</p>
-                  </div>
-                  {doc.url ? (
-                    <a
-                      href={doc.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 flex-shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all hover:opacity-80"
-                      style={{ background: 'rgba(59,130,246,0.15)', border: '1px solid rgba(59,130,246,0.3)', color: blueColor }}
+              {guides.map((doc, i) => {
+                const isReady = doc.status === 'available'
+                const statusLabel = isReady ? 'Disponible' : doc.status === 'in-progress' ? 'En cours' : 'Planifié'
+                const statusColor = isReady ? '#22c55e' : doc.status === 'in-progress' ? '#fbbf24' : '#94a3b8'
+                const statusBg = isReady ? 'rgba(34,197,94,0.12)' : doc.status === 'in-progress' ? 'rgba(251,191,36,0.12)' : 'rgba(148,163,184,0.1)'
+                const statusBorder = isReady ? 'rgba(34,197,94,0.4)' : doc.status === 'in-progress' ? 'rgba(251,191,36,0.4)' : 'rgba(148,163,184,0.3)'
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center gap-4 px-6 py-4 transition-all"
+                    style={{ borderBottom: i < guides.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}
+                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(59,130,246,0.04)'}
+                    onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                  >
+                    <div className="p-2.5 rounded-xl flex-shrink-0" style={{ background: isReady ? `${doc.color}1f` : 'rgba(255,255,255,0.04)', border: `1px solid ${isReady ? `${doc.color}40` : 'rgba(255,255,255,0.08)'}` }}>
+                      <FileText size={16} style={{ color: isReady ? doc.color : '#64748b' }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold" style={{ color: '#f1f5f9', fontFamily: "'Inter', sans-serif", fontSize: '14px' }}>
+                        {doc.title}
+                      </p>
+                      <p className="mt-0.5" style={{ color: '#94a3b8', fontSize: '12.5px', lineHeight: 1.4 }}>{doc.desc}</p>
+                    </div>
+                    <span
+                      className="hidden md:flex items-center rounded-md flex-shrink-0"
+                      style={{
+                        background: statusBg,
+                        border: `1px solid ${statusBorder}`,
+                        color: statusColor,
+                        padding: '4px 10px',
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: '10.5px',
+                        fontWeight: 700,
+                        letterSpacing: '0.05em',
+                        textTransform: 'uppercase',
+                      }}
                     >
-                      <ExternalLink size={12} /> Voir
-                    </a>
-                  ) : (
-                    <span className="flex-shrink-0 px-4 py-2 rounded-xl text-xs" style={{ background: 'rgba(255,255,255,0.03)', color: '#475569' }}>
-                      à venir
+                      {statusLabel}
                     </span>
-                  )}
-                </div>
-              ))}
+                    {isReady ? (
+                      <a
+                        href={doc.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 flex-shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all hover:-translate-y-0.5"
+                        style={{ background: `${doc.color}22`, border: `1px solid ${doc.color}55`, color: doc.color }}
+                      >
+                        <Download size={12} /> PDF
+                      </a>
+                    ) : (
+                      <span className="flex items-center gap-1.5 flex-shrink-0 px-4 py-2 rounded-xl text-xs" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', color: '#64748b' }}>
+                        <Lock size={11} /> Bientôt
+                      </span>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </>
         )}

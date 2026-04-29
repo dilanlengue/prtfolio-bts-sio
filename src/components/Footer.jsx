@@ -14,19 +14,20 @@ export default function Footer() {
       >
         <div className="py-8">
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 flex flex-col items-center gap-3">
-            <p style={{ color: '#94a3b8', fontFamily: "'Inter', sans-serif", fontSize: '15px' }}>
-              Fait avec <span style={{ color: '#3b82f6' }}>{'\uD83D\uDC99'}</span> et beaucoup de <span style={{ color: '#f97316' }}>{'\u2615'}</span> par{' '}
+            <p style={{ color: '#cbd5e1', fontFamily: "'Inter', sans-serif", fontSize: '15px' }}>
+              Fait avec <span style={{ color: '#f87171' }}>{'❤'}</span> et beaucoup de <span style={{ color: '#f97316' }}>{'☕'}</span> par{' '}
               <span style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontWeight: 700, color: '#22d3ee', fontSize: '13px' }}>
                 D. Lengue
               </span>
             </p>
-            <p style={{ color: '#475569', fontFamily: "'Inter', sans-serif", fontSize: '13px' }}>
-              {'\u00a9'} {new Date().getFullYear()} {'\u2022'} Portfolio interactif {'\u2022'} React + Vite
+            <p style={{ color: '#64748b', fontFamily: "'Inter', sans-serif", fontSize: '13px' }}>
+              {'©'} {new Date().getFullYear()} {'·'} Portfolio BTS SIO SISR {'·'} React + Vite
             </p>
           </div>
 
           {/* Retour en haut */}
           <button
+            aria-label="Retour en haut de la page"
             onClick={scrollToTop}
             className="fixed bottom-6 right-6 z-40 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200"
             style={{

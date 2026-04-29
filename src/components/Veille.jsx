@@ -140,6 +140,7 @@ export default function Veille() {
               <span className="font-bold text-white text-base" style={{ fontFamily: "'Inter', sans-serif" }}>Hacker News</span>
               <span className="px-2.5 py-0.5 rounded text-xs font-bold" style={{ background: 'rgba(248,113,113,0.15)', color: '#f87171', fontFamily: "'Inter', sans-serif" }}>LIVE</span>
               <button
+                aria-label="Rafraîchir Hacker News"
                 className="ml-auto transition-all"
                 style={{ color: hnLoading ? '#22d3ee' : '#475569' }}
                 onClick={fetchHN}
@@ -203,6 +204,7 @@ export default function Veille() {
               <span className="font-bold text-white text-base" style={{ fontFamily: "'Inter', sans-serif" }}>Tendances GitHub</span>
               <span className="px-2.5 py-0.5 rounded text-xs font-bold" style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', fontFamily: "'Inter', sans-serif" }}>7J</span>
               <button
+                aria-label="Rafraîchir les tendances GitHub"
                 className="ml-auto"
                 style={{ color: ghLoading ? '#818cf8' : '#475569' }}
                 onClick={fetchGH}
@@ -425,7 +427,7 @@ function VeilleArticle() {
         {/* CONTEXTE & ENJEUX */}
         <div className="mb-10">
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 700, color: '#22d3ee', textTransform: 'uppercase', letterSpacing: '0.18em', marginBottom: '1rem' }}>Contexte &amp; Enjeux</p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.75, maxWidth: '720px' }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#cbd5e1', lineHeight: 1.75, maxWidth: '720px' }}>
             Dans le cadre de mon BTS SIO SISR, j'ai mené une veille approfondie sur la sécurisation des infrastructures réseau en entreprise. Face à la multiplication des cyberattaques ciblant les PME françaises (source ANSSI 2025), la segmentation réseau et le chiffrement des flux sont devenus des impératifs. Cette étude couvre les solutions déployées lors de mes stages.
           </p>
         </div>
@@ -444,7 +446,7 @@ function VeilleArticle() {
               <span key={i} style={{ fontSize: '13px', fontWeight: item.label === '→' ? 400 : 700, color: item.color }}>{item.label}</span>
             ))}
           </div>
-          <p className="mt-2 text-center" style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#475569' }}>
+          <p className="mt-2 text-center" style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8' }}>
             Supervision Nagios Core · Pare-feu iptables · Linux Debian 12 · Cisco IOS
           </p>
         </div>
@@ -464,7 +466,7 @@ function VeilleArticle() {
                   {sol.items.map((it, i) => (
                     <div key={i} className="flex items-start gap-2">
                       <span style={{ color: sol.color, fontFamily: "'JetBrains Mono', 'Fira Code', monospace", fontSize: '11px', flexShrink: 0, marginTop: '1px' }}>→</span>
-                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.5 }}>{it}</span>
+                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 1.55 }}>{it}</span>
                     </div>
                   ))}
                 </div>
@@ -487,7 +489,7 @@ function VeilleArticle() {
                   </div>
                   <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0' }}>{bp.title}</span>
                 </div>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#64748b', lineHeight: 1.6 }}>{bp.desc}</p>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#cbd5e1', lineHeight: 1.65 }}>{bp.desc}</p>
               </div>
             ))}
           </div>

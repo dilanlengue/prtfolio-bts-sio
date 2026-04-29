@@ -32,15 +32,15 @@ function CountUp({ target, suffix = '', prefix = '' }) {
 
 /* ─── Data ─── */
 const statsData = [
-  { value: 8,  suffix: '+', label: 'PROJETS RÉALISÉS',     color: '#22d3ee', icon: FolderKanban },
-  { value: 4,  suffix: '',  label: 'MODULES ANSSI',        color: '#22c55e', icon: ShieldCheck },
-  { value: 3,  suffix: '+', label: 'ANNÉES D\'EXPÉRIENCE',  color: '#f59e0b', icon: CalendarDays },
-  { value: 4,  suffix: '',  label: 'CERTIFICATIONS',       color: '#a78bfa', icon: Award },
+  { value: 9,  suffix: '+', label: 'PROJETS RÉALISÉS',    desc: 'Infrastructure, support & développement',  color: '#22d3ee', icon: FolderKanban },
+  { value: 4,  suffix: '',  label: 'MODULES ANSSI',       desc: 'SecNumacadémie validés (88-94 %)',         color: '#22c55e', icon: ShieldCheck },
+  { value: 3,  suffix: '+', label: 'ANNÉES D\'EXPÉRIENCE', desc: 'Bac+2 + HND + Licence Informatique',       color: '#f59e0b', icon: CalendarDays },
+  { value: 4,  suffix: '',  label: 'CERTIFICATIONS',      desc: 'ANSSI · EBIOS · Udemy · Coursera',         color: '#a78bfa', icon: Award },
 ]
 
 const apports = [
   { color: '#22d3ee', icon: Server, title: 'Administration opérationnelle',  desc: 'Windows Server, AD DS, GPO, DNS/DHCP' },
-  { color: '#22c55e', icon: BarChart3, title: 'Impact mesurable',               desc: '8+ projets livrés · supervision Nagios · 3 expériences pro' },
+  { color: '#22c55e', icon: BarChart3, title: 'Impact mesurable',               desc: '9+ projets livrés · supervision Nagios · 3 expériences pro' },
   { color: '#a78bfa', icon: Lock, title: 'Sécurité by design',             desc: 'OpenVPN, Nessus, iptables, SecNum 100%' },
   { color: '#fbbf24', icon: FileText, title: 'Livraison documentée',           desc: 'Guides techniques, rapports de stage, documentation réseau' },
 ]
@@ -438,51 +438,228 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ── Stats row — 4 cards like Sagar ── */}
-        <div className="animate-fade-up grid grid-cols-2 md:grid-cols-4 gap-5 mb-6" style={{ transitionDelay: '0.08s' }}>
-          {statsData.map((s) => (
-            <div
-              key={s.label}
-              className="flex flex-col items-center justify-center py-9 px-4 text-center rounded-2xl"
+        {/* ── Terminal $ whoami ── */}
+        <div
+          className="animate-fade-up rounded-2xl overflow-hidden mb-6"
+          style={{
+            background: 'rgba(6,9,18,0.92)',
+            border: '1px solid rgba(34,211,238,0.18)',
+            boxShadow: '0 0 0 1px rgba(34,211,238,0.04), 0 12px 40px rgba(0,0,0,0.35)',
+            transitionDelay: '0.04s',
+          }}
+        >
+          {/* Window header */}
+          <div
+            className="flex items-center gap-3 px-5 py-3"
+            style={{
+              background: 'rgba(255,255,255,0.025)',
+              borderBottom: '1px solid rgba(255,255,255,0.06)',
+            }}
+          >
+            <span className="flex gap-2">
+              <span className="block w-3 h-3 rounded-full" style={{ background: '#ff5f57' }} />
+              <span className="block w-3 h-3 rounded-full" style={{ background: '#febc2e' }} />
+              <span className="block w-3 h-3 rounded-full" style={{ background: '#28c840' }} />
+            </span>
+            <span
+              className="ml-3"
               style={{
-                background: 'rgba(11,16,32,0.62)',
-                border: '1px solid rgba(255,255,255,0.06)',
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '12px',
+                color: '#64748b',
+                letterSpacing: '0.05em',
               }}
             >
-              <span
-                style={{
-                  fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: 'clamp(1.8rem, 4vw, 2.3rem)',
-                  fontWeight: 800,
-                  color: s.color,
-                  lineHeight: 1,
-                  marginBottom: '0.7rem',
-                }}
-              >
-                <CountUp target={s.value} suffix={s.suffix} />
-              </span>
-              <span
-                style={{
-                  fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: '10px',
-                  fontWeight: 700,
-                  color: '#475569',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
-                }}
-              >
-                {s.label}
-              </span>
+              dilan@sisr: ~/portfolio — bash
+            </span>
+          </div>
+
+          {/* Terminal body */}
+          <div
+            className="px-6 py-6 md:px-8 md:py-8"
+            style={{
+              fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+              fontSize: '14.5px',
+              lineHeight: 1.85,
+              color: '#cbd5e1',
+            }}
+          >
+            <div>
+              <span style={{ color: '#22d3ee' }}>dilan</span>
+              <span style={{ color: '#475569' }}>@</span>
+              <span style={{ color: '#34d399' }}>sisr</span>
+              <span style={{ color: '#475569' }}>:~$ </span>
+              <span style={{ color: '#f8fafc' }}>whoami</span>
             </div>
-          ))}
+            <div style={{ color: '#94a3b8', paddingLeft: '14px' }}>
+              <span style={{ color: '#22d3ee' }}>↳</span> Dilan Lengue {'·'} Alternant Admin. Systèmes &amp; Réseaux
+            </div>
+
+            <div style={{ marginTop: '14px' }}>
+              <span style={{ color: '#22d3ee' }}>dilan</span>
+              <span style={{ color: '#475569' }}>@</span>
+              <span style={{ color: '#34d399' }}>sisr</span>
+              <span style={{ color: '#475569' }}>:~$ </span>
+              <span style={{ color: '#f8fafc' }}>cat profil.txt</span>
+            </div>
+            <div style={{ color: '#94a3b8', paddingLeft: '14px' }}>
+              <span style={{ color: '#22d3ee' }}>↳</span> BTS SIO option SISR {'·'} 2ᵉ année {'·'} Institut F2I
+            </div>
+            <div style={{ color: '#94a3b8', paddingLeft: '14px' }}>
+              <span style={{ color: '#22d3ee' }}>↳</span> Bilingue FR / EN {'·'} Disponible alternance sept. 2026
+            </div>
+
+            <div style={{ marginTop: '14px' }}>
+              <span style={{ color: '#22d3ee' }}>dilan</span>
+              <span style={{ color: '#475569' }}>@</span>
+              <span style={{ color: '#34d399' }}>sisr</span>
+              <span style={{ color: '#475569' }}>:~$ </span>
+              <span style={{ color: '#f8fafc' }}>ls competences/</span>
+            </div>
+            <div style={{ paddingLeft: '14px' }}>
+              <span style={{ color: '#818cf8' }}>système/</span>{'   '}
+              <span style={{ color: '#22d3ee' }}>réseau/</span>{'   '}
+              <span style={{ color: '#fb7185' }}>cybersécurité/</span>{'   '}
+              <span style={{ color: '#fbbf24' }}>supervision/</span>{'   '}
+              <span style={{ color: '#34d399' }}>virtualisation/</span>
+            </div>
+
+            <div style={{ marginTop: '14px' }}>
+              <span style={{ color: '#22d3ee' }}>dilan</span>
+              <span style={{ color: '#475569' }}>@</span>
+              <span style={{ color: '#34d399' }}>sisr</span>
+              <span style={{ color: '#475569' }}>:~$ </span>
+              <span style={{ color: '#f8fafc' }}>status --check</span>
+            </div>
+            <div style={{ paddingLeft: '14px' }}>
+              <span style={{ color: '#34d399', fontWeight: 700 }}>[OK]</span>
+              <span style={{ color: '#cbd5e1' }}> System online {'·'} 2 stages {'·'} 4 certifications {'·'} 9+ projets</span>
+            </div>
+
+            <div style={{ marginTop: '16px' }}>
+              <span style={{ color: '#22d3ee' }}>dilan</span>
+              <span style={{ color: '#475569' }}>@</span>
+              <span style={{ color: '#34d399' }}>sisr</span>
+              <span style={{ color: '#475569' }}>:~$ </span>
+              <span
+                aria-hidden="true"
+                style={{
+                  display: 'inline-block',
+                  width: '9px',
+                  height: '18px',
+                  background: '#22d3ee',
+                  verticalAlign: 'middle',
+                  marginLeft: '2px',
+                  animation: 'typing-cursor 1s steps(2, end) infinite',
+                }}
+              />
+            </div>
+          </div>
         </div>
 
-        {/* ── CE QUE J'APPORTE + DOMAINES CLÉS — 2 cols like Sagar ── */}
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
+        {/* ── Stats row — 4 cards with icon + desc ── */}
+        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8" style={{ transitionDelay: '0.08s' }}>
+          {statsData.map((s) => {
+            const Icon = s.icon
+            return (
+              <div
+                key={s.label}
+                className="flex flex-col rounded-2xl p-7 transition-all duration-300"
+                style={{
+                  background: 'rgba(11,16,32,0.7)',
+                  border: `1px solid ${s.color}22`,
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-4px)'
+                  e.currentTarget.style.borderColor = `${s.color}55`
+                  e.currentTarget.style.boxShadow = `0 14px 36px rgba(0,0,0,0.3), 0 0 24px ${s.color}1a`
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.borderColor = `${s.color}22`
+                  e.currentTarget.style.boxShadow = 'none'
+                }}
+              >
+                {/* Icon header */}
+                <div className="flex items-center justify-between mb-4">
+                  <div
+                    className="flex items-center justify-center rounded-xl"
+                    style={{
+                      width: '52px',
+                      height: '52px',
+                      background: `${s.color}15`,
+                      border: `1px solid ${s.color}40`,
+                    }}
+                  >
+                    <Icon size={26} style={{ color: s.color }} />
+                  </div>
+                  <span
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: '10.5px',
+                      fontWeight: 700,
+                      color: s.color,
+                      letterSpacing: '0.08em',
+                      opacity: 0.7,
+                    }}
+                  >
+                    /{s.label.split(' ')[0].slice(0, 4).toLowerCase()}
+                  </span>
+                </div>
+
+                {/* Big value */}
+                <span
+                  style={{
+                    fontFamily: "'Orbitron', system-ui, sans-serif",
+                    fontSize: 'clamp(2.2rem, 4.5vw, 2.8rem)',
+                    fontWeight: 900,
+                    color: s.color,
+                    lineHeight: 1,
+                    marginBottom: '0.6rem',
+                    letterSpacing: '-0.03em',
+                  }}
+                >
+                  <CountUp target={s.value} suffix={s.suffix} />
+                </span>
+
+                {/* Label */}
+                <span
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '12.5px',
+                    fontWeight: 700,
+                    color: '#f1f5f9',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    marginBottom: '0.4rem',
+                  }}
+                >
+                  {s.label}
+                </span>
+
+                {/* Description */}
+                <span
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '13px',
+                    fontWeight: 400,
+                    color: '#94a3b8',
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {s.desc}
+                </span>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* ── CE QUE J'APPORTE + DOMAINES CLÉS — 2 cols ── */}
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
 
           {/* CE QUE J'APPORTE */}
           <div
-            className="animate-fade-up rounded-2xl p-8"
+            className="animate-fade-up rounded-2xl p-8 md:p-10"
             style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.12s' }}
           >
             <p
@@ -493,28 +670,44 @@ export default function Dashboard() {
                 color: '#22d3ee',
                 textTransform: 'uppercase',
                 letterSpacing: '0.2em',
-                marginBottom: '1.5rem',
+                marginBottom: '2rem',
               }}
             >
               CE QUE J'APPORTE
             </p>
-            <div className="space-y-5">
-              {apports.map((item, i) => (
-                <div key={i} className="pl-4" style={{ borderLeft: `3px solid ${item.color}` }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: item.color, marginBottom: '0.25rem' }}>
-                    {item.title}
-                  </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#94a3b8', lineHeight: 1.7 }}>
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
+            <div className="space-y-7">
+              {apports.map((item, i) => {
+                const ItemIcon = item.icon
+                return (
+                  <div key={i} className="flex gap-4">
+                    <div
+                      className="flex items-center justify-center rounded-xl flex-shrink-0"
+                      style={{
+                        width: '46px',
+                        height: '46px',
+                        background: `${item.color}14`,
+                        border: `1px solid ${item.color}40`,
+                      }}
+                    >
+                      {ItemIcon && <ItemIcon size={22} style={{ color: item.color }} />}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: item.color, marginBottom: '0.4rem', lineHeight: 1.3 }}>
+                        {item.title}
+                      </p>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#cbd5e1', lineHeight: 1.7 }}>
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
 
           {/* DOMAINES CLÉS */}
           <div
-            className="animate-fade-up rounded-2xl p-8"
+            className="animate-fade-up rounded-2xl p-8 md:p-10"
             style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.16s' }}
           >
             <p

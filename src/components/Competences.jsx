@@ -110,16 +110,35 @@ export default function Competences() {
                 <div style={{ height: '2px', background: cat.color, borderRadius: '999px', marginBottom: '1.2rem', opacity: 0.6 }} />
 
                 {/* En-tête */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: cat.bg, border: `1px solid ${cat.border}` }}
-                  >
-                    <Icon size={22} style={{ color: cat.color }} />
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: cat.bg, border: `1px solid ${cat.border}` }}
+                    >
+                      <Icon size={22} style={{ color: cat.color }} />
+                    </div>
+                    <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.03em', color: '#f1f5f9', lineHeight: 1.1 }}>
+                      {cat.label}
+                    </h3>
                   </div>
-                  <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.03em', color: '#f1f5f9', lineHeight: 1.1 }}>
-                    {cat.label}
-                  </h3>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: cat.color, flexShrink: 0 }}>
+                    {cat.level}%
+                  </span>
+                </div>
+
+                {/* Progress bar */}
+                <div className="mb-4" style={{ height: '6px', background: 'rgba(255,255,255,0.05)', borderRadius: '999px', overflow: 'hidden' }}>
+                  <div
+                    style={{
+                      width: `${cat.level}%`,
+                      height: '100%',
+                      background: `linear-gradient(90deg, ${cat.color}, ${cat.color}dd)`,
+                      borderRadius: '999px',
+                      boxShadow: `0 0 12px ${cat.color}55`,
+                      transition: 'width 1.2s ease',
+                    }}
+                  />
                 </div>
 
                 {/* Pills */}

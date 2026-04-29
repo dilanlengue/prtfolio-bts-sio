@@ -207,6 +207,8 @@ export default function TopNav() {
 
           {/* Mobile menu button */}
           <button
+            aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={mobileOpen}
             className="xl:hidden flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-200"
             style={{
               color: '#7a8ba8',
@@ -264,6 +266,7 @@ export default function TopNav() {
               </span>
             </div>
             <button
+              aria-label="Fermer le menu"
               onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center w-12 h-12 rounded-xl"
               style={{ color: '#7a8ba8', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}

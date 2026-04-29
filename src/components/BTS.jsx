@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChevronDown, ExternalLink, Settings, Rocket, ClipboardList, GraduationCap, BookOpen } from 'lucide-react'
+import { ChevronDown, ExternalLink, Settings, Rocket, ClipboardList, GraduationCap, BookOpen, FileText, Download, Lock, Loader2, CheckCircle2 } from 'lucide-react'
 
 const epreuves = [
   {
@@ -19,8 +19,30 @@ const epreuves = [
     monProjet: 'Déploiement GLPI + FusionInventory pour la gestion de parc informatique, ticketing et inventaire automatisé chez B&A Conseil.',
     color: '#22d3ee',
     docs: [
-      { label: 'Dossier E4 — GLPI & Support', url: null },
-      { label: 'Rapport de stage — B&A Conseil', url: null },
+      {
+        label: 'Dossier E4 — GLPI & Support',
+        url: '/dossiers/e4-glpi-support.pdf',
+        status: 'in-progress',
+        outline: [
+          'Contexte B&A Conseil et besoins identifiés',
+          'Installation GLPI 10 + FusionInventory (LAMP, MySQL)',
+          'Configuration ticketing ITIL et workflows',
+          'Inventaire automatisé des postes Windows',
+          'Bilan : tickets traités, temps moyen de résolution',
+        ],
+      },
+      {
+        label: 'Rapport de stage — B&A Conseil',
+        url: '/dossiers/rapport-stage-bna.pdf',
+        status: 'in-progress',
+        outline: [
+          'Présentation de l\'entreprise et du service IT',
+          'Missions : support N1/N2, déploiement Windows, MDM',
+          'Description détaillée de 3 interventions clés',
+          'Compétences mobilisées (référentiel SISR)',
+          'Bilan personnel et acquis professionnels',
+        ],
+      },
     ],
   },
   {
@@ -40,10 +62,56 @@ const epreuves = [
     monProjet: 'Infrastructure Active Directory + VLAN Cisco 802.1Q + OpenVPN + Supervision Nagios — déployés en environnement virtualisé.',
     color: '#a855f3',
     docs: [
-      { label: 'Dossier E5 — Active Directory', url: null },
-      { label: 'Dossier E5 — Réseau VLAN Cisco', url: null },
-      { label: 'Dossier E5 — VPN OpenVPN', url: null },
-      { label: 'Dossier E5 — Supervision Nagios', url: null },
+      {
+        label: 'Dossier E5 — Active Directory',
+        url: '/dossiers/e5-active-directory.pdf',
+        status: 'in-progress',
+        outline: [
+          'Architecture cible : 1 forêt, 1 domaine corp.local, OUs métier',
+          'Installation Windows Server 2025 + promotion DC',
+          'Création OUs, utilisateurs, groupes de sécurité',
+          'DNS intégré + DHCP avec scopes',
+          'GPO majeures : mots de passe, USB, fond d\'écran, sécurité',
+          'Tests de validation et plan de rollback',
+        ],
+      },
+      {
+        label: 'Dossier E5 — Réseau VLAN Cisco',
+        url: '/dossiers/e5-vlan-cisco.pdf',
+        status: 'in-progress',
+        outline: [
+          'Topologie cible et plan d\'adressage IP',
+          'Switch Cisco 2960 : VLANs, ports access / trunk',
+          'Routeur 2901 : Router-on-a-Stick, sous-interfaces dot1Q',
+          'ACL inter-VLAN et règles de filtrage',
+          'Tests connectivité + capture Wireshark trame 802.1Q',
+        ],
+      },
+      {
+        label: 'Dossier E5 — VPN OpenVPN',
+        url: '/dossiers/e5-openvpn.pdf',
+        status: 'planned',
+        outline: [
+          'Architecture client-serveur, choix SSL/TLS',
+          'Mise en place PKI (CA, certificats serveur / clients)',
+          'Configuration OpenVPN sur Debian 12',
+          'Routage et pare-feu (iptables NAT / FORWARD)',
+          'Tests de connexion et journalisation',
+        ],
+      },
+      {
+        label: 'Dossier E5 — Supervision Nagios',
+        url: '/dossiers/e5-nagios.pdf',
+        status: 'planned',
+        outline: [
+          'Comparatif outils (Nagios / Zabbix / Centreon)',
+          'Installation Nagios Core sur Debian',
+          'Définition des hôtes / services à monitorer',
+          'Plugins NRPE pour métriques Linux / Windows',
+          'SNMP pour équipements réseau',
+          'Configuration des alertes email',
+        ],
+      },
     ],
   },
   {
@@ -63,8 +131,30 @@ const epreuves = [
     monProjet: 'Mon parcours : 2 stages (B&A Conseil + Les Réparateurs Mac & PC), veille cybersécurité (CERT-FR, ANSSI, NVD), projets infrastructure SISR.',
     color: '#d4af37',
     docs: [
-      { label: 'Tableau de synthèse E6', url: null },
-      { label: 'Rapport de veille technologique', url: null },
+      {
+        label: 'Tableau de synthèse E6',
+        url: '/dossiers/e6-tableau-synthese.pdf',
+        status: 'in-progress',
+        outline: [
+          'Liste des situations professionnelles par épreuve',
+          'Compétences référentiel SISR mobilisées',
+          'Périodes, contextes et organisations',
+          'Livrables produits par situation',
+          'Auto-évaluation par compétence',
+        ],
+      },
+      {
+        label: 'Rapport de veille technologique',
+        url: '/dossiers/e6-veille.pdf',
+        status: 'in-progress',
+        outline: [
+          'Sujet : Sécurisation d\'une infrastructure réseau',
+          'Sources : ANSSI, CERT-FR, NVD, OWASP',
+          'Démarche : Collecter → Trier → Tester → Documenter',
+          'Synthèse comparative VLAN / VPN / Nagios',
+          'Bonnes pratiques ANSSI 2025 et bibliographie',
+        ],
+      },
     ],
   },
 ]
@@ -104,6 +194,181 @@ const liens = [
   { label: 'Onisep', url: 'https://www.onisep.fr/ressources/univers-metier/metiers/technicien-informatique' },
   { label: 'Cyclades', url: 'https://cyclades.education.fr/' },
 ]
+
+/* ─── Dossier card with status + outline ─── */
+function statusMeta(status) {
+  if (status === 'available') {
+    return {
+      label: 'Disponible',
+      color: '#22c55e',
+      bg: 'rgba(34,197,94,0.12)',
+      border: 'rgba(34,197,94,0.4)',
+      Icon: CheckCircle2,
+    }
+  }
+  if (status === 'in-progress') {
+    return {
+      label: 'En cours de rédaction',
+      color: '#fbbf24',
+      bg: 'rgba(251,191,36,0.12)',
+      border: 'rgba(251,191,36,0.4)',
+      Icon: Loader2,
+    }
+  }
+  return {
+    label: 'Planifié',
+    color: '#94a3b8',
+    bg: 'rgba(148,163,184,0.1)',
+    border: 'rgba(148,163,184,0.3)',
+    Icon: Lock,
+  }
+}
+
+function DossierCard({ doc, accent }) {
+  const [expanded, setExpanded] = useState(false)
+  const meta = statusMeta(doc.status || 'planned')
+  const StatusIcon = meta.Icon
+  const isReady = doc.status === 'available' && doc.url
+
+  return (
+    <div
+      className="rounded-xl"
+      style={{
+        background: 'rgba(255,255,255,0.025)',
+        border: '1px solid rgba(255,255,255,0.07)',
+        overflow: 'hidden',
+      }}
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Header */}
+      <div className="flex items-center gap-3 px-4 py-3">
+        <FileText size={18} style={{ color: accent, flexShrink: 0 }} />
+        <span
+          className="flex-1"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '14px',
+            fontWeight: 700,
+            color: '#f1f5f9',
+            lineHeight: 1.4,
+          }}
+        >
+          {doc.label}
+        </span>
+        <span
+          className="flex items-center gap-1.5 rounded-md flex-shrink-0"
+          style={{
+            background: meta.bg,
+            border: `1px solid ${meta.border}`,
+            padding: '4px 9px',
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: '10.5px',
+            fontWeight: 700,
+            color: meta.color,
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+          }}
+        >
+          <StatusIcon size={11} className={doc.status === 'in-progress' ? 'animate-spin' : ''} style={{ animationDuration: '3s' }} />
+          {meta.label}
+        </span>
+      </div>
+
+      {/* Outline preview (expandable) */}
+      {doc.outline && doc.outline.length > 0 && (
+        <>
+          <button
+            type="button"
+            onClick={() => setExpanded(v => !v)}
+            className="w-full flex items-center justify-between px-4 py-2 transition-colors"
+            style={{
+              borderTop: '1px solid rgba(255,255,255,0.05)',
+              background: expanded ? 'rgba(255,255,255,0.02)' : 'transparent',
+              color: '#94a3b8',
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '12px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              letterSpacing: '0.02em',
+            }}
+            aria-expanded={expanded}
+          >
+            <span>{expanded ? 'Masquer le plan' : 'Voir le plan du dossier'}</span>
+            <ChevronDown
+              size={14}
+              style={{
+                transform: expanded ? 'rotate(180deg)' : 'none',
+                transition: 'transform 0.2s',
+              }}
+            />
+          </button>
+          {expanded && (
+            <ul className="px-5 pb-4 space-y-1.5">
+              {doc.outline.map((item, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '13px',
+                    color: '#cbd5e1',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  <span style={{ color: accent, marginTop: '2px', flexShrink: 0 }}>›</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
+      )}
+
+      {/* Action button */}
+      <div
+        className="px-4 py-2.5 flex items-center justify-end"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.18)' }}
+      >
+        {isReady ? (
+          <a
+            href={doc.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 rounded-md transition-all hover:-translate-y-0.5"
+            style={{
+              background: `${accent}1a`,
+              border: `1px solid ${accent}55`,
+              color: accent,
+              padding: '5px 12px',
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '12px',
+              fontWeight: 700,
+              textDecoration: 'none',
+            }}
+            onClick={e => e.stopPropagation()}
+          >
+            <Download size={12} /> Télécharger PDF
+          </a>
+        ) : (
+          <span
+            className="flex items-center gap-1.5 rounded-md"
+            style={{
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              color: '#64748b',
+              padding: '5px 12px',
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '12px',
+              fontWeight: 600,
+            }}
+          >
+            <Lock size={11} /> Bientôt disponible
+          </span>
+        )}
+      </div>
+    </div>
+  )
+}
 
 function EpreuveCard({ ep }) {
   const [open, setOpen] = useState(false)
@@ -204,35 +469,11 @@ function EpreuveCard({ ep }) {
               </p>
             </div>
 
-            {/* Documents links */}
+            {/* Documents — structured cards with status + outline */}
             {ep.docs && ep.docs.length > 0 && (
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {ep.docs.map((doc, j) => (
-                  <div
-                    key={j}
-                    className="flex items-center justify-between rounded-lg"
-                    style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', padding: '8px 12px' }}
-                  >
-                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', fontWeight: 600, color: doc.url ? '#e2e8f0' : '#94a3b8' }}>
-                      📄 {doc.label}
-                    </span>
-                    {doc.url ? (
-                      <a
-                        href={doc.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 rounded text-xs font-bold"
-                        style={{ background: `${ep.color}15`, border: `1px solid ${ep.color}30`, color: ep.color, padding: '2px 8px' }}
-                        onClick={e => e.stopPropagation()}
-                      >
-                        <ExternalLink size={10} /> Voir
-                      </a>
-                    ) : (
-                      <span className="rounded text-xs" style={{ background: 'rgba(255,255,255,0.03)', color: '#475569', padding: '2px 8px' }}>
-                        à venir
-                      </span>
-                    )}
-                  </div>
+                  <DossierCard key={j} doc={doc} accent={ep.color} />
                 ))}
               </div>
             )}

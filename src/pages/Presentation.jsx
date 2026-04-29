@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Download, Mail, FolderKanban, ShieldCheck, CalendarDays, Award } from 'lucide-react'
+import { ArrowRight, Download, Mail, FolderKanban, ShieldCheck, CalendarDays, Award, Github, Linkedin } from 'lucide-react'
 
 function CountUp({ target, suffix = '' }) {
   const [count, setCount] = useState(0)
@@ -18,7 +18,7 @@ function CountUp({ target, suffix = '' }) {
 }
 
 const stats = [
-  { value: 8, suffix: '+', label: 'Projets', color: '#22d3ee', icon: FolderKanban },
+  { value: 9, suffix: '+', label: 'Projets', color: '#22d3ee', icon: FolderKanban },
   { value: 4, suffix: '', label: 'Certifications', color: '#22c55e', icon: ShieldCheck },
   { value: 3, suffix: '+', label: 'Ans d\'XP', color: '#f59e0b', icon: CalendarDays },
   { value: 2, suffix: '', label: 'Stages', color: '#a78bfa', icon: Award },
@@ -62,12 +62,19 @@ export default function Presentation() {
               boxShadow: '0 0 60px rgba(34,211,238,0.15), 0 0 120px rgba(99,102,241,0.08)',
             }}
           >
-            <img
-              src="/photo-dilan.png"
-              alt="Dilan Lengue — Administrateur Systèmes & Réseaux"
-              className="w-full h-auto"
-              style={{ display: 'block' }}
-            />
+            <picture>
+              <source srcSet="/photo-dilan.webp" type="image/webp" />
+              <img
+                src="/photo-dilan.png"
+                alt="Dilan Lengue — Administrateur Systèmes & Réseaux"
+                className="w-full h-auto"
+                width="1040"
+                height="693"
+                fetchpriority="high"
+                decoding="async"
+                style={{ display: 'block' }}
+              />
+            </picture>
           </div>
         </div>
 
@@ -80,18 +87,29 @@ export default function Presentation() {
             transition: 'all 1s ease 0.5s',
           }}
         >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
-            style={{
-              background: 'rgba(0,255,136,0.06)',
-              border: '1px solid rgba(0,255,136,0.2)',
-            }}
-          >
+          {/* HUD line */}
+          <div className="flex items-center gap-3 mb-4 justify-center lg:justify-start" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: '#00ff88' }} />
               <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: '#00ff88' }} />
             </span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#00ff88' }}>
+            <span style={{ fontSize: '12px', color: '#00ff88', letterSpacing: '0.18em', fontWeight: 700 }}>
+              SYSTEM ONLINE
+            </span>
+            <span style={{ color: '#475569' }}>·</span>
+            <span style={{ fontSize: '12px', color: '#64748b', letterSpacing: '0.12em' }}>
+              PORTFOLIO_v2.0
+            </span>
+          </div>
+
+          {/* Availability badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
+            style={{
+              background: 'rgba(0,255,136,0.08)',
+              border: '1px solid rgba(0,255,136,0.25)',
+            }}
+          >
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 600, color: '#34d399' }}>
               Disponible — Alternance sept. 2026
             </span>
           </div>
@@ -99,12 +117,13 @@ export default function Presentation() {
           {/* Name */}
           <h1 style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
-            fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
-            fontWeight: 800,
-            color: '#f1f5f9',
-            lineHeight: 1.1,
-            marginBottom: '0.5rem',
-            textShadow: '0 0 30px rgba(34,211,238,0.1)',
+            fontSize: 'clamp(2.6rem, 6.5vw, 4.5rem)',
+            fontWeight: 900,
+            color: '#f8fafc',
+            lineHeight: 1.05,
+            marginBottom: '0.75rem',
+            textShadow: '0 0 40px rgba(34,211,238,0.18)',
+            letterSpacing: '-0.02em',
           }}>
             Dilan{' '}
             <span style={{
@@ -120,25 +139,26 @@ export default function Presentation() {
           {/* Title */}
           <p style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
+            fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
             fontWeight: 600,
             color: '#22d3ee',
             marginBottom: '1.5rem',
+            letterSpacing: '0.01em',
           }}>
-            Alternant Admin. Systèmes & Réseaux — Cybersécurité
+            Alternant Admin. Systèmes &amp; Réseaux — Cybersécurité
           </p>
 
           {/* Description */}
           <p style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: '16px',
-            color: '#94a3b8',
-            lineHeight: 1.85,
+            fontSize: '17px',
+            color: '#cbd5e1',
+            lineHeight: 1.75,
             marginBottom: '2rem',
           }}>
-            Étudiant en <span style={{ color: '#e2e8f0', fontWeight: 600 }}>BTS SIO option SISR</span>,
+            Étudiant en <span style={{ color: '#f1f5f9', fontWeight: 700 }}>BTS SIO option SISR</span>,
             bilingue anglais-français. Spécialisé en administration systèmes, réseaux et cybersécurité.
-            Deux stages en support N1/N2, certifié <span style={{ color: '#22d3ee', fontWeight: 600 }}>ANSSI SecNumacadémie</span>.
+            Deux stages en support N1/N2, certifié <span style={{ color: '#22d3ee', fontWeight: 700 }}>ANSSI SecNumacadémie</span>.
           </p>
 
           {/* Stats */}
@@ -195,6 +215,38 @@ export default function Presentation() {
             >
               <Mail size={16} /> Contact
             </Link>
+          </div>
+
+          {/* Socials */}
+          <div className="flex gap-3 justify-center lg:justify-start mt-5">
+            <a
+              href="https://github.com/dilan-lengue"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Profil GitHub de Dilan Lengue"
+              className="flex items-center justify-center w-11 h-11 rounded-xl transition-all hover:-translate-y-0.5"
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.12)',
+                color: '#cbd5e1',
+              }}
+            >
+              <Github size={18} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dilan-lengue"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Profil LinkedIn de Dilan Lengue"
+              className="flex items-center justify-center w-11 h-11 rounded-xl transition-all hover:-translate-y-0.5"
+              style={{
+                background: 'rgba(10,102,194,0.08)',
+                border: '1px solid rgba(10,102,194,0.25)',
+                color: '#5fa8e8',
+              }}
+            >
+              <Linkedin size={18} />
+            </a>
           </div>
         </div>
       </div>

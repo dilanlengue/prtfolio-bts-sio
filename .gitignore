@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Claude Code local config
+.claude/agents/
+.claude/settings/
+.claude/system-prompts/
+.claude/settings.local.json
