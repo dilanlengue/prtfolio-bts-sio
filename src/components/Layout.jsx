@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import TopNav from './TopNav'
+import SideNav from './SideNav'
 import CyberBackground from './CyberBackground'
 import Footer from './Footer'
 
@@ -15,8 +16,9 @@ export default function Layout() {
   return (
     <div className="min-h-screen overflow-x-hidden" style={{ backgroundColor: '#080c1a' }}>
       <CyberBackground />
+      <SideNav />
       <TopNav />
-      <div className="relative z-10" style={{ paddingTop: '80px' }}>
+      <div className="relative z-10 pt-20 xl:pt-0 xl:pl-16">
         <Outlet />
         <Footer />
       </div>
