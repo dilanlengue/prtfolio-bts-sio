@@ -188,7 +188,7 @@ function CertCard({ cert, obtained }) {
 export default function Certifications() {
   const [view, setView] = useState(null) // null | 'obtenues' | 'en-cours'
 
-  // Sagar's exact colors
+  // code exact colors
   const greenColor = '#10b981'   // emerald for Obtenues
   const amberColor = '#f59e0b'   // amber for En cours
 
@@ -196,7 +196,7 @@ export default function Certifications() {
     <section id="certifications" className="relative" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
 
-        {/* Header — exact Sagar style */}
+        {/* Header — style propre */}
         <div className="text-center" style={{ marginBottom: '28px' }}>
           <h2
             className="animate-fade-up"
@@ -236,7 +236,7 @@ export default function Certifications() {
           />
         </div>
 
-        {/* Deux grandes cartes de sélection — Sagar exact */}
+        {/* Deux grandes cartes de sélection — layout propre */}
         <div className="grid sm:grid-cols-2 gap-4 mb-4">
 
           {/* Obtenues — emerald green */}
@@ -406,7 +406,7 @@ export default function Certifications() {
           </button>
         </div>
 
-        {/* Hint — exact Sagar style */}
+        {/* Hint — style propre */}
         {!view && (
           <div className="text-center mt-4 mb-4">
             <p

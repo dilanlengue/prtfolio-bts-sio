@@ -406,7 +406,7 @@ function EpreuveCard({ ep }) {
         </div>
       )}
 
-      {/* Expanded view — like Sagar */}
+      {/* Expanded view — style cyber */}
       {open && (
         <div>
           {/* Top color bar */}
@@ -491,7 +491,7 @@ export default function BTS() {
 
         {/* ── Header ── */}
         <div className="text-center" style={{ marginBottom: '28px' }}>
-          {/* Two badges — gold + cyan like Sagar */}
+          {/* Two badges — gold + cyan style cyber */}
           <div className="inline-flex items-center gap-2" style={{ marginBottom: '12px' }}>
             <span
               className="rounded-full"
@@ -585,7 +585,7 @@ export default function BTS() {
           </div>
         </div>
 
-        {/* ── SISR vs SLAM — exact Sagar layout ── */}
+        {/* ── SISR vs SLAM — layout cyber ── */}
         <div className="grid md:grid-cols-2 gap-5" style={{ marginBottom: '40px' }}>
 
           {/* SISR — MON OPTION (left, cyan = main) */}

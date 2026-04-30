@@ -32,7 +32,7 @@ export default function Presentation() {
 
   return (
     <>
-      {/* ── HERO — centered, Sagar style ── */}
+      {/* ── HERO — centered, style cyber ── */}
       <section
         className="relative flex flex-col items-center justify-center text-center"
         style={{ minHeight: 'calc(100vh - 80px)', paddingTop: '4rem', paddingBottom: '4rem' }}

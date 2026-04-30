@@ -267,7 +267,7 @@ export default function Contact() {
     <section id="contact" className="relative" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
 
-        {/* Section title — outside the card like Sagar */}
+        {/* Section title — outside the card style cyber */}
         <div className="flex items-end justify-between mb-8">
           <div>
             <h2
@@ -301,7 +301,7 @@ export default function Contact() {
         {/* Contact form */}
         <ContactForm />
 
-        {/* Contact card — glass like Sagar */}
+        {/* Contact card — glass style cyber */}
         <div
           className="rounded-2xl overflow-hidden"
           style={{
@@ -314,7 +314,7 @@ export default function Contact() {
           <div className="h-[3px]" style={{ background: 'linear-gradient(90deg, #6366f1, #22d3ee, #34d399, #f59e0b, #f472b6)' }} />
 
           <div className="p-8 sm:p-10">
-            {/* Contact grid — 3x2 like Sagar */}
+            {/* Contact grid — 3x2 style cyber */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
               {contacts.map((c, i) => {
                 if (c.prochainement) {
@@ -379,7 +379,7 @@ export default function Contact() {
               })}
             </div>
 
-            {/* Tip bar — like Sagar */}
+            {/* Tip bar — style cyber */}
             <div
               className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-sm"
               style={{

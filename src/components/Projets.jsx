@@ -565,7 +565,7 @@ export default function Projets() {
     <section id="projets" className="relative" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
 
-        {/* Header — exact Sagar style */}
+        {/* Header — style propre */}
         <div className="text-center" style={{ marginBottom: '28px' }}>
           <h2
             className="animate-fade-up"

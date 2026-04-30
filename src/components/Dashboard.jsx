@@ -54,7 +54,7 @@ const domainesSmall = [
   { cat: 'Protocoles',     tags: ['SSH', 'RDP', 'LDAP', 'SMTP'] },
 ]
 
-/* Full-width tech grid — like Sagar's second card */
+/* Full-width tech grid — style cyber's second card */
 const techGrid = [
   { cat: 'Système',        tags: ['Windows Server', 'Linux Debian', 'Active Directory', 'PowerShell', 'GPO', 'WSUS'] },
   { cat: 'Réseau',         tags: ['Cisco IOS', 'VLAN 802.1Q', 'TCP/IP', 'DNS / DHCP', 'Routage', 'Wireshark'] },
@@ -335,7 +335,7 @@ function TerminalStages() {
 }
 
 /* ═══════════════════════════════════════ */
-/* ─── DASHBOARD — Sagar exact layout ─── */
+/* ─── DASHBOARD — layout propre layout ─── */
 /* ═══════════════════════════════════════ */
 export default function Dashboard() {
   const [showTerminal, setShowTerminal] = useState(false)
@@ -352,7 +352,7 @@ export default function Dashboard() {
         >
           <div className="px-8 md:px-16 pt-14 pb-12 text-center">
 
-            {/* Name — gradient like Sagar */}
+            {/* Name — gradient style cyber */}
             <h2
               style={{
                 fontFamily: "'Orbitron', system-ui, sans-serif",
@@ -370,7 +370,7 @@ export default function Dashboard() {
               Dilan Lengue
             </h2>
 
-            {/* Job title — cyan pill badge like Sagar */}
+            {/* Job title — cyan pill badge style cyber */}
             <div className="flex justify-center mb-5">
               <span
                 className="inline-flex items-center rounded-full"
@@ -389,7 +389,7 @@ export default function Dashboard() {
               </span>
             </div>
 
-            {/* Badge — green dot like Sagar */}
+            {/* Badge — green dot style cyber */}
             <div className="flex justify-center mb-5">
               <div
                 className="inline-flex items-center gap-2.5 rounded-full"
@@ -410,7 +410,7 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Tech line — like Sagar */}
+            {/* Tech line — style cyber */}
             <p
               style={{
                 fontFamily: "'Inter', sans-serif",
@@ -423,7 +423,7 @@ export default function Dashboard() {
               Windows Server {'\u00b7'} Linux {'\u00b7'} Cisco {'\u00b7'} OpenVPN {'\u00b7'} Nagios&ensp;{'\u2014'}&ensp;Infrastructure SISR
             </p>
 
-            {/* Education line — like Sagar */}
+            {/* Education line — style cyber */}
             <p
               style={{
                 fontFamily: "'Inter', sans-serif",
@@ -768,7 +768,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ── Full-width tech grid card — like Sagar's second pills section ── */}
+        {/* ── Full-width tech grid card — style cyber's second pills section ── */}
         <div
           className="animate-fade-up rounded-2xl p-8 mb-6"
           style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.2s' }}
@@ -826,7 +826,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ── CTA Buttons — like Sagar ── */}
+        {/* ── CTA Buttons — style cyber ── */}
         <div className="animate-fade-up flex flex-wrap justify-center gap-3 mt-12 mb-24" style={{ transitionDelay: '0.24s' }}>
           <a
             href="/cv-dilan-lengue.pdf"

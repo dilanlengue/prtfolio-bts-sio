@@ -150,7 +150,7 @@ p {
   line-height: 1.85;
 }
 
-/* === TEXT GLOW EFFECTS (comme Sagar) === */
+/* === TEXT GLOW EFFECTS (style cyber) === */
 .text-glow-cyan {
   text-shadow: 0 0 20px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.1);
 }
@@ -316,7 +316,7 @@ p {
   50% { border-color: rgba(99,102,241,0.6); }
 }
 
-/* === FADE IN (comme Sagar) === */
+/* === FADE IN (style cyber) === */
 @keyframes fade-in {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -554,7 +554,7 @@ section:nth-child(even) {
   text-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
 }
 
-/* === ABOUT NAME (comme Sagar) === */
+/* === ABOUT NAME (style cyber) === */
 .about-name {
   font-family: 'Orbitron', system-ui, sans-serif;
   font-weight: 800;
