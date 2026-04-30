@@ -242,44 +242,46 @@ const asciiArt = [
 
 const terminalInfoLines = [
   { text: '\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550', color: '#22d3ee' },
-  { text: '  CPMS \u2014 Centre de Pr\u00e9voyance M\u00e9dico-Sociale', color: '#22d3ee', bold: true },
+  { text: '  B&A CONSEIL \u2014 Technologies & Services Informatiques', color: '#22d3ee', bold: true },
   { text: '\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550', color: '#22d3ee' },
   { text: '', color: '' },
-  { text: '$ cat /etc/cpms/identity.conf', color: '#c5d3e8' },
+  { text: '$ cat /etc/dilan/stages.conf', color: '#c5d3e8' },
   { text: '', color: '' },
-  { text: '  \u250c\u2500 Identit\u00e9 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510', color: '#a78bfa' },
-  { text: '  \u2502  D\u00e9nomination : CPMS (SAS)                        \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  Cr\u00e9ation     : 1948 (ind\u00e9pendant, familiale)     \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  Direction    : Eric Dana (Pr\u00e9sident)              \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  Effectif     : ~180\u2013200 collaborateurs            \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  CA (2023)    : ~19 M\u20ac                             \u2502', color: '#fbbf24' },
+  { text: '  \u250c\u2500 Stage actuel \u2014 BTS SIO 2\u00e8me ann\u00e9e \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510', color: '#22d3ee' },
+  { text: '  \u2502  Entreprise   : B&A Conseil (SAS)                  \u2502', color: '#e6ecf8' },
+  { text: '  \u2502  Localisation : Coigni\u00e8res, Yvelines (78)          \u2502', color: '#e6ecf8' },
+  { text: '  \u2502  Effectif     : 2-10 collaborateurs                \u2502', color: '#e6ecf8' },
+  { text: '  \u2502  Cr\u00e9ation     : 2018                                \u2502', color: '#e6ecf8' },
+  { text: '  \u2502  P\u00e9riode      : 05/01/2026 \u2014 06/02/2026 (5 sem.)   \u2502', color: '#22d3ee' },
+  { text: '  \u2502  Poste        : Technicien Support & Maintenance   \u2502', color: '#fbbf24' },
+  { text: '  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518', color: '#22d3ee' },
+  { text: '', color: '' },
+  { text: '$ ls /missions/ba-conseil/', color: '#c5d3e8' },
+  { text: '', color: '' },
+  { text: '  \u25cf Diagnostic & r\u00e9solution incidents     [DONE]', color: '#22c55e' },
+  { text: '  \u25cf Maintenance pr\u00e9ventive & corrective   [DONE]', color: '#22c55e' },
+  { text: '  \u25cf D\u00e9ploiement postes Windows 11         [DONE]', color: '#22c55e' },
+  { text: '  \u25cf Configuration MDM (Miradore UEM)      [DONE]', color: '#22c55e' },
+  { text: '  \u25cf Enr\u00f4lement smartphones flotte mobile  [DONE]', color: '#22c55e' },
+  { text: '', color: '' },
+  { text: '$ cat /etc/dilan/stage-precedent.conf', color: '#c5d3e8' },
+  { text: '', color: '' },
+  { text: '  \u250c\u2500 Stage 1\u00e8re ann\u00e9e BTS SIO \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510', color: '#a78bfa' },
+  { text: '  \u2502  Entreprise   : Les R\u00e9parateurs Mac & PC          \u2502', color: '#e6ecf8' },
+  { text: '  \u2502  Localisation : Montreuil (93)                    \u2502', color: '#e6ecf8' },
+  { text: '  \u2502  P\u00e9riode      : 12/05/2025 \u2014 21/06/2025 (7 sem.)   \u2502', color: '#a78bfa' },
+  { text: '  \u2502  Poste        : Technicien Support Informatique   \u2502', color: '#fbbf24' },
   { text: '  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518', color: '#a78bfa' },
   { text: '', color: '' },
-  { text: '$ nmap -sV cpms.internal --script=vuln', color: '#c5d3e8' },
+  { text: '  \u250c\u2500 Objectif post-BTS \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510', color: '#34d399' },
+  { text: '  \u2502  Alternance Bac+3 Cybers\u00e9curit\u00e9 \u2014 sept. 2026  \u2502', color: '#e6ecf8' },
+  { text: '  \u2502  MSc Cybers\u00e9curit\u00e9 \u2014 long terme                  \u2502', color: '#e6ecf8' },
+  { text: '  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518', color: '#34d399' },
   { text: '', color: '' },
-  { text: '  \u250c\u2500 Infrastructure R\u00e9seau \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510', color: '#34d399' },
-  { text: '  \u2502  \u25cf Si\u00e8ge       : 4 rue Auber, 75009 Paris   [UP] \u2502', color: '#34d399' },
-  { text: '  \u2502  \u25cf Gestion     : Bezannes (51430)            [UP] \u2502', color: '#34d399' },
-  { text: '  \u2502  \u25cf Portail Web : www.cpms.fr            [SECURED] \u2502', color: '#34d399' },
-  { text: '  \u2502  \u25cf App Mobile  : MyCPMS (iOS/Android)   [SECURED] \u2502', color: '#34d399' },
-  { text: '  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518', color: '#34d399' },
-  { text: '', color: '' },
-  { text: '$ systemctl status cpms-services', color: '#c5d3e8' },
-  { text: '', color: '' },
-  { text: '  \u25cf Gestion sant\u00e9/pr\u00e9voyance      [\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588] ACTIVE', color: '#22d3ee' },
-  { text: '  \u25cf Remboursements & tiers payant [\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588] ACTIVE', color: '#22d3ee' },
-  { text: '  \u25cf Pilotage contrats entreprises [\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588] ACTIVE', color: '#22d3ee' },
-  { text: '  \u25cf Portails assur\u00e9s & courtiers  [\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588] ACTIVE', color: '#22d3ee' },
-  { text: '', color: '' },
-  { text: '  \u250c\u2500 Mission \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510', color: '#a78bfa' },
-  { text: '  \u2502  Gestion d\u00e9l\u00e9gu\u00e9e des r\u00e9gimes sant\u00e9 & pr\u00e9voyance  \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  pour assureurs, entreprises et particuliers      \u2502', color: '#e6ecf8' },
-  { text: '  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518', color: '#a78bfa' },
-  { text: '', color: '' },
-  { text: '  [\u2713] ALL SYSTEMS OPERATIONAL \u2014 SCAN COMPLETE', color: '#00ff88', bold: true },
+  { text: '  [\u2713] 2 STAGES VALID\u00c9S \u2014 ATTESTATIONS DISPONIBLES', color: '#00ff88', bold: true },
 ]
 
-function TerminalCPMS() {
+function TerminalStages() {
   const [lines, setLines] = useState([])
   const started = useRef(false)
 
@@ -305,7 +307,7 @@ function TerminalCPMS() {
         <span className="w-3 h-3 rounded-full" style={{ background: '#ffbd2e' }} />
         <span className="w-3 h-3 rounded-full" style={{ background: '#27c93f' }} />
         <span className="ml-3" style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace", fontSize: '12px', color: '#475569' }}>
-          root@cpms-infra:~# <span style={{ color: '#22d3ee' }}>secure-shell</span>
+          dilan@bna-conseil:~# <span style={{ color: '#22d3ee' }}>secure-shell</span>
         </span>
         <div className="ml-auto flex items-center gap-2">
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#22c55e' }}>{'\u25cf'} ENCRYPTED</span>
@@ -317,7 +319,7 @@ function TerminalCPMS() {
           <div key={i} style={{ color: '#22d3ee', whiteSpace: 'pre', fontSize: 'clamp(7px, 1.8vw, 13px)', lineHeight: 1.15, opacity: 0.85 }}>{line}</div>
         ))}
         <div style={{ fontSize: '11px', color: '#475569', textAlign: 'center', marginTop: '6px', letterSpacing: '0.3em' }}>
-          CENTRE DE PR{'\u00c9'}VOYANCE M{'\u00c9'}DICO-SOCIALE
+          B&A CONSEIL {'\u00b7'} TECHNOLOGIES &amp; SERVICES IT
         </div>
       </div>
       <div className="px-5 pb-5 pt-3 overflow-x-auto" style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace", fontSize: '11.5px', lineHeight: 1.75 }}>
@@ -933,13 +935,13 @@ export default function Dashboard() {
               }}
             >
               <ArrowLeft size={14} />
-              {showTerminal ? 'Retour' : 'CPMS ?'}
+              {showTerminal ? 'Retour' : 'Mes stages ?'}
             </button>
 
             <div style={{ minHeight: '420px' }}>
               {showTerminal ? (
                 <div className="animate-fade-up">
-                  <TerminalCPMS />
+                  <TerminalStages />
                 </div>
               ) : (
                 <MatrixRain height={420} />
