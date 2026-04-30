@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ChevronDown, ExternalLink, Settings, Rocket, ClipboardList, GraduationCap, BookOpen, FileText, Download, Lock, Loader2, CheckCircle2 } from 'lucide-react'
+import SectionLabel from './SectionLabel'
 
 const epreuves = [
   {
@@ -585,6 +586,9 @@ export default function BTS() {
           </div>
         </div>
 
+        {/* Section divider */}
+        <SectionLabel label="SISR vs SLAM" color="#22d3ee" />
+
         {/* ── SISR vs SLAM — layout cyber ── */}
         <div className="grid md:grid-cols-2 gap-5" style={{ marginBottom: '40px' }}>
 
@@ -792,6 +796,8 @@ export default function BTS() {
               }}
             />
           </div>
+
+          <SectionLabel label="MON PARCOURS DE FORMATION" color="#d4af37" />
 
           <div className="grid sm:grid-cols-3 gap-5 mb-8">
             {formations.map((f, i) => (

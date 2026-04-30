@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { RefreshCw, ExternalLink, Clock, ChevronDown, Search, Crosshair, Radar, ShieldAlert, KeyRound, Globe, BarChart3, Zap, Lock, ClipboardList, Target, ScanSearch, Waves, FileSearch, ShieldCheck, Flame, ScrollText, KeySquare, Radio, Eye, FolderSearch, FolderArchive, PenTool, FileText } from 'lucide-react'
+import SectionLabel from './SectionLabel'
 
 // ── Données statiques fallback ──────────────────────────────────────────────
 const staticHN = [
@@ -131,6 +132,9 @@ export default function Veille() {
           </p>
         </div>
 
+        {/* Section divider */}
+        <SectionLabel label="DASHBOARD LIVE" color="#22d3ee" />
+
         {/* Ligne 1 — HN + GitHub */}
         <div className="grid md:grid-cols-2 gap-6 mb-6">
 
@@ -260,6 +264,9 @@ export default function Veille() {
           </div>
         </div>
 
+        {/* Section divider */}
+        <SectionLabel label="OUTILS & SOURCES" color="#a78bfa" />
+
         {/* Ligne 2 — Outils + Sources */}
         <div className="grid md:grid-cols-2 gap-6">
 
@@ -357,6 +364,9 @@ export default function Veille() {
             <ChevronDown size={16} style={{ color: '#334155' }} />
           </div>
         </div>
+
+        {/* Section divider */}
+        <SectionLabel label="ARTICLE DE VEILLE" color="#34d399" />
 
         {/* ── Article Veille ── */}
         <VeilleArticle />

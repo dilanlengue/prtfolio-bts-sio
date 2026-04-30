@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Building2, MapPin, Users, Calendar, Phone, Globe, ExternalLink, ChevronDown, ChevronUp, CheckCircle2, Shield, Download } from 'lucide-react'
+import SectionLabel from './SectionLabel'
 
 const stages = [
   {
@@ -397,8 +398,11 @@ export default function Entreprise() {
           </p>
         </div>
 
+        {/* Section divider */}
+        <SectionLabel label="MES STAGES" color="#22d3ee" />
+
         {/* Stage cards */}
-        <div className="space-y-8">
+        <div className="space-y-10">
           {stages.map((stage, i) => (
             <StageCard key={i} stage={stage} />
           ))}
