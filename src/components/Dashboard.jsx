@@ -1,6 +1,41 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { Download, Mail, Linkedin, Github, ArrowLeft, FolderKanban, ShieldCheck, CalendarDays, Award, Server, BarChart3, Lock, FileText } from 'lucide-react'
 
+/* ─── Section divider with label (─── TITLE ───) ─── */
+function SectionLabel({ label, color = '#22d3ee' }) {
+  return (
+    <div className="flex items-center gap-4 my-12">
+      <div
+        className="flex-1"
+        style={{
+          height: '1px',
+          background: `linear-gradient(90deg, transparent, ${color}66)`,
+        }}
+      />
+      <span
+        style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: '12px',
+          fontWeight: 700,
+          color,
+          letterSpacing: '0.22em',
+          whiteSpace: 'nowrap',
+          textShadow: `0 0 16px ${color}66`,
+        }}
+      >
+        ── {label} ──
+      </span>
+      <div
+        className="flex-1"
+        style={{
+          height: '1px',
+          background: `linear-gradient(90deg, ${color}66, transparent)`,
+        }}
+      />
+    </div>
+  )
+}
+
 /* ─── CountUp ─── */
 function CountUp({ target, suffix = '', prefix = '' }) {
   const [count, setCount] = useState(0)
@@ -557,6 +592,9 @@ export default function Dashboard() {
           </div>
         </div>
 
+        {/* ── Section divider ── */}
+        <SectionLabel label="STATISTIQUES" color="#22d3ee" />
+
         {/* ── Stats row — 4 cards with icon + desc ── */}
         <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8" style={{ transitionDelay: '0.08s' }}>
           {statsData.map((s) => {
@@ -653,6 +691,9 @@ export default function Dashboard() {
             )
           })}
         </div>
+
+        {/* ── Section divider ── */}
+        <SectionLabel label="MON PROFIL" color="#a78bfa" />
 
         {/* ── CE QUE J'APPORTE + DOMAINES CLÉS — 2 cols ── */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -768,6 +809,9 @@ export default function Dashboard() {
           </div>
         </div>
 
+        {/* ── Section divider ── */}
+        <SectionLabel label="TECHNOLOGIES MAÎTRISÉES" color="#34d399" />
+
         {/* ── Full-width tech grid card — style cyber's second pills section ── */}
         <div
           className="animate-fade-up rounded-2xl p-8 mb-6"
@@ -825,6 +869,9 @@ export default function Dashboard() {
             ))}
           </div>
         </div>
+
+        {/* ── Section divider ── */}
+        <SectionLabel label="ME CONTACTER" color="#fbbf24" />
 
         {/* ── CTA Buttons — style cyber ── */}
         <div className="animate-fade-up flex flex-wrap justify-center gap-3 mt-12 mb-24" style={{ transitionDelay: '0.24s' }}>
@@ -909,6 +956,9 @@ export default function Dashboard() {
             {'\uD83D\uDCAC'} Discord
           </a>
         </div>
+
+        {/* ── Section divider ── */}
+        <SectionLabel label="INFRASTRUCTURE" color="#22d3ee" />
 
         {/* ── Matrix Rain + Terminal ── */}
         <div className="animate-fade-up mt-8" style={{ transitionDelay: '0.28s' }}>
