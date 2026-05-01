@@ -92,7 +92,7 @@ export default function Presentation() {
           </h1>
 
           {/* Avatar — circular framed */}
-          <div className="relative mx-auto mb-7" style={{ width: 'clamp(180px, 28vw, 240px)', aspectRatio: '1' }}>
+          <div className="relative mx-auto mb-7" style={{ width: 'clamp(240px, 35vw, 340px)', aspectRatio: '1' }}>
             {/* Glow rings */}
             <div
               className="absolute"
@@ -130,8 +130,8 @@ export default function Presentation() {
                   alt="Dilan Lengue — Administrateur Systèmes &amp; Réseaux"
                   className="w-full h-full"
                   style={{ objectFit: 'cover' }}
-                  width="240"
-                  height="240"
+                  width="340"
+                  height="340"
                   fetchpriority="high"
                   decoding="async"
                 />
