@@ -348,10 +348,10 @@ export default function Dashboard() {
 
         {/* ── Profile card ── */}
         <div
-          className="animate-fade-up rounded-2xl overflow-hidden mb-6"
+          className="animate-fade-up rounded-2xl overflow-hidden mb-10"
           style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.08)' }}
         >
-          <div className="px-8 md:px-16 pt-14 pb-12 text-center">
+          <div className="px-8 md:px-16 pt-16 pb-14 text-center">
 
             {/* Name — gradient style cyber */}
             <h2
@@ -441,7 +441,7 @@ export default function Dashboard() {
 
         {/* ── Terminal $ whoami ── */}
         <div
-          className="animate-fade-up rounded-2xl overflow-hidden mb-6"
+          className="animate-fade-up rounded-2xl overflow-hidden mb-10"
           style={{
             background: 'rgba(6,9,18,0.92)',
             border: '1px solid rgba(34,211,238,0.18)',
@@ -562,7 +562,7 @@ export default function Dashboard() {
         <SectionLabel label="STATISTIQUES" color="#22d3ee" />
 
         {/* ── Stats row — 4 cards with icon + desc ── */}
-        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8" style={{ transitionDelay: '0.08s' }}>
+        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12" style={{ transitionDelay: '0.08s' }}>
           {statsData.map((s) => {
             const Icon = s.icon
             return (
@@ -662,7 +662,7 @@ export default function Dashboard() {
         <SectionLabel label="MON PROFIL" color="#a78bfa" />
 
         {/* ── CE QUE J'APPORTE + DOMAINES CLÉS — 2 cols ── */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
 
           {/* CE QUE J'APPORTE */}
           <div
@@ -730,39 +730,39 @@ export default function Dashboard() {
             >
               DOMAINES CL{'\u00c9'}S
             </p>
-            <div className="space-y-4">
+            <div className="space-y-5">
               {domainesSmall.map((row, i) => (
                 <div
                   key={i}
                   className="flex items-center gap-4"
-                  style={{ paddingBottom: '0.7rem', borderBottom: i < domainesSmall.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}
+                  style={{ paddingBottom: '1rem', borderBottom: i < domainesSmall.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}
                 >
                   <span
                     className="flex-shrink-0"
                     style={{
                       fontFamily: "'Inter', sans-serif",
-                      fontSize: '13px',
+                      fontSize: '13.5px',
                       fontWeight: 600,
                       color: '#475569',
-                      width: '110px',
-                      minWidth: '110px',
+                      width: '120px',
+                      minWidth: '120px',
                     }}
                   >
                     {row.cat}
                   </span>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-2.5">
                     {row.tags.map(tag => (
                       <span
                         key={tag}
                         style={{
                           fontFamily: "'Inter', sans-serif",
-                          fontSize: '12.5px',
+                          fontSize: '13px',
                           fontWeight: 500,
                           color: '#e2e8f0',
                           background: 'rgba(255,255,255,0.04)',
                           border: '1px solid rgba(255,255,255,0.08)',
                           borderRadius: '8px',
-                          padding: '4px 12px',
+                          padding: '6px 14px',
                         }}
                       >
                         {tag}
@@ -780,30 +780,30 @@ export default function Dashboard() {
 
         {/* ── Full-width tech grid card — style cyber's second pills section ── */}
         <div
-          className="animate-fade-up rounded-2xl p-8 mb-6"
+          className="animate-fade-up rounded-2xl p-8 md:p-10 mb-12"
           style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.2s' }}
         >
-          <div className="space-y-5">
+          <div className="space-y-6">
             {techGrid.map((row, i) => (
               <div
                 key={i}
                 className="flex items-center gap-5"
-                style={{ paddingBottom: i < techGrid.length - 1 ? '1.1rem' : 0, borderBottom: i < techGrid.length - 1 ? '1px solid rgba(255,255,255,0.03)' : 'none' }}
+                style={{ paddingBottom: i < techGrid.length - 1 ? '1.4rem' : 0, borderBottom: i < techGrid.length - 1 ? '1px solid rgba(255,255,255,0.03)' : 'none' }}
               >
                 <span
                   className="flex-shrink-0"
                   style={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: '14px',
+                    fontSize: '14.5px',
                     fontWeight: 600,
                     color: '#64748b',
-                    width: '130px',
-                    minWidth: '130px',
+                    width: '140px',
+                    minWidth: '140px',
                   }}
                 >
                   {row.cat}
                 </span>
-                <div className="flex flex-wrap gap-2.5">
+                <div className="flex flex-wrap gap-3">
                   {row.tags.map(tag => (
                     <span
                       key={tag}
@@ -816,7 +816,7 @@ export default function Dashboard() {
                         background: 'rgba(255,255,255,0.05)',
                         border: '1px solid rgba(255,255,255,0.1)',
                         borderRadius: '10px',
-                        padding: '8px 18px',
+                        padding: '10px 20px',
                       }}
                       onMouseEnter={e => {
                         e.currentTarget.style.background = 'rgba(34,211,238,0.1)'
@@ -840,7 +840,7 @@ export default function Dashboard() {
         <SectionLabel label="ME CONTACTER" color="#fbbf24" />
 
         {/* ── CTA Buttons — style cyber ── */}
-        <div className="animate-fade-up flex flex-wrap justify-center gap-3 mt-12 mb-24" style={{ transitionDelay: '0.24s' }}>
+        <div className="animate-fade-up flex flex-wrap justify-center gap-4 mt-14 mb-28" style={{ transitionDelay: '0.24s' }}>
           <a
             href="/cv-dilan-lengue.pdf"
             target="_blank"
@@ -848,12 +848,12 @@ export default function Dashboard() {
             className="flex items-center gap-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '14px',
+              fontSize: '14.5px',
               fontWeight: 600,
               color: '#e6ecf8',
               background: 'transparent',
               border: '1px solid rgba(34,211,238,0.25)',
-              padding: '12px 24px',
+              padding: '14px 28px',
             }}
           >
             <Download size={16} /> T{'\u00e9'}l{'\u00e9'}charger mon CV
@@ -863,11 +863,11 @@ export default function Dashboard() {
             className="flex items-center gap-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '14px',
+              fontSize: '14.5px',
               fontWeight: 600,
               color: '#0b1020',
               background: 'rgba(255,255,255,0.95)',
-              padding: '12px 24px',
+              padding: '14px 28px',
             }}
           >
             <Mail size={16} /> Me contacter
@@ -884,7 +884,7 @@ export default function Dashboard() {
               color: '#e6ecf8',
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.1)',
-              padding: '12px 24px',
+              padding: '14px 28px',
             }}
           >
             <Linkedin size={16} /> LinkedIn
@@ -901,7 +901,7 @@ export default function Dashboard() {
               color: '#e6ecf8',
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.1)',
-              padding: '12px 24px',
+              padding: '14px 28px',
             }}
           >
             <Github size={16} /> GitHub
@@ -916,7 +916,7 @@ export default function Dashboard() {
               color: '#e6ecf8',
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.1)',
-              padding: '12px 24px',
+              padding: '14px 28px',
             }}
           >
             {'\uD83D\uDCAC'} Discord
