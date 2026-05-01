@@ -682,27 +682,27 @@ export default function Dashboard() {
             >
               CE QUE J'APPORTE
             </p>
-            <div className="space-y-9">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.2rem' }}>
               {apports.map((item, i) => {
                 const ItemIcon = item.icon
                 return (
-                  <div key={i} className="flex gap-4">
+                  <div key={i} className="flex gap-5" style={{ paddingBottom: i < apports.length - 1 ? '2rem' : 0, borderBottom: i < apports.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
                     <div
                       className="flex items-center justify-center rounded-xl flex-shrink-0"
                       style={{
-                        width: '46px',
-                        height: '46px',
+                        width: '50px',
+                        height: '50px',
                         background: `${item.color}14`,
                         border: `1px solid ${item.color}40`,
                       }}
                     >
-                      {ItemIcon && <ItemIcon size={22} style={{ color: item.color }} />}
+                      {ItemIcon && <ItemIcon size={24} style={{ color: item.color }} />}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: item.color, marginBottom: '0.4rem', lineHeight: 1.3 }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: item.color, marginBottom: '0.5rem', lineHeight: 1.3 }}>
                         {item.title}
                       </p>
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#cbd5e1', lineHeight: 1.7 }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#cbd5e1', lineHeight: 1.8 }}>
                         {item.desc}
                       </p>
                     </div>
@@ -730,28 +730,25 @@ export default function Dashboard() {
             >
               DOMAINES CL{'\u00c9'}S
             </p>
-            <div className="space-y-6">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               {domainesSmall.map((row, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-5"
-                  style={{ paddingBottom: '1.4rem', borderBottom: i < domainesSmall.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}
+                  style={{ paddingBottom: i < domainesSmall.length - 1 ? '2rem' : 0, borderBottom: i < domainesSmall.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}
                 >
                   <span
-                    className="flex-shrink-0"
                     style={{
+                      display: 'block',
                       fontFamily: "'Inter', sans-serif",
                       fontSize: '14px',
                       fontWeight: 700,
                       color: '#64748b',
-                      width: '130px',
-                      minWidth: '130px',
-                      paddingTop: '6px',
+                      marginBottom: '1rem',
                     }}
                   >
                     {row.cat}
                   </span>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap" style={{ gap: '10px' }}>
                     {row.tags.map(tag => (
                       <span
                         key={tag}
@@ -763,7 +760,7 @@ export default function Dashboard() {
                           background: 'rgba(255,255,255,0.05)',
                           border: '1px solid rgba(255,255,255,0.1)',
                           borderRadius: '10px',
-                          padding: '8px 16px',
+                          padding: '8px 18px',
                         }}
                       >
                         {tag}
@@ -784,28 +781,25 @@ export default function Dashboard() {
           className="animate-fade-up rounded-2xl p-8 md:p-12 mb-16"
           style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.2s' }}
         >
-          <div className="space-y-7">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             {techGrid.map((row, i) => (
               <div
                 key={i}
-                className="flex items-start gap-6"
-                style={{ paddingBottom: i < techGrid.length - 1 ? '1.8rem' : 0, borderBottom: i < techGrid.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}
+                style={{ paddingBottom: i < techGrid.length - 1 ? '2rem' : 0, borderBottom: i < techGrid.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}
               >
                 <span
-                  className="flex-shrink-0"
                   style={{
+                    display: 'block',
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: '15px',
+                    fontSize: '14.5px',
                     fontWeight: 700,
                     color: '#64748b',
-                    width: '150px',
-                    minWidth: '150px',
-                    paddingTop: '8px',
+                    marginBottom: '1rem',
                   }}
                 >
                   {row.cat}
                 </span>
-                <div className="flex flex-wrap gap-3.5">
+                <div className="flex flex-wrap" style={{ gap: '12px' }}>
                   {row.tags.map(tag => (
                     <span
                       key={tag}
