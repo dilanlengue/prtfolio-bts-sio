@@ -667,7 +667,7 @@ export default function Dashboard() {
           {/* CE QUE J'APPORTE */}
           <div
             className="animate-fade-up rounded-2xl p-8 md:p-12"
-            style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.12s' }}
+            style={{ background: 'rgba(11,16,32,0.65)', border: '1px solid rgba(255,255,255,0.1)', transitionDelay: '0.12s' }}
           >
             <p
               style={{
@@ -715,7 +715,7 @@ export default function Dashboard() {
           {/* DOMAINES CLÉS */}
           <div
             className="animate-fade-up rounded-2xl p-8 md:p-12"
-            style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.16s' }}
+            style={{ background: 'rgba(11,16,32,0.65)', border: '1px solid rgba(255,255,255,0.1)', transitionDelay: '0.16s' }}
           >
             <p
               style={{
@@ -730,46 +730,49 @@ export default function Dashboard() {
             >
               DOMAINES CL{'\u00c9'}S
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              {domainesSmall.map((row, i) => (
-                <div
-                  key={i}
-                  style={{ paddingBottom: i < domainesSmall.length - 1 ? '2rem' : 0, borderBottom: i < domainesSmall.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}
-                >
-                  <span
-                    style={{
-                      display: 'block',
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '14px',
-                      fontWeight: 700,
-                      color: '#64748b',
-                      marginBottom: '1rem',
-                    }}
-                  >
-                    {row.cat}
-                  </span>
-                  <div className="flex flex-wrap" style={{ gap: '10px' }}>
-                    {row.tags.map(tag => (
-                      <span
-                        key={tag}
-                        style={{
-                          fontFamily: "'Inter', sans-serif",
-                          fontSize: '13.5px',
-                          fontWeight: 500,
-                          color: '#e2e8f0',
-                          background: 'rgba(255,255,255,0.05)',
-                          border: '1px solid rgba(255,255,255,0.1)',
-                          borderRadius: '10px',
-                          padding: '8px 18px',
-                        }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+            <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 18px' }}>
+              <tbody>
+                {domainesSmall.map((row, i) => (
+                  <tr key={i}>
+                    <td
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: '13.5px',
+                        fontWeight: 700,
+                        color: '#64748b',
+                        whiteSpace: 'nowrap',
+                        paddingRight: '20px',
+                        verticalAlign: 'top',
+                        paddingTop: '8px',
+                      }}
+                    >
+                      {row.cat}
+                    </td>
+                    <td>
+                      <div className="flex flex-wrap" style={{ gap: '10px' }}>
+                        {row.tags.map(tag => (
+                          <span
+                            key={tag}
+                            style={{
+                              fontFamily: "'Inter', sans-serif",
+                              fontSize: '13px',
+                              fontWeight: 500,
+                              color: '#e2e8f0',
+                              background: 'rgba(255,255,255,0.05)',
+                              border: '1px solid rgba(255,255,255,0.1)',
+                              borderRadius: '10px',
+                              padding: '7px 16px',
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -779,64 +782,67 @@ export default function Dashboard() {
         {/* ── Full-width tech grid card — style cyber's second pills section ── */}
         <div
           className="animate-fade-up rounded-2xl p-8 md:p-12 mb-16"
-          style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.2s' }}
+          style={{ background: 'rgba(11,16,32,0.65)', border: '1px solid rgba(255,255,255,0.1)', transitionDelay: '0.2s' }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            {techGrid.map((row, i) => (
-              <div
-                key={i}
-                style={{ paddingBottom: i < techGrid.length - 1 ? '2rem' : 0, borderBottom: i < techGrid.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}
-              >
-                <span
-                  style={{
-                    display: 'block',
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '14.5px',
-                    fontWeight: 700,
-                    color: '#64748b',
-                    marginBottom: '1rem',
-                  }}
-                >
-                  {row.cat}
-                </span>
-                <div className="flex flex-wrap" style={{ gap: '12px' }}>
-                  {row.tags.map(tag => (
-                    <span
-                      key={tag}
-                      className="transition-all duration-200"
-                      style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: '14.5px',
-                        fontWeight: 500,
-                        color: '#e2e8f0',
-                        background: 'rgba(255,255,255,0.05)',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        borderRadius: '10px',
-                        padding: '10px 22px',
-                      }}
-                      onMouseEnter={e => {
-                        e.currentTarget.style.background = 'rgba(34,211,238,0.1)'
-                        e.currentTarget.style.borderColor = 'rgba(34,211,238,0.3)'
-                      }}
-                      onMouseLeave={e => {
-                        e.currentTarget.style.background = 'rgba(255,255,255,0.05)'
-                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 16px' }}>
+            <tbody>
+              {techGrid.map((row, i) => (
+                <tr key={i}>
+                  <td
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: '14px',
+                      fontWeight: 700,
+                      color: '#64748b',
+                      whiteSpace: 'nowrap',
+                      paddingRight: '24px',
+                      verticalAlign: 'top',
+                      paddingTop: '10px',
+                    }}
+                  >
+                    {row.cat}
+                  </td>
+                  <td>
+                    <div className="flex flex-wrap" style={{ gap: '12px' }}>
+                      {row.tags.map(tag => (
+                        <span
+                          key={tag}
+                          className="transition-all duration-200"
+                          style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: '14px',
+                            fontWeight: 500,
+                            color: '#e2e8f0',
+                            background: 'rgba(255,255,255,0.05)',
+                            border: '1px solid rgba(255,255,255,0.1)',
+                            borderRadius: '10px',
+                            padding: '9px 20px',
+                          }}
+                          onMouseEnter={e => {
+                            e.currentTarget.style.background = 'rgba(34,211,238,0.1)'
+                            e.currentTarget.style.borderColor = 'rgba(34,211,238,0.3)'
+                          }}
+                          onMouseLeave={e => {
+                            e.currentTarget.style.background = 'rgba(255,255,255,0.05)'
+                            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         {/* ── Section divider ── */}
         <SectionLabel label="ME CONTACTER" color="#fbbf24" />
 
         {/* ── CTA Buttons — style cyber ── */}
-        <div className="animate-fade-up flex flex-wrap justify-center gap-5 mt-16 mb-32" style={{ transitionDelay: '0.24s' }}>
+        <div className="animate-fade-up flex flex-wrap justify-center gap-5" style={{ transitionDelay: '0.24s', marginTop: '6rem', marginBottom: '8rem' }}>
           <a
             href="/cv-dilan-lengue.pdf"
             target="_blank"
