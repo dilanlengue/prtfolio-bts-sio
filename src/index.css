@@ -104,17 +104,17 @@ p {
 /* === SECTION HEADER === */
 .section-header {
   text-align: center;
-  margin-bottom: 4.5rem;
+  margin-bottom: 5rem;
 }
 .section-label {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 .section-label-line {
   height: 1px;
-  width: 56px;
+  width: 72px;
   background: linear-gradient(90deg, transparent, rgba(99,102,241,0.6));
 }
 .section-label-line.right {
@@ -138,7 +138,7 @@ p {
 }
 @media (min-width: 768px) {
   .section-title { font-size: 3.2rem; }
-  .section-header { margin-bottom: 5.5rem; }
+  .section-header { margin-bottom: 6rem; }
 }
 .section-desc {
   font-family: 'Inter', sans-serif;
@@ -182,24 +182,24 @@ p {
   background: rgba(15, 20, 40, 0.65);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 .glass-strong {
   background: rgba(12, 16, 35, 0.88);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.4);
 }
 .glass-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .glass-hover:hover {
   background: rgba(30, 35, 60, 0.75);
-  border-color: rgba(99, 102, 241, 0.4);
-  transform: translateY(-5px);
-  box-shadow: 0 24px 48px rgba(0,0,0,0.4), 0 0 32px rgba(99,102,241,0.1);
+  border-color: rgba(99, 102, 241, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.4), 0 0 24px rgba(99,102,241,0.08);
 }
 
 /* === GRADIENTS === */

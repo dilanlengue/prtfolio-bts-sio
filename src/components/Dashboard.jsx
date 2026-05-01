@@ -343,15 +343,15 @@ export default function Dashboard() {
   const toggleTerminal = useCallback(() => setShowTerminal(prev => !prev), [])
 
   return (
-    <section id="dashboard" className="relative" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
+    <section id="dashboard" className="relative" style={{ paddingTop: '12rem', paddingBottom: '12rem' }}>
+      <div className="w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* ── Profile card ── */}
         <div
-          className="animate-fade-up rounded-2xl overflow-hidden mb-10"
+          className="animate-fade-up rounded-2xl overflow-hidden mb-14"
           style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.08)' }}
         >
-          <div className="px-8 md:px-16 pt-16 pb-14 text-center">
+          <div className="px-8 md:px-20 pt-20 pb-16 text-center">
 
             {/* Name — gradient style cyber */}
             <h2
@@ -372,7 +372,7 @@ export default function Dashboard() {
             </h2>
 
             {/* Job title — cyan pill badge style cyber */}
-            <div className="flex justify-center mb-5">
+            <div className="flex justify-center mb-7">
               <span
                 className="inline-flex items-center rounded-full"
                 style={{
@@ -382,7 +382,7 @@ export default function Dashboard() {
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
                   fontWeight: 600,
-                  padding: '8px 22px',
+                  padding: '10px 26px',
                   letterSpacing: '0.01em',
                 }}
               >
@@ -391,13 +391,13 @@ export default function Dashboard() {
             </div>
 
             {/* Badge — green dot style cyber */}
-            <div className="flex justify-center mb-5">
+            <div className="flex justify-center mb-8">
               <div
                 className="inline-flex items-center gap-2.5 rounded-full"
                 style={{
                   background: 'rgba(34,197,94,0.08)',
                   border: '1px solid rgba(34,197,94,0.2)',
-                  padding: '9px 22px',
+                  padding: '11px 26px',
                   fontFamily: "'Inter', sans-serif",
                   fontSize: '14px',
                   fontWeight: 500,
@@ -441,7 +441,7 @@ export default function Dashboard() {
 
         {/* ── Terminal $ whoami ── */}
         <div
-          className="animate-fade-up rounded-2xl overflow-hidden mb-10"
+          className="animate-fade-up rounded-2xl overflow-hidden mb-14"
           style={{
             background: 'rgba(6,9,18,0.92)',
             border: '1px solid rgba(34,211,238,0.18)',
@@ -562,13 +562,13 @@ export default function Dashboard() {
         <SectionLabel label="STATISTIQUES" color="#22d3ee" />
 
         {/* ── Stats row — 4 cards with icon + desc ── */}
-        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12" style={{ transitionDelay: '0.08s' }}>
+        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16" style={{ transitionDelay: '0.08s' }}>
           {statsData.map((s) => {
             const Icon = s.icon
             return (
               <div
                 key={s.label}
-                className="flex flex-col rounded-2xl p-7 transition-all duration-300"
+                className="flex flex-col rounded-2xl p-8 transition-all duration-300"
                 style={{
                   background: 'rgba(11,16,32,0.7)',
                   border: `1px solid ${s.color}22`,
@@ -662,27 +662,27 @@ export default function Dashboard() {
         <SectionLabel label="MON PROFIL" color="#a78bfa" />
 
         {/* ── CE QUE J'APPORTE + DOMAINES CLÉS — 2 cols ── */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-10 mb-16">
 
           {/* CE QUE J'APPORTE */}
           <div
-            className="animate-fade-up rounded-2xl p-8 md:p-10"
+            className="animate-fade-up rounded-2xl p-8 md:p-12"
             style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.12s' }}
           >
             <p
               style={{
                 fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: '12px',
+                fontSize: '13px',
                 fontWeight: 700,
                 color: '#22d3ee',
                 textTransform: 'uppercase',
                 letterSpacing: '0.2em',
-                marginBottom: '2rem',
+                marginBottom: '2.5rem',
               }}
             >
               CE QUE J'APPORTE
             </p>
-            <div className="space-y-7">
+            <div className="space-y-9">
               {apports.map((item, i) => {
                 const ItemIcon = item.icon
                 return (
@@ -714,55 +714,56 @@ export default function Dashboard() {
 
           {/* DOMAINES CLÉS */}
           <div
-            className="animate-fade-up rounded-2xl p-8 md:p-10"
+            className="animate-fade-up rounded-2xl p-8 md:p-12"
             style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.16s' }}
           >
             <p
               style={{
                 fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: '12px',
+                fontSize: '13px',
                 fontWeight: 700,
                 color: '#a78bfa',
                 textTransform: 'uppercase',
                 letterSpacing: '0.2em',
-                marginBottom: '1.5rem',
+                marginBottom: '2.5rem',
               }}
             >
               DOMAINES CL{'\u00c9'}S
             </p>
-            <div className="space-y-5">
+            <div className="space-y-6">
               {domainesSmall.map((row, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-4"
-                  style={{ paddingBottom: '1rem', borderBottom: i < domainesSmall.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}
+                  className="flex items-start gap-5"
+                  style={{ paddingBottom: '1.4rem', borderBottom: i < domainesSmall.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}
                 >
                   <span
                     className="flex-shrink-0"
                     style={{
                       fontFamily: "'Inter', sans-serif",
-                      fontSize: '13.5px',
-                      fontWeight: 600,
-                      color: '#475569',
-                      width: '120px',
-                      minWidth: '120px',
+                      fontSize: '14px',
+                      fontWeight: 700,
+                      color: '#64748b',
+                      width: '130px',
+                      minWidth: '130px',
+                      paddingTop: '6px',
                     }}
                   >
                     {row.cat}
                   </span>
-                  <div className="flex flex-wrap gap-2.5">
+                  <div className="flex flex-wrap gap-3">
                     {row.tags.map(tag => (
                       <span
                         key={tag}
                         style={{
                           fontFamily: "'Inter', sans-serif",
-                          fontSize: '13px',
+                          fontSize: '13.5px',
                           fontWeight: 500,
                           color: '#e2e8f0',
-                          background: 'rgba(255,255,255,0.04)',
-                          border: '1px solid rgba(255,255,255,0.08)',
-                          borderRadius: '8px',
-                          padding: '6px 14px',
+                          background: 'rgba(255,255,255,0.05)',
+                          border: '1px solid rgba(255,255,255,0.1)',
+                          borderRadius: '10px',
+                          padding: '8px 16px',
                         }}
                       >
                         {tag}
@@ -780,30 +781,31 @@ export default function Dashboard() {
 
         {/* ── Full-width tech grid card — style cyber's second pills section ── */}
         <div
-          className="animate-fade-up rounded-2xl p-8 md:p-10 mb-12"
+          className="animate-fade-up rounded-2xl p-8 md:p-12 mb-16"
           style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.06)', transitionDelay: '0.2s' }}
         >
-          <div className="space-y-6">
+          <div className="space-y-7">
             {techGrid.map((row, i) => (
               <div
                 key={i}
-                className="flex items-center gap-5"
-                style={{ paddingBottom: i < techGrid.length - 1 ? '1.4rem' : 0, borderBottom: i < techGrid.length - 1 ? '1px solid rgba(255,255,255,0.03)' : 'none' }}
+                className="flex items-start gap-6"
+                style={{ paddingBottom: i < techGrid.length - 1 ? '1.8rem' : 0, borderBottom: i < techGrid.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}
               >
                 <span
                   className="flex-shrink-0"
                   style={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: '14.5px',
-                    fontWeight: 600,
+                    fontSize: '15px',
+                    fontWeight: 700,
                     color: '#64748b',
-                    width: '140px',
-                    minWidth: '140px',
+                    width: '150px',
+                    minWidth: '150px',
+                    paddingTop: '8px',
                   }}
                 >
                   {row.cat}
                 </span>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3.5">
                   {row.tags.map(tag => (
                     <span
                       key={tag}
@@ -816,7 +818,7 @@ export default function Dashboard() {
                         background: 'rgba(255,255,255,0.05)',
                         border: '1px solid rgba(255,255,255,0.1)',
                         borderRadius: '10px',
-                        padding: '10px 20px',
+                        padding: '10px 22px',
                       }}
                       onMouseEnter={e => {
                         e.currentTarget.style.background = 'rgba(34,211,238,0.1)'
@@ -840,7 +842,7 @@ export default function Dashboard() {
         <SectionLabel label="ME CONTACTER" color="#fbbf24" />
 
         {/* ── CTA Buttons — style cyber ── */}
-        <div className="animate-fade-up flex flex-wrap justify-center gap-4 mt-14 mb-28" style={{ transitionDelay: '0.24s' }}>
+        <div className="animate-fade-up flex flex-wrap justify-center gap-5 mt-16 mb-32" style={{ transitionDelay: '0.24s' }}>
           <a
             href="/cv-dilan-lengue.pdf"
             target="_blank"
@@ -848,29 +850,29 @@ export default function Dashboard() {
             className="flex items-center gap-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '14.5px',
+              fontSize: '15px',
               fontWeight: 600,
               color: '#e6ecf8',
               background: 'transparent',
               border: '1px solid rgba(34,211,238,0.25)',
-              padding: '14px 28px',
+              padding: '16px 32px',
             }}
           >
-            <Download size={16} /> T{'\u00e9'}l{'\u00e9'}charger mon CV
+            <Download size={18} /> T{'\u00e9'}l{'\u00e9'}charger mon CV
           </a>
           <a
             href="/contact"
             className="flex items-center gap-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '14.5px',
+              fontSize: '15px',
               fontWeight: 600,
               color: '#0b1020',
               background: 'rgba(255,255,255,0.95)',
-              padding: '14px 28px',
+              padding: '16px 32px',
             }}
           >
-            <Mail size={16} /> Me contacter
+            <Mail size={18} /> Me contacter
           </a>
           <a
             href="https://www.linkedin.com/in/dilan-lengue"
@@ -879,15 +881,15 @@ export default function Dashboard() {
             className="flex items-center gap-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '14px',
+              fontSize: '15px',
               fontWeight: 600,
               color: '#e6ecf8',
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.1)',
-              padding: '14px 28px',
+              padding: '16px 32px',
             }}
           >
-            <Linkedin size={16} /> LinkedIn
+            <Linkedin size={18} /> LinkedIn
           </a>
           <a
             href="https://github.com/dilan-lengue"
@@ -896,27 +898,27 @@ export default function Dashboard() {
             className="flex items-center gap-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '14px',
+              fontSize: '15px',
               fontWeight: 600,
               color: '#e6ecf8',
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.1)',
-              padding: '14px 28px',
+              padding: '16px 32px',
             }}
           >
-            <Github size={16} /> GitHub
+            <Github size={18} /> GitHub
           </a>
           <a
             href="/contact"
             className="flex items-center gap-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '14px',
+              fontSize: '15px',
               fontWeight: 600,
               color: '#e6ecf8',
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.1)',
-              padding: '14px 28px',
+              padding: '16px 32px',
             }}
           >
             {'\uD83D\uDCAC'} Discord

@@ -1,5 +1,5 @@
 /* ─── Section divider with label (── TITLE ──) — réutilisable partout ─── */
-export default function SectionLabel({ label, color = '#22d3ee', mt = 'my-16' }) {
+export default function SectionLabel({ label, color = '#22d3ee', mt = 'my-20' }) {
   return (
     <div className={`flex items-center gap-4 ${mt}`}>
       <div
