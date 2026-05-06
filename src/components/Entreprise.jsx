@@ -87,7 +87,7 @@ function StageCard({ stage }) {
       {/* Banner top bar */}
       <div style={{ height: '3px', background: `linear-gradient(90deg, ${stage.tagColor}, ${stage.tagColor}60)` }} />
 
-      <div className="p-6 md:p-8">
+      <div className="p-8 md:p-10">
         {/* Tags */}
         <div className="flex items-center gap-3 mb-5 flex-wrap">
           {stage.current && (
@@ -190,7 +190,7 @@ function StageCard({ stage }) {
         </p>
 
         {/* Info grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
           {stage.infos.map(({ icon: Icon, label, value, link }) => (
             <div
               key={label}
@@ -228,7 +228,7 @@ function StageCard({ stage }) {
         </div>
 
         {/* Spécialisations */}
-        <div className="mb-6">
+        <div className="mb-8">
           <p
             style={{
               fontFamily: "'Inter', sans-serif",
@@ -237,12 +237,12 @@ function StageCard({ stage }) {
               color: '#475569',
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              marginBottom: '0.6rem',
+              marginBottom: '0.8rem',
             }}
           >
             Spécialisations
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-3">
             {stage.specialisations.map(s => (
               <span
                 key={s}
@@ -306,7 +306,7 @@ function StageCard({ stage }) {
         </div>
 
         {/* Attestation link */}
-        <div className="mt-5 flex flex-wrap gap-3">
+        <div className="mt-6 flex flex-wrap gap-4">
           <a
             href={stage.attestationPdf}
             target="_blank"
@@ -357,10 +357,10 @@ function StageCard({ stage }) {
 
 export default function Entreprise() {
   return (
-    <section id="entreprise" className="relative" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
+    <section id="entreprise" className="relative" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header */}
-        <div className="text-center" style={{ marginBottom: '3.5rem' }}>
+        <div className="text-center" style={{ marginBottom: '4.5rem' }}>
           <h2
             className="animate-fade-up"
             style={{
@@ -402,7 +402,7 @@ export default function Entreprise() {
         <SectionLabel label="MES STAGES" color="#22d3ee" />
 
         {/* Stage cards */}
-        <div className="space-y-10">
+        <div className="space-y-14">
           {stages.map((stage, i) => (
             <StageCard key={i} stage={stage} />
           ))}

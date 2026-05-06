@@ -310,7 +310,7 @@ function FlipCard({ item }) {
             </div>
 
             {/* Body */}
-            <div className="flex flex-col flex-1 p-5">
+            <div className="flex flex-col flex-1 p-6">
               {/* Title */}
               <h3
                 style={{
@@ -456,7 +456,7 @@ function FlipCard({ item }) {
             </div>
 
             {/* Body */}
-            <div className="flex flex-col flex-1 p-5">
+            <div className="flex flex-col flex-1 p-6">
               {/* Title */}
               <h4
                 style={{
@@ -608,7 +608,7 @@ export default function Projets() {
         {/* ─── Selection Cards ─── */}
         {!view && (
           <>
-            <div className="grid sm:grid-cols-2 gap-4 mb-4">
+            <div className="grid sm:grid-cols-2 gap-6 mb-8">
               {/* Projets — emerald green */}
               <button
                 className="group animate-fade-up relative overflow-hidden text-center transition-all duration-300"
@@ -691,7 +691,7 @@ export default function Projets() {
             </div>
 
             {/* Hint */}
-            <div className="text-center mt-4 mb-4">
+            <div className="text-center mt-6 mb-8">
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11.5px', fontWeight: 400, color: '#c5d3e8' }}>
                 {projets.length + guides.length} projets au total — cliquer sur une carte pour les détails
               </p>
@@ -709,7 +709,7 @@ export default function Projets() {
         {view === 'projets' && (
           <>
             {/* Back bar */}
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-8">
               <button
                 className="flex items-center gap-2 transition-all"
                 style={{
@@ -738,7 +738,7 @@ export default function Projets() {
             </div>
 
             {/* 3-column grid with flip cards */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {projets.map(projet => (
                 <FlipCard key={projet.id} item={projet} />
               ))}
@@ -750,7 +750,7 @@ export default function Projets() {
         {view === 'guides' && (
           <>
             {/* Back bar */}
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-8">
               <button
                 className="flex items-center gap-2 transition-all"
                 style={{

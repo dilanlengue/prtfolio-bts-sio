@@ -69,11 +69,11 @@ const skillCategories = [
 
 export default function Competences() {
   return (
-    <section id="competences" className="py-16 md:py-24 relative">
+    <section id="competences" className="py-32 md:py-40 relative">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Header */}
-        <div className="text-center" style={{ marginBottom: '28px' }}>
+        <div className="text-center" style={{ marginBottom: '40px' }}>
           <h2 className="animate-fade-up" style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', fontWeight: 800, letterSpacing: '-0.025em', lineHeight: 1.1, color: '#e6ecf8' }}>
             Mes Compétences
           </h2>
@@ -87,13 +87,13 @@ export default function Competences() {
         <SectionLabel label="DOMAINES TECHNIQUES" color="#a78bfa" />
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {skillCategories.map((cat, i) => {
             const Icon = cat.icon
             return (
               <div
                 key={cat.label}
-                className="animate-fade-up rounded-2xl p-7 transition-all duration-300"
+                className="animate-fade-up rounded-2xl p-8 md:p-10 transition-all duration-300"
                 style={{
                   background: 'rgba(10,15,30,0.9)',
                   border: `1px solid ${cat.color}25`,
@@ -146,7 +146,7 @@ export default function Competences() {
                 </div>
 
                 {/* Pills */}
-                <div className="flex flex-wrap gap-2 mb-1">
+                <div className="flex flex-wrap gap-3 mb-1">
                   {cat.items.map(item => (
                     <span
                       key={item}
@@ -164,7 +164,7 @@ export default function Competences() {
         </div>
 
         {/* Boutons CTA */}
-        <div className="animate-fade-up flex flex-wrap justify-center gap-4" style={{ transitionDelay: '0.4s' }}>
+        <div className="animate-fade-up flex flex-wrap justify-center gap-5" style={{ transitionDelay: '0.4s' }}>
           <a
             href="/cv-dilan-lengue.pdf"
             target="_blank"

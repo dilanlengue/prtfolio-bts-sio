@@ -590,12 +590,12 @@ export default function BTS() {
         <SectionLabel label="SISR vs SLAM" color="#22d3ee" />
 
         {/* ── SISR vs SLAM — layout cyber ── */}
-        <div className="grid md:grid-cols-2 gap-5" style={{ marginBottom: '40px' }}>
+        <div className="grid md:grid-cols-2 gap-8" style={{ marginBottom: '48px' }}>
 
           {/* SISR — MON OPTION (left, cyan = main) */}
           <div
             className="rounded-2xl"
-            style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(34,211,238,0.25)', padding: '24px' }}
+            style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(34,211,238,0.25)', padding: '32px' }}
           >
             {/* Header: icon + title + badge */}
             <div className="flex items-center gap-2.5 flex-wrap" style={{ marginBottom: '6px' }}>
@@ -666,7 +666,7 @@ export default function BTS() {
           {/* SLAM (right, purple = secondary) */}
           <div
             className="rounded-2xl"
-            style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.07)', padding: '24px' }}
+            style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.07)', padding: '32px' }}
           >
             {/* Header */}
             <div className="flex items-center gap-2.5" style={{ marginBottom: '6px' }}>
@@ -722,7 +722,7 @@ export default function BTS() {
         </div>
 
         {/* ── ÉPREUVES PROFESSIONNELLES ── */}
-        <div style={{ marginBottom: '40px' }}>
+        <div style={{ marginBottom: '48px' }}>
           <p
             className="text-center"
             style={{
@@ -732,13 +732,13 @@ export default function BTS() {
               color: '#64748b',
               textTransform: 'uppercase',
               letterSpacing: '0.2em',
-              marginBottom: '28px',
+              marginBottom: '32px',
             }}
           >
             Épreuves professionnelles
           </p>
 
-          <div className="grid sm:grid-cols-3 gap-5 mb-8">
+          <div className="grid sm:grid-cols-3 gap-8 mb-12">
             {epreuves.map(ep => (
               <EpreuveCard key={ep.code} ep={ep} />
             ))}

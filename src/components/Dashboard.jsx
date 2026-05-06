@@ -348,7 +348,7 @@ export default function Dashboard() {
 
         {/* ── Profile card ── */}
         <div
-          className="animate-fade-up rounded-2xl overflow-hidden mb-14"
+          className="animate-fade-up rounded-2xl overflow-hidden mb-20"
           style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.08)' }}
         >
           <div className="px-8 md:px-20 pt-20 pb-16 text-center">
@@ -441,7 +441,7 @@ export default function Dashboard() {
 
         {/* ── Terminal $ whoami ── */}
         <div
-          className="animate-fade-up rounded-2xl overflow-hidden mb-14"
+          className="animate-fade-up rounded-2xl overflow-hidden mb-20"
           style={{
             background: 'rgba(6,9,18,0.92)',
             border: '1px solid rgba(34,211,238,0.18)',
@@ -559,10 +559,10 @@ export default function Dashboard() {
         </div>
 
         {/* ── Section divider ── */}
-        <SectionLabel label="STATISTIQUES" color="#22d3ee" />
+        <SectionLabel label="STATISTIQUES" color="#22d3ee" mt="my-32" />
 
         {/* ── Stats row — 4 cards with icon + desc ── */}
-        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16" style={{ transitionDelay: '0.08s' }}>
+        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" style={{ transitionDelay: '0.08s' }}>
           {statsData.map((s) => {
             const Icon = s.icon
             return (
@@ -659,10 +659,10 @@ export default function Dashboard() {
         </div>
 
         {/* ── Section divider ── */}
-        <SectionLabel label="MON PROFIL" color="#a78bfa" />
+        <SectionLabel label="MON PROFIL" color="#a78bfa" mt="my-32" />
 
         {/* ── CE QUE J'APPORTE + DOMAINES CLÉS — 2 cols ── */}
-        <div className="grid md:grid-cols-2 gap-10 mb-16">
+        <div className="grid md:grid-cols-2 gap-10 mb-24">
 
           {/* CE QUE J'APPORTE */}
           <div
@@ -777,11 +777,11 @@ export default function Dashboard() {
         </div>
 
         {/* ── Section divider ── */}
-        <SectionLabel label="TECHNOLOGIES MAÎTRISÉES" color="#34d399" />
+        <SectionLabel label="TECHNOLOGIES MAÎTRISÉES" color="#34d399" mt="my-32" />
 
         {/* ── Full-width tech grid card — style cyber's second pills section ── */}
         <div
-          className="animate-fade-up rounded-2xl p-8 md:p-12 mb-16"
+          className="animate-fade-up rounded-2xl p-8 md:p-12 mb-24"
           style={{ background: 'rgba(11,16,32,0.65)', border: '1px solid rgba(255,255,255,0.1)', transitionDelay: '0.2s' }}
         >
           <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 16px' }}>
@@ -839,10 +839,10 @@ export default function Dashboard() {
         </div>
 
         {/* ── Section divider ── */}
-        <SectionLabel label="ME CONTACTER" color="#fbbf24" />
+        <SectionLabel label="ME CONTACTER" color="#fbbf24" mt="my-32" />
 
         {/* ── CTA Buttons — style cyber ── */}
-        <div className="animate-fade-up flex flex-wrap justify-center gap-5" style={{ transitionDelay: '0.24s', marginTop: '6rem', marginBottom: '8rem' }}>
+        <div className="animate-fade-up flex flex-wrap justify-center gap-5" style={{ transitionDelay: '0.24s', marginTop: '4rem', marginBottom: '4rem' }}>
           <a
             href="/cv-dilan-lengue.pdf"
             target="_blank"
@@ -926,10 +926,10 @@ export default function Dashboard() {
         </div>
 
         {/* ── Section divider ── */}
-        <SectionLabel label="INFRASTRUCTURE" color="#22d3ee" />
+        <SectionLabel label="INFRASTRUCTURE" color="#22d3ee" mt="my-32" />
 
         {/* ── Matrix Rain + Terminal ── */}
-        <div className="animate-fade-up mt-8" style={{ transitionDelay: '0.28s' }}>
+        <div className="animate-fade-up mt-12" style={{ transitionDelay: '0.28s' }}>
           <div
             className="rounded-2xl overflow-hidden relative"
             style={{
@@ -969,7 +969,7 @@ export default function Dashboard() {
         </div>
 
         {/* ── Network icons ── */}
-        <div className="animate-fade-up mt-8 flex flex-wrap justify-center gap-5" style={{ transitionDelay: '0.32s' }}>
+        <div className="animate-fade-up mt-14 flex flex-wrap justify-center gap-5" style={{ transitionDelay: '0.32s' }}>
           {[
             { label: 'LinkedIn', href: 'https://www.linkedin.com/in/dilan-lengue', color: '#0A66C2', icon: (
               <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>

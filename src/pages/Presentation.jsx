@@ -223,189 +223,435 @@ export default function Presentation() {
         </div>
       </section>
 
-      {/* ── SECTION 2 — Profile detail (ex-2-column reorganized) ── */}
-      <section className="relative" style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
+      {/* ── SECTION 2 — Profile intro card ── */}
+      <section className="relative" style={{ paddingTop: '10rem', paddingBottom: '6rem' }}>
         <div className="w-full max-w-5xl mx-auto px-6 lg:px-10">
           <div
-            className="rounded-2xl"
+            className="rounded-3xl"
             style={{
-              background: 'rgba(11,16,32,0.62)',
-              border: '1px solid rgba(255,255,255,0.06)',
-              padding: 'clamp(1.5rem, 4vw, 2.5rem)',
+              background: 'linear-gradient(145deg, rgba(11,16,32,0.8), rgba(15,20,40,0.65))',
+              border: '1px solid rgba(99,102,241,0.15)',
+              padding: 'clamp(2.5rem, 6vw, 4rem)',
+              boxShadow: '0 24px 80px rgba(0,0,0,0.4), 0 0 60px rgba(99,102,241,0.06)',
+              backdropFilter: 'blur(12px)',
             }}
           >
             {/* HUD line + availability */}
-            <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-12">
               <div className="flex items-center gap-3" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                <span className="relative flex h-2 w-2">
+                <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: '#00ff88' }} />
-                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: '#00ff88' }} />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5" style={{ background: '#00ff88' }} />
                 </span>
                 <span style={{ fontSize: '12px', color: '#00ff88', letterSpacing: '0.18em', fontWeight: 700 }}>
                   SYSTEM ONLINE
                 </span>
-                <span style={{ color: '#475569' }}>·</span>
+                <span style={{ color: '#475569' }}>{'·'}</span>
                 <span style={{ fontSize: '12px', color: '#64748b', letterSpacing: '0.12em' }}>
                   PORTFOLIO_v2.0
                 </span>
               </div>
 
               <div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full"
                 style={{
-                  background: 'rgba(0,255,136,0.08)',
-                  border: '1px solid rgba(0,255,136,0.25)',
+                  background: 'rgba(0,255,136,0.06)',
+                  border: '1px solid rgba(0,255,136,0.2)',
+                  boxShadow: '0 0 20px rgba(0,255,136,0.06)',
                 }}
               >
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#22c55e' }} />
                 <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#34d399' }}>
-                  Disponible — Alternance sept. 2026
+                  Disponible {'—'} Alternance sept. 2026
                 </span>
               </div>
             </div>
 
             {/* Title */}
-            <p
+            <h3
               style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 'clamp(1.05rem, 2.4vw, 1.3rem)',
-                fontWeight: 700,
-                color: '#22d3ee',
-                marginBottom: '1rem',
-                letterSpacing: '0.01em',
+                fontFamily: "'Orbitron', system-ui, sans-serif",
+                fontSize: 'clamp(1.2rem, 3vw, 1.6rem)',
+                fontWeight: 800,
+                background: 'linear-gradient(135deg, #818cf8, #22d3ee)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                marginBottom: '2rem',
+                letterSpacing: '-0.01em',
               }}
             >
-              Alternant Admin. Systèmes &amp; Réseaux — Cybersécurité
-            </p>
+              Alternant Admin. Syst{'è'}mes & R{'é'}seaux {'—'} Cybers{'é'}curit{'é'}
+            </h3>
 
             {/* Description */}
             <p
               style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: '17px',
+                fontSize: '18px',
                 color: '#cbd5e1',
-                lineHeight: 1.75,
-                marginBottom: '2rem',
+                lineHeight: 1.85,
+                maxWidth: '700px',
               }}
             >
-              Étudiant en <span style={{ color: '#f1f5f9', fontWeight: 700 }}>BTS SIO option SISR</span>,
-              bilingue anglais-français. Spécialisé en administration systèmes, réseaux et cybersécurité.
-              Deux stages en support N1/N2, certifié <span style={{ color: '#22d3ee', fontWeight: 700 }}>ANSSI SecNumacadémie</span>.
+              {'É'}tudiant en <span style={{ color: '#f1f5f9', fontWeight: 700 }}>BTS SIO option SISR</span>,
+              bilingue anglais-fran{'ç'}ais. Sp{'é'}cialis{'é'} en administration syst{'è'}mes, r{'é'}seaux et cybers{'é'}curit{'é'}.
+              Deux stages en support N1/N2, certifi{'é'} <span style={{ color: '#22d3ee', fontWeight: 700 }}>ANSSI SecNumacad{'é'}mie</span>.
             </p>
+          </div>
+        </div>
+      </section>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-7">
-              {stats.map(({ value, suffix, label, color, icon: Icon }) => (
-                <div
-                  key={label}
-                  className="text-center p-4 rounded-xl transition-all duration-200 card-lift"
-                  style={{ background: `${color}10`, border: `1px solid ${color}25` }}
-                >
-                  <Icon size={20} style={{ color, margin: '0 auto 6px' }} />
-                  <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.55rem', fontWeight: 800, color, lineHeight: 1 }}>
-                    <CountUp target={value} suffix={suffix} />
-                  </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#94a3b8', fontWeight: 600, marginTop: '4px' }}>{label}</p>
-                </div>
-              ))}
-            </div>
+      {/* ── SECTION 3 — Stats cards (separate block) ── */}
+      <section className="relative" style={{ paddingTop: '2rem', paddingBottom: '6rem' }}>
+        <div className="w-full max-w-5xl mx-auto px-6 lg:px-10">
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-3 mb-5">
-              <Link
-                to="/projets"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white transition-all hover:-translate-y-0.5"
+          {/* Section label */}
+          <div className="flex items-center gap-4 mb-14">
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(34,211,238,0.4))' }} />
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '11px',
+              fontWeight: 700,
+              color: '#22d3ee',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+            }}>
+              EN CHIFFRES
+            </span>
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(34,211,238,0.4), transparent)' }} />
+          </div>
+
+          {/* Stats grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map(({ value, suffix, label, color, icon: Icon }) => (
+              <div
+                key={label}
+                className="group relative rounded-2xl text-center transition-all duration-300"
                 style={{
-                  background: 'linear-gradient(135deg, #6366f1, #22d3ee)',
+                  background: 'rgba(11,16,32,0.7)',
+                  border: `1px solid ${color}20`,
+                  padding: 'clamp(1.8rem, 3vw, 2.5rem) 1.5rem',
+                  cursor: 'default',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-6px)'
+                  e.currentTarget.style.borderColor = `${color}50`
+                  e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.3), 0 0 30px ${color}15`
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.borderColor = `${color}20`
+                  e.currentTarget.style.boxShadow = 'none'
+                }}
+              >
+                {/* Glow top bar */}
+                <div style={{ position: 'absolute', top: 0, left: '20%', right: '20%', height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.5, borderRadius: '0 0 4px 4px' }} />
+
+                <div
+                  className="mx-auto flex items-center justify-center rounded-xl"
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    background: `${color}12`,
+                    border: `1px solid ${color}30`,
+                    marginBottom: '1.2rem',
+                  }}
+                >
+                  <Icon size={26} style={{ color }} />
+                </div>
+                <p style={{
+                  fontFamily: "'Orbitron', system-ui, sans-serif",
+                  fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+                  fontWeight: 900,
+                  color,
+                  lineHeight: 1,
+                  marginBottom: '0.5rem',
+                  letterSpacing: '-0.03em',
+                }}>
+                  <CountUp target={value} suffix={suffix} />
+                </p>
+                <p style={{
                   fontFamily: "'Inter', sans-serif",
-                  textDecoration: 'none',
+                  fontSize: '13px',
+                  color: '#94a3b8',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                }}>
+                  {label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 4 — CTA buttons (separate block) ── */}
+      <section className="relative" style={{ paddingTop: '4rem', paddingBottom: '6rem' }}>
+        <div className="w-full max-w-5xl mx-auto px-6 lg:px-10">
+
+          {/* Section label */}
+          <div className="flex items-center gap-4 mb-14">
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.4))' }} />
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '11px',
+              fontWeight: 700,
+              color: '#a78bfa',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+            }}>
+              EXPLORER
+            </span>
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(167,139,250,0.4), transparent)' }} />
+          </div>
+
+          {/* CTA cards */}
+          <div className="grid sm:grid-cols-3 gap-6">
+            {/* Voir mes projets */}
+            <Link
+              to="/projets"
+              className="group relative flex flex-col items-center gap-4 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+              style={{
+                background: 'linear-gradient(145deg, rgba(99,102,241,0.12), rgba(34,211,238,0.06))',
+                border: '1px solid rgba(99,102,241,0.2)',
+                padding: '2.5rem 2rem',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(99,102,241,0.45)'
+                e.currentTarget.style.boxShadow = '0 20px 50px rgba(99,102,241,0.15), 0 0 30px rgba(99,102,241,0.08)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(99,102,241,0.2)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            >
+              <div
+                className="flex items-center justify-center rounded-xl"
+                style={{
+                  width: '60px',
+                  height: '60px',
+                  background: 'linear-gradient(135deg, #6366f1, #22d3ee)',
                   boxShadow: '0 8px 24px rgba(99,102,241,0.3)',
                 }}
               >
-                Voir mes projets <ArrowRight size={16} />
-              </Link>
-              <a
-                href="/cv-dilan-lengue.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-0.5"
-                style={{
-                  background: 'rgba(255,255,255,0.06)',
-                  border: '1px solid rgba(255,255,255,0.15)',
-                  color: '#f1f5f9',
-                  fontFamily: "'Inter', sans-serif",
-                  textDecoration: 'none',
-                }}
-              >
-                <Download size={16} /> Mon CV
-              </a>
-              <Link
-                to="/contact"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-0.5"
-                style={{
-                  background: 'rgba(34,211,238,0.08)',
-                  border: '1px solid rgba(34,211,238,0.25)',
-                  color: '#22d3ee',
-                  fontFamily: "'Inter', sans-serif",
-                  textDecoration: 'none',
-                }}
-              >
-                <Mail size={16} /> Me contacter
-              </Link>
-            </div>
+                <FolderKanban size={28} style={{ color: '#fff' }} />
+              </div>
+              <span style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '16px',
+                fontWeight: 700,
+                color: '#f1f5f9',
+              }}>
+                Voir mes projets
+              </span>
+              <span style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '13px',
+                color: '#94a3b8',
+                textAlign: 'center',
+                lineHeight: 1.5,
+              }}>
+                9+ projets infrastructure & dev
+              </span>
+              <ArrowRight size={18} style={{ color: '#6366f1', marginTop: '0.5rem' }} />
+            </Link>
 
-            {/* Socials */}
-            <div className="flex gap-3">
-              <a
-                href="https://github.com/dilan-lengue"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Profil GitHub de Dilan Lengue"
-                className="flex items-center justify-center w-11 h-11 rounded-xl transition-all hover:-translate-y-0.5"
+            {/* Mon CV */}
+            <a
+              href="/cv-dilan-lengue.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex flex-col items-center gap-4 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+              style={{
+                background: 'rgba(11,16,32,0.7)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                padding: '2.5rem 2rem',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'
+                e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.3)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            >
+              <div
+                className="flex items-center justify-center rounded-xl"
                 style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  color: '#cbd5e1',
+                  width: '60px',
+                  height: '60px',
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.15)',
                 }}
               >
-                <Github size={18} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/dilan-lengue"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Profil LinkedIn de Dilan Lengue"
-                className="flex items-center justify-center w-11 h-11 rounded-xl transition-all hover:-translate-y-0.5"
+                <Download size={28} style={{ color: '#e2e8f0' }} />
+              </div>
+              <span style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '16px',
+                fontWeight: 700,
+                color: '#f1f5f9',
+              }}>
+                Mon CV
+              </span>
+              <span style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '13px',
+                color: '#94a3b8',
+                textAlign: 'center',
+                lineHeight: 1.5,
+              }}>
+                T{'é'}l{'é'}charger en PDF
+              </span>
+              <ArrowRight size={18} style={{ color: '#94a3b8', marginTop: '0.5rem' }} />
+            </a>
+
+            {/* Me contacter */}
+            <Link
+              to="/contact"
+              className="group relative flex flex-col items-center gap-4 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+              style={{
+                background: 'linear-gradient(145deg, rgba(34,211,238,0.08), rgba(0,255,136,0.04))',
+                border: '1px solid rgba(34,211,238,0.2)',
+                padding: '2.5rem 2rem',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(34,211,238,0.45)'
+                e.currentTarget.style.boxShadow = '0 20px 50px rgba(34,211,238,0.1), 0 0 30px rgba(34,211,238,0.06)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(34,211,238,0.2)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            >
+              <div
+                className="flex items-center justify-center rounded-xl"
                 style={{
-                  background: 'rgba(10,102,194,0.08)',
-                  border: '1px solid rgba(10,102,194,0.25)',
-                  color: '#5fa8e8',
+                  width: '60px',
+                  height: '60px',
+                  background: 'rgba(34,211,238,0.12)',
+                  border: '1px solid rgba(34,211,238,0.3)',
                 }}
               >
-                <Linkedin size={18} />
-              </a>
-            </div>
+                <Mail size={28} style={{ color: '#22d3ee' }} />
+              </div>
+              <span style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '16px',
+                fontWeight: 700,
+                color: '#f1f5f9',
+              }}>
+                Me contacter
+              </span>
+              <span style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '13px',
+                color: '#94a3b8',
+                textAlign: 'center',
+                lineHeight: 1.5,
+              }}>
+                Email, LinkedIn, Discord
+              </span>
+              <ArrowRight size={18} style={{ color: '#22d3ee', marginTop: '0.5rem' }} />
+            </Link>
+          </div>
+
+          {/* Socials row */}
+          <div className="flex justify-center gap-5" style={{ marginTop: '4rem' }}>
+            <a
+              href="https://github.com/dilan-lengue"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Profil GitHub de Dilan Lengue"
+              className="flex items-center gap-2.5 px-5 py-3 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                color: '#cbd5e1',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'
+                e.currentTarget.style.color = '#f1f5f9'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
+                e.currentTarget.style.color = '#cbd5e1'
+              }}
+            >
+              <Github size={20} />
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 600 }}>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dilan-lengue"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Profil LinkedIn de Dilan Lengue"
+              className="flex items-center gap-2.5 px-5 py-3 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background: 'rgba(10,102,194,0.08)',
+                border: '1px solid rgba(10,102,194,0.2)',
+                color: '#5fa8e8',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(10,102,194,0.45)'
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(10,102,194,0.1)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(10,102,194,0.2)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            >
+              <Linkedin size={20} />
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 600 }}>LinkedIn</span>
+            </a>
           </div>
         </div>
       </section>
 
       {/* Tech strip */}
       <div
-        className="py-5 text-center"
+        className="py-10 text-center"
         style={{
-          borderTop: '1px solid rgba(255,255,255,0.04)',
-          borderBottom: '1px solid rgba(255,255,255,0.04)',
-          background: 'rgba(99,102,241,0.02)',
+          borderTop: '1px solid rgba(255,255,255,0.06)',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          background: 'linear-gradient(180deg, rgba(99,102,241,0.03), rgba(34,211,238,0.02))',
         }}
       >
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 px-4">
+        <p style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: '10px',
+          fontWeight: 700,
+          color: '#475569',
+          letterSpacing: '0.25em',
+          textTransform: 'uppercase',
+          marginBottom: '1rem',
+        }}>
+          TECHNOLOGIES
+        </p>
+        <div className="flex flex-wrap justify-center gap-x-3 gap-y-3 px-6">
           {['Windows Server', 'Linux', 'Cisco', 'Active Directory', 'OpenVPN', 'Nagios', 'GLPI', 'Wireshark'].map(tech => (
-            <span key={tech} style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '13px',
-              color: '#475569',
-              letterSpacing: '0.5px',
-              fontWeight: 500,
-            }}>
+            <span
+              key={tech}
+              className="transition-all duration-200"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '12.5px',
+                color: '#94a3b8',
+                fontWeight: 500,
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid rgba(255,255,255,0.06)',
+                borderRadius: '8px',
+                padding: '6px 14px',
+              }}
+            >
               {tech}
             </span>
           ))}

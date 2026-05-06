@@ -147,7 +147,7 @@ function CVSection({ section, isOpen, onToggle }) {
     >
       {/* Section header — always visible */}
       <button
-        className="w-full flex items-center justify-between p-6 transition-all duration-200"
+        className="w-full flex items-center justify-between p-8 transition-all duration-200"
         onClick={onToggle}
         style={{ cursor: 'pointer' }}
         onMouseEnter={e => {
@@ -201,12 +201,12 @@ function CVSection({ section, isOpen, onToggle }) {
 
       {/* Section content */}
       {isOpen && (
-        <div className="px-6 pb-6">
+        <div className="px-8 pb-8">
           <div style={{ height: '1px', background: `${section.color}20`, marginBottom: '1.5rem' }} />
 
           {/* Timeline items (formation, experience, certifications) */}
           {section.items && (
-            <div className="space-y-5">
+            <div className="space-y-6">
               {section.items.map((item, i) => (
                 <div key={i} className="flex gap-4">
                   {/* Timeline dot + line */}
@@ -270,11 +270,11 @@ function CVSection({ section, isOpen, onToggle }) {
 
           {/* Skills grid */}
           {section.skills && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {section.skills.map((skill) => {
                 const SkillIcon = skill.icon
                 return (
-                  <div key={skill.label} className="p-4 rounded-xl"
+                  <div key={skill.label} className="p-5 rounded-xl"
                     style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
                   >
                     <div className="flex items-center gap-2 mb-3">
@@ -305,7 +305,7 @@ function CVSection({ section, isOpen, onToggle }) {
 
           {/* Langues */}
           {section.langues && (
-            <div className="space-y-4">
+            <div className="space-y-5">
               {section.langues.map(({ flag, lang, level, pct }) => (
                 <div key={lang}>
                   <div className="flex items-center justify-between mb-2">
@@ -349,11 +349,11 @@ export default function CVPage() {
   }
 
   return (
-    <section className="relative" style={{ paddingTop: '4rem', paddingBottom: '6rem' }}>
+    <section className="relative" style={{ paddingTop: '8rem', paddingBottom: '10rem' }}>
       <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-14">
           <h2
             style={{
               fontFamily: "'Orbitron', system-ui, sans-serif",
@@ -380,7 +380,7 @@ export default function CVPage() {
         </div>
 
         {/* Download & View buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div className="flex flex-wrap justify-center gap-5 mb-12">
           <a
             href="/cv-dilan-lengue.pdf"
             target="_blank"
@@ -411,7 +411,7 @@ export default function CVPage() {
         </div>
 
         {/* Expandable CV sections */}
-        <div className="space-y-4">
+        <div className="space-y-6">
           {sections.map(section => (
             <CVSection
               key={section.id}
@@ -423,7 +423,7 @@ export default function CVPage() {
         </div>
 
         {/* Open all / Close all */}
-        <div className="flex justify-center gap-3 mt-6">
+        <div className="flex justify-center gap-5 mt-8">
           <button
             className="px-4 py-2 rounded-lg text-sm font-semibold transition-all"
             style={{
