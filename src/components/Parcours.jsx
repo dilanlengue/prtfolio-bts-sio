@@ -67,213 +67,220 @@ const formations = [
   },
 ]
 
-function StageCard({ stage }) {
+function StageCard({ stage, index }) {
   const [open, setOpen] = useState(false)
   return (
-    <div
-      className="relative rounded-2xl overflow-hidden transition-all duration-300"
-      style={{
-        background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
-        border: '1.5px solid rgba(251,191,36,0.15)',
-        backdropFilter: 'blur(8px)',
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.borderColor = 'rgba(251,191,36,0.4)'
-        e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(251,191,36,0.08)'
-        e.currentTarget.style.transform = 'translateY(-4px)'
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.borderColor = 'rgba(251,191,36,0.15)'
-        e.currentTarget.style.boxShadow = 'none'
-        e.currentTarget.style.transform = 'translateY(0)'
-      }}
-    >
-      <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #fbbf24, transparent)', opacity: 0.6 }} />
-      <div className="p-7">
-        <div className="flex items-center justify-between mb-4">
-          <span style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: '12px',
-            fontWeight: 700,
-            color: '#fbbf24',
-            letterSpacing: '0.1em',
-            padding: '4px 12px',
-            background: 'rgba(251,191,36,0.08)',
-            border: '1px solid rgba(251,191,36,0.2)',
-            borderRadius: '6px',
-          }}>
-            {stage.date}
-          </span>
-          <div className="flex items-center gap-1.5" style={{ color: '#475569', fontSize: '13px', fontFamily: "'Inter', sans-serif" }}>
-            <MapPin size={13} />
-            {stage.place}
-          </div>
+    <div className="flex gap-5">
+      {/* Numéro + ligne */}
+      <div className="flex flex-col items-center" style={{ minWidth: '40px' }}>
+        <div style={{
+          width: '40px', height: '40px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          borderRadius: '12px',
+          background: 'rgba(251,191,36,0.1)',
+          border: '2px solid rgba(251,191,36,0.3)',
+          fontFamily: "'Orbitron', system-ui, sans-serif",
+          fontSize: '14px', fontWeight: 900, color: '#fbbf24',
+          flexShrink: 0,
+        }}>
+          {String(index + 1).padStart(2, '0')}
         </div>
+        <div style={{ flex: 1, width: '2px', background: 'linear-gradient(180deg, rgba(251,191,36,0.3), transparent)', marginTop: '8px' }} />
+      </div>
 
-        <h4 style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '1.2rem',
-          fontWeight: 800,
-          color: '#f1f5f9',
-          marginBottom: '0.3rem',
-          letterSpacing: '-0.02em',
-        }}>
-          {stage.title}
-        </h4>
+      {/* Card */}
+      <div
+        className="relative rounded-2xl overflow-hidden transition-all duration-300 flex-1"
+        style={{
+          background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
+          border: '1.5px solid rgba(251,191,36,0.12)',
+          backdropFilter: 'blur(8px)',
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.borderColor = 'rgba(251,191,36,0.4)'
+          e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(251,191,36,0.08)'
+          e.currentTarget.style.transform = 'translateY(-4px)'
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.borderColor = 'rgba(251,191,36,0.12)'
+          e.currentTarget.style.boxShadow = 'none'
+          e.currentTarget.style.transform = 'translateY(0)'
+        }}
+      >
+        <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #fbbf24, transparent)', opacity: 0.5 }} />
+        <div style={{ padding: '2rem 2rem 1.8rem' }}>
+          <div className="flex items-center justify-between" style={{ marginBottom: '1.2rem' }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '12px', fontWeight: 700, color: '#fbbf24',
+              letterSpacing: '0.1em', padding: '5px 14px',
+              background: 'rgba(251,191,36,0.08)',
+              border: '1px solid rgba(251,191,36,0.2)',
+              borderRadius: '8px',
+            }}>
+              {stage.date}
+            </span>
+            <div className="flex items-center gap-1.5" style={{ color: '#475569', fontSize: '13px', fontFamily: "'Inter', sans-serif" }}>
+              <MapPin size={13} />
+              {stage.place}
+            </div>
+          </div>
 
-        <p style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '15px',
-          fontWeight: 600,
-          color: '#fbbf24',
-          marginBottom: '1rem',
-        }}>
-          {stage.org}
-        </p>
+          <h4 style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '1.25rem', fontWeight: 800, color: '#f1f5f9',
+            marginBottom: '0.4rem', letterSpacing: '-0.02em', lineHeight: 1.3,
+          }}>
+            {stage.title}
+          </h4>
 
-        <div className="flex flex-wrap gap-2 mb-4">
-          {stage.pills.map(p => (
-            <span
-              key={p}
-              className="px-3 py-1 rounded-lg"
-              style={{
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '15.5px', fontWeight: 600, color: '#fbbf24',
+            marginBottom: '1.2rem',
+          }}>
+            {stage.org}
+          </p>
+
+          <div className="flex flex-wrap gap-2.5" style={{ marginBottom: '1.2rem' }}>
+            {stage.pills.map(p => (
+              <span key={p} className="px-3.5 py-1.5 rounded-lg" style={{
                 background: 'rgba(251,191,36,0.06)',
                 border: '1px solid rgba(251,191,36,0.15)',
                 color: '#d4a437',
                 fontFamily: "'Inter', sans-serif",
-                fontSize: '12.5px',
-                fontWeight: 600,
-              }}
-            >
-              {p}
-            </span>
-          ))}
-        </div>
-
-        <button
-          onClick={() => setOpen(!open)}
-          className="flex items-center gap-1.5 transition-all"
-          style={{
-            color: '#fbbf24',
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '13px',
-            fontWeight: 700,
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: 0,
-          }}
-        >
-          {open ? <><ChevronUp size={14} /> Masquer</> : <><ChevronDown size={14} /> Voir les missions</>}
-        </button>
-
-        {open && (
-          <div className="mt-4 space-y-2 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-            {stage.items.map((it, i) => (
-              <div key={i} className="flex items-start gap-2.5">
-                <span style={{ color: '#fbbf24', fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, marginTop: '2px', flexShrink: 0 }}>&#9656;</span>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#94a3b8', lineHeight: 1.7 }}>{it}</span>
-              </div>
+                fontSize: '12.5px', fontWeight: 600,
+              }}>
+                {p}
+              </span>
             ))}
           </div>
-        )}
+
+          <button
+            onClick={() => setOpen(!open)}
+            className="flex items-center gap-2 transition-all"
+            style={{
+              color: '#fbbf24', fontFamily: "'Inter', sans-serif",
+              fontSize: '13.5px', fontWeight: 700,
+              background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.15)',
+              borderRadius: '10px', cursor: 'pointer', padding: '8px 16px',
+            }}
+          >
+            {open ? <><ChevronUp size={14} /> Masquer</> : <><ChevronDown size={14} /> Voir les missions</>}
+          </button>
+
+          {open && (
+            <div className="space-y-3" style={{ marginTop: '1.4rem', paddingTop: '1.2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+              {stage.items.map((it, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <span style={{ color: '#fbbf24', fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, marginTop: '3px', flexShrink: 0 }}>&#9656;</span>
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.8 }}>{it}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
 }
 
-function FormationCard({ formation }) {
+function FormationCard({ formation, index }) {
   const color = formation.current ? '#22d3ee' : '#818cf8'
   return (
-    <div
-      className="relative rounded-2xl overflow-hidden transition-all duration-300"
-      style={{
-        background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
-        border: `1.5px solid ${color}15`,
-        backdropFilter: 'blur(8px)',
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.borderColor = `${color}40`
-        e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 30px ${color}08`
-        e.currentTarget.style.transform = 'translateY(-4px)'
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.borderColor = `${color}15`
-        e.currentTarget.style.boxShadow = 'none'
-        e.currentTarget.style.transform = 'translateY(0)'
-      }}
-    >
-      <div style={{ height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.6 }} />
-      <div className="p-7">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2.5">
-            <span style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '12px',
-              fontWeight: 700,
-              color,
-              letterSpacing: '0.1em',
-              padding: '4px 12px',
-              background: `${color}0a`,
-              border: `1px solid ${color}20`,
-              borderRadius: '6px',
-            }}>
-              {formation.date}
-            </span>
-            {formation.current && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full" style={{
-                background: 'rgba(0,255,136,0.06)',
-                border: '1px solid rgba(0,255,136,0.2)',
-              }}>
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#22c55e' }} />
-                <span style={{ fontSize: '11px', fontWeight: 700, color: '#34d399', fontFamily: "'Inter', sans-serif" }}>En cours</span>
-              </span>
-            )}
-          </div>
-          <div className="flex items-center gap-1.5" style={{ color: '#475569', fontSize: '13px', fontFamily: "'Inter', sans-serif" }}>
-            <MapPin size={13} />
-            {formation.place}
-          </div>
+    <div className="flex gap-5">
+      {/* Numéro + ligne */}
+      <div className="flex flex-col items-center" style={{ minWidth: '40px' }}>
+        <div style={{
+          width: '40px', height: '40px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          borderRadius: '12px',
+          background: `${color}12`,
+          border: `2px solid ${color}35`,
+          fontFamily: "'Orbitron', system-ui, sans-serif",
+          fontSize: '14px', fontWeight: 900, color,
+          flexShrink: 0,
+        }}>
+          {String(index + 1).padStart(2, '0')}
         </div>
+        <div style={{ flex: 1, width: '2px', background: `linear-gradient(180deg, ${color}35, transparent)`, marginTop: '8px' }} />
+      </div>
 
-        <h4 style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '1.15rem',
-          fontWeight: 800,
-          color: '#f1f5f9',
-          marginBottom: '0.3rem',
-          letterSpacing: '-0.02em',
-        }}>
-          {formation.title}
-        </h4>
+      {/* Card */}
+      <div
+        className="relative rounded-2xl overflow-hidden transition-all duration-300 flex-1"
+        style={{
+          background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
+          border: `1.5px solid ${color}15`,
+          backdropFilter: 'blur(8px)',
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.borderColor = `${color}40`
+          e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 30px ${color}08`
+          e.currentTarget.style.transform = 'translateY(-4px)'
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.borderColor = `${color}15`
+          e.currentTarget.style.boxShadow = 'none'
+          e.currentTarget.style.transform = 'translateY(0)'
+        }}
+      >
+        <div style={{ height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.5 }} />
+        <div style={{ padding: '1.8rem 2rem' }}>
+          <div className="flex items-center justify-between" style={{ marginBottom: '1rem' }}>
+            <div className="flex items-center gap-2.5">
+              <span style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '12px', fontWeight: 700, color,
+                letterSpacing: '0.1em', padding: '5px 14px',
+                background: `${color}0a`, border: `1px solid ${color}20`,
+                borderRadius: '8px',
+              }}>
+                {formation.date}
+              </span>
+              {formation.current && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{
+                  background: 'rgba(0,255,136,0.06)',
+                  border: '1px solid rgba(0,255,136,0.2)',
+                }}>
+                  <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#22c55e' }} />
+                  <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#34d399', fontFamily: "'Inter', sans-serif" }}>En cours</span>
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-1.5" style={{ color: '#475569', fontSize: '13px', fontFamily: "'Inter', sans-serif" }}>
+              <MapPin size={13} />
+              {formation.place}
+            </div>
+          </div>
 
-        <p style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '15px',
-          fontWeight: 600,
-          color,
-          marginBottom: '1rem',
-        }}>
-          {formation.org}
-        </p>
+          <h4 style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '1.15rem', fontWeight: 800, color: '#f1f5f9',
+            marginBottom: '0.4rem', letterSpacing: '-0.02em', lineHeight: 1.3,
+          }}>
+            {formation.title}
+          </h4>
 
-        <div className="flex flex-wrap gap-2">
-          {formation.pills.map(p => (
-            <span
-              key={p}
-              className="px-3 py-1 rounded-lg"
-              style={{
-                background: `${color}08`,
-                border: `1px solid ${color}18`,
-                color: `${color}cc`,
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '12.5px',
-                fontWeight: 600,
-              }}
-            >
-              {p}
-            </span>
-          ))}
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '15px', fontWeight: 600, color,
+            marginBottom: '1.2rem',
+          }}>
+            {formation.org}
+          </p>
+
+          <div className="flex flex-wrap gap-2.5">
+            {formation.pills.map(p => (
+              <span key={p} className="px-3.5 py-1.5 rounded-lg" style={{
+                background: `${color}08`, border: `1px solid ${color}18`,
+                color: `${color}cc`, fontFamily: "'Inter', sans-serif",
+                fontSize: '12.5px', fontWeight: 600,
+              }}>
+                {p}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -282,20 +289,35 @@ function FormationCard({ formation }) {
 
 export default function Parcours() {
   return (
-    <section id="parcours" className="relative" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
-      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
+    <section id="parcours" className="relative" style={{ paddingTop: '12rem', paddingBottom: '12rem' }}>
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
 
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center" style={{ marginBottom: '5rem' }}>
+          <div className="animate-fade-up" style={{ marginBottom: '1.5rem' }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '13px', fontWeight: 700,
+              letterSpacing: '0.2em',
+              color: '#818cf8',
+              textTransform: 'uppercase',
+              padding: '6px 18px',
+              background: 'rgba(129,140,248,0.06)',
+              border: '1px solid rgba(129,140,248,0.15)',
+              borderRadius: '99px',
+            }}>
+              Parcours & Formation
+            </span>
+          </div>
           <h2
             className="animate-fade-up"
             style={{
               fontFamily: "'Orbitron', system-ui, sans-serif",
-              fontSize: 'clamp(2rem, 5vw, 2.8rem)',
+              fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
               fontWeight: 900,
               letterSpacing: '-0.02em',
               lineHeight: 1.1,
-              marginBottom: '1.2rem',
+              marginBottom: '1.5rem',
               background: 'linear-gradient(135deg, #f1f5f9 0%, #818cf8 50%, #22d3ee 100%)',
               backgroundSize: '200% 100%',
               WebkitBackgroundClip: 'text',
@@ -306,15 +328,16 @@ export default function Parcours() {
           >
             Mon Parcours
           </h2>
+          <div style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, #6366f1, #22d3ee)', borderRadius: '99px', margin: '0 auto 1.8rem' }} />
           <p
             className="animate-fade-up mx-auto"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '17px',
+              fontSize: '18px',
               fontWeight: 500,
               color: '#94a3b8',
-              lineHeight: 1.7,
-              maxWidth: '560px',
+              lineHeight: 1.8,
+              maxWidth: '600px',
             }}
           >
             Formation initiale en BTS SIO SISR à l'Institut F2I, complétée par
@@ -323,80 +346,82 @@ export default function Parcours() {
         </div>
 
         {/* ── STAGES (gauche) + FORMATION (droite) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: '4rem' }}>
 
           {/* Colonne gauche — STAGES */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-4" style={{ marginBottom: '2.5rem' }}>
               <div style={{
-                width: '44px', height: '44px',
+                width: '52px', height: '52px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                borderRadius: '14px',
+                borderRadius: '16px',
                 background: 'rgba(251,191,36,0.08)',
-                border: '1.5px solid rgba(251,191,36,0.25)',
-                boxShadow: '0 0 20px rgba(251,191,36,0.06)',
+                border: '2px solid rgba(251,191,36,0.25)',
+                boxShadow: '0 0 25px rgba(251,191,36,0.06)',
               }}>
-                <Briefcase size={22} style={{ color: '#fbbf24' }} />
+                <Briefcase size={24} style={{ color: '#fbbf24' }} />
               </div>
               <div>
                 <h3 style={{
                   fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: '1.3rem',
+                  fontSize: '1.5rem',
                   fontWeight: 800,
                   color: '#fbbf24',
                   lineHeight: 1,
+                  marginBottom: '4px',
                 }}>
                   Stages
                 </h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.5px', color: '#64748b', marginTop: '3px' }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#64748b' }}>
                   Expérience en entreprise
                 </p>
               </div>
             </div>
 
-            <div className="space-y-6">
-              {stages.map(s => <StageCard key={s.org} stage={s} />)}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              {stages.map((s, i) => <StageCard key={s.org} stage={s} index={i} />)}
             </div>
           </div>
 
           {/* Colonne droite — FORMATION */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-4" style={{ marginBottom: '2.5rem' }}>
               <div style={{
-                width: '44px', height: '44px',
+                width: '52px', height: '52px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                borderRadius: '14px',
+                borderRadius: '16px',
                 background: 'rgba(34,211,238,0.08)',
-                border: '1.5px solid rgba(34,211,238,0.25)',
-                boxShadow: '0 0 20px rgba(34,211,238,0.06)',
+                border: '2px solid rgba(34,211,238,0.25)',
+                boxShadow: '0 0 25px rgba(34,211,238,0.06)',
               }}>
-                <GraduationCap size={22} style={{ color: '#22d3ee' }} />
+                <GraduationCap size={24} style={{ color: '#22d3ee' }} />
               </div>
               <div>
                 <h3 style={{
                   fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: '1.3rem',
+                  fontSize: '1.5rem',
                   fontWeight: 800,
                   color: '#22d3ee',
                   lineHeight: 1,
+                  marginBottom: '4px',
                 }}>
                   Formation
                 </h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.5px', color: '#64748b', marginTop: '3px' }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#64748b' }}>
                   Cursus académique
                 </p>
               </div>
             </div>
 
-            <div className="space-y-5">
-              {formations.map(f => <FormationCard key={f.title} formation={f} />)}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
+              {formations.map((f, i) => <FormationCard key={f.title} formation={f} index={i} />)}
             </div>
           </div>
 
         </div>
 
         {/* ── LANGUES ── */}
-        <div className="animate-fade-up" style={{ marginTop: '6rem' }}>
+        <div className="animate-fade-up" style={{ marginTop: '8rem' }}>
           <div className="text-center mb-14">
             <h3
               style={{
