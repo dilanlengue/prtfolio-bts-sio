@@ -33,16 +33,16 @@ function CountUp({ target, suffix = '', prefix = '' }) {
 
 /* ─── Data ─── */
 const statsData = [
-  { value: 9,  suffix: '+', label: 'PROJETS RÉALISÉS',    desc: 'Infrastructure, support & développement',  color: '#22d3ee', icon: FolderKanban },
-  { value: 4,  suffix: '',  label: 'MODULES ANSSI',       desc: 'SecNumacadémie validés (88-94 %)',         color: '#22c55e', icon: ShieldCheck },
-  { value: 3,  suffix: '+', label: 'ANNÉES D\'EXPÉRIENCE', desc: 'Bac+2 + HND + Licence Informatique',       color: '#f59e0b', icon: CalendarDays },
-  { value: 4,  suffix: '',  label: 'CERTIFICATIONS',      desc: 'ANSSI · EBIOS · Udemy · Coursera',         color: '#a78bfa', icon: Award },
+  { value: 6,  suffix: '',  label: 'PROJETS RÉALISÉS',     desc: 'Infrastructure, support & développement',  color: '#22d3ee', icon: FolderKanban },
+  { value: 2,  suffix: '',  label: 'CERTIFICATIONS',       desc: 'Obtenues et validées',                     color: '#a78bfa', icon: Award },
+  { value: 2,  suffix: '',  label: 'EN COURS',             desc: 'Certifications en préparation',            color: '#22c55e', icon: ShieldCheck },
+  { value: 2,  suffix: '',  label: 'ANNÉES D\'EXPÉRIENCE',  desc: 'Formation + stages en entreprise',         color: '#f59e0b', icon: CalendarDays },
 ]
 
 const apports = [
   { color: '#22d3ee', icon: Server, title: 'Administration opérationnelle',  desc: 'Windows Server, AD DS, GPO, DNS/DHCP' },
-  { color: '#22c55e', icon: BarChart3, title: 'Impact mesurable',               desc: '9+ projets livrés · supervision Nagios · 3 expériences pro' },
-  { color: '#a78bfa', icon: Lock, title: 'Sécurité by design',             desc: 'OpenVPN, Nessus, iptables, SecNum 100%' },
+  { color: '#22c55e', icon: BarChart3, title: 'Impact mesurable',               desc: '6 projets livrés · supervision Nagios · 2 stages pro' },
+  { color: '#a78bfa', icon: Lock, title: 'Sécurité by design',             desc: 'OpenVPN, Nessus, iptables, SecNum' },
   { color: '#fbbf24', icon: FileText, title: 'Livraison documentée',           desc: 'Guides techniques, rapports de stage, documentation réseau' },
 ]
 
@@ -408,7 +408,7 @@ export default function Dashboard() {
                   letterSpacing: '0.01em',
                 }}
               >
-                Alternant Admin. Syst{'\u00e8'}mes & R{'\u00e9'}seaux
+                {'É'}tudiant Admin. Syst{'è'}mes & R{'é'}seaux
               </span>
 
               <div
@@ -490,108 +490,102 @@ export default function Dashboard() {
         </div>
 
 
-        {/* ── Section divider ── */}
-        <SectionLabel label="STATISTIQUES" color="#22d3ee" mt="my-32" />
+        {/* ── Statistiques — titre pleine largeur ── */}
+        <div className="animate-fade-up mb-16" style={{ marginTop: '6rem' }}>
+          <div className="flex items-center gap-4 mb-14">
+            <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #22d3ee, transparent)', borderRadius: '2px' }} />
+            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 700, color: '#22d3ee', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
+              Mes chiffres
+            </p>
+            <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #22d3ee)', borderRadius: '2px' }} />
+          </div>
 
-        {/* ── Stats row — 4 cards with icon + desc ── */}
-        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" style={{ transitionDelay: '0.08s' }}>
-          {statsData.map((s) => {
-            const Icon = s.icon
-            return (
-              <div
-                key={s.label}
-                className="flex flex-col rounded-2xl p-8 transition-all duration-300"
-                style={{
-                  background: 'rgba(11,16,32,0.7)',
-                  border: `1px solid ${s.color}22`,
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-4px)'
-                  e.currentTarget.style.borderColor = `${s.color}55`
-                  e.currentTarget.style.boxShadow = `0 14px 36px rgba(0,0,0,0.3), 0 0 24px ${s.color}1a`
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.borderColor = `${s.color}22`
-                  e.currentTarget.style.boxShadow = 'none'
-                }}
-              >
-                {/* Icon header */}
-                <div className="flex items-center justify-between mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {statsData.map((s) => {
+              const Icon = s.icon
+              return (
+                <div
+                  key={s.label}
+                  className="flex flex-col items-center text-center rounded-2xl p-10 transition-all duration-300"
+                  style={{
+                    background: 'rgba(11,16,32,0.7)',
+                    border: `1px solid ${s.color}22`,
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = 'translateY(-6px)'
+                    e.currentTarget.style.borderColor = `${s.color}55`
+                    e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 30px ${s.color}15`
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.borderColor = `${s.color}22`
+                    e.currentTarget.style.boxShadow = 'none'
+                  }}
+                >
                   <div
-                    className="flex items-center justify-center rounded-xl"
+                    className="flex items-center justify-center rounded-2xl mb-6"
                     style={{
-                      width: '52px',
-                      height: '52px',
-                      background: `${s.color}15`,
-                      border: `1px solid ${s.color}40`,
+                      width: '64px',
+                      height: '64px',
+                      background: `${s.color}12`,
+                      border: `1px solid ${s.color}35`,
                     }}
                   >
-                    <Icon size={26} style={{ color: s.color }} />
+                    <Icon size={30} style={{ color: s.color }} />
                   </div>
+
                   <span
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: '10.5px',
-                      fontWeight: 700,
+                      fontFamily: "'Orbitron', system-ui, sans-serif",
+                      fontSize: 'clamp(2.8rem, 5vw, 3.4rem)',
+                      fontWeight: 900,
                       color: s.color,
-                      letterSpacing: '0.08em',
-                      opacity: 0.7,
+                      lineHeight: 1,
+                      marginBottom: '0.8rem',
                     }}
                   >
-                    /{s.label.split(' ')[0].slice(0, 4).toLowerCase()}
+                    <CountUp target={s.value} suffix={s.suffix} />
+                  </span>
+
+                  <span
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: '14px',
+                      fontWeight: 700,
+                      color: '#f1f5f9',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
+                    {s.label}
+                  </span>
+
+                  <span
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: '14px',
+                      fontWeight: 400,
+                      color: '#94a3b8',
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {s.desc}
                   </span>
                 </div>
-
-                {/* Big value */}
-                <span
-                  style={{
-                    fontFamily: "'Orbitron', system-ui, sans-serif",
-                    fontSize: 'clamp(2.2rem, 4.5vw, 2.8rem)',
-                    fontWeight: 900,
-                    color: s.color,
-                    lineHeight: 1,
-                    marginBottom: '0.6rem',
-                    letterSpacing: '-0.03em',
-                  }}
-                >
-                  <CountUp target={s.value} suffix={s.suffix} />
-                </span>
-
-                {/* Label */}
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '12.5px',
-                    fontWeight: 700,
-                    color: '#f1f5f9',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    marginBottom: '0.4rem',
-                  }}
-                >
-                  {s.label}
-                </span>
-
-                {/* Description */}
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '13px',
-                    fontWeight: 400,
-                    color: '#94a3b8',
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {s.desc}
-                </span>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
 
-        {/* ── Section divider ── */}
-        <SectionLabel label="MON PROFIL" color="#a78bfa" mt="my-32" />
+        {/* ── Mon Profil — titre pleine largeur ── */}
+        <div className="flex items-center gap-4 mb-14" style={{ marginTop: '6rem' }}>
+          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #a78bfa, transparent)', borderRadius: '2px' }} />
+          <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 700, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
+            Mon Profil
+          </p>
+          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #a78bfa)', borderRadius: '2px' }} />
+        </div>
 
         {/* ── CE QUE J'APPORTE + DOMAINES CLÉS — 2 cols ── */}
         <div className="grid md:grid-cols-2 gap-10 mb-24">
