@@ -439,6 +439,75 @@ export default function Dashboard() {
           </div>
         </div>
 
+        {/* ── À propos de moi ── */}
+        <div
+          className="animate-fade-up rounded-2xl overflow-hidden mb-20"
+          style={{
+            background: 'rgba(11,16,32,0.62)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            transitionDelay: '0.04s',
+          }}
+        >
+          <div className="px-8 md:px-16 py-14">
+            <p
+              style={{
+                fontFamily: "'Orbitron', system-ui, sans-serif",
+                fontSize: '13px',
+                fontWeight: 700,
+                color: '#818cf8',
+                textTransform: 'uppercase',
+                letterSpacing: '0.2em',
+                marginBottom: '2rem',
+              }}
+            >
+              {'À'} PROPOS DE MOI
+            </p>
+
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '16px',
+              fontWeight: 400,
+              color: '#cbd5e1',
+              lineHeight: 1.9,
+              marginBottom: '1.5rem',
+            }}>
+              Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 600 }}>Dilan Lengue</span>, j'ai 20 ans et je suis {'é'}tudiant en <span style={{ color: '#818cf8', fontWeight: 600 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 600 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'Institut F2I.
+            </p>
+
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '16px',
+              fontWeight: 400,
+              color: '#cbd5e1',
+              lineHeight: 1.9,
+              marginBottom: '1.5rem',
+            }}>
+              Passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en <span style={{ color: '#22d3ee', fontWeight: 600 }}>administration r{'é'}seau</span>, <span style={{ color: '#22d3ee', fontWeight: 600 }}>gestion de serveurs</span> et <span style={{ color: '#22d3ee', fontWeight: 600 }}>s{'é'}curit{'é'} informatique</span>.
+            </p>
+
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '16px',
+              fontWeight: 400,
+              color: '#cbd5e1',
+              lineHeight: 1.9,
+              marginBottom: '1.5rem',
+            }}>
+              Au cours de ma formation, j'ai eu l'opportunit{'é'} de mettre mes connaissances en pratique {'à'} travers plusieurs projets techniques et stages en entreprise. Rigoureux, curieux et motiv{'é'}, j'aime relever des d{'é'}fis techniques et trouver des solutions efficaces aux probl{'è'}mes rencontr{'é'}s.
+            </p>
+
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '16px',
+              fontWeight: 400,
+              color: '#cbd5e1',
+              lineHeight: 1.9,
+            }}>
+              {'À'} travers ce portfolio, je souhaite partager mon parcours, mes projets et les comp{'é'}tences que j'ai acquises dans le cadre de mon BTS. Mon projet professionnel est de devenir <span style={{ color: '#a78bfa', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'} & Pen Tester</span>, en passant par une Licence Pro puis un Master en Cybers{'é'}curit{'é'}.
+            </p>
+          </div>
+        </div>
+
         {/* ── Terminal $ whoami ── */}
         <div
           className="animate-fade-up rounded-2xl overflow-hidden mb-20"
