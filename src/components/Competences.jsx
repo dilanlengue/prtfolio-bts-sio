@@ -127,26 +127,31 @@ export default function Competences() {
                       cursor: 'pointer',
                     }}
                     onMouseEnter={e => {
-                      e.currentTarget.style.borderColor = `${tool.color}45`
-                      e.currentTarget.style.background = 'rgba(11,16,32,0.9)'
-                      e.currentTarget.style.transform = 'translateY(-4px)'
-                      e.currentTarget.style.boxShadow = `0 16px 40px rgba(0,0,0,0.3), 0 0 24px ${tool.color}0a`
+                      e.currentTarget.style.borderColor = `${tool.color}50`
+                      e.currentTarget.style.background = `linear-gradient(145deg, rgba(11,16,32,0.95), ${tool.color}08)`
+                      e.currentTarget.style.transform = 'translateY(-5px)'
+                      e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 30px ${tool.color}15`
+                      const logo = e.currentTarget.querySelector('.logo-box')
+                      if (logo) logo.style.boxShadow = `0 0 28px ${tool.color}35, 0 0 56px ${tool.color}15`
                     }}
                     onMouseLeave={e => {
                       e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
                       e.currentTarget.style.background = 'rgba(11,16,32,0.65)'
                       e.currentTarget.style.transform = 'translateY(0)'
                       e.currentTarget.style.boxShadow = 'none'
+                      const logo = e.currentTarget.querySelector('.logo-box')
+                      if (logo) logo.style.boxShadow = `0 0 20px ${tool.color}15, 0 0 40px ${tool.color}08`
                     }}
                   >
                     {/* Logo */}
-                    <div className="flex-shrink-0 flex items-center justify-center rounded-xl overflow-hidden" style={{
-                      width: '52px', height: '52px',
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      padding: '6px',
+                    <div className="logo-box flex-shrink-0 flex items-center justify-center rounded-2xl overflow-hidden transition-all duration-300 group-hover:scale-110" style={{
+                      width: '58px', height: '58px',
+                      background: `linear-gradient(135deg, ${tool.color}18, ${tool.color}08)`,
+                      border: `1.5px solid ${tool.color}30`,
+                      padding: '10px',
+                      boxShadow: `0 0 20px ${tool.color}15, 0 0 40px ${tool.color}08`,
                     }}>
-                      <img src={tool.logo} alt={tool.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                      <img src={tool.logo} alt={tool.name} style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'brightness(1.3) drop-shadow(0 0 6px rgba(255,255,255,0.2))' }} />
                     </div>
 
                     {/* Texte + lien */}
