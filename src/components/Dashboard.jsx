@@ -343,7 +343,7 @@ export default function Dashboard() {
   const toggleTerminal = useCallback(() => setShowTerminal(prev => !prev), [])
 
   return (
-    <section id="dashboard" className="relative" style={{ paddingTop: '12rem', paddingBottom: '12rem' }}>
+    <section id="dashboard" className="relative" style={{ paddingTop: '12rem', paddingBottom: '6rem' }}>
       <div className="w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* ── Profile card ── */}
@@ -926,10 +926,10 @@ export default function Dashboard() {
         </div>
 
         {/* ── Section divider ── */}
-        <SectionLabel label="INFRASTRUCTURE" color="#22d3ee" mt="my-32" />
+        <SectionLabel label="INFRASTRUCTURE" color="#22d3ee" mt="my-20" />
 
         {/* ── Matrix Rain + Terminal ── */}
-        <div className="animate-fade-up mt-12" style={{ transitionDelay: '0.28s' }}>
+        <div className="animate-fade-up mt-8" style={{ transitionDelay: '0.28s' }}>
           <div
             className="rounded-2xl overflow-hidden relative"
             style={{
@@ -968,29 +968,34 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ── Network icons ── */}
-        <div className="animate-fade-up mt-14 flex flex-wrap justify-center gap-5" style={{ transitionDelay: '0.32s' }}>
+        {/* ── Mes Réseaux ── */}
+        <SectionLabel label="MES RÉSEAUX" color="#818cf8" mt="my-20" />
+
+        <div className="animate-fade-up grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4" style={{ gap: '1.5rem', transitionDelay: '0.32s', marginTop: '2rem' }}>
           {[
-            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/dilan-lengue', color: '#0A66C2', icon: (
-              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            { label: 'LinkedIn', desc: 'Profil professionnel', href: 'https://www.linkedin.com/in/dilan-lengue', color: '#0A66C2', icon: (
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             )},
-            { label: 'GitHub', href: 'https://github.com/dilan-lengue', color: '#e6ecf8', icon: (
-              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            { label: 'GitHub', desc: 'Mes projets', href: 'https://github.com/dilan-lengue', color: '#e6ecf8', icon: (
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             )},
-            { label: 'Discord', href: '#contact', color: '#5865F2', icon: (
-              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+            { label: 'Discord', desc: 'Communauté', href: '#contact', color: '#5865F2', icon: (
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
             )},
-            { label: 'Email', href: 'mailto:lenguedilan@gmail.com', color: '#22d3ee', icon: (
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+            { label: 'Email', desc: 'Me contacter', href: 'mailto:lenguedilan@gmail.com', color: '#22d3ee', icon: (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="28" height="28"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
             )},
-            { label: 'Cisco', href: '#competences', color: '#049FD9', icon: (
-              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.5 5.5h1v4h-1v-4zm-3 1h1v3h-1v-3zm6 0h1v3h-1v-3zm-9 1h1v2h-1v-2zm12 0h1v2h-1v-2zm-12.5 4h15v1h-15v-1zm1.5 2h1v2h-1v-2zm3 0h1v3h-1v-3zm3 0h1v4h-1v-4zm3 0h1v3h-1v-3zm3 0h1v2h-1v-2z"/></svg>
+            { label: 'Cisco', desc: 'Réseau & IOS', href: '#competences', color: '#049FD9', icon: (
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.5 5.5h1v4h-1v-4zm-3 1h1v3h-1v-3zm6 0h1v3h-1v-3zm-9 1h1v2h-1v-2zm12 0h1v2h-1v-2zm-12.5 4h15v1h-15v-1zm1.5 2h1v2h-1v-2zm3 0h1v3h-1v-3zm3 0h1v4h-1v-4zm3 0h1v3h-1v-3zm3 0h1v2h-1v-2z"/></svg>
             )},
-            { label: 'Windows', href: '#competences', color: '#0078D4', icon: (
-              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+            { label: 'Windows', desc: 'Server & AD', href: '#competences', color: '#0078D4', icon: (
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
             )},
-            { label: 'Linux', href: '#competences', color: '#FCC624', icon: (
-              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.368 1.884 1.43.199.015.312-.053.543-.127.7-.229 1.122-.45 1.322-.753.208-.264.292-.527.308-.796.1-.517-.1-1.07-.27-1.4-.195-.4-.347-.5-.406-.854a3.104 3.104 0 01-.01-.87c.067-.397.17-.787.272-1.148.134-.466.264-.893.233-1.304-.07-.632-.183-.897-.46-1.294a.757.757 0 00-.078-.093c-.105-.545-.237-1.096-.353-1.659-.155-.739-.233-1.478-.233-2.144 0-2.045.87-3.66 1.066-4.587.088-.418.104-.882.021-1.382-.115-.58-.44-1.257-.989-1.62-.246-.163-.525-.262-.81-.303A2.61 2.61 0 0014.49.041c-.55-.027-1.17.002-1.72.044-.438.035-.905.073-1.266-.013z"/></svg>
+            { label: 'Linux', desc: 'Debian & CLI', href: '#competences', color: '#FCC624', icon: (
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.368 1.884 1.43.199.015.312-.053.543-.127.7-.229 1.122-.45 1.322-.753.208-.264.292-.527.308-.796.1-.517-.1-1.07-.27-1.4-.195-.4-.347-.5-.406-.854a3.104 3.104 0 01-.01-.87c.067-.397.17-.787.272-1.148.134-.466.264-.893.233-1.304-.07-.632-.183-.897-.46-1.294a.757.757 0 00-.078-.093c-.105-.545-.237-1.096-.353-1.659-.155-.739-.233-1.478-.233-2.144 0-2.045.87-3.66 1.066-4.587.088-.418.104-.882.021-1.382-.115-.58-.44-1.257-.989-1.62-.246-.163-.525-.262-.81-.303A2.61 2.61 0 0014.49.041c-.55-.027-1.17.002-1.72.044-.438.035-.905.073-1.266-.013z"/></svg>
+            )},
+            { label: 'Nagios', desc: 'Supervision', href: '#competences', color: '#22c55e', icon: (
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
             )},
           ].map((net, i) => (
             <a
@@ -998,38 +1003,44 @@ export default function Dashboard() {
               href={net.href}
               target={net.href.startsWith('http') ? '_blank' : undefined}
               rel={net.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="group flex flex-col items-center gap-2 transition-all duration-300"
-              style={{ textDecoration: 'none' }}
+              className="group flex items-center gap-4 rounded-2xl transition-all duration-300"
+              style={{
+                textDecoration: 'none',
+                padding: '1.4rem 1.6rem',
+                background: 'rgba(11,16,32,0.7)',
+                border: `1.5px solid ${net.color}15`,
+              }}
               onMouseEnter={e => {
-                const el = e.currentTarget.querySelector('.icon-circle')
-                el.style.borderColor = `${net.color}60`
-                el.style.boxShadow = `0 0 20px ${net.color}25`
-                el.style.transform = 'translateY(-4px)'
-                el.style.color = net.color
+                e.currentTarget.style.borderColor = `${net.color}50`
+                e.currentTarget.style.boxShadow = `0 12px 32px rgba(0,0,0,0.3), 0 0 20px ${net.color}10`
+                e.currentTarget.style.transform = 'translateY(-4px)'
               }}
               onMouseLeave={e => {
-                const el = e.currentTarget.querySelector('.icon-circle')
-                el.style.borderColor = 'rgba(255,255,255,0.08)'
-                el.style.boxShadow = 'none'
-                el.style.transform = 'translateY(0)'
-                el.style.color = '#94a3b8'
+                e.currentTarget.style.borderColor = `${net.color}15`
+                e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.transform = 'translateY(0)'
               }}
             >
               <div
-                className="icon-circle flex items-center justify-center rounded-xl transition-all duration-300"
+                className="flex items-center justify-center rounded-xl flex-shrink-0"
                 style={{
                   width: '52px',
                   height: '52px',
-                  background: 'rgba(11,16,32,0.7)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  color: '#94a3b8',
+                  background: `${net.color}12`,
+                  border: `1.5px solid ${net.color}30`,
+                  color: net.color,
                 }}
               >
                 {net.icon}
               </div>
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 500, color: '#475569', letterSpacing: '0.02em' }}>
-                {net.label}
-              </span>
+              <div>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#f1f5f9', marginBottom: '2px' }}>
+                  {net.label}
+                </p>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.5px', fontWeight: 500, color: '#64748b' }}>
+                  {net.desc}
+                </p>
+              </div>
             </a>
           ))}
         </div>

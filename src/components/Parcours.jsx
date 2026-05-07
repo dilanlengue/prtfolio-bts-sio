@@ -303,7 +303,7 @@ function FormationCard({ formation, index }) {
 
 export default function Parcours() {
   return (
-    <section id="parcours" className="relative" style={{ paddingTop: '12rem', paddingBottom: '12rem' }}>
+    <section id="parcours" className="relative" style={{ paddingTop: '8rem', paddingBottom: '12rem' }}>
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
 
         {/* Header */}
