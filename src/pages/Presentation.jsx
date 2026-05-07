@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ShieldCheck, CalendarDays, Award, FolderKanban, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 function CountUp({ target, suffix = '' }) {
   const [count, setCount] = useState(0)
@@ -16,14 +16,83 @@ function CountUp({ target, suffix = '' }) {
   return <span>{count}{suffix}</span>
 }
 
-const stats = [
-  { value: 5, suffix: '', label: 'Projets', color: '#22d3ee', icon: FolderKanban },
-  { value: 3, suffix: '', label: 'Certifications', color: '#22c55e', icon: ShieldCheck },
-  { value: 2, suffix: '', label: 'Ans d\'XP', color: '#f59e0b', icon: CalendarDays },
-  { value: 2, suffix: '', label: 'Stages', color: '#a78bfa', icon: Award },
+const TAG_COLORS = [
+  { tag: 'PORTFOLIO', color: '#818cf8', bg: 'rgba(129,140,248,0.12)', border: 'rgba(129,140,248,0.3)' },
+  { tag: 'SISR', color: '#22d3ee', bg: 'rgba(34,211,238,0.12)', border: 'rgba(34,211,238,0.3)' },
+  { tag: 'RÉSEAUX', color: '#00ff88', bg: 'rgba(0,255,136,0.1)', border: 'rgba(0,255,136,0.25)' },
+  { tag: 'CYBERSÉCURITÉ', color: '#f59e0b', bg: 'rgba(245,158,11,0.1)', border: 'rgba(245,158,11,0.25)' },
 ]
 
-const TAGS = ['PORTFOLIO', 'SISR', 'RÉSEAUX', 'CYBERSÉCURITÉ']
+function ProjectIllustration() {
+  return (
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <rect x="8" y="16" width="64" height="48" rx="6" stroke="#22d3ee" strokeWidth="2" opacity="0.3" />
+      <rect x="8" y="16" width="64" height="12" rx="6" fill="rgba(34,211,238,0.1)" stroke="#22d3ee" strokeWidth="1.5" opacity="0.5" />
+      <circle cx="16" cy="22" r="2" fill="#f87171" />
+      <circle cx="23" cy="22" r="2" fill="#fbbf24" />
+      <circle cx="30" cy="22" r="2" fill="#34d399" />
+      <rect x="16" y="36" width="20" height="18" rx="3" fill="rgba(34,211,238,0.15)" stroke="#22d3ee" strokeWidth="1" />
+      <rect x="44" y="36" width="20" height="8" rx="3" fill="rgba(34,211,238,0.1)" stroke="#22d3ee" strokeWidth="1" />
+      <rect x="44" y="48" width="20" height="6" rx="2" fill="rgba(34,211,238,0.08)" stroke="#22d3ee" strokeWidth="1" />
+      <path d="M20 42 L26 48 L32 40" stroke="#22d3ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function CertificationIllustration() {
+  return (
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <rect x="16" y="10" width="48" height="42" rx="4" stroke="#22c55e" strokeWidth="1.5" opacity="0.3" />
+      <rect x="16" y="10" width="48" height="42" rx="4" fill="rgba(34,197,94,0.05)" />
+      <circle cx="40" cy="28" r="10" stroke="#22c55e" strokeWidth="2" fill="rgba(34,197,94,0.1)" />
+      <path d="M35 28 L38.5 31.5 L45 25" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="26" y="42" width="28" height="3" rx="1.5" fill="rgba(34,197,94,0.2)" />
+      <path d="M34 56 L40 68 L46 56" stroke="#22c55e" strokeWidth="1.5" opacity="0.4" />
+      <path d="M34 56 L28 64" stroke="#22c55e" strokeWidth="1.5" opacity="0.3" />
+      <path d="M46 56 L52 64" stroke="#22c55e" strokeWidth="1.5" opacity="0.3" />
+      <circle cx="40" cy="68" r="3" fill="rgba(34,197,94,0.3)" stroke="#22c55e" strokeWidth="1" />
+    </svg>
+  )
+}
+
+function ExperienceIllustration() {
+  return (
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <circle cx="40" cy="40" r="28" stroke="#f59e0b" strokeWidth="2" opacity="0.2" />
+      <circle cx="40" cy="40" r="28" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="4 6" opacity="0.3">
+        <animateTransform attributeName="transform" type="rotate" from="0 40 40" to="360 40 40" dur="20s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="40" cy="40" r="22" stroke="#f59e0b" strokeWidth="1.5" opacity="0.15" />
+      <line x1="40" y1="22" x2="40" y2="40" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="40" y1="40" x2="52" y2="44" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
+      <circle cx="40" cy="40" r="3" fill="#f59e0b" />
+      {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
+        <circle key={deg} cx={40 + 26 * Math.cos(deg * Math.PI / 180)} cy={40 + 26 * Math.sin(deg * Math.PI / 180)} r={deg % 90 === 0 ? 2 : 1} fill="#f59e0b" opacity={deg % 90 === 0 ? 0.6 : 0.25} />
+      ))}
+    </svg>
+  )
+}
+
+function StageIllustration() {
+  return (
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <rect x="20" y="24" width="40" height="36" rx="4" stroke="#a78bfa" strokeWidth="1.5" opacity="0.3" fill="rgba(167,139,250,0.05)" />
+      <rect x="28" y="16" width="24" height="12" rx="3" stroke="#a78bfa" strokeWidth="1.5" fill="rgba(167,139,250,0.08)" />
+      <rect x="36" y="12" width="8" height="6" rx="2" stroke="#a78bfa" strokeWidth="1.5" opacity="0.4" />
+      <circle cx="40" cy="40" r="8" stroke="#a78bfa" strokeWidth="1.5" fill="rgba(167,139,250,0.1)" />
+      <path d="M37 40 L39.5 42.5 L44 38" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="26" y1="52" x2="38" y2="52" stroke="#a78bfa" strokeWidth="1.5" opacity="0.2" strokeLinecap="round" />
+      <line x1="42" y1="52" x2="54" y2="52" stroke="#a78bfa" strokeWidth="1.5" opacity="0.2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+const stats = [
+  { value: 5, label: 'Projets', color: '#22d3ee', Illustration: ProjectIllustration },
+  { value: 3, label: 'Certifications', color: '#22c55e', Illustration: CertificationIllustration },
+  { value: 2, label: 'Ans d\'expérience', color: '#f59e0b', Illustration: ExperienceIllustration },
+  { value: 2, label: 'Stages effectués', color: '#a78bfa', Illustration: StageIllustration },
+]
 
 function FloatingParticles() {
   const particles = Array.from({ length: 20 }, (_, i) => ({
@@ -69,7 +138,6 @@ export default function Presentation() {
         className="relative flex flex-col items-center justify-center text-center overflow-hidden"
         style={{ minHeight: 'calc(100vh - 80px)', paddingTop: '4rem', paddingBottom: '4rem' }}
       >
-        {/* Background effects */}
         <FloatingParticles />
         <div
           className="absolute"
@@ -85,27 +153,27 @@ export default function Presentation() {
 
         <div className="relative w-full max-w-5xl mx-auto px-6" style={{ zIndex: 1 }}>
 
-          {/* Tags en haut */}
+          {/* Tags en haut — colorés et visibles */}
           {loaded && (
-            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-10 hero-reveal hero-reveal-d1">
-              {TAGS.map((tag, i) => (
-                <span key={tag} className="flex items-center gap-3">
-                  {i > 0 && <span style={{ color: '#1e293b', fontSize: '10px' }}>◆</span>}
-                  <span
-                    style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: '11px',
-                      fontWeight: 700,
-                      color: '#475569',
-                      letterSpacing: '0.22em',
-                      padding: '4px 12px',
-                      borderRadius: '6px',
-                      background: 'rgba(99,102,241,0.06)',
-                      border: '1px solid rgba(99,102,241,0.12)',
-                    }}
-                  >
-                    {tag}
-                  </span>
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-10 hero-reveal hero-reveal-d1">
+              {TAG_COLORS.map(({ tag, color, bg, border }) => (
+                <span
+                  key={tag}
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '11.5px',
+                    fontWeight: 700,
+                    color,
+                    letterSpacing: '0.16em',
+                    padding: '6px 16px',
+                    borderRadius: '999px',
+                    background: bg,
+                    border: `1px solid ${border}`,
+                    boxShadow: `0 0 12px ${color}10`,
+                    textShadow: `0 0 10px ${color}30`,
+                  }}
+                >
+                  {tag}
                 </span>
               ))}
             </div>
@@ -143,15 +211,13 @@ export default function Presentation() {
             </h1>
           )}
 
-          {/* Photo de profil — immersive */}
+          {/* Photo de profil */}
           {loaded && (
             <div className="hero-reveal-scale hero-reveal-d3 relative mx-auto mb-14" style={{ width: 'clamp(300px, 42vw, 420px)', aspectRatio: '1' }}>
-              {/* Orbiting dots */}
               <div className="orbit-dot" style={{ '--orbit-radius': '230px', '--orbit-duration': '12s', background: '#22d3ee', boxShadow: '0 0 12px #22d3ee' }} />
               <div className="orbit-dot" style={{ '--orbit-radius': '230px', '--orbit-duration': '12s', background: '#6366f1', boxShadow: '0 0 12px #6366f1', animationDelay: '-4s' }} />
               <div className="orbit-dot" style={{ '--orbit-radius': '230px', '--orbit-duration': '12s', background: '#00ff88', boxShadow: '0 0 12px #00ff88', animationDelay: '-8s' }} />
 
-              {/* Main photo container */}
               <div className="photo-container" style={{ width: '100%', height: '100%', borderRadius: '50%' }}>
                 <div
                   className="relative overflow-hidden"
@@ -165,7 +231,6 @@ export default function Presentation() {
                     zIndex: 2,
                   }}
                 >
-                  {/* Scan line effect */}
                   <div className="photo-scan-line" />
                   <img
                     src="/photo-dilan.png"
@@ -180,7 +245,6 @@ export default function Presentation() {
                 </div>
               </div>
 
-              {/* Badge SISR */}
               <span
                 className="absolute shimmer-bar"
                 style={{
@@ -204,7 +268,7 @@ export default function Presentation() {
             </div>
           )}
 
-          {/* Nom — avec effet gradient animé */}
+          {/* Nom */}
           {loaded && (
             <h2
               className="hero-reveal hero-reveal-d4"
@@ -221,14 +285,13 @@ export default function Presentation() {
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
                 animation: 'gradient-shift 6s linear infinite',
-                textShadow: 'none',
               }}
             >
               DILAN LENGUE
             </h2>
           )}
 
-          {/* Tagline cyber animée */}
+          {/* Tagline cyber */}
           {loaded && (
             <div className="hero-reveal hero-reveal-d5 mb-6">
               <p
@@ -302,7 +365,6 @@ export default function Presentation() {
               backdropFilter: 'blur(16px)',
             }}
           >
-            {/* HUD line */}
             <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
               <div className="flex items-center gap-3" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
                 <span className="relative flex h-2.5 w-2.5">
@@ -317,7 +379,6 @@ export default function Presentation() {
                   PORTFOLIO_v2.0
                 </span>
               </div>
-
               <div
                 className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full"
                 style={{
@@ -343,7 +404,6 @@ export default function Presentation() {
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
                 marginBottom: '2.5rem',
-                letterSpacing: '-0.01em',
               }}
             >
               Qui suis-je ?
@@ -370,7 +430,7 @@ export default function Presentation() {
         </div>
       </section>
 
-      {/* ── SECTION 3 — Chiffres clés ── */}
+      {/* ── SECTION 3 — Chiffres clés avec illustrations ── */}
       <section className="relative" style={{ paddingTop: '4rem', paddingBottom: '10rem' }}>
         <div className="w-full max-w-5xl mx-auto px-6 lg:px-10">
 
@@ -393,16 +453,17 @@ export default function Presentation() {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-7">
-            {stats.map(({ value, suffix, label, color, icon: Icon }) => (
+            {stats.map(({ value, label, color, Illustration }) => (
               <div
                 key={label}
                 className="group relative rounded-2xl text-center transition-all duration-500"
                 style={{
                   background: 'rgba(11,16,32,0.75)',
                   border: `1.5px solid ${color}18`,
-                  padding: 'clamp(2rem, 3.5vw, 3rem) 1.5rem',
+                  padding: 'clamp(2rem, 3.5vw, 2.8rem) 1.5rem',
                   cursor: 'default',
                   backdropFilter: 'blur(8px)',
+                  overflow: 'hidden',
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = 'translateY(-10px) scale(1.03)'
@@ -415,21 +476,27 @@ export default function Presentation() {
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                {/* Glow bar */}
+                {/* Glow bar top */}
                 <div style={{ position: 'absolute', top: 0, left: '10%', right: '10%', height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.5, borderRadius: '0 0 4px 4px' }} />
-                <div
-                  className="mx-auto flex items-center justify-center rounded-2xl"
-                  style={{
-                    width: '68px',
-                    height: '68px',
-                    background: `${color}0a`,
-                    border: `1.5px solid ${color}25`,
-                    marginBottom: '1.4rem',
-                    boxShadow: `0 0 25px ${color}08`,
-                  }}
-                >
-                  <Icon size={30} style={{ color }} />
+
+                {/* Background glow */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '-20px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: '120px',
+                  height: '120px',
+                  background: `radial-gradient(circle, ${color}08, transparent)`,
+                  pointerEvents: 'none',
+                }} />
+
+                {/* Illustration SVG */}
+                <div className="mx-auto flex items-center justify-center" style={{ marginBottom: '1.2rem', opacity: 0.9 }}>
+                  <Illustration />
                 </div>
+
+                {/* Chiffre */}
                 <p style={{
                   fontFamily: "'Orbitron', system-ui, sans-serif",
                   fontSize: 'clamp(2.4rem, 5vw, 3.4rem)',
@@ -439,15 +506,17 @@ export default function Presentation() {
                   marginBottom: '0.6rem',
                   textShadow: `0 0 30px ${color}40`,
                 }}>
-                  <CountUp target={value} suffix={suffix} />
+                  <CountUp target={value} />
                 </p>
+
+                {/* Label */}
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: '14px',
                   color: '#94a3b8',
                   fontWeight: 600,
                   textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
+                  letterSpacing: '0.06em',
                 }}>
                   {label}
                 </p>
