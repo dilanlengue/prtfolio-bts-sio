@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ShieldCheck, CalendarDays, Award, Github, Linkedin, FolderKanban, Mail, MapPin, GraduationCap } from 'lucide-react'
+import { ShieldCheck, CalendarDays, Award, Github, Linkedin, FolderKanban, Mail, Phone, MapPin, GraduationCap } from 'lucide-react'
 
 function CountUp({ target, suffix = '' }) {
   const [count, setCount] = useState(0)
@@ -157,9 +157,10 @@ export default function Presentation() {
           {/* Liens réseaux — sans Instagram */}
           <div className="flex items-center justify-center gap-4">
             {[
+              { href: 'mailto:lenguedilan@gmail.com', icon: <Mail size={22} />, label: 'Email', color: '#22d3ee' },
+              { href: 'tel:+33744203870', icon: <Phone size={22} />, label: '+33 7 44 20 38 70', color: '#34d399' },
               { href: 'https://www.linkedin.com/in/dilan-lengue', icon: <Linkedin size={22} />, label: 'LinkedIn', color: '#0A66C2' },
               { href: 'https://github.com/dilan-lengue', icon: <Github size={22} />, label: 'GitHub', color: '#e6ecf8' },
-              { href: 'mailto:lenguedilan@gmail.com', icon: <Mail size={22} />, label: 'Email', color: '#22d3ee' },
             ].map((link) => (
               <a
                 key={link.label}

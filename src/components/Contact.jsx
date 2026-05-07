@@ -1,18 +1,22 @@
 import { useState } from 'react'
-import { ArrowUpRight, Mail, Linkedin, Github, MessageCircle, Phone, Clock, Send, CheckCircle2, AlertCircle, Loader2, Rocket, Gamepad2, Compass, GraduationCap } from 'lucide-react'
+import { ArrowUpRight, Mail, Linkedin, Github, Phone, Send, CheckCircle2, AlertCircle, Loader2, Rocket, Gamepad2, Compass, GraduationCap } from 'lucide-react'
 
 const contacts = [
   {
-    prochainement: true,
-    Icon: Clock,
-  },
-  {
     Icon: Mail,
-    label: 'Email Pro',
+    label: 'Email',
     value: 'lenguedilan@gmail.com',
     href: 'mailto:lenguedilan@gmail.com',
     color: '#22d3ee',
     iconColor: '#22d3ee',
+  },
+  {
+    Icon: Phone,
+    label: 'Téléphone',
+    value: '+33 7 44 20 38 70',
+    href: 'tel:+33744203870',
+    color: '#22d3ee',
+    iconColor: '#34d399',
   },
   {
     Icon: Linkedin,
@@ -31,25 +35,6 @@ const contacts = [
     color: '#22d3ee',
     iconColor: '#e2e8f0',
     external: true,
-  },
-  {
-    Icon: MessageCircle,
-    label: 'Discord',
-    value: 'dilan.lengue',
-    href: null,
-    color: '#22d3ee',
-    iconColor: '#5865F2',
-    sub: 'Pseudo Discord',
-    disabled: true,
-  },
-  {
-    Icon: Phone,
-    label: 'Téléphone',
-    value: 'Sur demande',
-    href: null,
-    disabled: true,
-    color: '#22d3ee',
-    iconColor: '#34d399',
   },
 ]
 
@@ -142,7 +127,7 @@ function ContactForm() {
         </div>
       </div>
 
-      {/* Honeypot — hidden */}
+      {/* Honeypot */}
       <input
         type="text"
         name="company"
@@ -237,13 +222,9 @@ function ContactForm() {
           }}
         >
           {status.state === 'loading' ? (
-            <>
-              <Loader2 size={16} className="animate-spin" /> Envoi…
-            </>
+            <><Loader2 size={16} className="animate-spin" /> Envoi…</>
           ) : (
-            <>
-              <Send size={16} /> Envoyer le message
-            </>
+            <><Send size={16} /> Envoyer le message</>
           )}
         </button>
 
@@ -267,7 +248,6 @@ export default function Contact() {
     <section id="contact" className="relative" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
 
-        {/* Section title — outside the card style cyber */}
         <div className="flex items-end justify-between mb-8">
           <div>
             <h2
@@ -281,7 +261,7 @@ export default function Contact() {
                 marginBottom: '0.5rem',
               }}
             >
-              Restons en contact
+              Me contacter
             </h2>
             <p
               style={{
@@ -292,16 +272,13 @@ export default function Contact() {
                 maxWidth: '560px',
               }}
             >
-              Une question ? Un projet ? Une opportunité ? N'hésitez pas à me contacter par l'un de ces moyens :
+              Une question, un projet ou une opportunité d'alternance ? N'hésitez pas à me contacter.
             </p>
           </div>
-          <span className="text-3xl hidden sm:block">🏴</span>
         </div>
 
-        {/* Contact form */}
         <ContactForm />
 
-        {/* Contact card — glass style cyber */}
         <div
           className="rounded-2xl overflow-hidden"
           style={{
@@ -310,29 +287,11 @@ export default function Contact() {
             backdropFilter: 'blur(12px)',
           }}
         >
-          {/* Rainbow top bar */}
-          <div className="h-[3px]" style={{ background: 'linear-gradient(90deg, #6366f1, #22d3ee, #34d399, #f59e0b, #f472b6)' }} />
+          <div className="h-[3px]" style={{ background: 'linear-gradient(90deg, #6366f1, #22d3ee, #34d399)' }} />
 
           <div className="p-8 sm:p-10">
-            {/* Contact grid — 3x2 style cyber */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
               {contacts.map((c, i) => {
-                if (c.prochainement) {
-                  return (
-                    <div
-                      key={i}
-                      className="flex items-center justify-center p-5 rounded-xl"
-                      style={{
-                        background: 'rgba(255,255,255,0.015)',
-                        border: '1px solid rgba(255,255,255,0.04)',
-                      }}
-                    >
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#334155', fontStyle: 'italic' }}>
-                        *prochainement
-                      </p>
-                    </div>
-                  )
-                }
                 const Wrapper = c.href ? 'a' : 'div'
                 const extraProps = c.href
                   ? { href: c.href, target: c.external ? '_blank' : undefined, rel: c.external ? 'noopener noreferrer' : undefined }
@@ -346,29 +305,32 @@ export default function Contact() {
                       background: 'rgba(255,255,255,0.025)',
                       border: '1px solid rgba(255,255,255,0.06)',
                       cursor: c.href ? 'pointer' : 'default',
+                      textDecoration: 'none',
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.background = 'rgba(255,255,255,0.055)'
-                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)'
+                      e.currentTarget.style.borderColor = `${c.iconColor}40`
+                      e.currentTarget.style.boxShadow = `0 8px 24px rgba(0,0,0,0.2), 0 0 12px ${c.iconColor}10`
                     }}
                     onMouseLeave={e => {
                       e.currentTarget.style.background = 'rgba(255,255,255,0.025)'
                       e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
+                      e.currentTarget.style.boxShadow = 'none'
                     }}
                   >
-                    <div className="flex items-center justify-center rounded-lg flex-shrink-0" style={{ width: '36px', height: '36px', background: `${c.iconColor || '#22d3ee'}12`, border: `1px solid ${c.iconColor || '#22d3ee'}25` }}>
-                      {c.Icon && <c.Icon size={18} style={{ color: c.iconColor || '#22d3ee' }} />}
+                    <div className="flex items-center justify-center rounded-lg flex-shrink-0" style={{ width: '40px', height: '40px', background: `${c.iconColor}12`, border: `1px solid ${c.iconColor}25` }}>
+                      <c.Icon size={20} style={{ color: c.iconColor }} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p
                         className="text-xs uppercase tracking-wider mb-0.5"
-                        style={{ color: '#64748b', fontFamily: "'Inter', sans-serif", fontWeight: 500, letterSpacing: '0.08em' }}
+                        style={{ color: '#64748b', fontFamily: "'Inter', sans-serif", fontWeight: 600, letterSpacing: '0.1em' }}
                       >
                         {c.label}
                       </p>
                       <p
                         className="text-sm font-semibold truncate"
-                        style={{ color: c.href ? '#22d3ee' : '#cbd5e1', fontFamily: "'Inter', sans-serif" }}
+                        style={{ color: '#f1f5f9', fontFamily: "'Inter', sans-serif" }}
                       >
                         {c.value}
                       </p>
@@ -379,7 +341,6 @@ export default function Contact() {
               })}
             </div>
 
-            {/* Tip bar — style cyber */}
             <div
               className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-sm"
               style={{
@@ -389,10 +350,8 @@ export default function Contact() {
                 fontFamily: "'Inter', sans-serif",
               }}
             >
-              <span>💡</span>
-              <span>
-                Tip : Pour les demandes professionnelles, privilégiez{' '}
-                <a href="mailto:lenguedilan@gmail.com" className="underline" style={{ color: '#818cf8' }}>l'email pro</a>
+              <span>Pour les demandes professionnelles, privilégiez{' '}
+                <a href="mailto:lenguedilan@gmail.com" className="underline" style={{ color: '#818cf8' }}>l'email</a>
                 {' '}ou{' '}
                 <a href="https://www.linkedin.com/in/dilan-lengue" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#818cf8' }}>LinkedIn</a>
               </span>
@@ -400,7 +359,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Easter egg — Mais attendez */}
         <SecretZone />
 
       </div>
@@ -422,7 +380,7 @@ function SecretZone() {
           marginBottom: '0.5rem',
         }}
       >
-        Merci d'être arrivé jusqu'ici ! <span aria-hidden="true">🎉</span>
+        Merci d'avoir exploré mon portfolio !
       </h3>
       <p
         style={{
@@ -434,11 +392,9 @@ function SecretZone() {
           lineHeight: 1.7,
         }}
       >
-        Vous avez exploré mon parcours, mes projets, mes compétences et ma veille.<br />
-        J'espère que ce voyage vous a plu autant que j'ai pris plaisir à le construire.
+        Vous avez découvert mon parcours, mes projets, mes compétences et ma veille technologique.
       </p>
 
-      {/* Hidden zone */}
       <div
         className="rounded-2xl overflow-hidden mx-auto"
         style={{
@@ -456,7 +412,7 @@ function SecretZone() {
             marginBottom: '20px',
           }}
         >
-          Il semblerait qu'il y ait quelque chose de plus à découvrir…
+          Découvrez mes objectifs pour la suite…
         </p>
 
         <button
@@ -481,7 +437,7 @@ function SecretZone() {
               letterSpacing: '0.02em',
             }}
           >
-            Zone Secrète Détectée
+            Mes objectifs
           </span>
           <span
             style={{
@@ -490,7 +446,7 @@ function SecretZone() {
               color: '#94a3b8',
             }}
           >
-            {revealed ? 'Voir l\'objectif ci-dessous ↓' : 'Cliquez pour explorer l\'univers caché…'}
+            {revealed ? 'Voir ci-dessous' : 'Cliquez pour découvrir'}
           </span>
         </button>
 
@@ -501,8 +457,8 @@ function SecretZone() {
           >
             {[
               { Icon: GraduationCap, label: 'Alternance sept. 2026', desc: 'Bac+3 cybersécurité' },
-              { Icon: Compass, label: 'Apprentissage continu', desc: 'CCNA, ITIL, Sec+' },
-              { Icon: Gamepad2, label: 'Projets perso', desc: 'Labs maison & open-source' },
+              { Icon: Compass, label: 'Certifications visées', desc: 'CCNA, ITIL, Sec+' },
+              { Icon: Gamepad2, label: 'Projets personnels', desc: 'Labs & open-source' },
             ].map((it, i) => (
               <div
                 key={i}
@@ -514,24 +470,10 @@ function SecretZone() {
                 }}
               >
                 <it.Icon size={22} style={{ color: '#a78bfa' }} />
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '13px',
-                    fontWeight: 700,
-                    color: '#e2e8f0',
-                  }}
-                >
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 700, color: '#e2e8f0' }}>
                   {it.label}
                 </span>
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '12px',
-                    color: '#94a3b8',
-                    textAlign: 'center',
-                  }}
-                >
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#94a3b8', textAlign: 'center' }}>
                   {it.desc}
                 </span>
               </div>
