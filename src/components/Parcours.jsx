@@ -1,4 +1,32 @@
-import { GraduationCap, MapPin, Target, Shield } from 'lucide-react'
+import { useState } from 'react'
+import { GraduationCap, Briefcase, MapPin, ChevronDown, ChevronUp, Target, Shield } from 'lucide-react'
+
+const stages = [
+  {
+    date: 'Janv — Fév 2026',
+    title: 'Technicien Support & Maintenance',
+    org: 'B&A Conseil',
+    place: 'Île-de-France',
+    pills: ['Support N1/N2', 'Windows 10/11', 'Maintenance'],
+    items: [
+      'Diagnostic et résolution d\'incidents matériels et logiciels',
+      'Maintenance préventive et corrective des postes',
+      'Déploiement de postes Windows et assistance on-site',
+    ],
+  },
+  {
+    date: 'Mai — Juil 2025',
+    title: 'Technicien Support Informatique',
+    org: 'Les Réparateurs Mac & PC',
+    place: 'Montreuil',
+    pills: ['Support N1/N2', 'Réseaux', 'Réparation'],
+    items: [
+      'Réinstallation et configuration des systèmes d\'exploitation',
+      'Diagnostic et réparation de matériels informatiques',
+      'Gestion et configuration de réseaux locaux',
+    ],
+  },
+]
 
 const formations = [
   {
@@ -38,6 +66,131 @@ const formations = [
     pills: ['Mathématiques', 'Sciences'],
   },
 ]
+
+function StageCard({ stage, index }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className="flex gap-5">
+      {/* Numéro + ligne */}
+      <div className="flex flex-col items-center" style={{ minWidth: '40px' }}>
+        <div style={{
+          width: '40px', height: '40px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          borderRadius: '12px',
+          background: 'rgba(251,191,36,0.1)',
+          border: '2px solid rgba(251,191,36,0.3)',
+          fontFamily: "'Orbitron', system-ui, sans-serif",
+          fontSize: '14px', fontWeight: 900, color: '#fbbf24',
+          flexShrink: 0,
+        }}>
+          {String(index + 1).padStart(2, '0')}
+        </div>
+        <div style={{ flex: 1, width: '2px', background: 'linear-gradient(180deg, rgba(251,191,36,0.3), transparent)', marginTop: '8px' }} />
+      </div>
+
+      {/* Card */}
+      <div
+        className="relative rounded-2xl overflow-hidden transition-all duration-300 flex-1"
+        style={{
+          background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
+          border: '1.5px solid rgba(251,191,36,0.12)',
+          backdropFilter: 'blur(8px)',
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.borderColor = 'rgba(251,191,36,0.4)'
+          e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(251,191,36,0.08)'
+          e.currentTarget.style.transform = 'translateY(-4px)'
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.borderColor = 'rgba(251,191,36,0.12)'
+          e.currentTarget.style.boxShadow = 'none'
+          e.currentTarget.style.transform = 'translateY(0)'
+        }}
+      >
+        <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #fbbf24, transparent)', opacity: 0.5 }} />
+        <div style={{ padding: '2rem 2rem 1.8rem' }}>
+          <div className="flex items-center justify-between" style={{ marginBottom: '1.2rem' }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '12px', fontWeight: 700, color: '#fbbf24',
+              letterSpacing: '0.1em', padding: '5px 14px',
+              background: 'rgba(251,191,36,0.08)',
+              border: '1px solid rgba(251,191,36,0.2)',
+              borderRadius: '8px',
+            }}>
+              {stage.date}
+            </span>
+            <div className="inline-flex items-center gap-2" style={{
+              padding: '5px 14px',
+              background: 'rgba(251,146,60,0.08)',
+              border: '1px solid rgba(251,146,60,0.2)',
+              borderRadius: '8px',
+            }}>
+              <MapPin size={14} style={{ color: '#fb923c' }} />
+              <span style={{ color: '#fb923c', fontSize: '13px', fontWeight: 700, fontFamily: "'Inter', sans-serif" }}>
+                {stage.place}
+              </span>
+            </div>
+          </div>
+
+          <h4 style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '1.25rem', fontWeight: 800, color: '#f1f5f9',
+            marginBottom: '0.4rem', letterSpacing: '-0.02em', lineHeight: 1.3,
+          }}>
+            {stage.title}
+          </h4>
+
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '15.5px', fontWeight: 600, color: '#fbbf24',
+            marginBottom: '1.2rem',
+          }}>
+            {stage.org}
+          </p>
+
+          <div className="flex flex-wrap gap-2.5" style={{ marginBottom: '1.2rem' }}>
+            {stage.pills.map(p => (
+              <span key={p} className="px-3.5 py-1.5 rounded-lg" style={{
+                background: 'rgba(251,191,36,0.06)',
+                border: '1px solid rgba(251,191,36,0.15)',
+                color: '#d4a437',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '12.5px', fontWeight: 600,
+              }}>
+                {p}
+              </span>
+            ))}
+          </div>
+
+          <button
+            onClick={() => setOpen(!open)}
+            className="flex items-center gap-2 transition-all"
+            style={{
+              color: '#fbbf24', fontFamily: "'Inter', sans-serif",
+              fontSize: '13.5px', fontWeight: 700,
+              background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.15)',
+              borderRadius: '10px', cursor: 'pointer', padding: '8px 16px',
+            }}
+          >
+            {open ? <><ChevronUp size={14} /> Masquer</> : <><ChevronDown size={14} /> Voir les missions</>}
+          </button>
+
+          {open && (
+            <div className="space-y-3" style={{ marginTop: '1.4rem', paddingTop: '1.2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+              {stage.items.map((it, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <span style={{ color: '#fbbf24', fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, marginTop: '3px', flexShrink: 0 }}>&#9656;</span>
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.8 }}>{it}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function FormationCard({ formation, index }) {
   const color = formation.current ? '#22d3ee' : '#818cf8'
@@ -206,29 +359,76 @@ export default function Parcours() {
           </p>
         </div>
 
-        {/* ── FORMATION ── */}
-        <div>
-          {/* Titre section */}
-          <div className="flex items-center gap-4 mb-12">
-            <div style={{ height: '2px', flex: 1, background: 'linear-gradient(90deg, #22d3ee, transparent)' }} />
-            <div className="flex items-center gap-3" style={{
-              padding: '12px 24px',
-              background: 'linear-gradient(135deg, rgba(34,211,238,0.08), rgba(99,102,241,0.04))',
-              border: '1px solid rgba(34,211,238,0.2)',
-              borderRadius: '14px',
-            }}>
-              <GraduationCap size={20} style={{ color: '#22d3ee' }} />
-              <span style={{
-                fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: '15px', fontWeight: 800, color: '#22d3ee',
-                textTransform: 'uppercase', letterSpacing: '0.15em',
-              }}>
-                Formation
-              </span>
+        {/* ── STAGES (gauche) + FORMATION (droite) ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: '4rem' }}>
+
+          {/* Colonne gauche — STAGES */}
+          <div>
+            <div
+              className="relative rounded-2xl overflow-hidden"
+              style={{
+                marginBottom: '2.5rem',
+                padding: '1.8rem 2.2rem',
+                background: 'linear-gradient(135deg, rgba(251,191,36,0.12), rgba(251,146,60,0.06), rgba(11,16,32,0.9))',
+                border: '2px solid rgba(251,191,36,0.25)',
+                boxShadow: '0 8px 32px rgba(251,191,36,0.06), inset 0 1px 0 rgba(251,191,36,0.1)',
+              }}
+            >
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #fbbf24, #fb923c, #fbbf24)', opacity: 0.8 }} />
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '120px', height: '120px', background: 'radial-gradient(circle, rgba(251,191,36,0.08), transparent)', pointerEvents: 'none' }} />
+              <div className="flex items-center gap-4">
+                <div style={{
+                  width: '56px', height: '56px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  borderRadius: '16px',
+                  background: 'linear-gradient(135deg, rgba(251,191,36,0.2), rgba(251,146,60,0.15))',
+                  border: '2px solid rgba(251,191,36,0.4)',
+                  boxShadow: '0 0 30px rgba(251,191,36,0.1), 0 4px 12px rgba(0,0,0,0.2)',
+                }}>
+                  <Briefcase size={26} style={{ color: '#fbbf24', filter: 'drop-shadow(0 0 6px rgba(251,191,36,0.4))' }} />
+                </div>
+                <div>
+                  <h3 style={{
+                    fontFamily: "'Orbitron', system-ui, sans-serif",
+                    fontSize: '1.6rem',
+                    fontWeight: 900,
+                    background: 'linear-gradient(135deg, #fbbf24, #fb923c)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    lineHeight: 1,
+                    marginBottom: '6px',
+                    filter: 'drop-shadow(0 0 12px rgba(251,191,36,0.2))',
+                  }}>
+                    Stages
+                  </h3>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#cbd5e1', fontWeight: 500, letterSpacing: '0.01em' }}>
+                    Expérience en entreprise
+                  </p>
+                </div>
+                <div style={{ marginLeft: 'auto' }}>
+                  <span style={{
+                    fontFamily: "'Orbitron', system-ui, sans-serif",
+                    fontSize: '13px', fontWeight: 800,
+                    letterSpacing: '0.08em', color: '#fbbf24',
+                    padding: '6px 16px',
+                    background: 'rgba(251,191,36,0.1)',
+                    border: '1.5px solid rgba(251,191,36,0.3)',
+                    borderRadius: '10px',
+                    textShadow: '0 0 8px rgba(251,191,36,0.2)',
+                  }}>
+                    {stages.length} STAGES
+                  </span>
+                </div>
+              </div>
             </div>
-            <div style={{ height: '2px', flex: 1, background: 'linear-gradient(90deg, transparent, #22d3ee)' }} />
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              {stages.map((s, i) => <StageCard key={s.org} stage={s} index={i} />)}
+            </div>
           </div>
 
+          {/* Colonne droite — FORMATION */}
           <div>
             <div
               className="relative rounded-2xl overflow-hidden"
@@ -347,7 +547,7 @@ export default function Parcours() {
                   backgroundClip: 'text',
                   lineHeight: 1.2,
                 }}>
-                  Devenir Expert en Cybersécurité
+                  Devenir Experte en Cybersécurité
                 </h3>
               </div>
             </div>
@@ -375,7 +575,7 @@ export default function Parcours() {
                   step: '03',
                   title: 'Expert Cybersécurité',
                   subtitle: '& Pen Tester',
-                  desc: 'Devenir expert en sécurité informatique et pentesting : tests d\'intrusion, analyse de vulnérabilités et protection des SI.',
+                  desc: 'Devenir experte en sécurité informatique et pentesting : tests d\'intrusion, analyse de vulnérabilités et protection des SI.',
                   status: 'But final',
                   color: '#818cf8',
                 },
