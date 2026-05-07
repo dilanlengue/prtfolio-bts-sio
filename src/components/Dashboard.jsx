@@ -348,16 +348,26 @@ export default function Dashboard() {
 
         {/* ── Profile card ── */}
         <div
-          className="animate-fade-up rounded-2xl overflow-hidden mb-20"
-          style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.08)' }}
+          className="animate-fade-up rounded-2xl overflow-hidden mb-24"
+          style={{ background: 'linear-gradient(145deg, rgba(11,16,32,0.75), rgba(15,20,40,0.55))', border: '1px solid rgba(129,140,248,0.12)', boxShadow: '0 24px 60px rgba(0,0,0,0.35), 0 0 40px rgba(99,102,241,0.04)' }}
         >
-          <div className="px-8 md:px-20 pt-20 pb-16 text-center">
+          {/* Accent bar */}
+          <div style={{ height: '3px', background: 'linear-gradient(90deg, #6366f1, #22d3ee, #a78bfa)' }} />
 
-            {/* Name — gradient style cyber */}
+          <div className="px-8 md:px-20 pt-24 pb-20 text-center">
+
+            {/* Photo */}
+            <div className="flex justify-center mb-10">
+              <div style={{ width: '130px', height: '130px', borderRadius: '50%', padding: '3px', background: 'linear-gradient(135deg, #6366f1, #22d3ee)', boxShadow: '0 0 40px rgba(99,102,241,0.2), 0 0 80px rgba(34,211,238,0.08)' }}>
+                <img src="/photo-dilan.png" alt="Dilan Lengue" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', display: 'block' }} />
+              </div>
+            </div>
+
+            {/* Name */}
             <h2
               style={{
                 fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: 'clamp(2.4rem, 6vw, 3.4rem)',
+                fontSize: 'clamp(2.6rem, 6vw, 3.6rem)',
                 fontWeight: 900,
                 background: 'linear-gradient(135deg, #818cf8, #22d3ee)',
                 WebkitBackgroundClip: 'text',
@@ -365,14 +375,26 @@ export default function Dashboard() {
                 backgroundClip: 'text',
                 letterSpacing: '-0.02em',
                 lineHeight: 1.1,
-                marginBottom: '0.9rem',
+                marginBottom: '1.2rem',
               }}
             >
               Dilan Lengue
             </h2>
 
-            {/* Job title — cyan pill badge style cyber */}
-            <div className="flex justify-center mb-7">
+            {/* Subtitle */}
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
+              fontWeight: 400,
+              color: '#94a3b8',
+              marginBottom: '2rem',
+              letterSpacing: '0.02em',
+            }}>
+              {'É'}tudiant BTS SIO SISR {'·'} 23 ans {'·'} Bilingue FR / EN
+            </p>
+
+            {/* Badges row */}
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
               <span
                 className="inline-flex items-center rounded-full"
                 style={{
@@ -380,26 +402,23 @@ export default function Dashboard() {
                   border: '1px solid rgba(34,211,238,0.3)',
                   color: '#22d3ee',
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
+                  fontSize: '15px',
                   fontWeight: 600,
-                  padding: '10px 26px',
+                  padding: '12px 28px',
                   letterSpacing: '0.01em',
                 }}
               >
                 Alternant Admin. Syst{'\u00e8'}mes & R{'\u00e9'}seaux
               </span>
-            </div>
 
-            {/* Badge — green dot style cyber */}
-            <div className="flex justify-center mb-8">
               <div
                 className="inline-flex items-center gap-2.5 rounded-full"
                 style={{
                   background: 'rgba(34,197,94,0.08)',
                   border: '1px solid rgba(34,197,94,0.2)',
-                  padding: '11px 26px',
+                  padding: '12px 28px',
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: '14px',
+                  fontSize: '15px',
                   fontWeight: 500,
                   color: '#cbd5e1',
                 }}
@@ -411,142 +430,78 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Tech line — style cyber */}
-            <p
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '15px',
-                fontWeight: 400,
-                color: '#94a3b8',
-                marginBottom: '6px',
-              }}
-            >
-              Windows Server {'\u00b7'} Linux {'\u00b7'} Cisco {'\u00b7'} OpenVPN {'\u00b7'} Nagios&ensp;{'\u2014'}&ensp;Infrastructure SISR
-            </p>
-
-            {/* Education line — style cyber */}
-            <p
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '14px',
-                fontWeight: 400,
-                color: '#94a3b8',
-              }}
-            >
-              BTS SIO SISR {'\u00b7'} Institut F2I {'\u00b7'} Dipl{'\u00f4'}me en juin 2026&ensp;{'\u2014'}&ensp;
-              <span style={{ color: '#22d3ee', fontWeight: 600 }}>Objectif : Admin Sys & R{'\u00e9'}seaux</span>
-            </p>
           </div>
         </div>
 
         {/* ── À propos de moi ── */}
         <div
-          className="animate-fade-up rounded-2xl overflow-hidden mb-20"
+          className="animate-fade-up rounded-2xl overflow-hidden mb-24"
           style={{
-            background: 'linear-gradient(145deg, rgba(11,16,32,0.75), rgba(15,20,40,0.6))',
-            border: '1px solid rgba(129,140,248,0.15)',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(99,102,241,0.04)',
-            transitionDelay: '0.04s',
+            background: 'linear-gradient(145deg, rgba(11,16,32,0.75), rgba(15,20,40,0.55))',
+            border: '1px solid rgba(129,140,248,0.12)',
+            boxShadow: '0 24px 60px rgba(0,0,0,0.3)',
+            transitionDelay: '0.06s',
           }}
         >
-          {/* Barre d'accent en haut */}
-          <div style={{ height: '3px', background: 'linear-gradient(90deg, #6366f1, #22d3ee, #a78bfa)', borderRadius: '0 0 4px 4px' }} />
+          <div className="px-8 md:px-16 py-16">
 
-          <div className="px-8 md:px-16 py-14">
-            {/* Titre section */}
-            <div className="flex items-center gap-4 mb-10">
-              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(129,140,248,0.12)', border: '1px solid rgba(129,140,248,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '20px' }}>{'👤'}</span>
-              </div>
-              <div>
-                <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '14px', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
-                  {'À'} propos de moi
-                </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', marginTop: '2px' }}>
-                  Qui suis-je ?
-                </p>
-              </div>
-            </div>
-
-            {/* Accroche forte */}
+            {/* Accroche */}
             <h3 style={{
               fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
-              fontSize: 'clamp(1.4rem, 3vw, 1.8rem)',
+              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
               fontWeight: 800,
-              color: '#f1f5f9',
+              background: 'linear-gradient(135deg, #f1f5f9, #cbd5e1)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
               lineHeight: 1.4,
-              marginBottom: '2rem',
+              marginBottom: '2.5rem',
             }}>
               Passionn{'é'} par l'infrastructure IT et la cybers{'é'}curit{'é'}, je construis et s{'é'}curise les syst{'è'}mes de demain.
             </h3>
 
-            {/* Texte principal */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem', marginBottom: '2.5rem' }}>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
-                Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 600 }}>Dilan Lengue</span>, j'ai <span style={{ color: '#22d3ee', fontWeight: 600 }}>23 ans</span> et je suis actuellement {'é'}tudiant en deuxi{'è'}me ann{'é'}e de <span style={{ color: '#818cf8', fontWeight: 600 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 600 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'<span style={{ color: '#818cf8', fontWeight: 600 }}>Institut F2I</span>. <span style={{ color: '#22d3ee', fontWeight: 600 }}>Bilingue fran{'ç'}ais / anglais</span>, cet atout me permet d'{'é'}voluer aussi bien dans un environnement francophone qu'international et de consulter la documentation technique directement en anglais.
-              </p>
+            {/* Texte court et percutant */}
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '16.5px',
+              fontWeight: 400,
+              color: '#cbd5e1',
+              lineHeight: 2,
+              marginBottom: '3rem',
+              maxWidth: '680px',
+            }}>
+              {'É'}tudiant en BTS SIO option SISR {'à'} l'Institut F2I, bilingue fran{'ç'}ais / anglais, j'ai valid{'é'} mes comp{'é'}tences {'à'} travers <span style={{ color: '#a78bfa', fontWeight: 700 }}>2 stages</span> chez B&A Conseil et <span style={{ color: '#a78bfa', fontWeight: 700 }}>4 certifications</span>. Mon objectif : devenir <span style={{ color: '#22d3ee', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'} & Pen Tester</span>.
+            </p>
 
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
-                Passionn{'é'} par les technologies de l'information depuis plusieurs ann{'é'}es, j'ai choisi la sp{'é'}cialisation SISR pour d{'é'}velopper des comp{'é'}tences concr{'è'}tes en <span style={{ color: '#22d3ee', fontWeight: 600 }}>administration r{'é'}seau</span>, <span style={{ color: '#22d3ee', fontWeight: 600 }}>gestion de serveurs</span> et <span style={{ color: '#22d3ee', fontWeight: 600 }}>s{'é'}curit{'é'} informatique</span>. Ce qui me motive au quotidien, c'est de comprendre comment fonctionnent les infrastructures IT en profondeur, d'identifier leurs vuln{'é'}rabilit{'é'}s et de mettre en place des solutions robustes pour les prot{'é'}ger.
-              </p>
-
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
-                Au cours de ma formation, j'ai eu l'opportunit{'é'} de r{'é'}aliser <span style={{ color: '#a78bfa', fontWeight: 600 }}>2 stages en entreprise</span> chez B&A Conseil, o{'ù'} j'ai pu mettre en pratique mes comp{'é'}tences sur le terrain : d{'é'}ploiement de serveurs, configuration de r{'é'}seaux, mise en place de politiques de s{'é'}curit{'é'} et supervision d'infrastructures. Ces exp{'é'}riences m'ont permis de confronter la th{'é'}orie {'à'} la r{'é'}alit{'é'} du monde professionnel et de d{'é'}velopper une approche rigoureuse de la r{'é'}solution de probl{'è'}mes.
-              </p>
-
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
-                En parall{'è'}le, j'ai obtenu <span style={{ color: '#a78bfa', fontWeight: 600 }}>4 certifications</span> (ANSSI, EBIOS, Udemy, Coursera) qui t{'é'}moignent de mon investissement personnel et de ma volont{'é'} d'aller au-del{'à'} du programme scolaire. Je suis convaincu que dans le domaine de l'IT, la formation continue et l'autoformation sont essentielles pour rester {'à'} jour face {'à'} l'{'é'}volution constante des menaces et des technologies.
-              </p>
-
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
-                Rigoureux, curieux et autonome, j'aime relever des d{'é'}fis techniques et trouver des solutions efficaces. {'À'} travers ce portfolio, je souhaite vous pr{'é'}senter mon parcours, mes projets et les comp{'é'}tences que j'ai acquises tout au long de mon BTS. Mon ambition est claire : devenir <span style={{ color: '#a78bfa', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'} & Pen Tester</span>, en poursuivant mes {'é'}tudes avec une Licence Professionnelle puis un Master sp{'é'}cialis{'é'} en Cybers{'é'}curit{'é'}.
-              </p>
-            </div>
-
-            {/* Points forts — 3 cartes */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
+            {/* 4 highlights en ligne */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
-                { emoji: '🛡️', title: 'Sécurité & Réseaux', desc: 'OpenVPN, pfSense, iptables, Nessus, EBIOS RM', color: '#fb7185' },
-                { emoji: '🖥️', title: 'Systèmes & Serveurs', desc: 'Windows Server, Linux, Active Directory, DHCP/DNS', color: '#22d3ee' },
-                { emoji: '📈', title: 'Supervision & Infra', desc: 'Nagios, VMware, Hyper-V, GLPI, scripts Bash/PowerShell', color: '#818cf8' },
-              ].map((pt, i) => (
-                <div key={i} className="rounded-xl transition-all duration-300" style={{
-                  padding: '1.5rem',
-                  background: 'rgba(5,8,20,0.5)',
-                  border: `1px solid ${pt.color}20`,
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = `${pt.color}50`; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = `0 12px 30px rgba(0,0,0,0.3), 0 0 20px ${pt.color}08` }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = `${pt.color}20`; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none' }}
-                >
-                  <span style={{ fontSize: '28px', display: 'block', marginBottom: '0.8rem' }}>{pt.emoji}</span>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: pt.color, marginBottom: '0.5rem' }}>{pt.title}</p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.6 }}>{pt.desc}</p>
+                { value: '23', label: 'ans', color: '#22d3ee' },
+                { value: '2', label: 'stages', color: '#a78bfa' },
+                { value: '4', label: 'certifications', color: '#fb7185' },
+                { value: 'FR/EN', label: 'bilingue', color: '#34d399' },
+              ].map((h, i) => (
+                <div key={i} className="text-center rounded-xl" style={{ padding: '1.5rem 1rem', background: 'rgba(5,8,20,0.45)', border: `1px solid ${h.color}18` }}>
+                  <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.6rem', fontWeight: 900, color: h.color, marginBottom: '0.3rem' }}>{h.value}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{h.label}</p>
                 </div>
               ))}
             </div>
 
-            {/* Qualités + Objectif */}
-            <div className="flex flex-col sm:flex-row gap-5">
-              {/* Qualités */}
-              <div className="flex-1 rounded-xl" style={{ padding: '1.5rem', background: 'rgba(34,211,238,0.05)', border: '1px solid rgba(34,211,238,0.15)' }}>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 700, color: '#22d3ee', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.8rem' }}>Mes qualit{'é'}s</p>
-                <div className="flex flex-wrap gap-2">
-                  {['Rigoureux', 'Curieux', 'Autonome', 'Esprit d\'équipe', 'Bilingue FR/EN'].map((q, i) => (
-                    <span key={i} style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#cbd5e1', background: 'rgba(34,211,238,0.1)', border: '1px solid rgba(34,211,238,0.2)', borderRadius: '8px', padding: '6px 14px' }}>{q}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Objectif pro */}
-              <div className="flex-1 rounded-xl" style={{ padding: '1.5rem', background: 'rgba(167,139,250,0.05)', border: '1px solid rgba(167,139,250,0.15)' }}>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 700, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.8rem' }}>Mon objectif</p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 600, color: '#e2e8f0', lineHeight: 1.7 }}>
-                  Devenir <span style={{ color: '#a78bfa', fontWeight: 800 }}>Expert en Cybers{'é'}curit{'é'} & Pen Tester</span>
-                </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', marginTop: '4px' }}>
-                  Licence Pro {'→'} Master Cybers{'é'}curit{'é'} {'→'} Expert s{'é'}curit{'é'} offensive
-                </p>
-              </div>
+            {/* Qualités pills */}
+            <div className="flex flex-wrap gap-3 mt-8">
+              {['Rigoureux', 'Curieux', 'Autonome', 'Esprit d\'équipe', 'Adaptable'].map((q, i) => (
+                <span key={i} style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '13.5px',
+                  fontWeight: 600,
+                  color: '#e2e8f0',
+                  background: 'rgba(99,102,241,0.08)',
+                  border: '1px solid rgba(99,102,241,0.2)',
+                  borderRadius: '10px',
+                  padding: '8px 18px',
+                }}>{q}</span>
+              ))}
             </div>
           </div>
         </div>
