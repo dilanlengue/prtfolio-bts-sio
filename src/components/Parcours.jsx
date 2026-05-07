@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { GraduationCap, Briefcase, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
+import { GraduationCap, Briefcase, MapPin, ChevronDown, ChevronUp, Target, Shield } from 'lucide-react'
 
 const stages = [
   {
@@ -415,6 +415,87 @@ export default function Parcours() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
               {formations.map((f, i) => <FormationCard key={f.title} formation={f} index={i} />)}
+            </div>
+
+            {/* Objectif final */}
+            <div
+              className="relative rounded-2xl overflow-hidden transition-all duration-300"
+              style={{
+                marginTop: '2.5rem',
+                background: 'linear-gradient(145deg, rgba(0,255,136,0.04), rgba(11,16,32,0.85))',
+                border: '2px dashed rgba(0,255,136,0.25)',
+                backdropFilter: 'blur(8px)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(0,255,136,0.5)'
+                e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.35), 0 0 40px rgba(0,255,136,0.08)'
+                e.currentTarget.style.transform = 'translateY(-4px)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(0,255,136,0.25)'
+                e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.transform = 'translateY(0)'
+              }}
+            >
+              <div style={{ padding: '2rem 2rem 1.8rem' }}>
+                <div className="flex items-center gap-3" style={{ marginBottom: '1.2rem' }}>
+                  <div style={{
+                    width: '44px', height: '44px',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    borderRadius: '12px',
+                    background: 'rgba(0,255,136,0.1)',
+                    border: '2px solid rgba(0,255,136,0.3)',
+                  }}>
+                    <Target size={22} style={{ color: '#00ff88' }} />
+                  </div>
+                  <div>
+                    <span style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: '11px', fontWeight: 700,
+                      letterSpacing: '0.2em', color: '#00ff88',
+                      textTransform: 'uppercase',
+                    }}>
+                      Objectif
+                    </span>
+                    <h4 style={{
+                      fontFamily: "'Orbitron', system-ui, sans-serif",
+                      fontSize: '1.3rem', fontWeight: 900,
+                      background: 'linear-gradient(135deg, #00ff88, #22d3ee)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      lineHeight: 1.2,
+                    }}>
+                      M2 Cybersécurité
+                    </h4>
+                  </div>
+                </div>
+
+                <p style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '15.5px', fontWeight: 500,
+                  color: '#94a3b8', lineHeight: 1.8,
+                  marginBottom: '1.4rem',
+                }}>
+                  Mon objectif est d'intégrer un Master 2 en Cybersécurité afin de devenir
+                  experte en sécurité informatique et pentesting.
+                </p>
+
+                <div className="flex flex-wrap gap-3">
+                  {['Expert Cybersécurité', 'Pen Tester', 'Sécurité Offensive'].map(tag => (
+                    <span key={tag} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl" style={{
+                      background: 'rgba(0,255,136,0.06)',
+                      border: '1px solid rgba(0,255,136,0.2)',
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: '13px', fontWeight: 700,
+                      color: '#00ff88',
+                    }}>
+                      <Shield size={13} />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
