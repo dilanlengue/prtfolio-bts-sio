@@ -120,9 +120,16 @@ function StageCard({ stage, index }) {
             }}>
               {stage.date}
             </span>
-            <div className="flex items-center gap-1.5" style={{ color: '#475569', fontSize: '13px', fontFamily: "'Inter', sans-serif" }}>
-              <MapPin size={13} />
-              {stage.place}
+            <div className="inline-flex items-center gap-2" style={{
+              padding: '5px 14px',
+              background: 'rgba(251,146,60,0.08)',
+              border: '1px solid rgba(251,146,60,0.2)',
+              borderRadius: '8px',
+            }}>
+              <MapPin size={14} style={{ color: '#fb923c' }} />
+              <span style={{ color: '#fb923c', fontSize: '13px', fontWeight: 700, fontFamily: "'Inter', sans-serif" }}>
+                {stage.place}
+              </span>
             </div>
           </div>
 
@@ -248,9 +255,16 @@ function FormationCard({ formation, index }) {
                 </span>
               )}
             </div>
-            <div className="flex items-center gap-1.5" style={{ color: '#475569', fontSize: '13px', fontFamily: "'Inter', sans-serif" }}>
-              <MapPin size={13} />
-              {formation.place}
+            <div className="inline-flex items-center gap-2" style={{
+              padding: '5px 14px',
+              background: `${color}08`,
+              border: `1px solid ${color}20`,
+              borderRadius: '8px',
+            }}>
+              <MapPin size={14} style={{ color }} />
+              <span style={{ color, fontSize: '13px', fontWeight: 700, fontFamily: "'Inter', sans-serif" }}>
+                {formation.place}
+              </span>
             </div>
           </div>
 
@@ -350,31 +364,56 @@ export default function Parcours() {
 
           {/* Colonne gauche — STAGES */}
           <div>
-            <div className="flex items-center gap-4" style={{ marginBottom: '2.5rem' }}>
-              <div style={{
-                width: '52px', height: '52px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                borderRadius: '16px',
-                background: 'rgba(251,191,36,0.08)',
-                border: '2px solid rgba(251,191,36,0.25)',
-                boxShadow: '0 0 25px rgba(251,191,36,0.06)',
-              }}>
-                <Briefcase size={24} style={{ color: '#fbbf24' }} />
-              </div>
-              <div>
-                <h3 style={{
-                  fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: '1.5rem',
-                  fontWeight: 800,
-                  color: '#fbbf24',
-                  lineHeight: 1,
-                  marginBottom: '4px',
+            <div
+              className="relative rounded-2xl overflow-hidden"
+              style={{
+                marginBottom: '2.5rem',
+                padding: '1.5rem 2rem',
+                background: 'linear-gradient(135deg, rgba(251,191,36,0.06), rgba(251,191,36,0.02))',
+                border: '1.5px solid rgba(251,191,36,0.15)',
+              }}
+            >
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #fbbf24, transparent)', opacity: 0.3 }} />
+              <div className="flex items-center gap-4">
+                <div style={{
+                  width: '52px', height: '52px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  borderRadius: '16px',
+                  background: 'rgba(251,191,36,0.12)',
+                  border: '2px solid rgba(251,191,36,0.3)',
+                  boxShadow: '0 0 25px rgba(251,191,36,0.08)',
                 }}>
-                  Stages
-                </h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#64748b' }}>
-                  Expérience en entreprise
-                </p>
+                  <Briefcase size={24} style={{ color: '#fbbf24' }} />
+                </div>
+                <div>
+                  <h3 style={{
+                    fontFamily: "'Orbitron', system-ui, sans-serif",
+                    fontSize: '1.5rem',
+                    fontWeight: 900,
+                    color: '#fbbf24',
+                    lineHeight: 1,
+                    marginBottom: '5px',
+                    textShadow: '0 0 20px rgba(251,191,36,0.15)',
+                  }}>
+                    Stages
+                  </h3>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', fontWeight: 500 }}>
+                    Expérience en entreprise
+                  </p>
+                </div>
+                <div style={{ marginLeft: 'auto' }}>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '11px', fontWeight: 700,
+                    letterSpacing: '0.1em', color: '#fbbf24',
+                    padding: '4px 12px',
+                    background: 'rgba(251,191,36,0.08)',
+                    border: '1px solid rgba(251,191,36,0.2)',
+                    borderRadius: '99px',
+                  }}>
+                    {stages.length} STAGES
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -385,31 +424,56 @@ export default function Parcours() {
 
           {/* Colonne droite — FORMATION */}
           <div>
-            <div className="flex items-center gap-4" style={{ marginBottom: '2.5rem' }}>
-              <div style={{
-                width: '52px', height: '52px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                borderRadius: '16px',
-                background: 'rgba(34,211,238,0.08)',
-                border: '2px solid rgba(34,211,238,0.25)',
-                boxShadow: '0 0 25px rgba(34,211,238,0.06)',
-              }}>
-                <GraduationCap size={24} style={{ color: '#22d3ee' }} />
-              </div>
-              <div>
-                <h3 style={{
-                  fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: '1.5rem',
-                  fontWeight: 800,
-                  color: '#22d3ee',
-                  lineHeight: 1,
-                  marginBottom: '4px',
+            <div
+              className="relative rounded-2xl overflow-hidden"
+              style={{
+                marginBottom: '2.5rem',
+                padding: '1.5rem 2rem',
+                background: 'linear-gradient(135deg, rgba(34,211,238,0.06), rgba(34,211,238,0.02))',
+                border: '1.5px solid rgba(34,211,238,0.15)',
+              }}
+            >
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #22d3ee, transparent)', opacity: 0.3 }} />
+              <div className="flex items-center gap-4">
+                <div style={{
+                  width: '52px', height: '52px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  borderRadius: '16px',
+                  background: 'rgba(34,211,238,0.12)',
+                  border: '2px solid rgba(34,211,238,0.3)',
+                  boxShadow: '0 0 25px rgba(34,211,238,0.08)',
                 }}>
-                  Formation
-                </h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#64748b' }}>
-                  Cursus académique
-                </p>
+                  <GraduationCap size={24} style={{ color: '#22d3ee' }} />
+                </div>
+                <div>
+                  <h3 style={{
+                    fontFamily: "'Orbitron', system-ui, sans-serif",
+                    fontSize: '1.5rem',
+                    fontWeight: 900,
+                    color: '#22d3ee',
+                    lineHeight: 1,
+                    marginBottom: '5px',
+                    textShadow: '0 0 20px rgba(34,211,238,0.15)',
+                  }}>
+                    Formation
+                  </h3>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', fontWeight: 500 }}>
+                    Cursus académique
+                  </p>
+                </div>
+                <div style={{ marginLeft: 'auto' }}>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '11px', fontWeight: 700,
+                    letterSpacing: '0.1em', color: '#22d3ee',
+                    padding: '4px 12px',
+                    background: 'rgba(34,211,238,0.08)',
+                    border: '1px solid rgba(34,211,238,0.2)',
+                    borderRadius: '99px',
+                  }}>
+                    {formations.length} DIPLÔMES
+                  </span>
+                </div>
               </div>
             </div>
 
