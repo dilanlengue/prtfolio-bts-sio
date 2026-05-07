@@ -295,6 +295,137 @@ p {
   0%, 100% { border-color: #22d3ee; }
   50% { border-color: transparent; }
 }
+
+/* ═══ HERO PREMIUM ANIMATIONS ═══ */
+@keyframes hero-glow-pulse {
+  0%, 100% { opacity: 0.12; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.05); }
+}
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(0 0 100% 0); }
+  5% { clip-path: inset(20% 0 60% 0); transform: translateX(-3px); }
+  10% { clip-path: inset(60% 0 10% 0); transform: translateX(3px); }
+  15% { clip-path: inset(0 0 100% 0); transform: translateX(0); }
+}
+@keyframes glitch-2 {
+  0%, 100% { clip-path: inset(0 0 100% 0); }
+  7% { clip-path: inset(40% 0 30% 0); transform: translateX(4px); }
+  12% { clip-path: inset(10% 0 70% 0); transform: translateX(-2px); }
+  17% { clip-path: inset(0 0 100% 0); transform: translateX(0); }
+}
+@keyframes reveal-up {
+  0% { opacity: 0; transform: translateY(40px) scale(0.96); filter: blur(8px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes reveal-scale {
+  0% { opacity: 0; transform: scale(0.8); filter: blur(12px); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+@keyframes morph-blob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+  75% { border-radius: 60% 30% 60% 40% / 70% 40% 50% 60%; }
+}
+@keyframes scan-line {
+  0% { top: -4px; }
+  100% { top: 100%; }
+}
+@keyframes particle-float {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  25% { transform: translate(10px, -20px) scale(1.2); opacity: 1; }
+  50% { transform: translate(-5px, -40px) scale(0.8); opacity: 0.4; }
+  75% { transform: translate(15px, -60px) scale(1.1); opacity: 0.8; }
+}
+.hero-reveal { animation: reveal-up 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-reveal-scale { animation: reveal-scale 1.2s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-reveal-d1 { animation-delay: 0.1s; }
+.hero-reveal-d2 { animation-delay: 0.3s; }
+.hero-reveal-d3 { animation-delay: 0.55s; }
+.hero-reveal-d4 { animation-delay: 0.75s; }
+.hero-reveal-d5 { animation-delay: 0.95s; }
+.hero-reveal-d6 { animation-delay: 1.15s; }
+.hero-reveal-d7 { animation-delay: 1.35s; }
+
+.photo-container {
+  position: relative;
+}
+.photo-container::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #6366f1, #22d3ee, #00ff88, #f59e0b, #a78bfa, #6366f1);
+  animation: spin 4s linear infinite;
+}
+.photo-container::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: conic-gradient(from 180deg, #6366f1, #22d3ee, #00ff88, #6366f1);
+  animation: spin 8s linear infinite reverse;
+  opacity: 0.15;
+  filter: blur(15px);
+}
+.photo-scan-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(34,211,238,0.7), transparent);
+  animation: scan-line 3s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+.glitch-text {
+  position: relative;
+}
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+}
+.glitch-text::before {
+  color: #22d3ee;
+  animation: glitch-1 6s infinite;
+  z-index: -1;
+}
+.glitch-text::after {
+  color: #a78bfa;
+  animation: glitch-2 6s infinite;
+  z-index: -1;
+}
+.orbit-dot {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  margin: -4px;
+  animation: orbit var(--orbit-duration) linear infinite;
+}
+.shimmer-bar {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 60%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
 @keyframes floatDot {
   0% { transform: translateY(0) scale(1); opacity: 0.7; }
   100% { transform: translateY(-8px) scale(1.2); opacity: 0.4; }
