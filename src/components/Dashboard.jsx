@@ -471,7 +471,7 @@ export default function Dashboard() {
               lineHeight: 1.9,
               marginBottom: '1.5rem',
             }}>
-              Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 600 }}>Dilan Lengue</span>, j'ai 20 ans et je suis {'é'}tudiant en <span style={{ color: '#818cf8', fontWeight: 600 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 600 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'Institut F2I.
+              Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 600 }}>Dilan Lengue</span>, j'ai 23 ans et je suis {'é'}tudiant en <span style={{ color: '#818cf8', fontWeight: 600 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 600 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'Institut F2I. Je suis <span style={{ color: '#22d3ee', fontWeight: 600 }}>bilingue fran{'ç'}ais / anglais</span>.
             </p>
 
             <p style={{
