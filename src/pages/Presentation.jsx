@@ -293,21 +293,24 @@ export default function Presentation() {
                 marginBottom: '2rem',
               }}
             >
-              Étudiant Admin. Systèmes & Réseaux — Cybersécurité
+              Qui suis-je ?
             </h3>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 1.85 }}>
-                Étudiant en <strong style={{ color: '#f1f5f9' }}>BTS SIO option SISR</strong> en formation initiale (2ème année),
-                bilingue anglais-français. Spécialisé en administration systèmes, réseaux et cybersécurité.
+                Étudiante en <strong style={{ color: '#f1f5f9' }}>BTS SIO option SISR</strong> à
+                l'<strong style={{ color: '#f1f5f9' }}>Institut F2I</strong>, passionnée par l'informatique.
+                Je développe mes compétences en administration réseau, systèmes et cybersécurité.
               </p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 1.85 }}>
-                Deux stages en support informatique N1/N2 où j'ai mis en pratique mes compétences techniques
-                sur le terrain. Certifié <span style={{ color: '#22d3ee', fontWeight: 700 }}>ANSSI SecNumacadémie</span>.
+                <span style={{ color: '#22d3ee', fontWeight: 700 }}>Bilingue français-anglais</span>,
+                j'ai réalisé deux stages en support informatique N1/N2 qui m'ont permis de mettre
+                en pratique mes compétences techniques sur le terrain.
               </p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 1.85 }}>
-                Ce portfolio présente l'ensemble de mon parcours, mes projets et compétences
-                développés durant ma formation BTS SIO SISR.
+                Certifiée <span style={{ color: '#22d3ee', fontWeight: 700 }}>ANSSI SecNumacadémie</span>,
+                je recherche une alternance à partir de septembre 2026 pour continuer à progresser
+                dans le domaine de l'infrastructure et de la cybersécurité.
               </p>
             </div>
           </div>
