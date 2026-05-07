@@ -1,207 +1,280 @@
 import { useState } from 'react'
-import { ExternalLink, Wrench, GraduationCap, Award, Briefcase, MapPin } from 'lucide-react'
+import { GraduationCap, Briefcase, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
 
-// Chaque entrée appartient soit à PRO (gauche) soit FORMATION (droite)
-// row = numéro de ligne pour l'alignement vertical
-const rows = [
+const stages = [
   {
-    date: '2025 — 2026',
-    pro: {
-      badge: 'STAGE',
-      badgeColor: '#fbbf24',
-      title: 'Technicien Support & Maintenance',
-      org: 'B&A Conseil',
-      place: 'Île-de-France',
-      sub: 'Stage · Janv/Fév 2026',
-      pills: ['Support N1/N2', 'Windows 10/11', 'Maintenance'],
-      items: [
-        'Diagnostic et résolution d\'incidents matériels et logiciels',
-        'Maintenance préventive et corrective des postes',
-        'Déploiement de postes Windows et assistance on-site',
-      ],
-    },
-    formation: {
-      badge: 'FORMATION',
-      badgeColor: '#22d3ee',
-      current: true,
-      title: 'BTS SIO Option SISR — 2ème année',
-      org: 'Institut F2I',
-      orgColor: '#22d3ee',
-      place: 'Vincennes',
-      sub: 'Formation initiale',
-      pills: ['Active Directory', 'Cisco', 'OpenVPN', 'Nagios'],
-    },
+    date: 'Janv — Fév 2026',
+    title: 'Technicien Support & Maintenance',
+    org: 'B&A Conseil',
+    place: 'Île-de-France',
+    pills: ['Support N1/N2', 'Windows 10/11', 'Maintenance'],
+    items: [
+      'Diagnostic et résolution d\'incidents matériels et logiciels',
+      'Maintenance préventive et corrective des postes',
+      'Déploiement de postes Windows et assistance on-site',
+    ],
   },
   {
-    date: '2024 — 2025',
-    pro: {
-      badge: 'STAGE',
-      badgeColor: '#fbbf24',
-      title: 'Technicien Support Informatique',
-      org: 'Les Réparateurs Mac & PC',
-      place: 'Montreuil',
-      sub: 'Stage · Mai/Juil 2025',
-      pills: ['Support N1/N2', 'Réseaux', 'Réparation'],
-      items: [
-        'Réinstallation et configuration des systèmes d\'exploitation',
-        'Diagnostic et réparation de matériels informatiques',
-        'Gestion et configuration de réseaux locaux',
-      ],
-    },
-    formation: {
-      badge: 'FORMATION',
-      badgeColor: '#22d3ee',
-      title: 'BTS SIO Option SISR — 1ère année',
-      org: 'Institut F2I',
-      orgColor: '#22d3ee',
-      place: 'Vincennes',
-      sub: 'Formation initiale',
-      pills: ['Réseaux', 'Linux', 'Virtualisation'],
-    },
-  },
-  {
-    date: '2024',
-    pro: null,
-    formation: {
-      badge: 'DIPLÔME',
-      badgeColor: '#a78bfa',
-      title: 'HND — Software Engineering',
-      org: 'IUG Douala',
-      orgColor: '#a78bfa',
-      place: 'Cameroun',
-      pills: ['Dev logiciel', 'Systèmes d\'information'],
-    },
-  },
-  {
-    date: '2022 — 2023',
-    pro: null,
-    formation: {
-      badge: 'DIPLÔME',
-      badgeColor: '#a78bfa',
-      title: 'Licence Informatique',
-      org: 'Université de Douala',
-      orgColor: '#a78bfa',
-      place: 'Cameroun',
-      pills: ['Informatique', 'Programmation', 'Systèmes'],
-    },
-  },
-  {
-    date: '2021 — 2022',
-    pro: null,
-    formation: {
-      badge: 'DIPLÔME',
-      badgeColor: '#64748b',
-      title: 'Baccalauréat Scientifique — Série C',
-      org: 'Collège La Perfection',
-      orgColor: '#64748b',
-      place: 'Douala, Cameroun',
-      pills: ['Mathématiques', 'Sciences'],
-    },
+    date: 'Mai — Juil 2025',
+    title: 'Technicien Support Informatique',
+    org: 'Les Réparateurs Mac & PC',
+    place: 'Montreuil',
+    pills: ['Support N1/N2', 'Réseaux', 'Réparation'],
+    items: [
+      'Réinstallation et configuration des systèmes d\'exploitation',
+      'Diagnostic et réparation de matériels informatiques',
+      'Gestion et configuration de réseaux locaux',
+    ],
   },
 ]
 
-function EntryCard({ entry, side }) {
+const formations = [
+  {
+    date: '2025 — 2026',
+    title: 'BTS SIO Option SISR — 2ème année',
+    org: 'Institut F2I',
+    place: 'Vincennes',
+    current: true,
+    pills: ['Active Directory', 'Cisco', 'OpenVPN', 'Nagios'],
+  },
+  {
+    date: '2024 — 2025',
+    title: 'BTS SIO Option SISR — 1ère année',
+    org: 'Institut F2I',
+    place: 'Vincennes',
+    pills: ['Réseaux', 'Linux', 'Virtualisation'],
+  },
+  {
+    date: '2024',
+    title: 'HND — Software Engineering',
+    org: 'IUG Douala',
+    place: 'Cameroun',
+    pills: ['Dev logiciel', 'Systèmes d\'information'],
+  },
+  {
+    date: '2022 — 2023',
+    title: 'Licence Informatique',
+    org: 'Université de Douala',
+    place: 'Cameroun',
+    pills: ['Informatique', 'Programmation', 'Systèmes'],
+  },
+  {
+    date: '2021 — 2022',
+    title: 'Baccalauréat Scientifique — Série C',
+    org: 'Collège La Perfection',
+    place: 'Douala, Cameroun',
+    pills: ['Mathématiques', 'Sciences'],
+  },
+]
+
+function StageCard({ stage }) {
   const [open, setOpen] = useState(false)
-  if (!entry) return <div />
   return (
     <div
-      className="rounded-2xl overflow-hidden transition-all duration-200"
+      className="relative rounded-2xl overflow-hidden transition-all duration-300"
       style={{
-        background: 'rgba(10,15,30,0.85)',
-        border: `1px solid ${entry.badgeColor}22`,
+        background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
+        border: '1.5px solid rgba(251,191,36,0.15)',
+        backdropFilter: 'blur(8px)',
       }}
-      onMouseEnter={e => e.currentTarget.style.borderColor = `${entry.badgeColor}50`}
-      onMouseLeave={e => e.currentTarget.style.borderColor = `${entry.badgeColor}22`}
+      onMouseEnter={e => {
+        e.currentTarget.style.borderColor = 'rgba(251,191,36,0.4)'
+        e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(251,191,36,0.08)'
+        e.currentTarget.style.transform = 'translateY(-4px)'
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.borderColor = 'rgba(251,191,36,0.15)'
+        e.currentTarget.style.boxShadow = 'none'
+        e.currentTarget.style.transform = 'translateY(0)'
+      }}
     >
-      <div style={{ height: '2px', background: entry.badgeColor, opacity: 0.6 }} />
+      <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #fbbf24, transparent)', opacity: 0.6 }} />
       <div className="p-7">
-        {/* Badge + sub */}
-        <div className="flex items-center gap-2 mb-2.5 flex-wrap">
-          <span
-            className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
-            style={{
-              background: `${entry.badgeColor}15`,
-              border: `1px solid ${entry.badgeColor}35`,
-              color: entry.badgeColor,
-              fontFamily: "'Inter', sans-serif",
-            }}
-          >
-            {entry.current && <span className="inline-block w-1.5 h-1.5 rounded-full mr-1.5 animate-pulse align-middle" style={{ background: entry.badgeColor }} />}
-            {entry.badge === 'STAGE' && <Briefcase size={11} />}
-            {entry.badge === 'FORMATION' && <GraduationCap size={11} />}
-            {entry.badge === 'DIPLÔME' && <Award size={11} />}
-            {entry.badge}
+        <div className="flex items-center justify-between mb-4">
+          <span style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: '12px',
+            fontWeight: 700,
+            color: '#fbbf24',
+            letterSpacing: '0.1em',
+            padding: '4px 12px',
+            background: 'rgba(251,191,36,0.08)',
+            border: '1px solid rgba(251,191,36,0.2)',
+            borderRadius: '6px',
+          }}>
+            {stage.date}
           </span>
-          {entry.sub && (
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#475569' }}>{entry.sub}</span>
-          )}
+          <div className="flex items-center gap-1.5" style={{ color: '#475569', fontSize: '13px', fontFamily: "'Inter', sans-serif" }}>
+            <MapPin size={13} />
+            {stage.place}
+          </div>
         </div>
 
-        {/* Titre */}
-        <h3
-          style={{ fontFamily: "'Inter', sans-serif", fontSize: '1.25rem', fontWeight: 800, color: '#f1f5f9', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: '0.4rem' }}
-        >
-          {entry.title}
-        </h3>
+        <h4 style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: '1.2rem',
+          fontWeight: 800,
+          color: '#f1f5f9',
+          marginBottom: '0.3rem',
+          letterSpacing: '-0.02em',
+        }}>
+          {stage.title}
+        </h4>
 
-        {/* Org */}
-        <p className="flex items-center gap-1.5" style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 600, color: entry.orgColor || entry.badgeColor, marginBottom: '0.7rem' }}>
-          {entry.org}
-          {entry.place && (
-            <span className="inline-flex items-center gap-1" style={{ color: '#475569', fontWeight: 500 }}>
-              <MapPin size={12} /> {entry.place}
-            </span>
-          )}
+        <p style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: '15px',
+          fontWeight: 600,
+          color: '#fbbf24',
+          marginBottom: '1rem',
+        }}>
+          {stage.org}
         </p>
 
-        {/* Pills */}
-        <div className="flex flex-wrap gap-1.5 mb-3">
-          {entry.pills.map(p => (
+        <div className="flex flex-wrap gap-2 mb-4">
+          {stage.pills.map(p => (
             <span
               key={p}
               className="px-3 py-1 rounded-lg"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)', color: '#64748b', fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500 }}
+              style={{
+                background: 'rgba(251,191,36,0.06)',
+                border: '1px solid rgba(251,191,36,0.15)',
+                color: '#d4a437',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '12.5px',
+                fontWeight: 600,
+              }}
             >
               {p}
             </span>
           ))}
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-3 flex-wrap">
-          {entry.items && (
-            <button
-              className="text-sm font-bold transition-all"
-              style={{ color: entry.badgeColor, fontFamily: "'Inter', sans-serif" }}
-              onClick={() => setOpen(!open)}
-            >
-              {open ? '↑ masquer' : 'Voir ↗'}
-            </button>
-          )}
-          {entry.url && (
-            <a
-              href={entry.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-bold"
-              style={{ color: '#818cf8', fontFamily: "'Inter', sans-serif" }}
-            >
-              <ExternalLink size={10} /> Attestation ↗
-            </a>
-          )}
-        </div>
+        <button
+          onClick={() => setOpen(!open)}
+          className="flex items-center gap-1.5 transition-all"
+          style={{
+            color: '#fbbf24',
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '13px',
+            fontWeight: 700,
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: 0,
+          }}
+        >
+          {open ? <><ChevronUp size={14} /> Masquer</> : <><ChevronDown size={14} /> Voir les missions</>}
+        </button>
 
-        {/* Détails */}
-        {open && entry.items && (
-          <div className="mt-3 space-y-1.5 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-            {entry.items.map((it, i) => (
-              <div key={i} className="flex items-start gap-2">
-                <span style={{ color: entry.badgeColor, flexShrink: 0, fontFamily: "'JetBrains Mono', 'Fira Code', monospace", fontSize: '13px', fontWeight: 700, marginTop: '2px' }}>→</span>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.65 }}>{it}</span>
+        {open && (
+          <div className="mt-4 space-y-2 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+            {stage.items.map((it, i) => (
+              <div key={i} className="flex items-start gap-2.5">
+                <span style={{ color: '#fbbf24', fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, marginTop: '2px', flexShrink: 0 }}>&#9656;</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#94a3b8', lineHeight: 1.7 }}>{it}</span>
               </div>
             ))}
           </div>
         )}
+      </div>
+    </div>
+  )
+}
+
+function FormationCard({ formation }) {
+  const color = formation.current ? '#22d3ee' : '#818cf8'
+  return (
+    <div
+      className="relative rounded-2xl overflow-hidden transition-all duration-300"
+      style={{
+        background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
+        border: `1.5px solid ${color}15`,
+        backdropFilter: 'blur(8px)',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.borderColor = `${color}40`
+        e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 30px ${color}08`
+        e.currentTarget.style.transform = 'translateY(-4px)'
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.borderColor = `${color}15`
+        e.currentTarget.style.boxShadow = 'none'
+        e.currentTarget.style.transform = 'translateY(0)'
+      }}
+    >
+      <div style={{ height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.6 }} />
+      <div className="p-7">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2.5">
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '12px',
+              fontWeight: 700,
+              color,
+              letterSpacing: '0.1em',
+              padding: '4px 12px',
+              background: `${color}0a`,
+              border: `1px solid ${color}20`,
+              borderRadius: '6px',
+            }}>
+              {formation.date}
+            </span>
+            {formation.current && (
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full" style={{
+                background: 'rgba(0,255,136,0.06)',
+                border: '1px solid rgba(0,255,136,0.2)',
+              }}>
+                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#22c55e' }} />
+                <span style={{ fontSize: '11px', fontWeight: 700, color: '#34d399', fontFamily: "'Inter', sans-serif" }}>En cours</span>
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-1.5" style={{ color: '#475569', fontSize: '13px', fontFamily: "'Inter', sans-serif" }}>
+            <MapPin size={13} />
+            {formation.place}
+          </div>
+        </div>
+
+        <h4 style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: '1.15rem',
+          fontWeight: 800,
+          color: '#f1f5f9',
+          marginBottom: '0.3rem',
+          letterSpacing: '-0.02em',
+        }}>
+          {formation.title}
+        </h4>
+
+        <p style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: '15px',
+          fontWeight: 600,
+          color,
+          marginBottom: '1rem',
+        }}>
+          {formation.org}
+        </p>
+
+        <div className="flex flex-wrap gap-2">
+          {formation.pills.map(p => (
+            <span
+              key={p}
+              className="px-3 py-1 rounded-lg"
+              style={{
+                background: `${color}08`,
+                border: `1px solid ${color}18`,
+                color: `${color}cc`,
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '12.5px',
+                fontWeight: 600,
+              }}
+            >
+              {p}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -213,83 +286,104 @@ export default function Parcours() {
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Header */}
-        <div className="text-center" style={{ marginBottom: '28px' }}>
-          <h2 className="animate-fade-up" style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', fontWeight: 800, letterSpacing: '-0.025em', lineHeight: 1.1, color: '#e6ecf8' }}>
+        <div className="text-center mb-16">
+          <h2
+            className="animate-fade-up"
+            style={{
+              fontFamily: "'Orbitron', system-ui, sans-serif",
+              fontSize: 'clamp(2rem, 5vw, 2.8rem)',
+              fontWeight: 900,
+              letterSpacing: '-0.02em',
+              lineHeight: 1.1,
+              marginBottom: '1.2rem',
+              background: 'linear-gradient(135deg, #f1f5f9 0%, #818cf8 50%, #22d3ee 100%)',
+              backgroundSize: '200% 100%',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              animation: 'gradient-shift 8s linear infinite',
+            }}
+          >
             Mon Parcours
           </h2>
-          <div style={{ width: '128px', height: '2px', margin: '16px auto 0', background: 'linear-gradient(90deg, rgba(56,189,248,0) 0%, rgba(56,189,248,0.45) 24%, rgba(212,175,55,0.85) 50%, rgba(147,51,234,0.55) 76%, rgba(56,189,248,0) 100%)' }} />
-          <p className="animate-fade-up mx-auto" style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 500, color: '#c5d3e8', lineHeight: 1.75, maxWidth: '580px', marginTop: '1rem' }}>
-            De l'informatique aux réseaux — 2021 à aujourd'hui
+          <p
+            className="animate-fade-up mx-auto"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '17px',
+              fontWeight: 500,
+              color: '#94a3b8',
+              lineHeight: 1.7,
+              maxWidth: '560px',
+            }}
+          >
+            Formation initiale en BTS SIO SISR à l'Institut F2I, complétée par
+            deux stages en support informatique N1/N2 en entreprise.
           </p>
         </div>
 
-        {/* Légende */}
-        <div className="flex flex-wrap items-center justify-center gap-6 mb-14">
-          {[
-            { color: '#fbbf24', label: 'Stages' },
-            { color: '#22d3ee', label: 'Formation' },
-            { color: '#a78bfa', label: 'Diplômes' },
-          ].map(({ color, label }) => (
-            <div key={label} className="flex items-center gap-2.5">
-              <span className="w-3 h-3 rounded-full" style={{ background: color, boxShadow: `0 0 8px ${color}40` }} />
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', fontWeight: 600 }}>{label}</span>
+        {/* ── STAGES ── */}
+        <div className="mb-16">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="flex items-center gap-3">
+              <div style={{
+                width: '40px', height: '40px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                borderRadius: '12px',
+                background: 'rgba(251,191,36,0.08)',
+                border: '1px solid rgba(251,191,36,0.2)',
+              }}>
+                <Briefcase size={20} style={{ color: '#fbbf24' }} />
+              </div>
+              <h3 style={{
+                fontFamily: "'Orbitron', system-ui, sans-serif",
+                fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)',
+                fontWeight: 800,
+                color: '#fbbf24',
+              }}>
+                Stages
+              </h3>
             </div>
-          ))}
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(251,191,36,0.3), transparent)' }} />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {stages.map(s => <StageCard key={s.org} stage={s} />)}
+          </div>
         </div>
 
-        {/* Timeline */}
-        <div className="space-y-6">
-          {rows.map((row, i) => (
-            <div key={i} className="flex items-start gap-0">
-
-              {/* Date + dot — desktop */}
-              <div className="hidden md:flex flex-col items-end mr-4 flex-shrink-0" style={{ width: '90px', paddingTop: '1.5rem' }}>
-                <span style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace", fontSize: '11px', color: '#475569', fontWeight: 600, textAlign: 'right', lineHeight: 1.4 }}>
-                  {row.date}
-                </span>
+        {/* ── FORMATION ── */}
+        <div className="mb-16">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="flex items-center gap-3">
+              <div style={{
+                width: '40px', height: '40px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                borderRadius: '12px',
+                background: 'rgba(34,211,238,0.08)',
+                border: '1px solid rgba(34,211,238,0.2)',
+              }}>
+                <GraduationCap size={20} style={{ color: '#22d3ee' }} />
               </div>
-
-              {/* Dot + ligne */}
-              <div className="hidden md:flex flex-col items-center mr-4 flex-shrink-0">
-                <div
-                  className="w-3 h-3 rounded-full mt-6 flex-shrink-0"
-                  style={{
-                    background: row.pro ? '#fbbf24' : '#22d3ee',
-                    boxShadow: `0 0 8px ${row.pro ? '#fbbf24' : '#22d3ee'}60`,
-                    border: '2px solid #080c1a',
-                  }}
-                />
-                {i < rows.length - 1 && (
-                  <div className="w-px flex-1 mt-1" style={{ background: 'rgba(255,255,255,0.06)', minHeight: '24px' }} />
-                )}
-              </div>
-
-              {/* Cards grid */}
-              <div className="flex-1 grid md:grid-cols-2 gap-4">
-                {/* Colonne gauche — PRO */}
-                <div>
-                  {/* Date mobile */}
-                  {row.pro && (
-                    <p className="md:hidden text-xs font-bold mb-2" style={{ color: '#475569', fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}>{row.date}</p>
-                  )}
-                  <EntryCard entry={row.pro} side="left" />
-                </div>
-
-                {/* Colonne droite — FORMATION */}
-                <div>
-                  {!row.pro && (
-                    <p className="md:hidden text-xs font-bold mb-2" style={{ color: '#475569', fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}>{row.date}</p>
-                  )}
-                  <EntryCard entry={row.formation} side="right" />
-                </div>
-              </div>
+              <h3 style={{
+                fontFamily: "'Orbitron', system-ui, sans-serif",
+                fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)',
+                fontWeight: 800,
+                color: '#22d3ee',
+              }}>
+                Formation
+              </h3>
             </div>
-          ))}
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(34,211,238,0.3), transparent)' }} />
+          </div>
+
+          <div className="space-y-5">
+            {formations.map(f => <FormationCard key={f.title} formation={f} />)}
+          </div>
         </div>
 
-        {/* Langues */}
+        {/* ── LANGUES ── */}
         <div className="animate-fade-up" style={{ marginTop: '6rem' }}>
-          {/* Titre section — grand et stylé */}
           <div className="text-center mb-14">
             <h3
               style={{
@@ -303,7 +397,6 @@ export default function Parcours() {
                 backgroundClip: 'text',
                 animation: 'gradient-shift 6s linear infinite',
                 marginBottom: '1rem',
-                letterSpacing: '-0.01em',
               }}
             >
               Mes Langues
@@ -320,7 +413,6 @@ export default function Parcours() {
             </p>
           </div>
 
-          {/* Cards langues — 2 colonnes */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {[
               {
@@ -361,13 +453,9 @@ export default function Parcours() {
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                {/* Glow bar */}
                 <div style={{ position: 'absolute', top: 0, left: '10%', right: '10%', height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.5 }} />
-
-                {/* Background glow */}
                 <div style={{ position: 'absolute', top: '-40px', left: '50%', transform: 'translateX(-50%)', width: '200px', height: '200px', background: `radial-gradient(circle, ${color}08, transparent)`, pointerEvents: 'none' }} />
 
-                {/* Drapeau */}
                 <div className="flex justify-center mb-6">
                   <div style={{
                     borderRadius: '50%',
@@ -377,81 +465,25 @@ export default function Parcours() {
                     border: `3px solid ${color}40`,
                     boxShadow: `0 0 30px ${color}15, 0 8px 24px rgba(0,0,0,0.3)`,
                   }}>
-                    <img
-                      src={flagUrl}
-                      alt={lang}
-                      width="80"
-                      height="80"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    />
+                    <img src={flagUrl} alt={lang} width="80" height="80" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                   </div>
                 </div>
 
-                {/* Nom langue */}
-                <h4 style={{
-                  fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: '1.3rem',
-                  fontWeight: 800,
-                  color: '#f1f5f9',
-                  textAlign: 'center',
-                  marginBottom: '0.4rem',
-                }}>
+                <h4 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#f1f5f9', textAlign: 'center', marginBottom: '0.4rem' }}>
                   {lang}
                 </h4>
-
-                {/* Niveau */}
-                <p style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: '13px',
-                  fontWeight: 700,
-                  color,
-                  textAlign: 'center',
-                  letterSpacing: '0.1em',
-                  marginBottom: '1.2rem',
-                  textShadow: `0 0 10px ${color}30`,
-                }}>
+                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color, textAlign: 'center', letterSpacing: '0.1em', marginBottom: '1.2rem', textShadow: `0 0 10px ${color}30` }}>
                   {level}
                 </p>
-
-                {/* Description */}
-                <p style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: '14px',
-                  color: '#94a3b8',
-                  textAlign: 'center',
-                  lineHeight: 1.7,
-                  marginBottom: '1.8rem',
-                }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', textAlign: 'center', lineHeight: 1.7, marginBottom: '1.8rem' }}>
                   {desc}
                 </p>
 
-                {/* Barre de progression */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{
-                    flex: 1,
-                    height: '8px',
-                    background: 'rgba(255,255,255,0.06)',
-                    borderRadius: '99px',
-                    overflow: 'hidden',
-                  }}>
-                    <div style={{
-                      width: `${percent}%`,
-                      height: '100%',
-                      background: `linear-gradient(90deg, ${color}80, ${color})`,
-                      borderRadius: '99px',
-                      boxShadow: `0 0 14px ${color}40`,
-                      transition: 'width 1.5s cubic-bezier(0.16, 1, 0.3, 1)',
-                    }} />
+                  <div style={{ flex: 1, height: '8px', background: 'rgba(255,255,255,0.06)', borderRadius: '99px', overflow: 'hidden' }}>
+                    <div style={{ width: `${percent}%`, height: '100%', background: `linear-gradient(90deg, ${color}80, ${color})`, borderRadius: '99px', boxShadow: `0 0 14px ${color}40` }} />
                   </div>
-                  <span style={{
-                    fontFamily: "'Orbitron', system-ui, sans-serif",
-                    fontSize: '15px',
-                    fontWeight: 800,
-                    color,
-                    minWidth: '42px',
-                    textAlign: 'right',
-                    textShadow: `0 0 8px ${color}30`,
-                  }}>
+                  <span style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 800, color, minWidth: '42px', textAlign: 'right' }}>
                     {percent}%
                   </span>
                 </div>
