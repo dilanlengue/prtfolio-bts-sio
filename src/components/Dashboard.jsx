@@ -1,5 +1,5 @@
 ﻿import { useEffect, useRef, useState, useCallback } from 'react'
-import { Download, Mail, Linkedin, Github, ArrowLeft, FolderKanban, ShieldCheck, CalendarDays, Award, Server, BarChart3, Lock, FileText } from 'lucide-react'
+import { Download, Mail, Linkedin, Github, ArrowLeft, FolderKanban, ShieldCheck, CalendarDays, Award, Server, BarChart3, Lock, FileText, Monitor, Globe, Shield, Activity, Cloud, Link2, Target, Crosshair } from 'lucide-react'
 import SectionLabel from './SectionLabel'
 
 /* ─── CountUp ─── */
@@ -56,12 +56,12 @@ const domainesSmall = [
 ]
 
 const techGrid = [
-  { cat: 'Système',        emoji: '🖥️', color: '#22d3ee', tags: ['Windows Server', 'Linux Debian', 'Active Directory', 'PowerShell', 'GPO', 'WSUS'] },
-  { cat: 'Réseau',         emoji: '🌐', color: '#818cf8', tags: ['Cisco IOS', 'VLAN 802.1Q', 'TCP/IP', 'DNS / DHCP', 'Routage', 'Wireshark'] },
-  { cat: 'Cybersécurité',  emoji: '🛡️', color: '#fb7185', tags: ['OpenVPN', 'Nessus', 'iptables', 'pfSense', 'EBIOS RM'] },
-  { cat: 'Supervision',    emoji: '📊', color: '#34d399', tags: ['Nagios', 'GLPI', 'SNMP', 'NRPE'] },
-  { cat: 'Virtualisation', emoji: '☁️',  color: '#f59e0b', tags: ['VirtualBox', 'VMware', 'Proxmox', 'Hyper-V'] },
-  { cat: 'Protocoles',     emoji: '🔗', color: '#a78bfa', tags: ['SSH', 'RDP', 'LDAP', 'SMTP', 'HTTPS'] },
+  { cat: 'Système',        icon: Monitor,  color: '#22d3ee', tags: ['Windows Server', 'Linux Debian', 'Active Directory', 'PowerShell', 'GPO', 'WSUS'] },
+  { cat: 'Réseau',         icon: Globe,    color: '#818cf8', tags: ['Cisco IOS', 'VLAN 802.1Q', 'TCP/IP', 'DNS / DHCP', 'Routage', 'Wireshark'] },
+  { cat: 'Cybersécurité',  icon: Shield,   color: '#fb7185', tags: ['OpenVPN', 'Nessus', 'iptables', 'pfSense', 'EBIOS RM'] },
+  { cat: 'Supervision',    icon: Activity, color: '#34d399', tags: ['Nagios', 'GLPI', 'SNMP', 'NRPE'] },
+  { cat: 'Virtualisation', icon: Cloud,    color: '#f59e0b', tags: ['VirtualBox', 'VMware', 'Proxmox', 'Hyper-V'] },
+  { cat: 'Protocoles',     icon: Link2,    color: '#a78bfa', tags: ['SSH', 'RDP', 'LDAP', 'SMTP', 'HTTPS'] },
 ]
 
 /* ─── Matrix Rain Canvas ─── */
@@ -433,10 +433,11 @@ export default function Dashboard() {
         </div>
 
         {/* ── À propos de moi ── */}
+        {/* ── À propos de moi ── */}
         <div className="animate-fade-up mb-32" style={{ transitionDelay: '0.06s' }}>
 
           {/* Titre */}
-          <div className="flex items-center gap-4 mb-12">
+          <div className="flex items-center gap-4 mb-14">
             <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #6366f1, transparent)', borderRadius: '2px' }} />
             <p style={{
               fontFamily: "'Orbitron', system-ui, sans-serif",
@@ -453,41 +454,60 @@ export default function Dashboard() {
 
           {/* Paragraphe 1 */}
           <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '18px',
+            fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
+            fontSize: '19px',
             fontWeight: 400,
             color: '#e2e8f0',
-            lineHeight: 2.1,
-            marginBottom: '2rem',
+            lineHeight: 2.2,
+            marginBottom: '2.5rem',
+            letterSpacing: '0.01em',
           }}>
-            Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 700 }}>Dilan Lengue</span>, j'ai <span style={{ color: '#22d3ee', fontWeight: 700 }}>23 ans</span> et je suis {'é'}tudiant en <span style={{ color: '#818cf8', fontWeight: 700 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 700 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'Institut F2I. <span style={{ color: '#22d3ee', fontWeight: 700 }}>Bilingue fran{'ç'}ais / anglais</span>, passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique.
+            Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 700, borderBottom: '2px solid rgba(34,211,238,0.3)' }}>Dilan Lengue</span>, j'ai <span style={{ color: '#22d3ee', fontWeight: 700 }}>23 ans</span> et je suis {'é'}tudiant en <span style={{ color: '#818cf8', fontWeight: 700 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 700 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'Institut F2I. <span style={{ color: '#22d3ee', fontWeight: 700 }}>Bilingue fran{'ç'}ais / anglais</span>, passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique.
           </p>
 
           {/* Paragraphe 2 */}
           <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '18px',
+            fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
+            fontSize: '19px',
             fontWeight: 400,
             color: '#e2e8f0',
-            lineHeight: 2.1,
-            marginBottom: '2rem',
+            lineHeight: 2.2,
+            marginBottom: '2.5rem',
+            letterSpacing: '0.01em',
           }}>
             Au cours de ma formation, j'ai eu l'opportunit{'é'} de mettre mes connaissances en pratique {'à'} travers plusieurs projets techniques et stages en entreprise. Rigoureux, curieux et motiv{'é'}, j'aime relever des d{'é'}fis techniques et trouver des solutions efficaces aux probl{'è'}mes rencontr{'é'}s.
           </p>
 
-          {/* Paragraphe 3 */}
+          {/* Paragraphe 3 — Objectif */}
           <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '18px',
+            fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
+            fontSize: '19px',
             fontWeight: 400,
             color: '#e2e8f0',
-            lineHeight: 2.1,
+            lineHeight: 2.2,
+            marginBottom: '3rem',
+            letterSpacing: '0.01em',
           }}>
             {'À'} travers ce portfolio, je souhaite partager mon parcours, mes projets et les comp{'é'}tences que j'ai acquises dans le cadre de mon BTS. Mon projet professionnel est de devenir <span style={{ color: '#fb7185', fontWeight: 700 }}>Pentester</span> (testeur d'intrusion) et <span style={{ color: '#a78bfa', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'}</span>, sp{'é'}cialis{'é'} dans la s{'é'}curisation et l'audit des infrastructures informatiques.
           </p>
 
-        </div>
+          {/* Objectif visuel */}
+          <div className="rounded-2xl" style={{ padding: '2rem 2.5rem', background: 'linear-gradient(135deg, rgba(251,113,133,0.06), rgba(167,139,250,0.06))', border: '1px solid rgba(251,113,133,0.15)' }}>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center justify-center rounded-xl" style={{ width: '48px', height: '48px', background: 'rgba(251,113,133,0.12)', border: '1px solid rgba(251,113,133,0.3)' }}>
+                <Crosshair size={24} style={{ color: '#fb7185' }} />
+              </div>
+              <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '13px', fontWeight: 700, color: '#fb7185', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Mon objectif professionnel</p>
+            </div>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '20px', fontWeight: 700, color: '#f1f5f9', lineHeight: 1.6 }}>
+              Devenir <span style={{ color: '#fb7185' }}>Pentester</span> & <span style={{ color: '#a78bfa' }}>Expert en Cybers{'é'}curit{'é'}</span>
+            </p>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', marginTop: '0.5rem' }}>
+              Licence Pro Cybers{'é'}curit{'é'} {'→'} Master Cybers{'é'}curit{'é'} {'→'} Expert s{'é'}curit{'é'} offensive & audit d'infrastructure
+            </p>
+          </div>
 
+        </div>
 
         {/* ── Statistiques — titre pleine largeur ── */}
         <div className="animate-fade-up mb-32" style={{ marginTop: '8rem' }}>
@@ -711,51 +731,59 @@ export default function Dashboard() {
         </div>
 
         {/* ── Tech grid — cartes colorées par catégorie ── */}
-        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-32" style={{ transitionDelay: '0.2s' }}>
-          {techGrid.map((row, i) => (
-            <div
-              key={i}
-              className="rounded-2xl p-8 transition-all duration-300"
-              style={{
-                background: 'rgba(11,16,32,0.7)',
-                border: `1px solid ${row.color}18`,
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = `${row.color}45`
-                e.currentTarget.style.transform = 'translateY(-4px)'
-                e.currentTarget.style.boxShadow = `0 16px 40px rgba(0,0,0,0.3), 0 0 24px ${row.color}10`
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = `${row.color}18`
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.boxShadow = 'none'
-              }}
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <span style={{ fontSize: '24px' }}>{row.emoji}</span>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: row.color }}>{row.cat}</p>
+        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-32" style={{ transitionDelay: '0.2s' }}>
+          {techGrid.map((row, i) => {
+            const RowIcon = row.icon
+            return (
+              <div
+                key={i}
+                className="rounded-2xl p-9 transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(145deg, rgba(11,16,32,0.75), rgba(15,20,40,0.55))',
+                  border: `1px solid ${row.color}20`,
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = `${row.color}50`
+                  e.currentTarget.style.transform = 'translateY(-6px)'
+                  e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 30px ${row.color}12`
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = `${row.color}20`
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = 'none'
+                }}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center justify-center rounded-xl" style={{ width: '48px', height: '48px', background: `${row.color}12`, border: `1px solid ${row.color}30` }}>
+                    <RowIcon size={24} style={{ color: row.color }} />
+                  </div>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', fontWeight: 700, color: row.color }}>{row.cat}</p>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {row.tags.map(tag => (
+                    <span
+                      key={tag}
+                      className="transition-all duration-200"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: '14px',
+                        fontWeight: 500,
+                        color: '#e2e8f0',
+                        background: `${row.color}0c`,
+                        border: `1px solid ${row.color}25`,
+                        borderRadius: '12px',
+                        padding: '10px 18px',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.background = `${row.color}1a`; e.currentTarget.style.borderColor = `${row.color}45` }}
+                      onMouseLeave={e => { e.currentTarget.style.background = `${row.color}0c`; e.currentTarget.style.borderColor = `${row.color}25` }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2.5">
-                {row.tags.map(tag => (
-                  <span
-                    key={tag}
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '13.5px',
-                      fontWeight: 500,
-                      color: '#e2e8f0',
-                      background: `${row.color}0a`,
-                      border: `1px solid ${row.color}22`,
-                      borderRadius: '10px',
-                      padding: '8px 16px',
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         {/* ── Mes Réseaux ── */}
