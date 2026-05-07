@@ -7,13 +7,13 @@ const rows = [
   {
     date: '2025 — 2026',
     pro: {
-      badge: 'PRO',
+      badge: 'STAGE',
       badgeColor: '#fbbf24',
       title: 'Technicien Support & Maintenance',
       org: 'B&A Conseil',
       place: 'Île-de-France',
       sub: 'Stage · Janv/Fév 2026',
-      pills: ['Support IT', 'Windows 10/11', 'Maintenance'],
+      pills: ['Support N1/N2', 'Windows 10/11', 'Maintenance'],
       items: [
         'Diagnostic et résolution d\'incidents matériels et logiciels',
         'Maintenance préventive et corrective des postes',
@@ -28,19 +28,20 @@ const rows = [
       org: 'Institut F2I',
       orgColor: '#22d3ee',
       place: 'Vincennes',
+      sub: 'Formation initiale',
       pills: ['Active Directory', 'Cisco', 'OpenVPN', 'Nagios'],
     },
   },
   {
     date: '2024 — 2025',
     pro: {
-      badge: 'PRO',
+      badge: 'STAGE',
       badgeColor: '#fbbf24',
       title: 'Technicien Support Informatique',
       org: 'Les Réparateurs Mac & PC',
       place: 'Montreuil',
       sub: 'Stage · Mai/Juil 2025',
-      pills: ['Support IT', 'Réseaux', 'Réparation'],
+      pills: ['Support N1/N2', 'Réseaux', 'Réparation'],
       items: [
         'Réinstallation et configuration des systèmes d\'exploitation',
         'Diagnostic et réparation de matériels informatiques',
@@ -54,6 +55,7 @@ const rows = [
       org: 'Institut F2I',
       orgColor: '#22d3ee',
       place: 'Vincennes',
+      sub: 'Formation initiale',
       pills: ['Réseaux', 'Linux', 'Virtualisation'],
     },
   },
@@ -61,11 +63,11 @@ const rows = [
     date: '2024',
     pro: null,
     formation: {
-      badge: 'FORMATION',
-      badgeColor: '#64748b',
+      badge: 'DIPLÔME',
+      badgeColor: '#a78bfa',
       title: 'HND — Software Engineering',
       org: 'IUG Douala',
-      orgColor: '#64748b',
+      orgColor: '#a78bfa',
       place: 'Cameroun',
       pills: ['Dev logiciel', 'Systèmes d\'information'],
     },
@@ -74,49 +76,18 @@ const rows = [
     date: '2022 — 2023',
     pro: null,
     formation: {
-      badge: 'FORMATION',
-      badgeColor: '#64748b',
+      badge: 'DIPLÔME',
+      badgeColor: '#a78bfa',
       title: 'Licence Informatique',
       org: 'Université de Douala',
-      orgColor: '#64748b',
+      orgColor: '#a78bfa',
       place: 'Cameroun',
       pills: ['Informatique', 'Programmation', 'Systèmes'],
     },
   },
   {
-    date: '2022 — 2023',
-    pro: {
-      badge: 'PRO',
-      badgeColor: '#fbbf24',
-      title: 'Technicien Informatique',
-      org: 'Douala IT-Tech Solution & Innovation',
-      place: 'Cameroun',
-      sub: 'Technicien · 2022/2023',
-      pills: ['Déploiement PC', 'Windows', 'Réseaux LAN'],
-      items: [
-        'Installation et configuration de 250 postes informatiques au Lycée de Nyall',
-        'Câblage réseau, création de l\'infrastructure locale',
-        'Paramétrage des sessions utilisateurs et gestion des droits',
-      ],
-    },
-    formation: null,
-  },
-  {
     date: '2021 — 2022',
-    pro: {
-      badge: 'PRO',
-      badgeColor: '#fbbf24',
-      title: 'Stagiaire Technicien IT',
-      org: 'Hi-Tech Vision',
-      place: 'Cameroun',
-      sub: 'Stage · 2021/2022',
-      pills: ['Support IT', 'Maintenance', 'Assistance'],
-      items: [
-        'Assistance technique et support utilisateurs sur site',
-        'Maintenance matérielle des équipements informatiques',
-        'Participation aux interventions de dépannage réseau',
-      ],
-    },
+    pro: null,
     formation: {
       badge: 'DIPLÔME',
       badgeColor: '#64748b',
@@ -156,7 +127,7 @@ function EntryCard({ entry, side }) {
             }}
           >
             {entry.current && <span className="inline-block w-1.5 h-1.5 rounded-full mr-1.5 animate-pulse align-middle" style={{ background: entry.badgeColor }} />}
-            {entry.badge === 'PRO' && <Briefcase size={11} />}
+            {entry.badge === 'STAGE' && <Briefcase size={11} />}
             {entry.badge === 'FORMATION' && <GraduationCap size={11} />}
             {entry.badge === 'DIPLÔME' && <Award size={11} />}
             {entry.badge}
@@ -253,20 +224,17 @@ export default function Parcours() {
         </div>
 
         {/* Légende */}
-        <div className="flex items-center justify-center gap-8 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-6 mb-14">
           {[
-            { color: '#fbbf24', label: 'Professionnel' },
+            { color: '#fbbf24', label: 'Stages' },
             { color: '#22d3ee', label: 'Formation' },
+            { color: '#a78bfa', label: 'Diplômes' },
           ].map(({ color, label }) => (
-            <div key={label} className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-sm" style={{ background: color }} />
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#64748b', fontWeight: 500 }}>{label}</span>
+            <div key={label} className="flex items-center gap-2.5">
+              <span className="w-3 h-3 rounded-full" style={{ background: color, boxShadow: `0 0 8px ${color}40` }} />
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', fontWeight: 600 }}>{label}</span>
             </div>
           ))}
-          <div className="flex items-center gap-2">
-            <span style={{ fontSize: '14px' }}>⚡</span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#64748b', fontWeight: 500 }}>Formation initiale · stages</span>
-          </div>
         </div>
 
         {/* Timeline */}
