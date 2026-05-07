@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ShieldCheck, CalendarDays, Award, Github, Linkedin, FolderKanban, Mail, Phone, MapPin, GraduationCap, ChevronDown } from 'lucide-react'
+import { ShieldCheck, CalendarDays, Award, FolderKanban, ChevronDown } from 'lucide-react'
 
 function CountUp({ target, suffix = '' }) {
   const [count, setCount] = useState(0)
@@ -17,9 +17,9 @@ function CountUp({ target, suffix = '' }) {
 }
 
 const stats = [
-  { value: 9, suffix: '+', label: 'Projets réalisés', color: '#22d3ee', icon: FolderKanban },
-  { value: 4, suffix: '', label: 'Certifications', color: '#22c55e', icon: ShieldCheck },
-  { value: 3, suffix: '+', label: 'Ans d\'expérience', color: '#f59e0b', icon: CalendarDays },
+  { value: 5, suffix: '', label: 'Projets', color: '#22d3ee', icon: FolderKanban },
+  { value: 3, suffix: '', label: 'Certifications', color: '#22c55e', icon: ShieldCheck },
+  { value: 2, suffix: '', label: 'Ans d\'expérience', color: '#f59e0b', icon: CalendarDays },
   { value: 2, suffix: '', label: 'Stages effectués', color: '#a78bfa', icon: Award },
 ]
 
@@ -91,7 +91,7 @@ export default function Presentation() {
           </h1>
 
           {/* Photo de profil — très grande */}
-          <div className="relative mx-auto mb-10" style={{ width: 'clamp(300px, 45vw, 440px)', aspectRatio: '1' }}>
+          <div className="relative mx-auto mb-12" style={{ width: 'clamp(300px, 45vw, 440px)', aspectRatio: '1' }}>
             {/* Glow externe */}
             <div
               className="absolute"
@@ -104,7 +104,7 @@ export default function Presentation() {
                 animation: 'spin 10s linear infinite',
               }}
             />
-            {/* Bordure gradient */}
+            {/* Bordure gradient animée */}
             <div
               className="absolute"
               style={{
@@ -167,7 +167,7 @@ export default function Presentation() {
             </span>
           </div>
 
-          {/* Nom */}
+          {/* Nom — un peu plus bas */}
           <h2
             style={{
               fontFamily: "'Orbitron', system-ui, sans-serif",
@@ -175,7 +175,7 @@ export default function Presentation() {
               fontWeight: 900,
               letterSpacing: '-0.02em',
               lineHeight: 1,
-              marginBottom: '1.2rem',
+              marginBottom: '1.8rem',
               background: 'linear-gradient(135deg, #818cf8, #22d3ee)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -185,21 +185,27 @@ export default function Presentation() {
             DILAN LENGUE
           </h2>
 
-          {/* Tagline */}
-          <p
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 'clamp(1.05rem, 2.2vw, 1.25rem)',
-              fontWeight: 500,
-              color: '#cbd5e1',
-              maxWidth: '520px',
-              margin: '0 auto 0.8rem',
-              lineHeight: 1.5,
-              fontStyle: 'italic',
-            }}
-          >
-            Là où la rigueur rencontre l'infrastructure.
-          </p>
+          {/* Tagline cyber animée */}
+          <div className="relative overflow-hidden mb-6" style={{ height: '36px' }}>
+            <p
+              className="cyber-typewriter"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
+                fontWeight: 600,
+                letterSpacing: '0.06em',
+                background: 'linear-gradient(90deg, #22d3ee, #00ff88, #818cf8, #22d3ee)',
+                backgroundSize: '200% 100%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                animation: 'gradient-shift 4s linear infinite',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {'> '}Là où la rigueur rencontre l'infrastructure_
+            </p>
+          </div>
 
           {/* Sys · Net · Sec */}
           <p
@@ -209,70 +215,11 @@ export default function Presentation() {
               fontWeight: 600,
               color: '#64748b',
               letterSpacing: '0.18em',
-              marginBottom: '2.5rem',
+              marginBottom: '3rem',
             }}
           >
             Sys {'·'} Net {'·'} Sec
           </p>
-
-          {/* Infos clés */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mb-8">
-            <span className="flex items-center gap-2" style={{ color: '#94a3b8', fontSize: '15px', fontFamily: "'Inter', sans-serif" }}>
-              <GraduationCap size={18} style={{ color: '#a78bfa' }} />
-              BTS SIO SISR — 2ème année (initiale)
-            </span>
-            <span className="flex items-center gap-2" style={{ color: '#94a3b8', fontSize: '15px', fontFamily: "'Inter', sans-serif" }}>
-              <MapPin size={18} style={{ color: '#22c55e' }} />
-              Île-de-France
-            </span>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full" style={{
-              background: 'rgba(0,255,136,0.06)',
-              border: '1px solid rgba(0,255,136,0.22)',
-            }}>
-              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#22c55e' }} />
-              <span style={{ fontSize: '13.5px', fontWeight: 600, color: '#34d399', fontFamily: "'Inter', sans-serif" }}>
-                Disponible — Alternance sept. 2026
-              </span>
-            </span>
-          </div>
-
-          {/* Liens contact */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-            {[
-              { href: 'mailto:lenguedilan@gmail.com', icon: <Mail size={18} />, label: 'lenguedilan@gmail.com', color: '#22d3ee' },
-              { href: 'tel:+33744203870', icon: <Phone size={18} />, label: '+33 7 44 20 38 70', color: '#34d399' },
-              { href: 'https://www.linkedin.com/in/dilan-lengue', icon: <Linkedin size={18} />, label: 'LinkedIn', color: '#0A66C2' },
-              { href: 'https://github.com/dilan-lengue', icon: <Github size={18} />, label: 'GitHub', color: '#e6ecf8' },
-            ].map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  background: 'rgba(11,16,32,0.75)',
-                  border: '1px solid rgba(99,102,241,0.15)',
-                  color: link.color,
-                  textDecoration: 'none',
-                  backdropFilter: 'blur(8px)',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = `${link.color}60`
-                  e.currentTarget.style.boxShadow = `0 8px 24px rgba(0,0,0,0.25), 0 0 12px ${link.color}15`
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'rgba(99,102,241,0.15)'
-                  e.currentTarget.style.boxShadow = 'none'
-                }}
-              >
-                {link.icon}
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13.5px', fontWeight: 600, color: '#e2e8f0' }}>
-                  {link.label}
-                </span>
-              </a>
-            ))}
-          </div>
 
           {/* Scroll hint */}
           <div className="flex flex-col items-center gap-2" style={{ animation: 'float 3s ease-in-out infinite' }}>
@@ -317,6 +264,19 @@ export default function Presentation() {
                 <span style={{ color: '#475569' }}>{'·'}</span>
                 <span style={{ fontSize: '11px', color: '#64748b', letterSpacing: '0.12em' }}>
                   PORTFOLIO_v2.0
+                </span>
+              </div>
+
+              <div
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full"
+                style={{
+                  background: 'rgba(0,255,136,0.06)',
+                  border: '1px solid rgba(0,255,136,0.2)',
+                }}
+              >
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#22c55e' }} />
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#34d399' }}>
+                  Disponible — Alternance sept. 2026
                 </span>
               </div>
             </div>
@@ -380,50 +340,53 @@ export default function Presentation() {
                 style={{
                   background: 'rgba(11,16,32,0.7)',
                   border: `1px solid ${color}20`,
-                  padding: 'clamp(1.8rem, 3vw, 2.5rem) 1.5rem',
+                  padding: 'clamp(2rem, 3.5vw, 3rem) 1.5rem',
                   cursor: 'default',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-6px)'
-                  e.currentTarget.style.borderColor = `${color}50`
-                  e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.3), 0 0 30px ${color}15`
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)'
+                  e.currentTarget.style.borderColor = `${color}60`
+                  e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.35), 0 0 40px ${color}18`
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)'
                   e.currentTarget.style.borderColor = `${color}20`
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                <div style={{ position: 'absolute', top: 0, left: '20%', right: '20%', height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.5, borderRadius: '0 0 4px 4px' }} />
+                {/* Glow bar top */}
+                <div style={{ position: 'absolute', top: 0, left: '15%', right: '15%', height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.6, borderRadius: '0 0 4px 4px' }} />
                 <div
-                  className="mx-auto flex items-center justify-center rounded-xl"
+                  className="mx-auto flex items-center justify-center rounded-2xl"
                   style={{
-                    width: '56px',
-                    height: '56px',
-                    background: `${color}12`,
-                    border: `1px solid ${color}30`,
-                    marginBottom: '1.2rem',
+                    width: '64px',
+                    height: '64px',
+                    background: `${color}10`,
+                    border: `1.5px solid ${color}30`,
+                    marginBottom: '1.4rem',
+                    boxShadow: `0 0 20px ${color}08`,
                   }}
                 >
-                  <Icon size={26} style={{ color }} />
+                  <Icon size={28} style={{ color }} />
                 </div>
                 <p style={{
                   fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+                  fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)',
                   fontWeight: 900,
                   color,
                   lineHeight: 1,
-                  marginBottom: '0.5rem',
+                  marginBottom: '0.6rem',
+                  textShadow: `0 0 20px ${color}30`,
                 }}>
                   <CountUp target={value} suffix={suffix} />
                 </p>
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: '13px',
+                  fontSize: '14px',
                   color: '#94a3b8',
                   fontWeight: 600,
                   textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
+                  letterSpacing: '0.08em',
                 }}>
                   {label}
                 </p>
