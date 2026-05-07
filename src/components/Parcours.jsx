@@ -1,29 +1,38 @@
 import { useState } from 'react'
-import { GraduationCap, Briefcase, MapPin, ChevronDown, ChevronUp, Target, Shield } from 'lucide-react'
+import { GraduationCap, Briefcase, MapPin, ChevronDown, ChevronUp, Target, Shield, Building2, Smartphone, Wrench } from 'lucide-react'
 
-const stages = [
+const entreprises = [
   {
-    date: 'Janv — Fév 2026',
-    title: 'Technicien Support & Maintenance',
+    date: 'Janvier — Février 2026',
+    title: 'Technicien Support',
     org: 'B&A Conseil',
     place: 'Île-de-France',
-    pills: ['Support N1/N2', 'Windows 10/11', 'Maintenance'],
-    items: [
-      'Diagnostic et résolution d\'incidents matériels et logiciels',
-      'Maintenance préventive et corrective des postes',
-      'Déploiement de postes Windows et assistance on-site',
+    color: '#fbbf24',
+    icon: Smartphone,
+    description: 'B&A Conseil est une entreprise spécialisée dans le conseil et les services informatiques, accompagnant ses clients dans la gestion et l\'optimisation de leurs systèmes d\'information. Elle se distingue par une approche humaine et pédagogique du support.',
+    missions: [
+      'Administration du parc mobile Android via la solution MDM Miradore Online',
+      'Implémentation de politiques de sécurité (passcode, restrictions, COBO, tracking, mises à jour)',
+      'Déploiement automatisé d\'applications professionnelles via Managed Google Play',
+      'Gestion des incidents MDM : actions de première analyse de dysfonctionnement, comptes Google managés, blocages',
+      'Support aux utilisateurs pour l\'activation du compte manager et la configuration initiale',
+      'Documentation et mise à jour des inventaires matériels (Excel, numéro de série, profils MDM)',
     ],
   },
   {
-    date: 'Mai — Juil 2025',
+    date: 'Mai — Juillet 2025',
     title: 'Technicien Support Informatique',
     org: 'Les Réparateurs Mac & PC',
     place: 'Montreuil',
-    pills: ['Support N1/N2', 'Réseaux', 'Réparation'],
-    items: [
-      'Réinstallation et configuration des systèmes d\'exploitation',
-      'Diagnostic et réparation de matériels informatiques',
-      'Gestion et configuration de réseaux locaux',
+    color: '#22d3ee',
+    icon: Wrench,
+    description: 'Les Réparateurs Mac & PC est un atelier de réparation informatique spécialisé dans le diagnostic et la maintenance de matériel Apple et PC. L\'entreprise propose un service de proximité pour les particuliers et les professionnels.',
+    missions: [
+      'Réinstallation et configuration des systèmes d\'exploitation (Windows, macOS)',
+      'Diagnostic et réparation de matériels informatiques (cartes mères, disques, RAM)',
+      'Gestion et configuration de réseaux locaux (Wi-Fi, Ethernet, routeurs)',
+      'Sauvegarde et restauration de données clients',
+      'Assistance technique et conseil auprès des utilisateurs',
     ],
   },
 ]
@@ -67,125 +76,159 @@ const formations = [
   },
 ]
 
-function StageCard({ stage, index }) {
-  const [open, setOpen] = useState(false)
+function EntrepriseSection({ ent, index }) {
+  const [activeTab, setActiveTab] = useState(0)
+  const Icon = ent.icon
+
   return (
-    <div className="flex gap-5">
-      {/* Numéro + ligne */}
-      <div className="flex flex-col items-center" style={{ minWidth: '40px' }}>
-        <div style={{
-          width: '40px', height: '40px',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          borderRadius: '12px',
-          background: 'rgba(251,191,36,0.1)',
-          border: '2px solid rgba(251,191,36,0.3)',
-          fontFamily: "'Orbitron', system-ui, sans-serif",
-          fontSize: '14px', fontWeight: 900, color: '#fbbf24',
-          flexShrink: 0,
-        }}>
-          {String(index + 1).padStart(2, '0')}
-        </div>
-        <div style={{ flex: 1, width: '2px', background: 'linear-gradient(180deg, rgba(251,191,36,0.3), transparent)', marginTop: '8px' }} />
+    <div className="animate-fade-up" style={{ marginBottom: '4rem' }}>
+      {/* Tabs navigation */}
+      <div className="flex gap-3 mb-8">
+        <button
+          onClick={() => setActiveTab(0)}
+          style={{
+            fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700,
+            padding: '10px 22px', borderRadius: '12px', cursor: 'pointer',
+            background: activeTab === 0 ? `${ent.color}15` : 'transparent',
+            border: `1.5px solid ${activeTab === 0 ? `${ent.color}50` : 'rgba(255,255,255,0.08)'}`,
+            color: activeTab === 0 ? ent.color : '#64748b',
+            transition: 'all 0.2s',
+          }}
+        >
+          {ent.org}
+        </button>
       </div>
 
-      {/* Card */}
-      <div
-        className="relative rounded-2xl overflow-hidden transition-all duration-300 flex-1"
-        style={{
-          background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
-          border: '1.5px solid rgba(251,191,36,0.12)',
-          backdropFilter: 'blur(8px)',
-        }}
-        onMouseEnter={e => {
-          e.currentTarget.style.borderColor = 'rgba(251,191,36,0.4)'
-          e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(251,191,36,0.08)'
-          e.currentTarget.style.transform = 'translateY(-4px)'
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.borderColor = 'rgba(251,191,36,0.12)'
-          e.currentTarget.style.boxShadow = 'none'
-          e.currentTarget.style.transform = 'translateY(0)'
-        }}
-      >
-        <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #fbbf24, transparent)', opacity: 0.5 }} />
-        <div style={{ padding: '2rem 2rem 1.8rem' }}>
-          <div className="flex items-center justify-between" style={{ marginBottom: '1.2rem' }}>
-            <span style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '12px', fontWeight: 700, color: '#fbbf24',
-              letterSpacing: '0.1em', padding: '5px 14px',
-              background: 'rgba(251,191,36,0.08)',
-              border: '1px solid rgba(251,191,36,0.2)',
-              borderRadius: '8px',
-            }}>
-              {stage.date}
-            </span>
-            <div className="inline-flex items-center gap-2" style={{
-              padding: '5px 14px',
-              background: 'rgba(251,146,60,0.08)',
-              border: '1px solid rgba(251,146,60,0.2)',
-              borderRadius: '8px',
-            }}>
-              <MapPin size={14} style={{ color: '#fb923c' }} />
-              <span style={{ color: '#fb923c', fontSize: '13px', fontWeight: 700, fontFamily: "'Inter', sans-serif" }}>
-                {stage.place}
-              </span>
-            </div>
-          </div>
+      {/* Layout : carte gauche + infos droite */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-          <h4 style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '1.25rem', fontWeight: 800, color: '#f1f5f9',
-            marginBottom: '0.4rem', letterSpacing: '-0.02em', lineHeight: 1.3,
-          }}>
-            {stage.title}
-          </h4>
-
-          <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '15.5px', fontWeight: 600, color: '#fbbf24',
-            marginBottom: '1.2rem',
-          }}>
-            {stage.org}
-          </p>
-
-          <div className="flex flex-wrap gap-2.5" style={{ marginBottom: '1.2rem' }}>
-            {stage.pills.map(p => (
-              <span key={p} className="px-3.5 py-1.5 rounded-lg" style={{
-                background: 'rgba(251,191,36,0.06)',
-                border: '1px solid rgba(251,191,36,0.15)',
-                color: '#d4a437',
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '12.5px', fontWeight: 600,
-              }}>
-                {p}
-              </span>
-            ))}
-          </div>
-
-          <button
-            onClick={() => setOpen(!open)}
-            className="flex items-center gap-2 transition-all"
+        {/* Carte entreprise — gauche */}
+        <div className="lg:col-span-1">
+          <div
+            className="rounded-2xl overflow-hidden transition-all duration-300"
             style={{
-              color: '#fbbf24', fontFamily: "'Inter', sans-serif",
-              fontSize: '13.5px', fontWeight: 700,
-              background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.15)',
-              borderRadius: '10px', cursor: 'pointer', padding: '8px 16px',
+              background: `linear-gradient(160deg, ${ent.color}12, rgba(11,16,32,0.9))`,
+              border: `1.5px solid ${ent.color}25`,
+              padding: '2rem',
+              textAlign: 'center',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = `${ent.color}50`
+              e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 40px ${ent.color}10`
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = `${ent.color}25`
+              e.currentTarget.style.boxShadow = 'none'
             }}
           >
-            {open ? <><ChevronUp size={14} /> Masquer</> : <><ChevronDown size={14} /> Voir les missions</>}
-          </button>
+            {/* Logo icon */}
+            <div className="flex items-center justify-center mx-auto" style={{
+              width: '80px', height: '80px', borderRadius: '20px',
+              background: `linear-gradient(135deg, ${ent.color}20, ${ent.color}08)`,
+              border: `2px solid ${ent.color}35`,
+              boxShadow: `0 0 30px ${ent.color}12`,
+              marginBottom: '1.5rem',
+            }}>
+              <Icon size={36} style={{ color: ent.color }} />
+            </div>
 
-          {open && (
-            <div className="space-y-3" style={{ marginTop: '1.4rem', paddingTop: '1.2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-              {stage.items.map((it, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span style={{ color: '#fbbf24', fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, marginTop: '3px', flexShrink: 0 }}>&#9656;</span>
-                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.8 }}>{it}</span>
+            {/* Nom entreprise */}
+            <h4 style={{
+              fontFamily: "'Orbitron', system-ui, sans-serif",
+              fontSize: '18px', fontWeight: 800, color: '#f1f5f9',
+              marginBottom: '0.6rem',
+            }}>
+              {ent.org}
+            </h4>
+
+            {/* Poste */}
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '14px', fontWeight: 600, color: ent.color,
+              marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em',
+            }}>
+              {ent.title}
+            </p>
+
+            {/* Date + lieu */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
+              <span style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '12px', fontWeight: 700, color: ent.color,
+                padding: '5px 14px',
+                background: `${ent.color}0a`, border: `1px solid ${ent.color}20`,
+                borderRadius: '8px',
+              }}>
+                {ent.date}
+              </span>
+              <div className="flex items-center gap-1.5">
+                <MapPin size={13} style={{ color: '#94a3b8' }} />
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8' }}>
+                  {ent.place}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Infos — droite */}
+        <div className="lg:col-span-2">
+
+          {/* Description */}
+          <div style={{ marginBottom: '2rem' }}>
+            <h4 style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 800,
+              color: '#f1f5f9', marginBottom: '0.8rem',
+              display: 'flex', alignItems: 'center', gap: '0.6rem',
+            }}>
+              <Building2 size={18} style={{ color: ent.color }} />
+              Description de l'entreprise
+            </h4>
+            <p style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 400,
+              color: '#94a3b8', lineHeight: 1.9,
+              paddingLeft: '1rem',
+              borderLeft: `2px solid ${ent.color}30`,
+            }}>
+              {ent.description}
+            </p>
+          </div>
+
+          {/* Missions */}
+          <div>
+            <h4 style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 800,
+              color: '#f1f5f9', marginBottom: '1rem',
+              display: 'flex', alignItems: 'center', gap: '0.6rem',
+            }}>
+              <Briefcase size={18} style={{ color: ent.color }} />
+              Mes missions
+            </h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              {ent.missions.map((m, i) => (
+                <div key={i} className="flex items-start gap-3 rounded-xl" style={{
+                  padding: '0.9rem 1.2rem',
+                  background: 'rgba(11,16,32,0.5)',
+                  border: '1px solid rgba(255,255,255,0.04)',
+                }}>
+                  <div className="flex-shrink-0 flex items-center justify-center rounded-lg" style={{
+                    width: '28px', height: '28px', marginTop: '1px',
+                    background: `${ent.color}12`, border: `1px solid ${ent.color}25`,
+                  }}>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 800, color: ent.color }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <span style={{
+                    fontFamily: "'Inter', sans-serif", fontSize: '14.5px',
+                    color: '#cbd5e1', lineHeight: 1.7, fontWeight: 400,
+                  }}>
+                    {m}
+                  </span>
                 </div>
               ))}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
@@ -359,76 +402,55 @@ export default function Parcours() {
           </p>
         </div>
 
-        {/* ── STAGES (gauche) + FORMATION (droite) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: '4rem' }}>
-
-          {/* Colonne gauche — STAGES */}
-          <div>
-            <div
-              className="relative rounded-2xl overflow-hidden"
-              style={{
-                marginBottom: '2.5rem',
-                padding: '1.8rem 2.2rem',
-                background: 'linear-gradient(135deg, rgba(251,191,36,0.12), rgba(251,146,60,0.06), rgba(11,16,32,0.9))',
-                border: '2px solid rgba(251,191,36,0.25)',
-                boxShadow: '0 8px 32px rgba(251,191,36,0.06), inset 0 1px 0 rgba(251,191,36,0.1)',
-              }}
-            >
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #fbbf24, #fb923c, #fbbf24)', opacity: 0.8 }} />
-              <div style={{ position: 'absolute', top: 0, right: 0, width: '120px', height: '120px', background: 'radial-gradient(circle, rgba(251,191,36,0.08), transparent)', pointerEvents: 'none' }} />
-              <div className="flex items-center gap-4">
-                <div style={{
-                  width: '56px', height: '56px',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  borderRadius: '16px',
-                  background: 'linear-gradient(135deg, rgba(251,191,36,0.2), rgba(251,146,60,0.15))',
-                  border: '2px solid rgba(251,191,36,0.4)',
-                  boxShadow: '0 0 30px rgba(251,191,36,0.1), 0 4px 12px rgba(0,0,0,0.2)',
-                }}>
-                  <Briefcase size={26} style={{ color: '#fbbf24', filter: 'drop-shadow(0 0 6px rgba(251,191,36,0.4))' }} />
-                </div>
-                <div>
-                  <h3 style={{
-                    fontFamily: "'Orbitron', system-ui, sans-serif",
-                    fontSize: '1.6rem',
-                    fontWeight: 900,
-                    background: 'linear-gradient(135deg, #fbbf24, #fb923c)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    lineHeight: 1,
-                    marginBottom: '6px',
-                    filter: 'drop-shadow(0 0 12px rgba(251,191,36,0.2))',
-                  }}>
-                    Stages
-                  </h3>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#cbd5e1', fontWeight: 500, letterSpacing: '0.01em' }}>
-                    Expérience en entreprise
-                  </p>
-                </div>
-                <div style={{ marginLeft: 'auto' }}>
-                  <span style={{
-                    fontFamily: "'Orbitron', system-ui, sans-serif",
-                    fontSize: '13px', fontWeight: 800,
-                    letterSpacing: '0.08em', color: '#fbbf24',
-                    padding: '6px 16px',
-                    background: 'rgba(251,191,36,0.1)',
-                    border: '1.5px solid rgba(251,191,36,0.3)',
-                    borderRadius: '10px',
-                    textShadow: '0 0 8px rgba(251,191,36,0.2)',
-                  }}>
-                    {stages.length} STAGES
-                  </span>
-                </div>
-              </div>
+        {/* ── MES ENTREPRISES — style Merveille ── */}
+        <div style={{ marginBottom: '5rem' }}>
+          {/* Titre section */}
+          <div className="flex items-center gap-4 mb-12">
+            <div style={{ height: '2px', flex: 1, background: 'linear-gradient(90deg, #fbbf24, transparent)' }} />
+            <div className="flex items-center gap-3" style={{
+              padding: '12px 24px',
+              background: 'linear-gradient(135deg, rgba(251,191,36,0.08), rgba(251,146,60,0.04))',
+              border: '1px solid rgba(251,191,36,0.2)',
+              borderRadius: '14px',
+            }}>
+              <Briefcase size={20} style={{ color: '#fbbf24' }} />
+              <span style={{
+                fontFamily: "'Orbitron', system-ui, sans-serif",
+                fontSize: '15px', fontWeight: 800, color: '#fbbf24',
+                textTransform: 'uppercase', letterSpacing: '0.15em',
+              }}>
+                Mes Entreprises
+              </span>
             </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              {stages.map((s, i) => <StageCard key={s.org} stage={s} index={i} />)}
-            </div>
+            <div style={{ height: '2px', flex: 1, background: 'linear-gradient(90deg, transparent, #fbbf24)' }} />
           </div>
 
-          {/* Colonne droite — FORMATION */}
+          {entreprises.map((ent, i) => <EntrepriseSection key={ent.org} ent={ent} index={i} />)}
+        </div>
+
+        {/* ── FORMATION ── */}
+        <div>
+          {/* Titre section */}
+          <div className="flex items-center gap-4 mb-12">
+            <div style={{ height: '2px', flex: 1, background: 'linear-gradient(90deg, #22d3ee, transparent)' }} />
+            <div className="flex items-center gap-3" style={{
+              padding: '12px 24px',
+              background: 'linear-gradient(135deg, rgba(34,211,238,0.08), rgba(99,102,241,0.04))',
+              border: '1px solid rgba(34,211,238,0.2)',
+              borderRadius: '14px',
+            }}>
+              <GraduationCap size={20} style={{ color: '#22d3ee' }} />
+              <span style={{
+                fontFamily: "'Orbitron', system-ui, sans-serif",
+                fontSize: '15px', fontWeight: 800, color: '#22d3ee',
+                textTransform: 'uppercase', letterSpacing: '0.15em',
+              }}>
+                Formation
+              </span>
+            </div>
+            <div style={{ height: '2px', flex: 1, background: 'linear-gradient(90deg, transparent, #22d3ee)' }} />
+          </div>
+
           <div>
             <div
               className="relative rounded-2xl overflow-hidden"
@@ -547,7 +569,7 @@ export default function Parcours() {
                   backgroundClip: 'text',
                   lineHeight: 1.2,
                 }}>
-                  Devenir Experte en Cybersécurité
+                  Devenir Expert en Cybersécurité
                 </h3>
               </div>
             </div>
@@ -575,7 +597,7 @@ export default function Parcours() {
                   step: '03',
                   title: 'Expert Cybersécurité',
                   subtitle: '& Pen Tester',
-                  desc: 'Devenir experte en sécurité informatique et pentesting : tests d\'intrusion, analyse de vulnérabilités et protection des SI.',
+                  desc: 'Devenir expert en sécurité informatique et pentesting : tests d\'intrusion, analyse de vulnérabilités et protection des SI.',
                   status: 'But final',
                   color: '#818cf8',
                 },
