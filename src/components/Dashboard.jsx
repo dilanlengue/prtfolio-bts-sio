@@ -481,16 +481,27 @@ export default function Dashboard() {
             </h3>
 
             {/* Texte principal */}
-            <p style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '16px',
-              fontWeight: 400,
-              color: '#cbd5e1',
-              lineHeight: 2,
-              marginBottom: '2.5rem',
-            }}>
-              Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 600 }}>Dilan Lengue</span>, j'ai <span style={{ color: '#22d3ee', fontWeight: 600 }}>23 ans</span> et je suis {'é'}tudiant en <span style={{ color: '#818cf8', fontWeight: 600 }}>BTS SIO option SISR</span> {'à'} l'Institut F2I. <span style={{ color: '#22d3ee', fontWeight: 600 }}>Bilingue fran{'ç'}ais / anglais</span>, j'ai d{'é'}velopp{'é'} au fil de ma formation une vraie expertise en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique — valid{'é'}e par <span style={{ color: '#a78bfa', fontWeight: 600 }}>2 stages en entreprise</span> et <span style={{ color: '#a78bfa', fontWeight: 600 }}>4 certifications</span>.
-            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem', marginBottom: '2.5rem' }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
+                Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 600 }}>Dilan Lengue</span>, j'ai <span style={{ color: '#22d3ee', fontWeight: 600 }}>23 ans</span> et je suis actuellement {'é'}tudiant en deuxi{'è'}me ann{'é'}e de <span style={{ color: '#818cf8', fontWeight: 600 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 600 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'<span style={{ color: '#818cf8', fontWeight: 600 }}>Institut F2I</span>. <span style={{ color: '#22d3ee', fontWeight: 600 }}>Bilingue fran{'ç'}ais / anglais</span>, cet atout me permet d'{'é'}voluer aussi bien dans un environnement francophone qu'international et de consulter la documentation technique directement en anglais.
+              </p>
+
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
+                Passionn{'é'} par les technologies de l'information depuis plusieurs ann{'é'}es, j'ai choisi la sp{'é'}cialisation SISR pour d{'é'}velopper des comp{'é'}tences concr{'è'}tes en <span style={{ color: '#22d3ee', fontWeight: 600 }}>administration r{'é'}seau</span>, <span style={{ color: '#22d3ee', fontWeight: 600 }}>gestion de serveurs</span> et <span style={{ color: '#22d3ee', fontWeight: 600 }}>s{'é'}curit{'é'} informatique</span>. Ce qui me motive au quotidien, c'est de comprendre comment fonctionnent les infrastructures IT en profondeur, d'identifier leurs vuln{'é'}rabilit{'é'}s et de mettre en place des solutions robustes pour les prot{'é'}ger.
+              </p>
+
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
+                Au cours de ma formation, j'ai eu l'opportunit{'é'} de r{'é'}aliser <span style={{ color: '#a78bfa', fontWeight: 600 }}>2 stages en entreprise</span> chez B&A Conseil, o{'ù'} j'ai pu mettre en pratique mes comp{'é'}tences sur le terrain : d{'é'}ploiement de serveurs, configuration de r{'é'}seaux, mise en place de politiques de s{'é'}curit{'é'} et supervision d'infrastructures. Ces exp{'é'}riences m'ont permis de confronter la th{'é'}orie {'à'} la r{'é'}alit{'é'} du monde professionnel et de d{'é'}velopper une approche rigoureuse de la r{'é'}solution de probl{'è'}mes.
+              </p>
+
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
+                En parall{'è'}le, j'ai obtenu <span style={{ color: '#a78bfa', fontWeight: 600 }}>4 certifications</span> (ANSSI, EBIOS, Udemy, Coursera) qui t{'é'}moignent de mon investissement personnel et de ma volont{'é'} d'aller au-del{'à'} du programme scolaire. Je suis convaincu que dans le domaine de l'IT, la formation continue et l'autoformation sont essentielles pour rester {'à'} jour face {'à'} l'{'é'}volution constante des menaces et des technologies.
+              </p>
+
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
+                Rigoureux, curieux et autonome, j'aime relever des d{'é'}fis techniques et trouver des solutions efficaces. {'À'} travers ce portfolio, je souhaite vous pr{'é'}senter mon parcours, mes projets et les comp{'é'}tences que j'ai acquises tout au long de mon BTS. Mon ambition est claire : devenir <span style={{ color: '#a78bfa', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'} & Pen Tester</span>, en poursuivant mes {'é'}tudes avec une Licence Professionnelle puis un Master sp{'é'}cialis{'é'} en Cybers{'é'}curit{'é'}.
+              </p>
+            </div>
 
             {/* Points forts — 3 cartes */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
