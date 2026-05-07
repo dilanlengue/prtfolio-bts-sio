@@ -368,48 +368,54 @@ export default function Parcours() {
               className="relative rounded-2xl overflow-hidden"
               style={{
                 marginBottom: '2.5rem',
-                padding: '1.5rem 2rem',
-                background: 'linear-gradient(135deg, rgba(251,191,36,0.06), rgba(251,191,36,0.02))',
-                border: '1.5px solid rgba(251,191,36,0.15)',
+                padding: '1.8rem 2.2rem',
+                background: 'linear-gradient(135deg, rgba(251,191,36,0.12), rgba(251,146,60,0.06), rgba(11,16,32,0.9))',
+                border: '2px solid rgba(251,191,36,0.25)',
+                boxShadow: '0 8px 32px rgba(251,191,36,0.06), inset 0 1px 0 rgba(251,191,36,0.1)',
               }}
             >
-              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #fbbf24, transparent)', opacity: 0.3 }} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #fbbf24, #fb923c, #fbbf24)', opacity: 0.8 }} />
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '120px', height: '120px', background: 'radial-gradient(circle, rgba(251,191,36,0.08), transparent)', pointerEvents: 'none' }} />
               <div className="flex items-center gap-4">
                 <div style={{
-                  width: '52px', height: '52px',
+                  width: '56px', height: '56px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   borderRadius: '16px',
-                  background: 'rgba(251,191,36,0.12)',
-                  border: '2px solid rgba(251,191,36,0.3)',
-                  boxShadow: '0 0 25px rgba(251,191,36,0.08)',
+                  background: 'linear-gradient(135deg, rgba(251,191,36,0.2), rgba(251,146,60,0.15))',
+                  border: '2px solid rgba(251,191,36,0.4)',
+                  boxShadow: '0 0 30px rgba(251,191,36,0.1), 0 4px 12px rgba(0,0,0,0.2)',
                 }}>
-                  <Briefcase size={24} style={{ color: '#fbbf24' }} />
+                  <Briefcase size={26} style={{ color: '#fbbf24', filter: 'drop-shadow(0 0 6px rgba(251,191,36,0.4))' }} />
                 </div>
                 <div>
                   <h3 style={{
                     fontFamily: "'Orbitron', system-ui, sans-serif",
-                    fontSize: '1.5rem',
+                    fontSize: '1.6rem',
                     fontWeight: 900,
-                    color: '#fbbf24',
+                    background: 'linear-gradient(135deg, #fbbf24, #fb923c)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
                     lineHeight: 1,
-                    marginBottom: '5px',
-                    textShadow: '0 0 20px rgba(251,191,36,0.15)',
+                    marginBottom: '6px',
+                    filter: 'drop-shadow(0 0 12px rgba(251,191,36,0.2))',
                   }}>
                     Stages
                   </h3>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', fontWeight: 500 }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#cbd5e1', fontWeight: 500, letterSpacing: '0.01em' }}>
                     Expérience en entreprise
                   </p>
                 </div>
                 <div style={{ marginLeft: 'auto' }}>
                   <span style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: '11px', fontWeight: 700,
-                    letterSpacing: '0.1em', color: '#fbbf24',
-                    padding: '4px 12px',
-                    background: 'rgba(251,191,36,0.08)',
-                    border: '1px solid rgba(251,191,36,0.2)',
-                    borderRadius: '99px',
+                    fontFamily: "'Orbitron', system-ui, sans-serif",
+                    fontSize: '13px', fontWeight: 800,
+                    letterSpacing: '0.08em', color: '#fbbf24',
+                    padding: '6px 16px',
+                    background: 'rgba(251,191,36,0.1)',
+                    border: '1.5px solid rgba(251,191,36,0.3)',
+                    borderRadius: '10px',
+                    textShadow: '0 0 8px rgba(251,191,36,0.2)',
                   }}>
                     {stages.length} STAGES
                   </span>
@@ -428,48 +434,54 @@ export default function Parcours() {
               className="relative rounded-2xl overflow-hidden"
               style={{
                 marginBottom: '2.5rem',
-                padding: '1.5rem 2rem',
-                background: 'linear-gradient(135deg, rgba(34,211,238,0.06), rgba(34,211,238,0.02))',
-                border: '1.5px solid rgba(34,211,238,0.15)',
+                padding: '1.8rem 2.2rem',
+                background: 'linear-gradient(135deg, rgba(34,211,238,0.12), rgba(99,102,241,0.06), rgba(11,16,32,0.9))',
+                border: '2px solid rgba(34,211,238,0.25)',
+                boxShadow: '0 8px 32px rgba(34,211,238,0.06), inset 0 1px 0 rgba(34,211,238,0.1)',
               }}
             >
-              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #22d3ee, transparent)', opacity: 0.3 }} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #22d3ee, #818cf8, #22d3ee)', opacity: 0.8 }} />
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '120px', height: '120px', background: 'radial-gradient(circle, rgba(34,211,238,0.08), transparent)', pointerEvents: 'none' }} />
               <div className="flex items-center gap-4">
                 <div style={{
-                  width: '52px', height: '52px',
+                  width: '56px', height: '56px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   borderRadius: '16px',
-                  background: 'rgba(34,211,238,0.12)',
-                  border: '2px solid rgba(34,211,238,0.3)',
-                  boxShadow: '0 0 25px rgba(34,211,238,0.08)',
+                  background: 'linear-gradient(135deg, rgba(34,211,238,0.2), rgba(99,102,241,0.15))',
+                  border: '2px solid rgba(34,211,238,0.4)',
+                  boxShadow: '0 0 30px rgba(34,211,238,0.1), 0 4px 12px rgba(0,0,0,0.2)',
                 }}>
-                  <GraduationCap size={24} style={{ color: '#22d3ee' }} />
+                  <GraduationCap size={26} style={{ color: '#22d3ee', filter: 'drop-shadow(0 0 6px rgba(34,211,238,0.4))' }} />
                 </div>
                 <div>
                   <h3 style={{
                     fontFamily: "'Orbitron', system-ui, sans-serif",
-                    fontSize: '1.5rem',
+                    fontSize: '1.6rem',
                     fontWeight: 900,
-                    color: '#22d3ee',
+                    background: 'linear-gradient(135deg, #22d3ee, #818cf8)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
                     lineHeight: 1,
-                    marginBottom: '5px',
-                    textShadow: '0 0 20px rgba(34,211,238,0.15)',
+                    marginBottom: '6px',
+                    filter: 'drop-shadow(0 0 12px rgba(34,211,238,0.2))',
                   }}>
                     Formation
                   </h3>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', fontWeight: 500 }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#cbd5e1', fontWeight: 500, letterSpacing: '0.01em' }}>
                     Cursus académique
                   </p>
                 </div>
                 <div style={{ marginLeft: 'auto' }}>
                   <span style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: '11px', fontWeight: 700,
-                    letterSpacing: '0.1em', color: '#22d3ee',
-                    padding: '4px 12px',
-                    background: 'rgba(34,211,238,0.08)',
-                    border: '1px solid rgba(34,211,238,0.2)',
-                    borderRadius: '99px',
+                    fontFamily: "'Orbitron', system-ui, sans-serif",
+                    fontSize: '13px', fontWeight: 800,
+                    letterSpacing: '0.08em', color: '#22d3ee',
+                    padding: '6px 16px',
+                    background: 'rgba(34,211,238,0.1)',
+                    border: '1.5px solid rgba(34,211,238,0.3)',
+                    borderRadius: '10px',
+                    textShadow: '0 0 8px rgba(34,211,238,0.2)',
                   }}>
                     {formations.length} DIPLÔMES
                   </span>
