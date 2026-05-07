@@ -345,168 +345,185 @@ export default function Dashboard() {
     <section id="dashboard" className="relative" style={{ paddingTop: '12rem', paddingBottom: '6rem' }}>
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
 
-        {/* ── Profile card ── */}
-        <div
-          className="animate-fade-up rounded-2xl overflow-hidden mb-24"
-          style={{ background: 'linear-gradient(145deg, rgba(11,16,32,0.75), rgba(15,20,40,0.55))', border: '1px solid rgba(129,140,248,0.12)', boxShadow: '0 24px 60px rgba(0,0,0,0.35), 0 0 40px rgba(99,102,241,0.04)' }}
-        >
-          {/* Accent bar */}
-          <div style={{ height: '3px', background: 'linear-gradient(90deg, #6366f1, #22d3ee, #a78bfa)' }} />
+        {/* ══════ HERO — Photo + Infos côte à côte ══════ */}
+        <div className="animate-fade-up mb-40" style={{ transitionDelay: '0.02s' }}>
 
-          <div className="px-8 md:px-20 pt-24 pb-20 text-center">
+          <div className="flex flex-col lg:flex-row gap-16 items-center lg:items-start">
 
-            {/* Photo */}
-            <div className="flex justify-center mb-10">
-              <div style={{ width: '130px', height: '130px', borderRadius: '50%', padding: '3px', background: 'linear-gradient(135deg, #6366f1, #22d3ee)', boxShadow: '0 0 40px rgba(99,102,241,0.2), 0 0 80px rgba(34,211,238,0.08)' }}>
-                <img src="/photo-dilan.png" alt="Dilan Lengue" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', display: 'block' }} />
+            {/* Colonne gauche — Photo + Nom */}
+            <div className="flex flex-col items-center lg:items-center flex-shrink-0" style={{ minWidth: '280px' }}>
+              {/* Photo grande */}
+              <div style={{ width: '180px', height: '180px', borderRadius: '50%', padding: '4px', background: 'linear-gradient(135deg, #6366f1, #22d3ee, #a78bfa)', boxShadow: '0 0 50px rgba(99,102,241,0.25), 0 0 100px rgba(34,211,238,0.1)', marginBottom: '2rem' }}>
+                <img src="/photo-dilan.png" alt="Dilan Lengue" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', display: 'block', border: '3px solid rgba(8,12,26,1)' }} />
               </div>
-            </div>
 
-            {/* Name */}
-            <h2
-              style={{
+              {/* Nom */}
+              <h2 style={{
                 fontFamily: "'Orbitron', system-ui, sans-serif",
                 fontSize: 'clamp(2.6rem, 6vw, 3.6rem)',
                 fontWeight: 900,
-                background: 'linear-gradient(135deg, #818cf8, #22d3ee)',
+                background: 'linear-gradient(135deg, #818cf8, #22d3ee, #a78bfa)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                letterSpacing: '-0.02em',
+                letterSpacing: '0.04em',
                 lineHeight: 1.1,
-                marginBottom: '1.2rem',
-              }}
-            >
-              Dilan Lengue
-            </h2>
+                marginBottom: '1rem',
+                textAlign: 'center',
+                textShadow: '0 0 60px rgba(129,140,248,0.3)',
+                filter: 'drop-shadow(0 0 20px rgba(34,211,238,0.15))',
+              }}>
+                DILAN LENGUE
+              </h2>
 
-            {/* Subtitle */}
-            <p style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-              fontWeight: 400,
-              color: '#94a3b8',
-              marginBottom: '2rem',
-              letterSpacing: '0.02em',
-            }}>
-              {'É'}tudiant BTS SIO SISR {'·'} 23 ans {'·'} Bilingue FR / EN
-            </p>
-
-            {/* Badges row */}
-            <div className="flex flex-wrap justify-center gap-3 mb-10">
-              <span
-                className="inline-flex items-center rounded-full"
-                style={{
-                  background: 'rgba(34,211,238,0.1)',
-                  border: '1px solid rgba(34,211,238,0.3)',
-                  color: '#22d3ee',
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: '15px',
-                  fontWeight: 600,
-                  padding: '12px 28px',
-                  letterSpacing: '0.01em',
-                }}
-              >
-                {'É'}tudiant Admin. Syst{'è'}mes & R{'é'}seaux
-              </span>
-
-              <div
-                className="inline-flex items-center gap-2.5 rounded-full"
-                style={{
-                  background: 'rgba(34,197,94,0.08)',
-                  border: '1px solid rgba(34,197,94,0.2)',
-                  padding: '12px 28px',
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: '15px',
-                  fontWeight: 500,
-                  color: '#cbd5e1',
-                }}
-              >
+              {/* Badge disponible */}
+              <div className="inline-flex items-center gap-2 rounded-full" style={{ background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.25)', padding: '10px 22px', fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 500, color: '#cbd5e1' }}>
                 <span className="w-2 h-2 rounded-full flex-shrink-0 animate-pulse" style={{ background: '#22c55e' }} />
                 <span style={{ fontWeight: 600, color: '#e2e8f0' }}>Disponible</span>
-                <span style={{ color: '#334155' }}>|</span>
-                Stagiaire B&A Conseil {'\u00b7'} 2 stages 2025-2026
               </div>
             </div>
 
+            {/* Colonne droite — Infos clés */}
+            <div className="flex-1 w-full">
+
+              {/* Titre + sous-titre */}
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '0.8rem' }}>
+                {'À'} propos de moi
+              </p>
+              <h3 style={{
+                fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
+                fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
+                fontWeight: 800,
+                color: '#f1f5f9',
+                lineHeight: 1.35,
+                marginBottom: '2rem',
+              }}>
+                {'É'}tudiant en BTS SIO SISR,{' '}
+                <span style={{ color: '#22d3ee' }}>passionn{'é'}</span> par{' '}
+                <span style={{ color: '#a78bfa' }}>la cybers{'é'}curit{'é'}</span>{' '}
+                et les infrastructures IT.
+              </h3>
+
+              {/* 4 infos rapides en grille */}
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                {[
+                  { icon: CalendarDays, label: '23 ans', color: '#22d3ee' },
+                  { icon: Globe, label: 'Bilingue FR / EN', color: '#34d399' },
+                  { icon: Award, label: 'Institut F2I', color: '#a78bfa' },
+                  { icon: Shield, label: 'BTS SIO option SISR', color: '#fb7185' },
+                ].map((info, i) => {
+                  const InfoIcon = info.icon
+                  return (
+                    <div key={i} className="flex items-center gap-3 rounded-xl" style={{ padding: '14px 18px', background: 'rgba(11,16,32,0.6)', border: `1px solid ${info.color}18` }}>
+                      <InfoIcon size={20} style={{ color: info.color, flexShrink: 0 }} />
+                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 600, color: '#e2e8f0' }}>{info.label}</span>
+                    </div>
+                  )
+                })}
+              </div>
+
+              {/* Tags skills rapides */}
+              <div className="flex flex-wrap gap-2.5">
+                {['Windows Server', 'Linux', 'Cisco', 'OpenVPN', 'Nagios', 'Active Directory'].map((s, i) => (
+                  <span key={i} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12.5px', fontWeight: 500, color: '#94a3b8', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '8px 14px' }}>{s}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* ── À propos de moi ── */}
-        {/* ── À propos de moi ── */}
-        <div className="animate-fade-up mb-32" style={{ transitionDelay: '0.06s' }}>
+        {/* ══════ PRÉSENTATION — Texte + Objectif ══════ */}
+        <div className="animate-fade-up mb-40" style={{ transitionDelay: '0.08s', marginTop: '6rem' }}>
 
-          {/* Titre */}
-          <div className="flex items-center gap-4 mb-14">
-            <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #6366f1, transparent)', borderRadius: '2px' }} />
-            <p style={{
-              fontFamily: "'Orbitron', system-ui, sans-serif",
-              fontSize: '15px',
-              fontWeight: 700,
-              color: '#818cf8',
-              textTransform: 'uppercase',
-              letterSpacing: '0.25em',
-            }}>
-              {'À'} propos de moi
-            </p>
-            <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #22d3ee)', borderRadius: '2px' }} />
-          </div>
-
-          {/* Paragraphe 1 */}
-          <p style={{
-            fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
-            fontSize: '19px',
-            fontWeight: 400,
-            color: '#e2e8f0',
-            lineHeight: 2.2,
-            marginBottom: '2.5rem',
-            letterSpacing: '0.01em',
-          }}>
-            Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 700, borderBottom: '2px solid rgba(34,211,238,0.3)' }}>Dilan Lengue</span>, j'ai <span style={{ color: '#22d3ee', fontWeight: 700 }}>23 ans</span> et je suis {'é'}tudiant en <span style={{ color: '#818cf8', fontWeight: 700 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 700 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'Institut F2I. <span style={{ color: '#22d3ee', fontWeight: 700 }}>Bilingue fran{'ç'}ais / anglais</span>, passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique.
-          </p>
-
-          {/* Paragraphe 2 */}
-          <p style={{
-            fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
-            fontSize: '19px',
-            fontWeight: 400,
-            color: '#e2e8f0',
-            lineHeight: 2.2,
-            marginBottom: '2.5rem',
-            letterSpacing: '0.01em',
-          }}>
-            Au cours de ma formation, j'ai eu l'opportunit{'é'} de mettre mes connaissances en pratique {'à'} travers plusieurs projets techniques et stages en entreprise. Rigoureux, curieux et motiv{'é'}, j'aime relever des d{'é'}fis techniques et trouver des solutions efficaces aux probl{'è'}mes rencontr{'é'}s.
-          </p>
-
-          {/* Paragraphe 3 — Objectif */}
-          <p style={{
-            fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
-            fontSize: '19px',
-            fontWeight: 400,
-            color: '#e2e8f0',
-            lineHeight: 2.2,
-            marginBottom: '3rem',
-            letterSpacing: '0.01em',
-          }}>
-            {'À'} travers ce portfolio, je souhaite partager mon parcours, mes projets et les comp{'é'}tences que j'ai acquises dans le cadre de mon BTS. Mon projet professionnel est de devenir <span style={{ color: '#fb7185', fontWeight: 700 }}>Pentester</span> (testeur d'intrusion) et <span style={{ color: '#a78bfa', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'}</span>, sp{'é'}cialis{'é'} dans la s{'é'}curisation et l'audit des infrastructures informatiques.
-          </p>
-
-          {/* Objectif visuel */}
-          <div className="rounded-2xl" style={{ padding: '2rem 2.5rem', background: 'linear-gradient(135deg, rgba(251,113,133,0.06), rgba(167,139,250,0.06))', border: '1px solid rgba(251,113,133,0.15)' }}>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="flex items-center justify-center rounded-xl" style={{ width: '48px', height: '48px', background: 'rgba(251,113,133,0.12)', border: '1px solid rgba(251,113,133,0.3)' }}>
-                <Crosshair size={24} style={{ color: '#fb7185' }} />
+          {/* Séparateur visuel stylé */}
+          <div className="flex items-center gap-6 mb-20">
+            <div style={{ height: '1px', flex: 1, background: 'linear-gradient(90deg, #6366f1, rgba(99,102,241,0.05))', borderRadius: '2px' }} />
+            <div className="flex items-center gap-4" style={{ padding: '14px 28px', background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(34,211,238,0.06))', border: '1px solid rgba(129,140,248,0.2)', borderRadius: '16px', backdropFilter: 'blur(12px)', boxShadow: '0 0 30px rgba(99,102,241,0.06)' }}>
+              <div className="flex items-center justify-center rounded-xl" style={{ width: '42px', height: '42px', background: 'linear-gradient(135deg, rgba(129,140,248,0.15), rgba(34,211,238,0.1))', border: '1px solid rgba(129,140,248,0.3)', boxShadow: '0 0 20px rgba(129,140,248,0.08)' }}>
+                <FileText size={19} style={{ color: '#818cf8' }} />
               </div>
-              <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '13px', fontWeight: 700, color: '#fb7185', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Mon objectif professionnel</p>
+              <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '14px', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
+                Ma pr{'é'}sentation
+              </p>
             </div>
-            <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '20px', fontWeight: 700, color: '#f1f5f9', lineHeight: 1.6 }}>
-              Devenir <span style={{ color: '#fb7185' }}>Pentester</span> & <span style={{ color: '#a78bfa' }}>Expert en Cybers{'é'}curit{'é'}</span>
-            </p>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', marginTop: '0.5rem' }}>
-              Licence Pro Cybers{'é'}curit{'é'} {'→'} Master Cybers{'é'}curit{'é'} {'→'} Expert s{'é'}curit{'é'} offensive & audit d'infrastructure
-            </p>
+            <div style={{ height: '1px', flex: 1, background: 'linear-gradient(90deg, rgba(34,211,238,0.05), #22d3ee)', borderRadius: '2px' }} />
           </div>
 
+          {/* 2 colonnes : texte + objectif */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+
+            {/* Texte — 3 colonnes */}
+            <div className="lg:col-span-3" style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
+
+              {/* Paragraphe 1 — bordure gradient gauche */}
+              <div className="rounded-xl" style={{ padding: '1.8rem 2rem', borderLeft: '3px solid #818cf8', background: 'linear-gradient(135deg, rgba(129,140,248,0.04), transparent)' }}>
+                <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '17px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
+                  Je m'appelle <strong style={{ color: '#818cf8', fontWeight: 700 }}>Dilan Lengue</strong>, j'ai <strong style={{ color: '#22d3ee', fontWeight: 700 }}>23 ans</strong> et je suis {'é'}tudiant en <strong style={{ color: '#818cf8', fontWeight: 700 }}>BTS SIO</strong> (Services Informatiques aux Organisations), option <strong style={{ color: '#a78bfa', fontWeight: 700 }}>SISR</strong> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'<strong style={{ color: '#f1f5f9', fontWeight: 600 }}>Institut F2I</strong>. <span style={{ color: '#34d399', fontWeight: 600 }}>Bilingue fran{'ç'}ais / anglais</span>, passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique.
+                </p>
+              </div>
+
+              {/* Paragraphe 2 — bordure gradient gauche */}
+              <div className="rounded-xl" style={{ padding: '1.8rem 2rem', borderLeft: '3px solid #22d3ee', background: 'linear-gradient(135deg, rgba(34,211,238,0.04), transparent)' }}>
+                <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '17px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
+                  Au cours de ma formation, j'ai eu l'opportunit{'é'} de mettre mes connaissances en pratique {'à'} travers <strong style={{ color: '#22d3ee', fontWeight: 600 }}>plusieurs projets techniques</strong> et <strong style={{ color: '#22d3ee', fontWeight: 600 }}>stages en entreprise</strong>. Rigoureux, curieux et motiv{'é'}, j'aime relever des d{'é'}fis techniques et trouver des <strong style={{ color: '#f1f5f9', fontWeight: 600 }}>solutions efficaces</strong> aux probl{'è'}mes rencontr{'é'}s.
+                </p>
+              </div>
+
+              {/* Paragraphe 3 — bordure gradient gauche */}
+              <div className="rounded-xl" style={{ padding: '1.8rem 2rem', borderLeft: '3px solid #a78bfa', background: 'linear-gradient(135deg, rgba(167,139,250,0.04), transparent)' }}>
+                <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '17px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
+                  {'À'} travers ce portfolio, je souhaite partager <strong style={{ color: '#a78bfa', fontWeight: 600 }}>mon parcours</strong>, <strong style={{ color: '#a78bfa', fontWeight: 600 }}>mes projets</strong> et les <strong style={{ color: '#f1f5f9', fontWeight: 600 }}>comp{'é'}tences</strong> que j'ai acquises dans le cadre de mon BTS.
+                </p>
+              </div>
+            </div>
+
+            {/* Objectif — 2 colonnes */}
+            <div className="lg:col-span-2 flex flex-col gap-6">
+
+              {/* Carte objectif */}
+              <div className="rounded-2xl" style={{ padding: '2rem', background: 'linear-gradient(145deg, rgba(251,113,133,0.06), rgba(167,139,250,0.06))', border: '1px solid rgba(251,113,133,0.18)' }}>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="flex items-center justify-center rounded-xl" style={{ width: '44px', height: '44px', background: 'rgba(251,113,133,0.12)', border: '1px solid rgba(251,113,133,0.3)' }}>
+                    <Crosshair size={22} style={{ color: '#fb7185' }} />
+                  </div>
+                  <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '11px', fontWeight: 700, color: '#fb7185', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Objectif pro</p>
+                </div>
+                <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '19px', fontWeight: 700, color: '#f1f5f9', lineHeight: 1.5, marginBottom: '0.8rem' }}>
+                  <span style={{ color: '#fb7185' }}>Pentester</span> &{' '}
+                  <span style={{ color: '#a78bfa' }}>Expert Cybers{'é'}curit{'é'}</span>
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  {[
+                    { step: '01', text: 'Licence Pro Cybersécurité', color: '#22d3ee' },
+                    { step: '02', text: 'Master Cybersécurité', color: '#818cf8' },
+                    { step: '03', text: 'Expert sécurité offensive', color: '#fb7185' },
+                  ].map((s, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: s.color, opacity: 0.7 }}>{s.step}</span>
+                      <div style={{ width: '16px', height: '1px', background: s.color, opacity: 0.3 }} />
+                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 500, color: '#e2e8f0' }}>{s.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Carte qualités */}
+              <div className="rounded-2xl" style={{ padding: '2rem', background: 'rgba(11,16,32,0.6)', border: '1px solid rgba(34,211,238,0.12)' }}>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="flex items-center justify-center rounded-xl" style={{ width: '44px', height: '44px', background: 'rgba(34,211,238,0.1)', border: '1px solid rgba(34,211,238,0.25)' }}>
+                    <Target size={22} style={{ color: '#22d3ee' }} />
+                  </div>
+                  <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '11px', fontWeight: 700, color: '#22d3ee', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Mes qualit{'é'}s</p>
+                </div>
+                <div className="flex flex-wrap gap-2.5">
+                  {['Rigoureux', 'Curieux', 'Motivé', 'Autonome', 'Esprit d\'équipe'].map((q, i) => (
+                    <span key={i} style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#e2e8f0', background: 'rgba(34,211,238,0.08)', border: '1px solid rgba(34,211,238,0.18)', borderRadius: '10px', padding: '8px 16px' }}>{q}</span>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
 
         {/* ── Statistiques — titre pleine largeur ── */}
