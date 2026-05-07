@@ -371,10 +371,10 @@ export default function Presentation() {
       </section>
 
       {/* ── SECTION 3 — Chiffres clés ── */}
-      <section className="relative" style={{ paddingTop: '2rem', paddingBottom: '8rem' }}>
+      <section className="relative" style={{ paddingTop: '4rem', paddingBottom: '10rem' }}>
         <div className="w-full max-w-5xl mx-auto px-6 lg:px-10">
 
-          <div className="flex items-center gap-4 mb-14">
+          <div className="flex items-center gap-4 mb-16">
             <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(34,211,238,0.5))' }} />
             <span style={{
               fontFamily: "'JetBrains Mono', monospace",
