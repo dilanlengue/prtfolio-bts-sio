@@ -20,7 +20,7 @@ const categories = [
     color: '#22d3ee',
     tools: [
       { name: 'Proxmox', desc: 'Création et gestion de machines virtuelles', color: '#E57000', logo: '/logos/proxmox.svg' },
-      { name: 'VirtualBox', desc: 'Création et gestion de machines virtuelles', color: '#183A61', logo: '/logos/virtualbox.svg' },
+      { name: 'VirtualBox', desc: 'Création et gestion de machines virtuelles', color: '#183A61', logo: '/logos/virtualbox.png' },
       { name: 'Cisco IOS', desc: 'Configuration de routeurs et switches Cisco', color: '#049FD9', logo: '/logos/cisco.svg' },
       { name: 'DNS / DHCP', desc: 'Configuration et gestion des services réseau', color: '#0e7490', logo: '/logos/dns.svg' },
       { name: 'pfSense', desc: 'Configuration de pare-feu et routage réseau', color: '#212121', logo: '/logos/pfsense.svg' },
