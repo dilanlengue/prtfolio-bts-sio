@@ -322,64 +322,77 @@ export default function Parcours() {
           </p>
         </div>
 
-        {/* ── STAGES ── */}
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="flex items-center gap-3">
+        {/* ── STAGES (gauche) + FORMATION (droite) ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+
+          {/* Colonne gauche — STAGES */}
+          <div>
+            <div className="flex items-center gap-3 mb-8">
               <div style={{
-                width: '40px', height: '40px',
+                width: '44px', height: '44px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                borderRadius: '12px',
+                borderRadius: '14px',
                 background: 'rgba(251,191,36,0.08)',
-                border: '1px solid rgba(251,191,36,0.2)',
+                border: '1.5px solid rgba(251,191,36,0.25)',
+                boxShadow: '0 0 20px rgba(251,191,36,0.06)',
               }}>
-                <Briefcase size={20} style={{ color: '#fbbf24' }} />
+                <Briefcase size={22} style={{ color: '#fbbf24' }} />
               </div>
-              <h3 style={{
-                fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)',
-                fontWeight: 800,
-                color: '#fbbf24',
-              }}>
-                Stages
-              </h3>
+              <div>
+                <h3 style={{
+                  fontFamily: "'Orbitron', system-ui, sans-serif",
+                  fontSize: '1.3rem',
+                  fontWeight: 800,
+                  color: '#fbbf24',
+                  lineHeight: 1,
+                }}>
+                  Stages
+                </h3>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.5px', color: '#64748b', marginTop: '3px' }}>
+                  Expérience en entreprise
+                </p>
+              </div>
             </div>
-            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(251,191,36,0.3), transparent)' }} />
+
+            <div className="space-y-6">
+              {stages.map(s => <StageCard key={s.org} stage={s} />)}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {stages.map(s => <StageCard key={s.org} stage={s} />)}
-          </div>
-        </div>
-
-        {/* ── FORMATION ── */}
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="flex items-center gap-3">
+          {/* Colonne droite — FORMATION */}
+          <div>
+            <div className="flex items-center gap-3 mb-8">
               <div style={{
-                width: '40px', height: '40px',
+                width: '44px', height: '44px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                borderRadius: '12px',
+                borderRadius: '14px',
                 background: 'rgba(34,211,238,0.08)',
-                border: '1px solid rgba(34,211,238,0.2)',
+                border: '1.5px solid rgba(34,211,238,0.25)',
+                boxShadow: '0 0 20px rgba(34,211,238,0.06)',
               }}>
-                <GraduationCap size={20} style={{ color: '#22d3ee' }} />
+                <GraduationCap size={22} style={{ color: '#22d3ee' }} />
               </div>
-              <h3 style={{
-                fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)',
-                fontWeight: 800,
-                color: '#22d3ee',
-              }}>
-                Formation
-              </h3>
+              <div>
+                <h3 style={{
+                  fontFamily: "'Orbitron', system-ui, sans-serif",
+                  fontSize: '1.3rem',
+                  fontWeight: 800,
+                  color: '#22d3ee',
+                  lineHeight: 1,
+                }}>
+                  Formation
+                </h3>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.5px', color: '#64748b', marginTop: '3px' }}>
+                  Cursus académique
+                </p>
+              </div>
             </div>
-            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(34,211,238,0.3), transparent)' }} />
+
+            <div className="space-y-5">
+              {formations.map(f => <FormationCard key={f.title} formation={f} />)}
+            </div>
           </div>
 
-          <div className="space-y-5">
-            {formations.map(f => <FormationCard key={f.title} formation={f} />)}
-          </div>
         </div>
 
         {/* ── LANGUES ── */}
