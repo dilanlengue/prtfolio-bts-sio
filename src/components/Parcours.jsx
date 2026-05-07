@@ -417,97 +417,198 @@ export default function Parcours() {
               {formations.map((f, i) => <FormationCard key={f.title} formation={f} index={i} />)}
             </div>
 
-            {/* Objectif final */}
-            <div
-              className="relative rounded-2xl overflow-hidden transition-all duration-300"
-              style={{
-                marginTop: '2.5rem',
-                background: 'linear-gradient(145deg, rgba(0,255,136,0.04), rgba(11,16,32,0.85))',
-                border: '2px dashed rgba(0,255,136,0.25)',
-                backdropFilter: 'blur(8px)',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'rgba(0,255,136,0.5)'
-                e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.35), 0 0 40px rgba(0,255,136,0.08)'
-                e.currentTarget.style.transform = 'translateY(-4px)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'rgba(0,255,136,0.25)'
-                e.currentTarget.style.boxShadow = 'none'
-                e.currentTarget.style.transform = 'translateY(0)'
-              }}
-            >
-              <div style={{ padding: '2rem 2rem 1.8rem' }}>
-                <div className="flex items-center gap-3" style={{ marginBottom: '1.2rem' }}>
-                  <div style={{
-                    width: '44px', height: '44px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    borderRadius: '12px',
-                    background: 'rgba(0,255,136,0.1)',
-                    border: '2px solid rgba(0,255,136,0.3)',
-                  }}>
-                    <Target size={22} style={{ color: '#00ff88' }} />
-                  </div>
-                  <div>
-                    <span style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: '11px', fontWeight: 700,
-                      letterSpacing: '0.2em', color: '#00ff88',
-                      textTransform: 'uppercase',
-                    }}>
-                      Objectif
-                    </span>
-                    <h4 style={{
-                      fontFamily: "'Orbitron', system-ui, sans-serif",
-                      fontSize: '1.3rem', fontWeight: 900,
-                      background: 'linear-gradient(135deg, #00ff88, #22d3ee)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                      lineHeight: 1.2,
-                    }}>
-                      M2 Cybersécurité
-                    </h4>
-                  </div>
-                </div>
-
-                <p style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: '15.5px', fontWeight: 500,
-                  color: '#94a3b8', lineHeight: 1.8,
-                  marginBottom: '1.4rem',
-                }}>
-                  Mon objectif est d'intégrer un Master 2 en Cybersécurité afin de devenir
-                  experte en sécurité informatique et pentesting.
-                </p>
-
-                <div className="flex flex-wrap gap-3">
-                  {['Expert Cybersécurité', 'Pen Tester', 'Sécurité Offensive'].map(tag => (
-                    <span key={tag} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl" style={{
-                      background: 'rgba(0,255,136,0.06)',
-                      border: '1px solid rgba(0,255,136,0.2)',
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '13px', fontWeight: 700,
-                      color: '#00ff88',
-                    }}>
-                      <Shield size={13} />
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
 
         </div>
 
+        {/* ── OBJECTIF — pleine largeur ── */}
+        <div
+          className="relative rounded-3xl overflow-hidden transition-all duration-300"
+          style={{
+            marginTop: '5rem',
+            background: 'linear-gradient(145deg, rgba(0,255,136,0.03), rgba(11,16,32,0.9))',
+            border: '2px solid rgba(0,255,136,0.15)',
+            backdropFilter: 'blur(12px)',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.borderColor = 'rgba(0,255,136,0.4)'
+            e.currentTarget.style.boxShadow = '0 24px 60px rgba(0,0,0,0.4), 0 0 50px rgba(0,255,136,0.06)'
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.borderColor = 'rgba(0,255,136,0.15)'
+            e.currentTarget.style.boxShadow = 'none'
+          }}
+        >
+          <div style={{ height: '3px', background: 'linear-gradient(90deg, transparent, #00ff88, #22d3ee, transparent)', opacity: 0.6 }} />
+          <div style={{ padding: '3rem 3.5rem' }}>
+            {/* Ligne titre */}
+            <div className="flex items-center gap-4" style={{ marginBottom: '2rem' }}>
+              <div style={{
+                width: '56px', height: '56px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                borderRadius: '16px',
+                background: 'rgba(0,255,136,0.08)',
+                border: '2px solid rgba(0,255,136,0.3)',
+                boxShadow: '0 0 30px rgba(0,255,136,0.06)',
+              }}>
+                <Target size={26} style={{ color: '#00ff88' }} />
+              </div>
+              <div>
+                <span style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: '12px', fontWeight: 700,
+                  letterSpacing: '0.2em', color: '#00ff88',
+                  textTransform: 'uppercase',
+                }}>
+                  Mon Objectif
+                </span>
+                <h3 style={{
+                  fontFamily: "'Orbitron', system-ui, sans-serif",
+                  fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 900,
+                  background: 'linear-gradient(135deg, #00ff88, #22d3ee)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  lineHeight: 1.2,
+                }}>
+                  Devenir Experte en Cybersécurité
+                </h3>
+              </div>
+            </div>
+
+            {/* Roadmap en 3 étapes */}
+            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: '2.5rem', marginBottom: '2.5rem' }}>
+              {[
+                {
+                  step: '01',
+                  title: 'Licence Professionnelle',
+                  subtitle: 'Cybersécurité',
+                  desc: 'Poursuivre en Licence Pro spécialisée en cybersécurité pour acquérir les fondamentaux de la sécurité des systèmes d\'information.',
+                  status: 'Prochaine étape',
+                  color: '#00ff88',
+                },
+                {
+                  step: '02',
+                  title: 'Master Cybersécurité',
+                  subtitle: 'Sécurité & Réseaux',
+                  desc: 'Intégrer un Master en cybersécurité pour approfondir l\'expertise en audit, sécurité offensive et défense des infrastructures.',
+                  status: 'Objectif moyen terme',
+                  color: '#22d3ee',
+                },
+                {
+                  step: '03',
+                  title: 'Expert Cybersécurité',
+                  subtitle: '& Pen Tester',
+                  desc: 'Devenir experte en sécurité informatique et pentesting : tests d\'intrusion, analyse de vulnérabilités et protection des SI.',
+                  status: 'But final',
+                  color: '#818cf8',
+                },
+              ].map(({ step, title, subtitle, desc, status, color }) => (
+                <div
+                  key={step}
+                  className="relative rounded-2xl transition-all duration-300"
+                  style={{
+                    background: 'rgba(15,20,40,0.6)',
+                    border: `1.5px solid ${color}18`,
+                    padding: '2rem 1.8rem',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = `${color}45`
+                    e.currentTarget.style.transform = 'translateY(-4px)'
+                    e.currentTarget.style.boxShadow = `0 16px 40px rgba(0,0,0,0.3), 0 0 25px ${color}08`
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = `${color}18`
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = 'none'
+                  }}
+                >
+                  <div className="flex items-center justify-between" style={{ marginBottom: '1.2rem' }}>
+                    <span style={{
+                      fontFamily: "'Orbitron', system-ui, sans-serif",
+                      fontSize: '2rem', fontWeight: 900,
+                      color: `${color}20`,
+                    }}>
+                      {step}
+                    </span>
+                    <span style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: '10.5px', fontWeight: 700,
+                      letterSpacing: '0.1em',
+                      color, padding: '4px 12px',
+                      background: `${color}0a`,
+                      border: `1px solid ${color}20`,
+                      borderRadius: '99px',
+                      textTransform: 'uppercase',
+                    }}>
+                      {status}
+                    </span>
+                  </div>
+                  <h4 style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '1.2rem', fontWeight: 800,
+                    color: '#f1f5f9', lineHeight: 1.2,
+                    marginBottom: '0.2rem',
+                  }}>
+                    {title}
+                  </h4>
+                  <p style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '14.5px', fontWeight: 600,
+                    color, marginBottom: '1rem',
+                  }}>
+                    {subtitle}
+                  </p>
+                  <p style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '14.5px', fontWeight: 500,
+                    color: '#94a3b8', lineHeight: 1.8,
+                  }}>
+                    {desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-3">
+              {['Cybersécurité', 'Pen Testing', 'Sécurité Offensive', 'Audit & Conformité', 'Protection des SI'].map(tag => (
+                <span key={tag} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl" style={{
+                  background: 'rgba(0,255,136,0.05)',
+                  border: '1px solid rgba(0,255,136,0.18)',
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '13.5px', fontWeight: 700,
+                  color: '#00ff88',
+                }}>
+                  <Shield size={14} />
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* ── LANGUES ── */}
         <div className="animate-fade-up" style={{ marginTop: '8rem' }}>
-          <div className="text-center mb-14">
+          <div className="text-center" style={{ marginBottom: '3.5rem' }}>
+            <div style={{ marginBottom: '1.2rem' }}>
+              <span style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '13px', fontWeight: 700,
+                letterSpacing: '0.2em', color: '#818cf8',
+                textTransform: 'uppercase',
+                padding: '6px 18px',
+                background: 'rgba(129,140,248,0.06)',
+                border: '1px solid rgba(129,140,248,0.15)',
+                borderRadius: '99px',
+              }}>
+                Communication
+              </span>
+            </div>
             <h3
               style={{
                 fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)',
+                fontSize: 'clamp(1.8rem, 4vw, 2.4rem)',
                 fontWeight: 900,
                 background: 'linear-gradient(135deg, #818cf8 0%, #22d3ee 50%, #00ff88 100%)',
                 backgroundSize: '200% 100%',
@@ -515,24 +616,25 @@ export default function Parcours() {
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
                 animation: 'gradient-shift 6s linear infinite',
-                marginBottom: '1rem',
+                marginBottom: '1.2rem',
               }}
             >
               Mes Langues
             </h3>
+            <div style={{ width: '50px', height: '3px', background: 'linear-gradient(90deg, #818cf8, #22d3ee)', borderRadius: '99px', margin: '0 auto 1.5rem' }} />
             <p style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '16px',
-              color: '#64748b',
-              maxWidth: '450px',
+              fontSize: '17px',
+              color: '#94a3b8',
+              maxWidth: '520px',
               margin: '0 auto',
-              lineHeight: 1.6,
+              lineHeight: 1.8,
             }}>
-              Bilingue, je communique aussi bien en anglais qu'en français dans un contexte professionnel.
+              Bilingue, je communique aussi bien en anglais qu'en français dans un contexte professionnel et technique.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto" style={{ gap: '3rem' }}>
             {[
               {
                 flagUrl: 'https://flagcdn.com/w160/gb.png',
@@ -557,52 +659,51 @@ export default function Parcours() {
                 style={{
                   background: 'linear-gradient(145deg, rgba(11,16,32,0.8), rgba(15,20,40,0.65))',
                   border: `1.5px solid ${color}20`,
-                  padding: '2.5rem 2rem',
+                  padding: '3rem 2.5rem',
                   backdropFilter: 'blur(12px)',
                   cursor: 'default',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)'
-                  e.currentTarget.style.borderColor = `${color}60`
-                  e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.4), 0 0 40px ${color}15`
+                  e.currentTarget.style.transform = 'translateY(-6px)'
+                  e.currentTarget.style.borderColor = `${color}50`
+                  e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.4), 0 0 40px ${color}10`
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                  e.currentTarget.style.transform = 'translateY(0)'
                   e.currentTarget.style.borderColor = `${color}20`
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: '10%', right: '10%', height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.5 }} />
-                <div style={{ position: 'absolute', top: '-40px', left: '50%', transform: 'translateX(-50%)', width: '200px', height: '200px', background: `radial-gradient(circle, ${color}08, transparent)`, pointerEvents: 'none' }} />
 
-                <div className="flex justify-center mb-6">
+                <div className="flex justify-center" style={{ marginBottom: '2rem' }}>
                   <div style={{
                     borderRadius: '50%',
                     overflow: 'hidden',
-                    width: '80px',
-                    height: '80px',
+                    width: '90px',
+                    height: '90px',
                     border: `3px solid ${color}40`,
                     boxShadow: `0 0 30px ${color}15, 0 8px 24px rgba(0,0,0,0.3)`,
                   }}>
-                    <img src={flagUrl} alt={lang} width="80" height="80" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    <img src={flagUrl} alt={lang} width="90" height="90" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                   </div>
                 </div>
 
-                <h4 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#f1f5f9', textAlign: 'center', marginBottom: '0.4rem' }}>
+                <h4 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.4rem', fontWeight: 800, color: '#f1f5f9', textAlign: 'center', marginBottom: '0.5rem' }}>
                   {lang}
                 </h4>
-                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color, textAlign: 'center', letterSpacing: '0.1em', marginBottom: '1.2rem', textShadow: `0 0 10px ${color}30` }}>
+                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13.5px', fontWeight: 700, color, textAlign: 'center', letterSpacing: '0.1em', marginBottom: '1.5rem', textShadow: `0 0 10px ${color}30` }}>
                   {level}
                 </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', textAlign: 'center', lineHeight: 1.7, marginBottom: '1.8rem' }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', textAlign: 'center', lineHeight: 1.8, marginBottom: '2rem' }}>
                   {desc}
                 </p>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ flex: 1, height: '8px', background: 'rgba(255,255,255,0.06)', borderRadius: '99px', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                  <div style={{ flex: 1, height: '10px', background: 'rgba(255,255,255,0.06)', borderRadius: '99px', overflow: 'hidden' }}>
                     <div style={{ width: `${percent}%`, height: '100%', background: `linear-gradient(90deg, ${color}80, ${color})`, borderRadius: '99px', boxShadow: `0 0 14px ${color}40` }} />
                   </div>
-                  <span style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 800, color, minWidth: '42px', textAlign: 'right' }}>
+                  <span style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '16px', fontWeight: 800, color, minWidth: '48px', textAlign: 'right' }}>
                     {percent}%
                   </span>
                 </div>
