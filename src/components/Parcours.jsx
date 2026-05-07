@@ -320,112 +320,112 @@ export default function Parcours() {
         </div>
 
         {/* Langues */}
-        <div className="animate-fade-up" style={{ marginTop: '5rem' }}>
-          {/* Titre section */}
-          <div className="flex items-center gap-4 mb-10">
-            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(129,140,248,0.4))' }} />
-            <span style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '11px',
-              fontWeight: 700,
-              color: '#818cf8',
-              letterSpacing: '0.3em',
-              padding: '6px 16px',
-              background: 'rgba(129,140,248,0.06)',
-              border: '1px solid rgba(129,140,248,0.15)',
-              borderRadius: '8px',
+        <div className="animate-fade-up" style={{ marginTop: '6rem' }}>
+          {/* Titre section — grand et stylé */}
+          <div className="text-center mb-14">
+            <h3
+              style={{
+                fontFamily: "'Orbitron', system-ui, sans-serif",
+                fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)',
+                fontWeight: 900,
+                background: 'linear-gradient(135deg, #818cf8 0%, #22d3ee 50%, #00ff88 100%)',
+                backgroundSize: '200% 100%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                animation: 'gradient-shift 6s linear infinite',
+                marginBottom: '1rem',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              Mes Langues
+            </h3>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '16px',
+              color: '#64748b',
+              maxWidth: '450px',
+              margin: '0 auto',
+              lineHeight: 1.6,
             }}>
-              LANGUES
-            </span>
-            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(129,140,248,0.4), transparent)' }} />
+              Bilingue, je communique aussi bien en anglais qu'en français dans un contexte professionnel.
+            </p>
           </div>
 
-          {/* Cards langues */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Cards langues — 2 colonnes */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {[
               {
                 flag: (
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <circle cx="24" cy="24" r="22" fill="#012169" stroke="rgba(34,211,238,0.3)" strokeWidth="1"/>
-                    <path d="M4 8L44 40M44 8L4 40" stroke="#fff" strokeWidth="4"/>
-                    <path d="M4 8L44 40M44 8L4 40" stroke="#C8102E" strokeWidth="2"/>
-                    <path d="M24 4V44M4 24H44" stroke="#fff" strokeWidth="7"/>
-                    <path d="M24 4V44M4 24H44" stroke="#C8102E" strokeWidth="4"/>
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                    <circle cx="28" cy="28" r="26" fill="#012169" stroke="rgba(34,211,238,0.3)" strokeWidth="1.5"/>
+                    <path d="M4 8L52 48M52 8L4 48" stroke="#fff" strokeWidth="5"/>
+                    <path d="M4 8L52 48M52 8L4 48" stroke="#C8102E" strokeWidth="2.5"/>
+                    <path d="M28 4V52M4 28H52" stroke="#fff" strokeWidth="8"/>
+                    <path d="M28 4V52M4 28H52" stroke="#C8102E" strokeWidth="5"/>
                   </svg>
                 ),
                 lang: 'Anglais',
-                level: 'Langue maternelle',
-                percent: 100,
+                level: 'Bilingue',
+                percent: 90,
                 color: '#22d3ee',
-                desc: 'Maîtrise complète à l\'oral et à l\'écrit',
+                desc: 'Maîtrise complète à l\'oral et à l\'écrit. Communication fluide en contexte professionnel et technique.',
               },
               {
                 flag: (
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <circle cx="24" cy="24" r="22" fill="#fff" stroke="rgba(129,140,248,0.3)" strokeWidth="1"/>
-                    <path d="M4 6C4 6 4 42 4 42C10.5 42 16 42 16 42V6C16 6 10 6 4 6Z" fill="#002395"/>
-                    <path d="M32 6V42H44C44 42 44 6 44 6H32Z" fill="#ED2939"/>
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                    <circle cx="28" cy="28" r="26" fill="#fff" stroke="rgba(129,140,248,0.3)" strokeWidth="1.5"/>
+                    <path d="M4 6C4 6 4 50 4 50C12 50 19 50 19 50V6C19 6 12 6 4 6Z" fill="#002395"/>
+                    <path d="M37 6V50H52C52 50 52 6 52 6H37Z" fill="#ED2939"/>
                   </svg>
                 ),
                 lang: 'Français',
                 level: 'Courant — C1',
-                percent: 90,
+                percent: 80,
                 color: '#818cf8',
-                desc: 'Niveau avancé, usage quotidien professionnel',
-              },
-              {
-                flag: (
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <circle cx="24" cy="24" r="22" fill="#009B3A" stroke="rgba(71,85,105,0.3)" strokeWidth="1"/>
-                    <path d="M6 24L24 38L42 24L24 10Z" fill="#FEDF00"/>
-                    <circle cx="24" cy="24" r="8" fill="#002776"/>
-                    <path d="M16 26C18 22 22 20 28 21" stroke="#fff" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-                  </svg>
-                ),
-                lang: 'Portugais',
-                level: 'Débutant — A1',
-                percent: 20,
-                color: '#475569',
-                desc: 'Notions de base, en apprentissage',
+                desc: 'Niveau avancé, usage quotidien en formation et en milieu professionnel.',
               },
             ].map(({ flag, lang, level, percent, color, desc }) => (
               <div
                 key={lang}
-                className="relative rounded-2xl overflow-hidden transition-all duration-500"
+                className="relative rounded-3xl overflow-hidden transition-all duration-500"
                 style={{
-                  background: 'rgba(11,16,32,0.75)',
-                  border: `1.5px solid ${color}18`,
-                  padding: '2rem',
-                  backdropFilter: 'blur(8px)',
+                  background: 'linear-gradient(145deg, rgba(11,16,32,0.8), rgba(15,20,40,0.65))',
+                  border: `1.5px solid ${color}20`,
+                  padding: '2.5rem 2rem',
+                  backdropFilter: 'blur(12px)',
                   cursor: 'default',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-6px)'
-                  e.currentTarget.style.borderColor = `${color}50`
-                  e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 30px ${color}12`
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)'
+                  e.currentTarget.style.borderColor = `${color}60`
+                  e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.4), 0 0 40px ${color}15`
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.borderColor = `${color}18`
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                  e.currentTarget.style.borderColor = `${color}20`
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
                 {/* Glow bar */}
-                <div style={{ position: 'absolute', top: 0, left: '15%', right: '15%', height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.4, borderRadius: '0 0 4px 4px' }} />
+                <div style={{ position: 'absolute', top: 0, left: '10%', right: '10%', height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.5 }} />
+
+                {/* Background glow */}
+                <div style={{ position: 'absolute', top: '-40px', left: '50%', transform: 'translateX(-50%)', width: '200px', height: '200px', background: `radial-gradient(circle, ${color}08, transparent)`, pointerEvents: 'none' }} />
 
                 {/* Drapeau */}
-                <div className="flex justify-center mb-5">
+                <div className="flex justify-center mb-6">
                   <div style={{
                     borderRadius: '50%',
                     overflow: 'hidden',
-                    width: '64px',
-                    height: '64px',
+                    width: '80px',
+                    height: '80px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     background: 'rgba(255,255,255,0.03)',
-                    border: `2px solid ${color}30`,
-                    boxShadow: `0 0 20px ${color}10`,
+                    border: `2.5px solid ${color}35`,
+                    boxShadow: `0 0 30px ${color}12, 0 8px 24px rgba(0,0,0,0.3)`,
                   }}>
                     {flag}
                   </div>
@@ -434,11 +434,11 @@ export default function Parcours() {
                 {/* Nom langue */}
                 <h4 style={{
                   fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: '1.1rem',
+                  fontSize: '1.3rem',
                   fontWeight: 800,
                   color: '#f1f5f9',
                   textAlign: 'center',
-                  marginBottom: '0.3rem',
+                  marginBottom: '0.4rem',
                 }}>
                   {lang}
                 </h4>
@@ -446,12 +446,13 @@ export default function Parcours() {
                 {/* Niveau */}
                 <p style={{
                   fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: '12px',
+                  fontSize: '13px',
                   fontWeight: 700,
                   color,
                   textAlign: 'center',
-                  letterSpacing: '0.08em',
-                  marginBottom: '1rem',
+                  letterSpacing: '0.1em',
+                  marginBottom: '1.2rem',
+                  textShadow: `0 0 10px ${color}30`,
                 }}>
                   {level}
                 </p>
@@ -459,41 +460,45 @@ export default function Parcours() {
                 {/* Description */}
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: '13px',
+                  fontSize: '14px',
                   color: '#94a3b8',
                   textAlign: 'center',
-                  lineHeight: 1.6,
-                  marginBottom: '1.2rem',
+                  lineHeight: 1.7,
+                  marginBottom: '1.8rem',
                 }}>
                   {desc}
                 </p>
 
                 {/* Barre de progression */}
-                <div style={{
-                  width: '100%',
-                  height: '6px',
-                  background: 'rgba(255,255,255,0.06)',
-                  borderRadius: '99px',
-                  overflow: 'hidden',
-                }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <div style={{
-                    width: `${percent}%`,
-                    height: '100%',
-                    background: `linear-gradient(90deg, ${color}, ${color}90)`,
+                    flex: 1,
+                    height: '8px',
+                    background: 'rgba(255,255,255,0.06)',
                     borderRadius: '99px',
-                    boxShadow: `0 0 10px ${color}40`,
-                    transition: 'width 1.5s cubic-bezier(0.16, 1, 0.3, 1)',
-                  }} />
+                    overflow: 'hidden',
+                  }}>
+                    <div style={{
+                      width: `${percent}%`,
+                      height: '100%',
+                      background: `linear-gradient(90deg, ${color}80, ${color})`,
+                      borderRadius: '99px',
+                      boxShadow: `0 0 14px ${color}40`,
+                      transition: 'width 1.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                    }} />
+                  </div>
+                  <span style={{
+                    fontFamily: "'Orbitron', system-ui, sans-serif",
+                    fontSize: '15px',
+                    fontWeight: 800,
+                    color,
+                    minWidth: '42px',
+                    textAlign: 'right',
+                    textShadow: `0 0 8px ${color}30`,
+                  }}>
+                    {percent}%
+                  </span>
                 </div>
-                <p style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: '11px',
-                  color: '#475569',
-                  textAlign: 'right',
-                  marginTop: '6px',
-                }}>
-                  {percent}%
-                </p>
               </div>
             ))}
           </div>
