@@ -42,6 +42,16 @@ const obtenues = [
     color: '#34d399',
     url: null,
   },
+  {
+    title: 'Introduction to Cybersecurity',
+    icon: Lock,
+    org: 'Cisco Networking Academy',
+    date: '2026',
+    modules: 'Certification cybersécurité Cisco',
+    detail: 'Fondamentaux cybersécurité · Menaces · Vulnérabilités · Protection des données',
+    color: '#049FD9',
+    url: '/certif-cisco-cybersecurity.pdf',
+  },
 ]
 
 const enCours = [

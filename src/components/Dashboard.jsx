@@ -1,6 +1,5 @@
-﻿import { useEffect, useRef, useState, useCallback } from 'react'
-import { Download, Mail, Linkedin, Github, ArrowLeft, FolderKanban, ShieldCheck, CalendarDays, Award, Server, BarChart3, Lock, FileText, Monitor, Globe, Shield, Activity, Cloud, Link2, Target, Crosshair } from 'lucide-react'
-import SectionLabel from './SectionLabel'
+import { useEffect, useRef, useState } from 'react'
+import { Download, Mail, FolderKanban, ShieldCheck, CalendarDays, Award, Server, BarChart3, Lock, FileText, Globe, Shield, Target } from 'lucide-react'
 
 /* ─── CountUp ─── */
 function CountUp({ target, suffix = '', prefix = '' }) {
@@ -34,313 +33,19 @@ function CountUp({ target, suffix = '', prefix = '' }) {
 /* ─── Data ─── */
 const statsData = [
   { value: 6,  suffix: '',  label: 'PROJETS RÉALISÉS',     desc: 'Infrastructure, support & développement',  color: '#22d3ee', icon: FolderKanban },
-  { value: 2,  suffix: '',  label: 'CERTIFICATIONS',       desc: 'Obtenues et validées',                     color: '#a78bfa', icon: Award },
+  { value: 3,  suffix: '',  label: 'CERTIFICATIONS',       desc: 'Obtenues et validées',                     color: '#a78bfa', icon: Award },
   { value: 2,  suffix: '',  label: 'EN COURS',             desc: 'Certifications en préparation',            color: '#22c55e', icon: ShieldCheck },
   { value: 2,  suffix: '',  label: 'ANNÉES D\'EXPÉRIENCE',  desc: 'Formation + stages en entreprise',         color: '#f59e0b', icon: CalendarDays },
 ]
 
 const apports = [
-  { color: '#22d3ee', icon: Server, title: 'Administration opérationnelle',  desc: 'Windows Server, AD DS, GPO, DNS/DHCP' },
-  { color: '#22c55e', icon: BarChart3, title: 'Impact mesurable',               desc: '6 projets livrés · supervision Nagios · 2 stages pro' },
-  { color: '#a78bfa', icon: Lock, title: 'Sécurité by design',             desc: 'OpenVPN, Nessus, iptables, SecNum' },
+  { color: '#22d3ee', icon: Server, title: 'Administration opérationnelle',  desc: 'Gestion de serveurs, postes et équipements réseau' },
+  { color: '#22c55e', icon: BarChart3, title: 'Impact mesurable',               desc: '6 projets livrés · supervision active · 2 stages pro' },
+  { color: '#a78bfa', icon: Lock, title: 'Sécurité by design',             desc: 'VPN, audit de vulnérabilités, pare-feu, conformité ANSSI' },
   { color: '#fbbf24', icon: FileText, title: 'Livraison documentée',           desc: 'Guides techniques, rapports de stage, documentation réseau' },
 ]
 
-const domainesSmall = [
-  { cat: 'Système',        tags: ['Windows Server', 'Linux Debian', 'Active Directory', 'GPO', 'WSUS'] },
-  { cat: 'Réseau',         tags: ['Cisco IOS', 'VLAN 802.1Q', 'DNS / DHCP', 'TCP/IP', 'Wireshark'] },
-  { cat: 'Cybersécurité',  tags: ['OpenVPN', 'Nessus', 'iptables', 'SSL/TLS', 'EBIOS RM'] },
-  { cat: 'Supervision',    tags: ['Nagios', 'SNMP', 'GLPI', 'NRPE'] },
-  { cat: 'Virtualisation', tags: ['VirtualBox', 'VMware', 'Proxmox', 'Hyper-V'] },
-  { cat: 'Protocoles',     tags: ['SSH', 'RDP', 'LDAP', 'SMTP'] },
-]
-
-const techGrid = [
-  { cat: 'Système',        icon: Monitor,  color: '#22d3ee', tags: ['Windows Server', 'Linux Debian', 'Active Directory', 'PowerShell', 'GPO', 'WSUS'] },
-  { cat: 'Réseau',         icon: Globe,    color: '#818cf8', tags: ['Cisco IOS', 'VLAN 802.1Q', 'TCP/IP', 'DNS / DHCP', 'Routage', 'Wireshark'] },
-  { cat: 'Cybersécurité',  icon: Shield,   color: '#fb7185', tags: ['OpenVPN', 'Nessus', 'iptables', 'pfSense', 'EBIOS RM'] },
-  { cat: 'Supervision',    icon: Activity, color: '#34d399', tags: ['Nagios', 'GLPI', 'SNMP', 'NRPE'] },
-  { cat: 'Virtualisation', icon: Cloud,    color: '#f59e0b', tags: ['VirtualBox', 'VMware', 'Proxmox', 'Hyper-V'] },
-  { cat: 'Protocoles',     icon: Link2,    color: '#a78bfa', tags: ['SSH', 'RDP', 'LDAP', 'SMTP', 'HTTPS'] },
-]
-
-/* ─── Matrix Rain Canvas ─── */
-function MatrixRain({ height = 420 }) {
-  const canvasRef = useRef(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    let animId
-    let time = 0
-
-    function resize() {
-      canvas.width = canvas.parentElement.offsetWidth
-      canvas.height = height
-    }
-    resize()
-    window.addEventListener('resize', resize)
-
-    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF<>/{}[]=$#@!&01'
-    const fontSize = 14
-    const columns = Math.floor(canvas.width / fontSize)
-    const drops = Array.from({ length: columns }, () => Math.random() * -50)
-
-    const cyberTexts = [
-      '192.168.1.1', '10.0.0.254', '172.16.0.1', '192.168.10.50',
-      'SSH:22', 'HTTPS:443', 'DNS:53', 'SNMP:161', 'LDAP:389', 'RDP:3389',
-      'VLAN 10', 'VLAN 20', 'DMZ', 'WAN', 'LAN',
-      'TCP/IP', 'AES-256', 'TLS 1.3', 'IPsec', 'SSL',
-      '$ nmap -sV', '$ ping -c 4', '$ traceroute', '$ ifconfig',
-      'fw:ALLOW', 'fw:DROP', 'ACL PERMIT', 'NAT INSIDE',
-      '[OK]', '[ACTIVE]', '[SECURED]', 'ENCRYPTED',
-      '0xFF', '0xA3', '0x1B', '0xD7',
-    ]
-
-    const nodeCount = 12
-    const nodes = Array.from({ length: nodeCount }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.4,
-      radius: Math.random() * 3 + 1.5,
-      pulse: Math.random() * Math.PI * 2,
-    }))
-
-    const floatingLabels = Array.from({ length: 14 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.25,
-      text: cyberTexts[Math.floor(Math.random() * cyberTexts.length)],
-      opacity: Math.random() * 0.25 + 0.1,
-      phase: Math.random() * Math.PI * 2,
-      color: Math.random() < 0.5 ? '#22d3ee' : (Math.random() < 0.5 ? '#00ff88' : '#a78bfa'),
-    }))
-
-    function draw() {
-      time++
-      ctx.fillStyle = 'rgba(5,8,20,0.1)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      ctx.strokeStyle = 'rgba(34,211,238,0.025)'
-      ctx.lineWidth = 0.5
-      const gridSize = 60
-      for (let x = 0; x < canvas.width; x += gridSize) {
-        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke()
-      }
-      for (let y = 0; y < canvas.height; y += gridSize) {
-        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke()
-      }
-
-      nodes.forEach(n => {
-        n.x += n.vx; n.y += n.vy
-        if (n.x < 0 || n.x > canvas.width) n.vx *= -1
-        if (n.y < 0 || n.y > canvas.height) n.vy *= -1
-      })
-
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x
-          const dy = nodes[i].y - nodes[j].y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < 200) {
-            const alpha = 0.12 * (1 - dist / 200)
-            ctx.beginPath()
-            ctx.moveTo(nodes[i].x, nodes[i].y)
-            ctx.lineTo(nodes[j].x, nodes[j].y)
-            ctx.strokeStyle = `rgba(34,211,238,${alpha})`
-            ctx.lineWidth = 0.8
-            ctx.stroke()
-          }
-        }
-      }
-
-      nodes.forEach(n => {
-        const pulse = 0.5 + 0.5 * Math.sin(time * 0.03 + n.pulse)
-        const glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.radius * 5)
-        glow.addColorStop(0, `rgba(34,211,238,${0.15 * pulse})`)
-        glow.addColorStop(1, 'rgba(34,211,238,0)')
-        ctx.beginPath()
-        ctx.arc(n.x, n.y, n.radius * 5, 0, Math.PI * 2)
-        ctx.fillStyle = glow
-        ctx.fill()
-        ctx.beginPath()
-        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(34,211,238,${0.5 * pulse})`
-        ctx.fill()
-        ctx.beginPath()
-        ctx.arc(n.x, n.y, n.radius * 0.4, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(255,255,255,${0.6 * pulse})`
-        ctx.fill()
-      })
-
-      ctx.font = `${fontSize}px "JetBrains Mono", "Fira Code", monospace`
-      for (let i = 0; i < drops.length; i++) {
-        const char = chars[Math.floor(Math.random() * chars.length)]
-        const x = i * fontSize
-        const y = drops[i] * fontSize
-        if (Math.random() < 0.04) {
-          ctx.fillStyle = 'rgba(255,255,255,0.9)'
-        } else if (Math.random() < 0.15) {
-          ctx.fillStyle = `rgba(0,255,136,${0.2 + Math.random() * 0.3})`
-        } else {
-          ctx.fillStyle = `rgba(34,211,238,${0.12 + Math.random() * 0.28})`
-        }
-        ctx.fillText(char, x, y)
-        if (y > canvas.height && Math.random() > 0.975) drops[i] = 0
-        drops[i] += 0.5 + Math.random() * 0.4
-      }
-
-      ctx.font = '11px "JetBrains Mono", "Fira Code", monospace'
-      ctx.textAlign = 'center'
-      floatingLabels.forEach(label => {
-        label.x += label.vx; label.y += label.vy
-        if (label.x < 40 || label.x > canvas.width - 40) label.vx *= -1
-        if (label.y < 20 || label.y > canvas.height - 20) label.vy *= -1
-        const fade = 0.6 + 0.4 * Math.sin(time * 0.015 + label.phase)
-        ctx.fillStyle = label.color.replace(')', `,${label.opacity * fade})`).replace('rgb', 'rgba')
-        ctx.fillText(label.text, label.x, label.y)
-      })
-      ctx.textAlign = 'start'
-
-      const scanY = (time * 0.8) % canvas.height
-      const scanGrad = ctx.createLinearGradient(0, scanY - 2, 0, scanY + 2)
-      scanGrad.addColorStop(0, 'rgba(34,211,238,0)')
-      scanGrad.addColorStop(0.5, 'rgba(34,211,238,0.06)')
-      scanGrad.addColorStop(1, 'rgba(34,211,238,0)')
-      ctx.fillStyle = scanGrad
-      ctx.fillRect(0, scanY - 2, canvas.width, 4)
-
-      animId = requestAnimationFrame(draw)
-    }
-    draw()
-
-    return () => {
-      cancelAnimationFrame(animId)
-      window.removeEventListener('resize', resize)
-    }
-  }, [height])
-
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{ width: '100%', height: `${height}px`, display: 'block', borderRadius: '16px' }}
-    />
-  )
-}
-
-/* ─── Terminal Stages — DILAN ASCII art ─── */
-const asciiArt = [
-  ' ██████╗  ██╗ ██╗      █████╗  ███╗   ██╗',
-  ' ██╔══██╗ ██║ ██║     ██╔══██╗ ████╗  ██║',
-  ' ██║  ██║ ██║ ██║     ███████║ ██╔██╗ ██║',
-  ' ██║  ██║ ██║ ██║     ██╔══██║ ██║╚██╗██║',
-  ' ██████╔╝ ██║ ███████╗██║  ██║ ██║ ╚████║',
-  ' ╚═════╝  ╚═╝ ╚══════╝╚═╝  ╚═╝ ╚═╝  ╚═══╝',
-]
-
-const terminalInfoLines = [
-  { text: '\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550', color: '#22d3ee' },
-  { text: '  B&A CONSEIL \u2014 Technologies & Services Informatiques', color: '#22d3ee', bold: true },
-  { text: '\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550', color: '#22d3ee' },
-  { text: '', color: '' },
-  { text: '$ cat /etc/dilan/stages.conf', color: '#c5d3e8' },
-  { text: '', color: '' },
-  { text: '  \u250c\u2500 Stage actuel \u2014 BTS SIO 2\u00e8me ann\u00e9e \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510', color: '#22d3ee' },
-  { text: '  \u2502  Entreprise   : B&A Conseil (SAS)                  \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  Localisation : Coigni\u00e8res, Yvelines (78)          \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  Effectif     : 2-10 collaborateurs                \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  Cr\u00e9ation     : 2018                                \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  P\u00e9riode      : 05/01/2026 \u2014 06/02/2026 (5 sem.)   \u2502', color: '#22d3ee' },
-  { text: '  \u2502  Poste        : Technicien Support & Maintenance   \u2502', color: '#fbbf24' },
-  { text: '  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518', color: '#22d3ee' },
-  { text: '', color: '' },
-  { text: '$ ls /missions/ba-conseil/', color: '#c5d3e8' },
-  { text: '', color: '' },
-  { text: '  \u25cf Diagnostic & r\u00e9solution incidents     [DONE]', color: '#22c55e' },
-  { text: '  \u25cf Maintenance pr\u00e9ventive & corrective   [DONE]', color: '#22c55e' },
-  { text: '  \u25cf D\u00e9ploiement postes Windows 11         [DONE]', color: '#22c55e' },
-  { text: '  \u25cf Configuration MDM (Miradore UEM)      [DONE]', color: '#22c55e' },
-  { text: '  \u25cf Enr\u00f4lement smartphones flotte mobile  [DONE]', color: '#22c55e' },
-  { text: '', color: '' },
-  { text: '$ cat /etc/dilan/stage-precedent.conf', color: '#c5d3e8' },
-  { text: '', color: '' },
-  { text: '  \u250c\u2500 Stage 1\u00e8re ann\u00e9e BTS SIO \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510', color: '#a78bfa' },
-  { text: '  \u2502  Entreprise   : Les R\u00e9parateurs Mac & PC          \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  Localisation : Montreuil (93)                    \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  P\u00e9riode      : 12/05/2025 \u2014 21/06/2025 (7 sem.)   \u2502', color: '#a78bfa' },
-  { text: '  \u2502  Poste        : Technicien Support Informatique   \u2502', color: '#fbbf24' },
-  { text: '  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518', color: '#a78bfa' },
-  { text: '', color: '' },
-  { text: '  \u250c\u2500 Objectif post-BTS \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510', color: '#34d399' },
-  { text: '  \u2502  Alternance Bac+3 Cybers\u00e9curit\u00e9 \u2014 sept. 2026  \u2502', color: '#e6ecf8' },
-  { text: '  \u2502  MSc Cybers\u00e9curit\u00e9 \u2014 long terme                  \u2502', color: '#e6ecf8' },
-  { text: '  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518', color: '#34d399' },
-  { text: '', color: '' },
-  { text: '  [\u2713] 2 STAGES VALID\u00c9S \u2014 ATTESTATIONS DISPONIBLES', color: '#00ff88', bold: true },
-]
-
-function TerminalStages() {
-  const [lines, setLines] = useState([])
-  const started = useRef(false)
-
-  useEffect(() => {
-    if (started.current) return
-    started.current = true
-    let idx = 0
-    const interval = setInterval(() => {
-      if (idx < terminalInfoLines.length) {
-        setLines(prev => [...prev, terminalInfoLines[idx]])
-        idx++
-      } else {
-        clearInterval(interval)
-      }
-    }, 60)
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <div style={{ background: 'rgba(5,5,12,0.98)', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(34,211,238,0.12)' }}>
-      <div className="flex items-center gap-2 px-5 py-3" style={{ background: 'rgba(255,255,255,0.02)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-        <span className="w-3 h-3 rounded-full" style={{ background: '#ff5f56' }} />
-        <span className="w-3 h-3 rounded-full" style={{ background: '#ffbd2e' }} />
-        <span className="w-3 h-3 rounded-full" style={{ background: '#27c93f' }} />
-        <span className="ml-3" style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace", fontSize: '12px', color: '#475569' }}>
-          dilan@bna-conseil:~# <span style={{ color: '#22d3ee' }}>secure-shell</span>
-        </span>
-        <div className="ml-auto flex items-center gap-2">
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#22c55e' }}>{'\u25cf'} ENCRYPTED</span>
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#475569' }}>TLS 1.3</span>
-        </div>
-      </div>
-      <div className="px-5 pt-5 overflow-x-auto" style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}>
-        {asciiArt.map((line, i) => (
-          <div key={i} style={{ color: '#22d3ee', whiteSpace: 'pre', fontSize: 'clamp(7px, 1.8vw, 13px)', lineHeight: 1.15, opacity: 0.85 }}>{line}</div>
-        ))}
-        <div style={{ fontSize: '11px', color: '#475569', textAlign: 'center', marginTop: '6px', letterSpacing: '0.3em' }}>
-          B&A CONSEIL {'\u00b7'} TECHNOLOGIES &amp; SERVICES IT
-        </div>
-      </div>
-      <div className="px-5 pb-5 pt-3 overflow-x-auto" style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace", fontSize: '11.5px', lineHeight: 1.75 }}>
-        {lines.map((line, i) => (
-          <div key={i} style={{ color: line.color || 'transparent', whiteSpace: 'pre', fontWeight: line.bold ? 700 : 400 }}>
-            {line.text || '\u00A0'}
-          </div>
-        ))}
-        <span style={{ color: '#00ff88', animation: 'pulse 1s infinite' }}>{'\u2588'}</span>
-      </div>
-    </div>
-  )
-}
-
-/* ═══════════════════════════════════════ */
-/* ─── DASHBOARD — layout propre layout ─── */
-/* ═══════════════════════════════════════ */
 export default function Dashboard() {
-  const [showTerminal, setShowTerminal] = useState(false)
-  const toggleTerminal = useCallback(() => setShowTerminal(prev => !prev), [])
-
   return (
     <section id="dashboard" className="relative" style={{ paddingTop: '12rem', paddingBottom: '6rem' }}>
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -352,12 +57,10 @@ export default function Dashboard() {
 
             {/* Colonne gauche — Photo + Nom */}
             <div className="flex flex-col items-center lg:items-center flex-shrink-0" style={{ minWidth: '280px' }}>
-              {/* Photo grande */}
               <div style={{ width: '180px', height: '180px', borderRadius: '50%', padding: '4px', background: 'linear-gradient(135deg, #6366f1, #22d3ee, #a78bfa)', boxShadow: '0 0 50px rgba(99,102,241,0.25), 0 0 100px rgba(34,211,238,0.1)', marginBottom: '2rem' }}>
                 <img src="/photo-dilan.png" alt="Dilan Lengue" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', display: 'block', border: '3px solid rgba(8,12,26,1)' }} />
               </div>
 
-              {/* Nom */}
               <h2 style={{
                 fontFamily: "'Orbitron', system-ui, sans-serif",
                 fontSize: 'clamp(2.6rem, 6vw, 3.6rem)',
@@ -376,7 +79,6 @@ export default function Dashboard() {
                 DILAN LENGUE
               </h2>
 
-              {/* Badge disponible */}
               <div className="inline-flex items-center gap-2 rounded-full" style={{ background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.25)', padding: '10px 22px', fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 500, color: '#cbd5e1' }}>
                 <span className="w-2 h-2 rounded-full flex-shrink-0 animate-pulse" style={{ background: '#22c55e' }} />
                 <span style={{ fontWeight: 600, color: '#e2e8f0' }}>Disponible</span>
@@ -385,8 +87,6 @@ export default function Dashboard() {
 
             {/* Colonne droite — Infos clés */}
             <div className="flex-1 w-full">
-
-              {/* Titre + sous-titre */}
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '0.8rem' }}>
                 {'À'} propos de moi
               </p>
@@ -404,7 +104,6 @@ export default function Dashboard() {
                 et les infrastructures IT.
               </h3>
 
-              {/* 4 infos rapides en grille */}
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
                   { icon: CalendarDays, label: '23 ans', color: '#22d3ee' },
@@ -422,7 +121,6 @@ export default function Dashboard() {
                 })}
               </div>
 
-              {/* Tags skills rapides */}
               <div className="flex flex-wrap gap-2.5">
                 {['Windows Server', 'Linux', 'Cisco', 'OpenVPN', 'Nagios', 'Active Directory'].map((s, i) => (
                   <span key={i} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12.5px', fontWeight: 500, color: '#94a3b8', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '8px 14px' }}>{s}</span>
@@ -432,10 +130,9 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ══════ PRÉSENTATION — Texte + Objectif ══════ */}
+        {/* ══════ PRÉSENTATION — Texte + Qualités ══════ */}
         <div className="animate-fade-up mb-40" style={{ transitionDelay: '0.08s', marginTop: '6rem' }}>
 
-          {/* Séparateur visuel stylé */}
           <div className="flex items-center gap-6 mb-20">
             <div style={{ height: '1px', flex: 1, background: 'linear-gradient(90deg, #6366f1, rgba(99,102,241,0.05))', borderRadius: '2px' }} />
             <div className="flex items-center gap-4" style={{ padding: '14px 28px', background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(34,211,238,0.06))', border: '1px solid rgba(129,140,248,0.2)', borderRadius: '16px', backdropFilter: 'blur(12px)', boxShadow: '0 0 30px rgba(99,102,241,0.06)' }}>
@@ -449,27 +146,20 @@ export default function Dashboard() {
             <div style={{ height: '1px', flex: 1, background: 'linear-gradient(90deg, rgba(34,211,238,0.05), #22d3ee)', borderRadius: '2px' }} />
           </div>
 
-          {/* 2 colonnes : texte + objectif */}
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
 
             {/* Texte — 3 colonnes */}
             <div className="lg:col-span-3" style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
-
-              {/* Paragraphe 1 — bordure gradient gauche */}
               <div className="rounded-xl" style={{ padding: '1.8rem 2rem', borderLeft: '3px solid #818cf8', background: 'linear-gradient(135deg, rgba(129,140,248,0.04), transparent)' }}>
                 <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '17px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
                   Je m'appelle <strong style={{ color: '#818cf8', fontWeight: 700 }}>Dilan Lengue</strong>, j'ai <strong style={{ color: '#22d3ee', fontWeight: 700 }}>23 ans</strong> et je suis {'é'}tudiant en <strong style={{ color: '#818cf8', fontWeight: 700 }}>BTS SIO</strong> (Services Informatiques aux Organisations), option <strong style={{ color: '#a78bfa', fontWeight: 700 }}>SISR</strong> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'<strong style={{ color: '#f1f5f9', fontWeight: 600 }}>Institut F2I</strong>. <span style={{ color: '#34d399', fontWeight: 600 }}>Bilingue fran{'ç'}ais / anglais</span>, passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique.
                 </p>
               </div>
-
-              {/* Paragraphe 2 — bordure gradient gauche */}
               <div className="rounded-xl" style={{ padding: '1.8rem 2rem', borderLeft: '3px solid #22d3ee', background: 'linear-gradient(135deg, rgba(34,211,238,0.04), transparent)' }}>
                 <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '17px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
                   Au cours de ma formation, j'ai eu l'opportunit{'é'} de mettre mes connaissances en pratique {'à'} travers <strong style={{ color: '#22d3ee', fontWeight: 600 }}>plusieurs projets techniques</strong> et <strong style={{ color: '#22d3ee', fontWeight: 600 }}>stages en entreprise</strong>. Rigoureux, curieux et motiv{'é'}, j'aime relever des d{'é'}fis techniques et trouver des <strong style={{ color: '#f1f5f9', fontWeight: 600 }}>solutions efficaces</strong> aux probl{'è'}mes rencontr{'é'}s.
                 </p>
               </div>
-
-              {/* Paragraphe 3 — bordure gradient gauche */}
               <div className="rounded-xl" style={{ padding: '1.8rem 2rem', borderLeft: '3px solid #a78bfa', background: 'linear-gradient(135deg, rgba(167,139,250,0.04), transparent)' }}>
                 <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '17px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
                   {'À'} travers ce portfolio, je souhaite partager <strong style={{ color: '#a78bfa', fontWeight: 600 }}>mon parcours</strong>, <strong style={{ color: '#a78bfa', fontWeight: 600 }}>mes projets</strong> et les <strong style={{ color: '#f1f5f9', fontWeight: 600 }}>comp{'é'}tences</strong> que j'ai acquises dans le cadre de mon BTS.
@@ -477,37 +167,8 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Objectif — 2 colonnes */}
+            {/* Qualités — 2 colonnes */}
             <div className="lg:col-span-2 flex flex-col gap-6">
-
-              {/* Carte objectif */}
-              <div className="rounded-2xl" style={{ padding: '2rem', background: 'linear-gradient(145deg, rgba(251,113,133,0.06), rgba(167,139,250,0.06))', border: '1px solid rgba(251,113,133,0.18)' }}>
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="flex items-center justify-center rounded-xl" style={{ width: '44px', height: '44px', background: 'rgba(251,113,133,0.12)', border: '1px solid rgba(251,113,133,0.3)' }}>
-                    <Crosshair size={22} style={{ color: '#fb7185' }} />
-                  </div>
-                  <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '11px', fontWeight: 700, color: '#fb7185', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Objectif pro</p>
-                </div>
-                <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '19px', fontWeight: 700, color: '#f1f5f9', lineHeight: 1.5, marginBottom: '0.8rem' }}>
-                  <span style={{ color: '#fb7185' }}>Pentester</span> &{' '}
-                  <span style={{ color: '#a78bfa' }}>Expert Cybers{'é'}curit{'é'}</span>
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                  {[
-                    { step: '01', text: 'Licence Pro Cybersécurité', color: '#22d3ee' },
-                    { step: '02', text: 'Master Cybersécurité', color: '#818cf8' },
-                    { step: '03', text: 'Expert sécurité offensive', color: '#fb7185' },
-                  ].map((s, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: s.color, opacity: 0.7 }}>{s.step}</span>
-                      <div style={{ width: '16px', height: '1px', background: s.color, opacity: 0.3 }} />
-                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 500, color: '#e2e8f0' }}>{s.text}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Carte qualités */}
               <div className="rounded-2xl" style={{ padding: '2rem', background: 'rgba(11,16,32,0.6)', border: '1px solid rgba(34,211,238,0.12)' }}>
                 <div className="flex items-center gap-3 mb-5">
                   <div className="flex items-center justify-center rounded-xl" style={{ width: '44px', height: '44px', background: 'rgba(34,211,238,0.1)', border: '1px solid rgba(34,211,238,0.25)' }}>
@@ -522,11 +183,36 @@ export default function Dashboard() {
                 </div>
               </div>
 
+              {/* Ce que j'apporte — compact */}
+              <div className="rounded-2xl" style={{ padding: '2rem', background: 'linear-gradient(145deg, rgba(11,16,32,0.65), rgba(15,20,40,0.5))', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="flex items-center justify-center rounded-xl" style={{ width: '44px', height: '44px', background: 'rgba(129,140,248,0.1)', border: '1px solid rgba(129,140,248,0.25)' }}>
+                    <Server size={22} style={{ color: '#818cf8' }} />
+                  </div>
+                  <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '11px', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Ce que j'apporte</p>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  {apports.map((item, i) => {
+                    const ItemIcon = item.icon
+                    return (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className="flex items-center justify-center rounded-lg flex-shrink-0" style={{ width: '32px', height: '32px', background: `${item.color}12`, border: `1px solid ${item.color}30` }}>
+                          <ItemIcon size={16} style={{ color: item.color }} />
+                        </div>
+                        <div className="min-w-0">
+                          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: item.color, lineHeight: 1.3, marginBottom: '2px' }}>{item.title}</p>
+                          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.5 }}>{item.desc}</p>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* ── Statistiques — titre pleine largeur ── */}
+        {/* ── Statistiques ── */}
         <div className="animate-fade-up mb-32" style={{ marginTop: '8rem' }}>
           <div className="flex items-center gap-4 mb-14">
             <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #22d3ee, transparent)', borderRadius: '2px' }} />
@@ -543,10 +229,7 @@ export default function Dashboard() {
                 <div
                   key={s.label}
                   className="flex flex-col items-center text-center rounded-2xl p-10 transition-all duration-300"
-                  style={{
-                    background: 'rgba(11,16,32,0.7)',
-                    border: `1px solid ${s.color}22`,
-                  }}
+                  style={{ background: 'rgba(11,16,32,0.7)', border: `1px solid ${s.color}22` }}
                   onMouseEnter={e => {
                     e.currentTarget.style.transform = 'translateY(-6px)'
                     e.currentTarget.style.borderColor = `${s.color}55`
@@ -558,249 +241,22 @@ export default function Dashboard() {
                     e.currentTarget.style.boxShadow = 'none'
                   }}
                 >
-                  <div
-                    className="flex items-center justify-center rounded-2xl mb-6"
-                    style={{
-                      width: '64px',
-                      height: '64px',
-                      background: `${s.color}12`,
-                      border: `1px solid ${s.color}35`,
-                    }}
-                  >
+                  <div className="flex items-center justify-center rounded-2xl mb-6" style={{ width: '64px', height: '64px', background: `${s.color}12`, border: `1px solid ${s.color}35` }}>
                     <Icon size={30} style={{ color: s.color }} />
                   </div>
-
-                  <span
-                    style={{
-                      fontFamily: "'Orbitron', system-ui, sans-serif",
-                      fontSize: 'clamp(2.8rem, 5vw, 3.4rem)',
-                      fontWeight: 900,
-                      color: s.color,
-                      lineHeight: 1,
-                      marginBottom: '0.8rem',
-                    }}
-                  >
+                  <span style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: 'clamp(2.8rem, 5vw, 3.4rem)', fontWeight: 900, color: s.color, lineHeight: 1, marginBottom: '0.8rem' }}>
                     <CountUp target={s.value} suffix={s.suffix} />
                   </span>
-
-                  <span
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '14px',
-                      fontWeight: 700,
-                      color: '#f1f5f9',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.1em',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#f1f5f9', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
                     {s.label}
                   </span>
-
-                  <span
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '14px',
-                      fontWeight: 400,
-                      color: '#94a3b8',
-                      lineHeight: 1.6,
-                    }}
-                  >
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 400, color: '#94a3b8', lineHeight: 1.6 }}>
                     {s.desc}
                   </span>
                 </div>
               )
             })}
           </div>
-        </div>
-
-        {/* ── Mon Profil — titre pleine largeur ── */}
-        <div className="flex items-center gap-4 mb-14" style={{ marginTop: '8rem' }}>
-          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #a78bfa, transparent)', borderRadius: '2px' }} />
-          <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 700, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
-            Mon Profil
-          </p>
-          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #a78bfa)', borderRadius: '2px' }} />
-        </div>
-
-        {/* ── CE QUE J'APPORTE + DOMAINES CLÉS — 2 cols ── */}
-        <div className="grid md:grid-cols-2 gap-10 mb-24">
-
-          {/* CE QUE J'APPORTE */}
-          <div
-            className="animate-fade-up rounded-2xl p-8 md:p-12"
-            style={{ background: 'rgba(11,16,32,0.65)', border: '1px solid rgba(255,255,255,0.1)', transitionDelay: '0.12s' }}
-          >
-            <p
-              style={{
-                fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: '13px',
-                fontWeight: 700,
-                color: '#22d3ee',
-                textTransform: 'uppercase',
-                letterSpacing: '0.2em',
-                marginBottom: '2.5rem',
-              }}
-            >
-              CE QUE J'APPORTE
-            </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.2rem' }}>
-              {apports.map((item, i) => {
-                const ItemIcon = item.icon
-                return (
-                  <div key={i} className="flex gap-5" style={{ paddingBottom: i < apports.length - 1 ? '2rem' : 0, borderBottom: i < apports.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
-                    <div
-                      className="flex items-center justify-center rounded-xl flex-shrink-0"
-                      style={{
-                        width: '50px',
-                        height: '50px',
-                        background: `${item.color}14`,
-                        border: `1px solid ${item.color}40`,
-                      }}
-                    >
-                      {ItemIcon && <ItemIcon size={24} style={{ color: item.color }} />}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: item.color, marginBottom: '0.5rem', lineHeight: 1.3 }}>
-                        {item.title}
-                      </p>
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14.5px', color: '#cbd5e1', lineHeight: 1.8 }}>
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-
-          {/* DOMAINES CLÉS */}
-          <div
-            className="animate-fade-up rounded-2xl p-8 md:p-12"
-            style={{ background: 'rgba(11,16,32,0.65)', border: '1px solid rgba(255,255,255,0.1)', transitionDelay: '0.16s' }}
-          >
-            <p
-              style={{
-                fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: '13px',
-                fontWeight: 700,
-                color: '#a78bfa',
-                textTransform: 'uppercase',
-                letterSpacing: '0.2em',
-                marginBottom: '2.5rem',
-              }}
-            >
-              DOMAINES CL{'\u00c9'}S
-            </p>
-            <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 18px' }}>
-              <tbody>
-                {domainesSmall.map((row, i) => (
-                  <tr key={i}>
-                    <td
-                      style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: '13.5px',
-                        fontWeight: 700,
-                        color: '#64748b',
-                        whiteSpace: 'nowrap',
-                        paddingRight: '20px',
-                        verticalAlign: 'top',
-                        paddingTop: '8px',
-                      }}
-                    >
-                      {row.cat}
-                    </td>
-                    <td>
-                      <div className="flex flex-wrap" style={{ gap: '10px' }}>
-                        {row.tags.map(tag => (
-                          <span
-                            key={tag}
-                            style={{
-                              fontFamily: "'Inter', sans-serif",
-                              fontSize: '13px',
-                              fontWeight: 500,
-                              color: '#e2e8f0',
-                              background: 'rgba(255,255,255,0.05)',
-                              border: '1px solid rgba(255,255,255,0.1)',
-                              borderRadius: '10px',
-                              padding: '7px 16px',
-                            }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* ── Technologies — titre pleine largeur ── */}
-        <div className="flex items-center gap-4 mb-14" style={{ marginTop: '8rem' }}>
-          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #34d399, transparent)', borderRadius: '2px' }} />
-          <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 700, color: '#34d399', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
-            Technologies
-          </p>
-          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #34d399)', borderRadius: '2px' }} />
-        </div>
-
-        {/* ── Tech grid — cartes colorées par catégorie ── */}
-        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-32" style={{ transitionDelay: '0.2s' }}>
-          {techGrid.map((row, i) => {
-            const RowIcon = row.icon
-            return (
-              <div
-                key={i}
-                className="rounded-2xl p-9 transition-all duration-300"
-                style={{
-                  background: 'linear-gradient(145deg, rgba(11,16,32,0.75), rgba(15,20,40,0.55))',
-                  border: `1px solid ${row.color}20`,
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = `${row.color}50`
-                  e.currentTarget.style.transform = 'translateY(-6px)'
-                  e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 30px ${row.color}12`
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = `${row.color}20`
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = 'none'
-                }}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="flex items-center justify-center rounded-xl" style={{ width: '48px', height: '48px', background: `${row.color}12`, border: `1px solid ${row.color}30` }}>
-                    <RowIcon size={24} style={{ color: row.color }} />
-                  </div>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', fontWeight: 700, color: row.color }}>{row.cat}</p>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {row.tags.map(tag => (
-                    <span
-                      key={tag}
-                      className="transition-all duration-200"
-                      style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: '14px',
-                        fontWeight: 500,
-                        color: '#e2e8f0',
-                        background: `${row.color}0c`,
-                        border: `1px solid ${row.color}25`,
-                        borderRadius: '12px',
-                        padding: '10px 18px',
-                      }}
-                      onMouseEnter={e => { e.currentTarget.style.background = `${row.color}1a`; e.currentTarget.style.borderColor = `${row.color}45` }}
-                      onMouseLeave={e => { e.currentTarget.style.background = `${row.color}0c`; e.currentTarget.style.borderColor = `${row.color}25` }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )
-          })}
         </div>
 
         {/* ── Mes Réseaux ── */}
@@ -834,67 +290,17 @@ export default function Dashboard() {
           ))}
         </div>
 
-        {/* ── Infrastructure ── */}
-        <div className="flex items-center gap-4 mb-14" style={{ marginTop: '8rem' }}>
-          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #22d3ee, transparent)', borderRadius: '2px' }} />
-          <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 700, color: '#22d3ee', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
-            Infrastructure
-          </p>
-          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #22d3ee)', borderRadius: '2px' }} />
-        </div>
-
-        {/* ── Matrix Rain + Terminal ── */}
-        <div className="animate-fade-up mt-8" style={{ transitionDelay: '0.28s' }}>
-          <div
-            className="rounded-2xl overflow-hidden relative"
-            style={{
-              background: 'rgba(5,8,20,0.95)',
-              border: '1px solid rgba(34,211,238,0.1)',
-            }}
-          >
-            <button
-              onClick={toggleTerminal}
-              className="absolute top-4 right-4 z-20 flex items-center gap-2 rounded-xl transition-all hover:-translate-y-0.5"
-              style={{
-                fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-                fontSize: '13px',
-                fontWeight: 600,
-                color: '#22d3ee',
-                background: 'rgba(5,8,20,0.85)',
-                border: '1px solid rgba(34,211,238,0.25)',
-                padding: '8px 16px',
-                cursor: 'pointer',
-                backdropFilter: 'blur(8px)',
-              }}
-            >
-              <ArrowLeft size={14} />
-              {showTerminal ? 'Retour' : 'Mes stages ?'}
-            </button>
-
-            <div style={{ minHeight: '420px' }}>
-              {showTerminal ? (
-                <div className="animate-fade-up">
-                  <TerminalStages />
-                </div>
-              ) : (
-                <MatrixRain height={420} />
-              )}
-            </div>
-          </div>
-        </div>
-
         {/* ── Contact + CV ── */}
         <div className="animate-fade-up flex flex-wrap justify-center gap-5" style={{ marginTop: '4rem' }}>
           <a href="/contact" className="flex items-center gap-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 600, color: '#0b1020', background: 'rgba(255,255,255,0.95)', padding: '16px 32px' }}>
+            style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 600, color: '#0b1020', background: 'rgba(255,255,255,0.95)', padding: '16px 32px', textDecoration: 'none' }}>
             <Mail size={18} /> Me contacter
           </a>
           <a href="/cv-dilan-lengue.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 600, color: '#e6ecf8', background: 'transparent', border: '1px solid rgba(34,211,238,0.25)', padding: '16px 32px' }}>
+            style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 600, color: '#e6ecf8', background: 'transparent', border: '1px solid rgba(34,211,238,0.25)', padding: '16px 32px', textDecoration: 'none' }}>
             <Download size={18} /> T{'é'}l{'é'}charger mon CV
           </a>
         </div>
-
 
       </div>
     </section>

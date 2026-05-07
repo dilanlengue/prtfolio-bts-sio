@@ -88,7 +88,7 @@ function StageIllustration() {
 }
 
 const stats = [
-  { value: 5, label: 'Projets', color: '#22d3ee', Illustration: ProjectIllustration },
+  { value: 6, label: 'Projets', color: '#22d3ee', Illustration: ProjectIllustration },
   { value: 3, label: 'Certifications', color: '#22c55e', Illustration: CertificationIllustration },
   { value: 2, label: 'Ans d\'expérience', color: '#f59e0b', Illustration: ExperienceIllustration },
   { value: 2, label: 'Stages effectués', color: '#a78bfa', Illustration: StageIllustration },
@@ -234,7 +234,7 @@ export default function Presentation() {
                   <div className="photo-scan-line" />
                   <img
                     src="/photo-dilan.png"
-                    alt="Dilan Lengue — Étudiante BTS SIO SISR"
+                    alt="Dilan Lengue — Étudiant BTS SIO SISR"
                     className="w-full h-full"
                     style={{ objectFit: 'cover', position: 'relative', zIndex: 1 }}
                     width="420"
@@ -411,9 +411,9 @@ export default function Presentation() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 1.9 }}>
-                Étudiante en <strong style={{ color: '#f1f5f9' }}>BTS SIO option SISR</strong> à
-                l'<strong style={{ color: '#f1f5f9' }}>Institut F2I</strong>, passionnée par l'informatique.
-                Je développe mes compétences en administration réseau, systèmes et cybersécurité.
+                {'É'}tudiant en <strong style={{ color: '#f1f5f9' }}>BTS SIO option SISR</strong> {'à'}
+                l'<strong style={{ color: '#f1f5f9' }}>Institut F2I</strong>, passionn{'é'} par l'informatique.
+                Je d{'é'}veloppe mes comp{'é'}tences en administration r{'é'}seau, syst{'è'}mes et cybers{'é'}curit{'é'}.
               </p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 1.9 }}>
                 <span style={{ color: '#22d3ee', fontWeight: 700 }}>Bilingue français-anglais</span>,
@@ -421,9 +421,9 @@ export default function Presentation() {
                 en pratique mes compétences techniques sur le terrain.
               </p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 1.9 }}>
-                Certifiée <span style={{ color: '#00ff88', fontWeight: 700 }}>ANSSI SecNumacadémie</span>,
-                je recherche une alternance à partir de septembre 2026 pour continuer à progresser
-                dans le domaine de l'infrastructure et de la cybersécurité.
+                Certifi{'é'} <span style={{ color: '#00ff88', fontWeight: 700 }}>ANSSI SecNumacad{'é'}mie</span>,
+                je recherche une alternance {'à'} partir de septembre 2026 pour continuer {'à'} progresser
+                dans le domaine de l'infrastructure et de la cybers{'é'}curit{'é'}.
               </p>
             </div>
           </div>

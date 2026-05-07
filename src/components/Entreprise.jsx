@@ -1,19 +1,17 @@
-import { useState } from 'react'
-import { Building2, MapPin, Users, Calendar, Phone, Globe, ExternalLink, ChevronDown, ChevronUp, CheckCircle2, Shield, Download } from 'lucide-react'
-import SectionLabel from './SectionLabel'
+import { Building2, MapPin, Users, Calendar, Phone, Globe, ExternalLink, Download, Briefcase, Smartphone, Wrench, Sparkles } from 'lucide-react'
 
 const stages = [
   {
     current: true,
     tag: 'Stage 2ème année',
-    tagColor: '#22d3ee',
+    tagColor: '#fbbf24',
     name: 'B&A Conseil',
-    subtitle: 'Technologies et services de l\'information',
+    subtitle: 'Technologies et services de l’information',
     logo: '/logo-ba-conseil.png',
-    logoFallback: null,
+    icon: Smartphone,
     siteUrl: 'https://ba-conseil.fr',
     description:
-      'B&A Conseil accompagne les organisations dans leurs enjeux informatique, télécoms et réseaux : connectivité professionnelle (internet & lignes mobiles), MDM/UEM, maintenance & infogérance, développement logiciel, fourniture de matériel/print et interventions de techniciens IT partout en France.',
+      'B&A Conseil accompagne les organisations dans leurs enjeux informatique, télécoms et réseaux : connectivité professionnelle (internet & lignes mobiles), MDM/UEM, maintenance & infogérance, développement logiciel, fourniture de matériel/print et interventions de techniciens IT partout en France.',
     infos: [
       { icon: MapPin, label: 'Siège social', value: 'Coignières, Yvelines' },
       { icon: Users, label: 'Taille', value: '2-10 employés' },
@@ -28,24 +26,24 @@ const stages = [
     ],
     poste: 'Technicien Support & Maintenance',
     missions: [
-      'Diagnostic et résolution d\'incidents matériels et logiciels',
-      'Maintenance préventive et corrective des postes de travail',
-      'Déploiement de postes Windows et assistance on-site',
-      'Configuration de smartphones avant leur mise à disposition aux clients',
-      'Installation et paramétrage d\'applications professionnelles',
-      'Utilisation de Miradore pour gérer et configurer les appareils à distance',
-      'Enregistrement des téléphones dans une solution de gestion de flotte mobile (MDM)',
+      'Administration du parc mobile Android via la solution MDM Miradore Online',
+      'Implémentation de politiques de sécurité (passcode, restrictions, COBO, tracking, mises à jour)',
+      'Déploiement automatisé d’applications professionnelles via Managed Google Play',
+      'Gestion des incidents MDM : première analyse de dysfonctionnement, comptes Google managés, blocages',
+      'Support aux utilisateurs pour l’activation du compte manager et la configuration initiale',
+      'Documentation et mise à jour des inventaires matériels (Excel, numéro de série, profils MDM)',
+      'Configuration des appareils avant mise à disposition aux clients (paramétrage, apps, comptes)',
     ],
     attestationPdf: '/attestation-stage-bna.pdf',
   },
   {
     current: false,
     tag: 'Stage 1ère année',
-    tagColor: '#a78bfa',
+    tagColor: '#22d3ee',
     name: 'Les Réparateurs Mac & PC',
     subtitle: 'Réparation et maintenance informatique',
     logo: '/logo-reparateurs.jpg',
-    logoFallback: '🔧',
+    icon: Wrench,
     siteUrl: 'https://lesreparateursmacetpc.com',
     description:
       'Entreprise spécialisée dans la réparation, la maintenance et le dépannage de matériels informatiques (Mac et PC). Intervention sur site et en atelier pour les particuliers et professionnels.',
@@ -60,295 +58,272 @@ const stages = [
     ],
     poste: 'Technicien Support Informatique',
     missions: [
-      'Réinstallation et configuration des systèmes d\'exploitation',
-      'Diagnostic et réparation de matériels informatiques (Mac & PC)',
-      'Gestion et configuration de réseaux locaux',
-      'Assistance technique et support utilisateurs',
-      'Maintenance préventive et nettoyage des équipements',
+      'Réinstallation et configuration des systèmes d’exploitation (Windows, macOS)',
+      'Diagnostic et réparation de matériels informatiques (cartes mères, disques, RAM)',
+      'Gestion et configuration de réseaux locaux (Wi-Fi, Ethernet, routeurs)',
+      'Sauvegarde et restauration de données clients',
+      'Assistance technique et conseil auprès des utilisateurs',
     ],
     attestationPdf: '/attestation-stage-reparateurs.pdf',
   },
 ]
 
-function StageCard({ stage }) {
-  const [missionsOpen, setMissionsOpen] = useState(false)
-  const [logoError, setLogoError] = useState(false)
+function StageSection({ stage }) {
+  const Icon = stage.icon
+  const logoError = false
 
   return (
-    <div
-      className="rounded-2xl overflow-hidden transition-all duration-300 card-lift"
-      style={{
-        background: 'rgba(10,15,30,0.85)',
-        border: `1px solid ${stage.tagColor}20`,
-      }}
-      onMouseEnter={e => (e.currentTarget.style.borderColor = `${stage.tagColor}45`)}
-      onMouseLeave={e => (e.currentTarget.style.borderColor = `${stage.tagColor}20`)}
-    >
-      {/* Banner top bar */}
-      <div style={{ height: '3px', background: `linear-gradient(90deg, ${stage.tagColor}, ${stage.tagColor}60)` }} />
+    <div className="animate-fade-up" style={{ marginBottom: '5rem' }}>
+      <div className="grid grid-cols-1 lg:grid-cols-3" style={{ gap: '2.5rem' }}>
 
-      <div className="p-8 md:p-10">
-        {/* Tags */}
-        <div className="flex items-center gap-3 mb-5 flex-wrap">
-          {stage.current && (
-            <span
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold"
-              style={{
-                background: `${stage.tagColor}15`,
-                border: `1px solid ${stage.tagColor}35`,
-                color: stage.tagColor,
-                fontFamily: "'Inter', sans-serif",
-              }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: stage.tagColor }} />
-              Stage actuel
-            </span>
-          )}
-          <span
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold"
-            style={{
-              background: `${stage.tagColor}12`,
-              border: `1px solid ${stage.tagColor}30`,
-              color: stage.tagColor,
-              fontFamily: "'Inter', sans-serif",
-            }}
-          >
-            <Building2 size={12} />
-            {stage.tag}
-          </span>
-        </div>
-
-        {/* Company header with logo */}
-        <div className="flex items-center gap-4 mb-4">
-          {/* Logo */}
+        {/* Carte entreprise — gauche */}
+        <div className="lg:col-span-1">
           <div
-            className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden"
+            className="rounded-2xl overflow-hidden transition-all duration-300 sticky top-8"
             style={{
-              background: `${stage.tagColor}10`,
-              border: `1px solid ${stage.tagColor}25`,
+              background: `linear-gradient(160deg, ${stage.tagColor}10, rgba(11,16,32,0.92))`,
+              border: `1.5px solid ${stage.tagColor}25`,
+              padding: '2.2rem 1.8rem',
+              textAlign: 'center',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = `${stage.tagColor}50`
+              e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 40px ${stage.tagColor}10`
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = `${stage.tagColor}25`
+              e.currentTarget.style.boxShadow = 'none'
             }}
           >
-            {stage.logo && !logoError ? (
-              <img
-                src={stage.logo}
-                alt={`Logo ${stage.name}`}
-                className="w-12 h-12 object-contain"
-                onError={() => setLogoError(true)}
-              />
-            ) : stage.logoFallback ? (
-              <span style={{ fontSize: '1.8rem' }}>{stage.logoFallback}</span>
-            ) : (
-              <Building2 size={28} style={{ color: stage.tagColor }} />
-            )}
-          </div>
+            {/* Tag */}
+            <div className="flex justify-center gap-2 mb-6">
+              {stage.current && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{
+                  background: 'rgba(0,255,136,0.06)', border: '1px solid rgba(0,255,136,0.2)',
+                  fontSize: '11px', fontWeight: 700, color: '#34d399', fontFamily: "'Inter', sans-serif",
+                }}>
+                  <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#22c55e' }} />
+                  Stage actuel
+                </span>
+              )}
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{
+                background: `${stage.tagColor}10`, border: `1px solid ${stage.tagColor}30`,
+                fontSize: '11px', fontWeight: 700, color: stage.tagColor, fontFamily: "'Inter', sans-serif",
+              }}>
+                <Building2 size={12} />
+                {stage.tag}
+              </span>
+            </div>
 
-          <div className="flex-1">
-            <h3
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '1.5rem',
-                fontWeight: 800,
-                color: '#f1f5f9',
-                letterSpacing: '-0.02em',
-                lineHeight: 1.2,
-              }}
-            >
+            {/* Logo */}
+            <div className="flex items-center justify-center mx-auto" style={{
+              width: '90px', height: '90px', borderRadius: '22px',
+              background: `linear-gradient(135deg, ${stage.tagColor}18, ${stage.tagColor}06)`,
+              border: `2px solid ${stage.tagColor}35`,
+              boxShadow: `0 0 30px ${stage.tagColor}12`,
+              marginBottom: '1.5rem',
+              overflow: 'hidden',
+            }}>
+              {stage.logo ? (
+                <img src={stage.logo} alt={stage.name} style={{ width: '65px', height: '65px', objectFit: 'contain' }} onError={e => e.target.style.display = 'none'} />
+              ) : (
+                <Icon size={40} style={{ color: stage.tagColor }} />
+              )}
+            </div>
+
+            {/* Nom entreprise */}
+            <h4 style={{
+              fontFamily: "'Orbitron', system-ui, sans-serif",
+              fontSize: '18px', fontWeight: 800, color: '#f1f5f9',
+              marginBottom: '0.5rem',
+            }}>
               {stage.name}
-            </h3>
-            <div className="flex items-center gap-2 flex-wrap mt-1">
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 600, color: stage.tagColor }}>
-                {stage.subtitle}
+            </h4>
+
+            {/* Subtitle */}
+            <p style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500,
+              color: '#94a3b8', marginBottom: '1.2rem', lineHeight: 1.5,
+            }}>
+              {stage.subtitle}
+            </p>
+
+            {/* Poste */}
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '13px', fontWeight: 700, color: stage.tagColor,
+              textTransform: 'uppercase', letterSpacing: '0.06em',
+              marginBottom: '1.2rem',
+              padding: '8px 16px',
+              background: `${stage.tagColor}08`,
+              border: `1px solid ${stage.tagColor}20`,
+              borderRadius: '10px',
+              display: 'inline-block',
+            }}>
+              {stage.poste}
+            </p>
+
+            {/* Infos compactes */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginTop: '1rem' }}>
+              {stage.infos.map(({ icon: InfoIcon, label, value, link }) => (
+                <div key={label} className="flex items-center gap-2.5" style={{ justifyContent: 'center' }}>
+                  <InfoIcon size={14} style={{ color: stage.tagColor, flexShrink: 0 }} />
+                  {link ? (
+                    <a href={link} target="_blank" rel="noopener noreferrer"
+                      style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.5px', color: stage.tagColor, fontWeight: 600, textDecoration: 'none' }}
+                    >
+                      {value}
+                    </a>
+                  ) : (
+                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.5px', color: '#cbd5e1', fontWeight: 500 }}>
+                      {value}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Spécialisations */}
+            <div style={{ marginTop: '1.5rem' }}>
+              <p style={{
+                fontFamily: "'Inter', sans-serif", fontSize: '10px', fontWeight: 700,
+                color: '#475569', textTransform: 'uppercase', letterSpacing: '0.12em',
+                marginBottom: '0.6rem',
+              }}>
+                Sp{'é'}cialisations
               </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {stage.specialisations.map(s => (
+                  <span key={s} style={{
+                    fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 600,
+                    color: `${stage.tagColor}cc`, background: `${stage.tagColor}08`,
+                    border: `1px solid ${stage.tagColor}18`, borderRadius: '6px',
+                    padding: '4px 10px',
+                  }}>
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Boutons */}
+            <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+              <a href={stage.attestationPdf} target="_blank" rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-xl transition-all duration-200"
+                style={{
+                  padding: '10px 16px', textDecoration: 'none',
+                  background: `${stage.tagColor}12`, border: `1px solid ${stage.tagColor}30`,
+                  color: stage.tagColor, fontFamily: "'Inter', sans-serif",
+                  fontSize: '13px', fontWeight: 700,
+                }}
+                onMouseEnter={e => e.currentTarget.style.background = `${stage.tagColor}22`}
+                onMouseLeave={e => e.currentTarget.style.background = `${stage.tagColor}12`}
+              >
+                <Download size={14} />
+                Attestation de stage
+              </a>
               {stage.siteUrl && (
-                <a
-                  href={stage.siteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 transition-all"
-                  style={{ color: '#64748b', fontSize: '12px' }}
-                  onMouseEnter={e => e.currentTarget.style.color = stage.tagColor}
-                  onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
+                <a href={stage.siteUrl} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 rounded-xl transition-all duration-200"
+                  style={{
+                    padding: '10px 16px', textDecoration: 'none',
+                    background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
+                    color: '#94a3b8', fontFamily: "'Inter', sans-serif",
+                    fontSize: '13px', fontWeight: 600,
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#e2e8f0' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.color = '#94a3b8' }}
                 >
-                  <ExternalLink size={11} /> Site web
+                  <ExternalLink size={14} />
+                  Visiter le site
                 </a>
               )}
             </div>
           </div>
         </div>
 
-        {/* Description */}
-        <p
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '15px',
-            color: '#94a3b8',
-            lineHeight: 1.75,
-            marginBottom: '1.5rem',
-          }}
-        >
-          {stage.description}
-        </p>
+        {/* Contenu — droite */}
+        <div className="lg:col-span-2">
 
-        {/* Info grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
-          {stage.infos.map(({ icon: Icon, label, value, link }) => (
-            <div
-              key={label}
-              className="flex items-start gap-3 p-3.5 rounded-xl transition-all duration-200"
-              style={{
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(255,255,255,0.06)',
-              }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = `${stage.tagColor}25`}
-              onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'}
-            >
-              <Icon size={16} style={{ color: stage.tagColor, marginTop: '2px', flexShrink: 0 }} />
-              <div>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', color: '#475569', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  {label}
-                </p>
-                {link ? (
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1"
-                    style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: stage.tagColor, fontWeight: 600 }}
-                  >
-                    {value} <ExternalLink size={11} />
-                  </a>
-                ) : (
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#e2e8f0', fontWeight: 600 }}>
-                    {value}
-                  </p>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Spécialisations */}
-        <div className="mb-8">
-          <p
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '11px',
-              fontWeight: 700,
-              color: '#475569',
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              marginBottom: '0.8rem',
-            }}
-          >
-            Spécialisations
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {stage.specialisations.map(s => (
-              <span
-                key={s}
-                className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200"
-                style={{
-                  background: `${stage.tagColor}10`,
-                  border: `1px solid ${stage.tagColor}25`,
-                  color: stage.tagColor,
-                  fontFamily: "'Inter', sans-serif",
-                }}
-              >
-                {s}
-              </span>
-            ))}
+          {/* Description de l'entreprise */}
+          <div style={{ marginBottom: '2.5rem' }}>
+            <h4 style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 800,
+              color: '#f1f5f9', marginBottom: '1rem',
+              display: 'flex', alignItems: 'center', gap: '0.6rem',
+            }}>
+              <Building2 size={18} style={{ color: stage.tagColor }} />
+              Description de l{'’'}entreprise
+            </h4>
+            <p style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 400,
+              color: '#94a3b8', lineHeight: 1.9,
+              paddingLeft: '1.2rem',
+              borderLeft: `3px solid ${stage.tagColor}35`,
+              background: `linear-gradient(90deg, ${stage.tagColor}06, transparent)`,
+              padding: '1.2rem 1.5rem',
+              borderRadius: '0 12px 12px 0',
+            }}>
+              {stage.description}
+            </p>
           </div>
-        </div>
 
-        {/* Missions accordion */}
-        <div
-          className="rounded-xl overflow-hidden"
-          style={{
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.06)',
-          }}
-        >
-          <button
-            className="w-full flex items-center justify-between p-4 transition-colors"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-            onClick={() => setMissionsOpen(!missionsOpen)}
-          >
-            <span className="flex items-center gap-2 text-sm font-bold" style={{ color: '#e2e8f0' }}>
-              <Shield size={16} style={{ color: stage.tagColor }} />
+          {/* Missions — toujours visibles */}
+          <div>
+            <h4 style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 800,
+              color: '#f1f5f9', marginBottom: '0.5rem',
+              display: 'flex', alignItems: 'center', gap: '0.6rem',
+            }}>
+              <Briefcase size={18} style={{ color: stage.tagColor }} />
               Mes missions — {stage.poste}
-            </span>
-            {missionsOpen ? (
-              <ChevronUp size={18} style={{ color: '#475569' }} />
-            ) : (
-              <ChevronDown size={18} style={{ color: '#475569' }} />
-            )}
-          </button>
-
-          {missionsOpen && (
-            <div className="px-4 pb-4 space-y-2.5">
+            </h4>
+            <p style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500,
+              color: '#64748b', marginBottom: '1.2rem',
+            }}>
+              {stage.missions.length} missions r{'é'}alis{'é'}es durant ce stage
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
               {stage.missions.map((m, i) => (
-                <div key={i} className="flex items-start gap-2.5">
-                  <CheckCircle2 size={15} style={{ color: stage.tagColor, marginTop: '3px', flexShrink: 0 }} />
-                  <span
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '14px',
-                      color: '#94a3b8',
-                      lineHeight: 1.65,
-                    }}
-                  >
+                <div
+                  key={i}
+                  className="flex items-start gap-3 rounded-xl transition-all duration-200"
+                  style={{
+                    padding: '1rem 1.3rem',
+                    background: 'rgba(11,16,32,0.55)',
+                    border: '1px solid rgba(255,255,255,0.04)',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = `${stage.tagColor}25`
+                    e.currentTarget.style.background = `linear-gradient(90deg, ${stage.tagColor}06, transparent)`
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.04)'
+                    e.currentTarget.style.background = 'rgba(11,16,32,0.55)'
+                  }}
+                >
+                  <div className="flex-shrink-0 flex items-center justify-center rounded-lg" style={{
+                    width: '30px', height: '30px', marginTop: '1px',
+                    background: `${stage.tagColor}12`, border: `1px solid ${stage.tagColor}28`,
+                  }}>
+                    <span style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: '11px', fontWeight: 800, color: stage.tagColor,
+                    }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <span style={{
+                    fontFamily: "'Inter', sans-serif", fontSize: '14.5px',
+                    color: '#cbd5e1', lineHeight: 1.7, fontWeight: 400,
+                  }}>
                     {m}
                   </span>
                 </div>
               ))}
             </div>
-          )}
-        </div>
-
-        {/* Attestation link */}
-        <div className="mt-6 flex flex-wrap gap-4">
-          <a
-            href={stage.attestationPdf}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all"
-            style={{
-              background: `${stage.tagColor}12`,
-              border: `1px solid ${stage.tagColor}30`,
-              color: stage.tagColor,
-              fontFamily: "'Inter', sans-serif",
-            }}
-            onMouseEnter={e => e.currentTarget.style.background = `${stage.tagColor}25`}
-            onMouseLeave={e => e.currentTarget.style.background = `${stage.tagColor}12`}
-          >
-            <Download size={14} />
-            Attestation de stage
-          </a>
-          {stage.siteUrl && (
-            <a
-              href={stage.siteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all"
-              style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                color: '#94a3b8',
-                fontFamily: "'Inter', sans-serif",
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.08)'
-                e.currentTarget.style.color = '#e2e8f0'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
-                e.currentTarget.style.color = '#94a3b8'
-              }}
-            >
-              <ExternalLink size={14} />
-              Visiter le site
-            </a>
-          )}
+          </div>
         </div>
       </div>
     </div>
@@ -357,56 +332,73 @@ function StageCard({ stage }) {
 
 export default function Entreprise() {
   return (
-    <section id="entreprise" className="relative" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
-      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
+    <section id="entreprise" className="relative" style={{ paddingTop: '8rem', paddingBottom: '10rem' }}>
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
+
         {/* Header */}
-        <div className="text-center" style={{ marginBottom: '4.5rem' }}>
+        <div className="text-center" style={{ marginBottom: '5rem' }}>
+          <div className="animate-fade-up" style={{ marginBottom: '1.5rem' }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '13px', fontWeight: 700,
+              letterSpacing: '0.2em', color: '#fbbf24',
+              textTransform: 'uppercase',
+              padding: '6px 18px',
+              background: 'rgba(251,191,36,0.06)',
+              border: '1px solid rgba(251,191,36,0.15)',
+              borderRadius: '99px',
+            }}>
+              Entreprises d{'’'}accueil
+            </span>
+          </div>
           <h2
             className="animate-fade-up"
             style={{
               fontFamily: "'Orbitron', system-ui, sans-serif",
-              fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
-              fontWeight: 800,
-              letterSpacing: '-0.025em',
+              fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
+              fontWeight: 900,
+              letterSpacing: '-0.02em',
               lineHeight: 1.1,
-              color: '#e6ecf8',
+              marginBottom: '1.5rem',
+              background: 'linear-gradient(135deg, #f1f5f9 0%, #fbbf24 50%, #22d3ee 100%)',
+              backgroundSize: '200% 100%',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              animation: 'gradient-shift 8s linear infinite',
             }}
           >
-            Entreprise d'accueil
+            Mes Stages en Entreprise
           </h2>
-          <div
-            style={{
-              width: '128px',
-              height: '2px',
-              margin: '16px auto 0',
-              background: 'linear-gradient(90deg, rgba(56,189,248,0) 0%, rgba(56,189,248,0.45) 24%, rgba(212,175,55,0.85) 50%, rgba(147,51,234,0.55) 76%, rgba(56,189,248,0) 100%)',
-            }}
-          />
+          <div style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, #fbbf24, #22d3ee)', borderRadius: '99px', margin: '0 auto 1.8rem' }} />
           <p
             className="animate-fade-up mx-auto"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '16px',
-              fontWeight: 500,
-              color: '#c5d3e8',
-              lineHeight: 1.75,
-              maxWidth: '580px',
-              marginTop: '1rem',
+              fontSize: '18px', fontWeight: 500,
+              color: '#94a3b8', lineHeight: 1.8,
+              maxWidth: '620px',
             }}
           >
-            Présentation des entreprises et stages réalisés durant ma formation BTS SIO
+            Pr{'é'}sentation des entreprises et des missions r{'é'}alis{'é'}es
+            durant ma formation BTS SIO option SISR.
           </p>
         </div>
 
-        {/* Section divider */}
-        <SectionLabel label="MES STAGES" color="#22d3ee" />
-
-        {/* Stage cards */}
-        <div className="space-y-14">
-          {stages.map((stage, i) => (
-            <StageCard key={i} stage={stage} />
-          ))}
-        </div>
+        {/* Stages */}
+        {stages.map((stage, i) => (
+          <div key={stage.name}>
+            {/* Séparateur entre les deux stages */}
+            {i > 0 && (
+              <div className="flex items-center gap-4" style={{ margin: '1rem 0 4rem' }}>
+                <div style={{ height: '1px', flex: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)' }} />
+                <Sparkles size={16} style={{ color: '#818cf8', opacity: 0.4 }} />
+                <div style={{ height: '1px', flex: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)' }} />
+              </div>
+            )}
+            <StageSection stage={stage} />
+          </div>
+        ))}
       </div>
     </section>
   )
