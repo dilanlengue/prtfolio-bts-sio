@@ -445,64 +445,52 @@ export default function Dashboard() {
         >
           <div className="px-8 md:px-16 py-16">
 
-            {/* Accroche */}
-            <h3 style={{
-              fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
-              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-              fontWeight: 800,
-              background: 'linear-gradient(135deg, #f1f5f9, #cbd5e1)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              lineHeight: 1.4,
-              marginBottom: '2.5rem',
-            }}>
-              Passionn{'é'} par l'infrastructure IT et la cybers{'é'}curit{'é'}, je construis et s{'é'}curise les syst{'è'}mes de demain.
-            </h3>
+            <p
+              style={{
+                fontFamily: "'Orbitron', system-ui, sans-serif",
+                fontSize: '14px',
+                fontWeight: 700,
+                color: '#818cf8',
+                textTransform: 'uppercase',
+                letterSpacing: '0.2em',
+                marginBottom: '2.5rem',
+              }}
+            >
+              {'À'} propos de moi
+            </p>
 
-            {/* Texte court et percutant */}
             <p style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: '16.5px',
               fontWeight: 400,
               color: '#cbd5e1',
               lineHeight: 2,
-              marginBottom: '3rem',
-              maxWidth: '680px',
+              marginBottom: '1.8rem',
             }}>
-              {'É'}tudiant en BTS SIO option SISR {'à'} l'Institut F2I, bilingue fran{'ç'}ais / anglais, j'ai valid{'é'} mes comp{'é'}tences {'à'} travers <span style={{ color: '#a78bfa', fontWeight: 700 }}>2 stages</span> chez B&A Conseil et <span style={{ color: '#a78bfa', fontWeight: 700 }}>4 certifications</span>. Mon objectif : devenir <span style={{ color: '#22d3ee', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'} & Pen Tester</span>.
+              Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 600 }}>Dilan Lengue</span>, j'ai <span style={{ color: '#22d3ee', fontWeight: 600 }}>23 ans</span> et je suis {'é'}tudiant en <span style={{ color: '#818cf8', fontWeight: 600 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 600 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'Institut F2I. <span style={{ color: '#22d3ee', fontWeight: 600 }}>Bilingue fran{'ç'}ais / anglais</span>, passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique.
             </p>
 
-            {/* 4 highlights en ligne */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {[
-                { value: '23', label: 'ans', color: '#22d3ee' },
-                { value: '2', label: 'stages', color: '#a78bfa' },
-                { value: '4', label: 'certifications', color: '#fb7185' },
-                { value: 'FR/EN', label: 'bilingue', color: '#34d399' },
-              ].map((h, i) => (
-                <div key={i} className="text-center rounded-xl" style={{ padding: '1.5rem 1rem', background: 'rgba(5,8,20,0.45)', border: `1px solid ${h.color}18` }}>
-                  <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.6rem', fontWeight: 900, color: h.color, marginBottom: '0.3rem' }}>{h.value}</p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{h.label}</p>
-                </div>
-              ))}
-            </div>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '16.5px',
+              fontWeight: 400,
+              color: '#cbd5e1',
+              lineHeight: 2,
+              marginBottom: '1.8rem',
+            }}>
+              Au cours de ma formation, j'ai eu l'opportunit{'é'} de mettre mes connaissances en pratique {'à'} travers plusieurs projets techniques et stages en entreprise. Rigoureux, curieux et motiv{'é'}, j'aime relever des d{'é'}fis techniques et trouver des solutions efficaces aux probl{'è'}mes rencontr{'é'}s.
+            </p>
 
-            {/* Qualités pills */}
-            <div className="flex flex-wrap gap-3 mt-8">
-              {['Rigoureux', 'Curieux', 'Autonome', 'Esprit d\'équipe', 'Adaptable'].map((q, i) => (
-                <span key={i} style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: '13.5px',
-                  fontWeight: 600,
-                  color: '#e2e8f0',
-                  background: 'rgba(99,102,241,0.08)',
-                  border: '1px solid rgba(99,102,241,0.2)',
-                  borderRadius: '10px',
-                  padding: '8px 18px',
-                }}>{q}</span>
-              ))}
-            </div>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '16.5px',
+              fontWeight: 400,
+              color: '#cbd5e1',
+              lineHeight: 2,
+            }}>
+              {'À'} travers ce portfolio, je souhaite partager mon parcours, mes projets et les comp{'é'}tences que j'ai acquises dans le cadre de mon BTS. Mon projet professionnel est de devenir <span style={{ color: '#a78bfa', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'} & Pen Tester</span> et sp{'é'}cialiste en s{'é'}curisation des infrastructures.
+            </p>
+
           </div>
         </div>
 
