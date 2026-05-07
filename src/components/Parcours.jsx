@@ -320,25 +320,180 @@ export default function Parcours() {
         </div>
 
         {/* Langues */}
-        <div
-          className="animate-fade-up mt-12 p-7 rounded-xl"
-          style={{ background: 'rgba(10,15,30,0.7)', border: '1px solid rgba(255,255,255,0.06)' }}
-        >
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1rem' }}>
-            Langues
-          </p>
-          <div className="space-y-3">
+        <div className="animate-fade-up" style={{ marginTop: '5rem' }}>
+          {/* Titre section */}
+          <div className="flex items-center gap-4 mb-10">
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(129,140,248,0.4))' }} />
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '11px',
+              fontWeight: 700,
+              color: '#818cf8',
+              letterSpacing: '0.3em',
+              padding: '6px 16px',
+              background: 'rgba(129,140,248,0.06)',
+              border: '1px solid rgba(129,140,248,0.15)',
+              borderRadius: '8px',
+            }}>
+              LANGUES
+            </span>
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(129,140,248,0.4), transparent)' }} />
+          </div>
+
+          {/* Cards langues */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { flag: '🇬🇧', lang: 'Anglais',  level: 'Langue maternelle', color: '#22d3ee' },
-              { flag: '🇫🇷', lang: 'Français', level: 'C1 — Avancé',       color: '#818cf8' },
-              { flag: '🇧🇷', lang: 'Portugais', level: 'Débutant',           color: '#475569' },
-            ].map(({ flag, lang, level, color }) => (
-              <div key={lang} className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span style={{ fontSize: '1.3rem' }}>{flag}</span>
-                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#e2e8f0' }}>{lang}</span>
+              {
+                flag: (
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="24" r="22" fill="#012169" stroke="rgba(34,211,238,0.3)" strokeWidth="1"/>
+                    <path d="M4 8L44 40M44 8L4 40" stroke="#fff" strokeWidth="4"/>
+                    <path d="M4 8L44 40M44 8L4 40" stroke="#C8102E" strokeWidth="2"/>
+                    <path d="M24 4V44M4 24H44" stroke="#fff" strokeWidth="7"/>
+                    <path d="M24 4V44M4 24H44" stroke="#C8102E" strokeWidth="4"/>
+                  </svg>
+                ),
+                lang: 'Anglais',
+                level: 'Langue maternelle',
+                percent: 100,
+                color: '#22d3ee',
+                desc: 'Maîtrise complète à l\'oral et à l\'écrit',
+              },
+              {
+                flag: (
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="24" r="22" fill="#fff" stroke="rgba(129,140,248,0.3)" strokeWidth="1"/>
+                    <path d="M4 6C4 6 4 42 4 42C10.5 42 16 42 16 42V6C16 6 10 6 4 6Z" fill="#002395"/>
+                    <path d="M32 6V42H44C44 42 44 6 44 6H32Z" fill="#ED2939"/>
+                  </svg>
+                ),
+                lang: 'Français',
+                level: 'Courant — C1',
+                percent: 90,
+                color: '#818cf8',
+                desc: 'Niveau avancé, usage quotidien professionnel',
+              },
+              {
+                flag: (
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="24" r="22" fill="#009B3A" stroke="rgba(71,85,105,0.3)" strokeWidth="1"/>
+                    <path d="M6 24L24 38L42 24L24 10Z" fill="#FEDF00"/>
+                    <circle cx="24" cy="24" r="8" fill="#002776"/>
+                    <path d="M16 26C18 22 22 20 28 21" stroke="#fff" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                  </svg>
+                ),
+                lang: 'Portugais',
+                level: 'Débutant — A1',
+                percent: 20,
+                color: '#475569',
+                desc: 'Notions de base, en apprentissage',
+              },
+            ].map(({ flag, lang, level, percent, color, desc }) => (
+              <div
+                key={lang}
+                className="relative rounded-2xl overflow-hidden transition-all duration-500"
+                style={{
+                  background: 'rgba(11,16,32,0.75)',
+                  border: `1.5px solid ${color}18`,
+                  padding: '2rem',
+                  backdropFilter: 'blur(8px)',
+                  cursor: 'default',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-6px)'
+                  e.currentTarget.style.borderColor = `${color}50`
+                  e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.35), 0 0 30px ${color}12`
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.borderColor = `${color}18`
+                  e.currentTarget.style.boxShadow = 'none'
+                }}
+              >
+                {/* Glow bar */}
+                <div style={{ position: 'absolute', top: 0, left: '15%', right: '15%', height: '2px', background: `linear-gradient(90deg, transparent, ${color}, transparent)`, opacity: 0.4, borderRadius: '0 0 4px 4px' }} />
+
+                {/* Drapeau */}
+                <div className="flex justify-center mb-5">
+                  <div style={{
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                    width: '64px',
+                    height: '64px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'rgba(255,255,255,0.03)',
+                    border: `2px solid ${color}30`,
+                    boxShadow: `0 0 20px ${color}10`,
+                  }}>
+                    {flag}
+                  </div>
                 </div>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 600, color }}>{level}</span>
+
+                {/* Nom langue */}
+                <h4 style={{
+                  fontFamily: "'Orbitron', system-ui, sans-serif",
+                  fontSize: '1.1rem',
+                  fontWeight: 800,
+                  color: '#f1f5f9',
+                  textAlign: 'center',
+                  marginBottom: '0.3rem',
+                }}>
+                  {lang}
+                </h4>
+
+                {/* Niveau */}
+                <p style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  color,
+                  textAlign: 'center',
+                  letterSpacing: '0.08em',
+                  marginBottom: '1rem',
+                }}>
+                  {level}
+                </p>
+
+                {/* Description */}
+                <p style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '13px',
+                  color: '#94a3b8',
+                  textAlign: 'center',
+                  lineHeight: 1.6,
+                  marginBottom: '1.2rem',
+                }}>
+                  {desc}
+                </p>
+
+                {/* Barre de progression */}
+                <div style={{
+                  width: '100%',
+                  height: '6px',
+                  background: 'rgba(255,255,255,0.06)',
+                  borderRadius: '99px',
+                  overflow: 'hidden',
+                }}>
+                  <div style={{
+                    width: `${percent}%`,
+                    height: '100%',
+                    background: `linear-gradient(90deg, ${color}, ${color}90)`,
+                    borderRadius: '99px',
+                    boxShadow: `0 0 10px ${color}40`,
+                    transition: 'width 1.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                  }} />
+                </div>
+                <p style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: '11px',
+                  color: '#475569',
+                  textAlign: 'right',
+                  marginTop: '6px',
+                }}>
+                  {percent}%
+                </p>
               </div>
             ))}
           </div>
