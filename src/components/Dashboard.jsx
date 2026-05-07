@@ -55,14 +55,13 @@ const domainesSmall = [
   { cat: 'Protocoles',     tags: ['SSH', 'RDP', 'LDAP', 'SMTP'] },
 ]
 
-/* Full-width tech grid — style cyber's second card */
 const techGrid = [
-  { cat: 'Système',        tags: ['Windows Server', 'Linux Debian', 'Active Directory', 'PowerShell', 'GPO', 'WSUS'] },
-  { cat: 'Réseau',         tags: ['Cisco IOS', 'VLAN 802.1Q', 'TCP/IP', 'DNS / DHCP', 'Routage', 'Wireshark'] },
-  { cat: 'Cybersécurité',  tags: ['OpenVPN', 'Nessus', 'iptables', 'pfSense', 'EBIOS RM'] },
-  { cat: 'Supervision',    tags: ['Nagios', 'GLPI', 'SNMP', 'NRPE'] },
-  { cat: 'Virtualisation', tags: ['VirtualBox', 'VMware', 'Proxmox', 'Hyper-V'] },
-  { cat: 'Protocoles',     tags: ['SSH', 'RDP', 'LDAP', 'SMTP', 'HTTPS'] },
+  { cat: 'Système',        emoji: '🖥️', color: '#22d3ee', tags: ['Windows Server', 'Linux Debian', 'Active Directory', 'PowerShell', 'GPO', 'WSUS'] },
+  { cat: 'Réseau',         emoji: '🌐', color: '#818cf8', tags: ['Cisco IOS', 'VLAN 802.1Q', 'TCP/IP', 'DNS / DHCP', 'Routage', 'Wireshark'] },
+  { cat: 'Cybersécurité',  emoji: '🛡️', color: '#fb7185', tags: ['OpenVPN', 'Nessus', 'iptables', 'pfSense', 'EBIOS RM'] },
+  { cat: 'Supervision',    emoji: '📊', color: '#34d399', tags: ['Nagios', 'GLPI', 'SNMP', 'NRPE'] },
+  { cat: 'Virtualisation', emoji: '☁️',  color: '#f59e0b', tags: ['VirtualBox', 'VMware', 'Proxmox', 'Hyper-V'] },
+  { cat: 'Protocoles',     emoji: '🔗', color: '#a78bfa', tags: ['SSH', 'RDP', 'LDAP', 'SMTP', 'HTTPS'] },
 ]
 
 /* ─── Matrix Rain Canvas ─── */
@@ -484,14 +483,14 @@ export default function Dashboard() {
             color: '#e2e8f0',
             lineHeight: 2.1,
           }}>
-            {'À'} travers ce portfolio, je souhaite partager mon parcours, mes projets et les comp{'é'}tences que j'ai acquises dans le cadre de mon BTS. Mon projet professionnel est de devenir <span style={{ color: '#a78bfa', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'} & Pen Tester</span> et sp{'é'}cialiste en s{'é'}curisation des infrastructures.
+            {'À'} travers ce portfolio, je souhaite partager mon parcours, mes projets et les comp{'é'}tences que j'ai acquises dans le cadre de mon BTS. Mon projet professionnel est de devenir <span style={{ color: '#fb7185', fontWeight: 700 }}>Pentester</span> (testeur d'intrusion) et <span style={{ color: '#a78bfa', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'}</span>, sp{'é'}cialis{'é'} dans la s{'é'}curisation et l'audit des infrastructures informatiques.
           </p>
 
         </div>
 
 
         {/* ── Statistiques — titre pleine largeur ── */}
-        <div className="animate-fade-up mb-16" style={{ marginTop: '6rem' }}>
+        <div className="animate-fade-up mb-32" style={{ marginTop: '8rem' }}>
           <div className="flex items-center gap-4 mb-14">
             <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #22d3ee, transparent)', borderRadius: '2px' }} />
             <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 700, color: '#22d3ee', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
@@ -579,7 +578,7 @@ export default function Dashboard() {
         </div>
 
         {/* ── Mon Profil — titre pleine largeur ── */}
-        <div className="flex items-center gap-4 mb-14" style={{ marginTop: '6rem' }}>
+        <div className="flex items-center gap-4 mb-14" style={{ marginTop: '8rem' }}>
           <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #a78bfa, transparent)', borderRadius: '2px' }} />
           <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 700, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
             Mon Profil
@@ -702,70 +701,71 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ── Section divider ── */}
-        <SectionLabel label="TECHNOLOGIES MAÎTRISÉES" color="#34d399" mt="my-32" />
-
-        {/* ── Full-width tech grid card — style cyber's second pills section ── */}
-        <div
-          className="animate-fade-up rounded-2xl p-8 md:p-12 mb-24"
-          style={{ background: 'rgba(11,16,32,0.65)', border: '1px solid rgba(255,255,255,0.1)', transitionDelay: '0.2s' }}
-        >
-          <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 16px' }}>
-            <tbody>
-              {techGrid.map((row, i) => (
-                <tr key={i}>
-                  <td
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '14px',
-                      fontWeight: 700,
-                      color: '#64748b',
-                      whiteSpace: 'nowrap',
-                      paddingRight: '24px',
-                      verticalAlign: 'top',
-                      paddingTop: '10px',
-                    }}
-                  >
-                    {row.cat}
-                  </td>
-                  <td>
-                    <div className="flex flex-wrap" style={{ gap: '12px' }}>
-                      {row.tags.map(tag => (
-                        <span
-                          key={tag}
-                          className="transition-all duration-200"
-                          style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontSize: '14px',
-                            fontWeight: 500,
-                            color: '#e2e8f0',
-                            background: 'rgba(255,255,255,0.05)',
-                            border: '1px solid rgba(255,255,255,0.1)',
-                            borderRadius: '10px',
-                            padding: '9px 20px',
-                          }}
-                          onMouseEnter={e => {
-                            e.currentTarget.style.background = 'rgba(34,211,238,0.1)'
-                            e.currentTarget.style.borderColor = 'rgba(34,211,238,0.3)'
-                          }}
-                          onMouseLeave={e => {
-                            e.currentTarget.style.background = 'rgba(255,255,255,0.05)'
-                            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
-                          }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* ── Technologies — titre pleine largeur ── */}
+        <div className="flex items-center gap-4 mb-14" style={{ marginTop: '8rem' }}>
+          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #34d399, transparent)', borderRadius: '2px' }} />
+          <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 700, color: '#34d399', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
+            Technologies
+          </p>
+          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #34d399)', borderRadius: '2px' }} />
         </div>
 
-        {/* ── Mes Réseaux — LinkedIn, GitHub, Discord ── */}
-        <SectionLabel label="MES RÉSEAUX" color="#818cf8" mt="my-20" />
+        {/* ── Tech grid — cartes colorées par catégorie ── */}
+        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-32" style={{ transitionDelay: '0.2s' }}>
+          {techGrid.map((row, i) => (
+            <div
+              key={i}
+              className="rounded-2xl p-8 transition-all duration-300"
+              style={{
+                background: 'rgba(11,16,32,0.7)',
+                border: `1px solid ${row.color}18`,
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = `${row.color}45`
+                e.currentTarget.style.transform = 'translateY(-4px)'
+                e.currentTarget.style.boxShadow = `0 16px 40px rgba(0,0,0,0.3), 0 0 24px ${row.color}10`
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = `${row.color}18`
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span style={{ fontSize: '24px' }}>{row.emoji}</span>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: row.color }}>{row.cat}</p>
+              </div>
+              <div className="flex flex-wrap gap-2.5">
+                {row.tags.map(tag => (
+                  <span
+                    key={tag}
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: '13.5px',
+                      fontWeight: 500,
+                      color: '#e2e8f0',
+                      background: `${row.color}0a`,
+                      border: `1px solid ${row.color}22`,
+                      borderRadius: '10px',
+                      padding: '8px 16px',
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Mes Réseaux ── */}
+        <div className="flex items-center gap-4 mb-14" style={{ marginTop: '4rem' }}>
+          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #818cf8, transparent)', borderRadius: '2px' }} />
+          <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
+            Mes R{'é'}seaux
+          </p>
+          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #818cf8)', borderRadius: '2px' }} />
+        </div>
 
         <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '2rem', marginTop: '2rem' }}>
           {[
@@ -789,8 +789,14 @@ export default function Dashboard() {
           ))}
         </div>
 
-        {/* ── INFRASTRUCTURE ── */}
-        <SectionLabel label="INFRASTRUCTURE" color="#22d3ee" mt="my-32" />
+        {/* ── Infrastructure ── */}
+        <div className="flex items-center gap-4 mb-14" style={{ marginTop: '8rem' }}>
+          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #22d3ee, transparent)', borderRadius: '2px' }} />
+          <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '15px', fontWeight: 700, color: '#22d3ee', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
+            Infrastructure
+          </p>
+          <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #22d3ee)', borderRadius: '2px' }} />
+        </div>
 
         {/* ── Matrix Rain + Terminal ── */}
         <div className="animate-fade-up mt-8" style={{ transitionDelay: '0.28s' }}>
