@@ -1,1 +1,18 @@
-﻿<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ng" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3EB049"/><stop offset="100%" stop-color="#2D8A3B"/></linearGradient></defs><circle cx="50" cy="50" r="46" fill="#1a1a2e"/><circle cx="50" cy="50" r="38" fill="none" stroke="url(#ng)" stroke-width="5"/><polyline points="32 52 44 64 68 38" fill="none" stroke="url(#ng)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+﻿<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ADE80"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+    <filter id="glow1">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <circle cx="50" cy="50" r="46" fill="#0f172a"/>
+  <circle cx="50" cy="50" r="46" fill="none" stroke="url(#ng)" stroke-width="3" opacity="0.5"/>
+  <g filter="url(#glow1)">
+    <path d="M28 54 L42 68 L72 34" fill="none" stroke="url(#ng)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="50" y="88" text-anchor="middle" fill="url(#ng)" font-size="11" font-weight="900" font-family="Arial,sans-serif" letter-spacing="2">NAGIOS</text>
+</svg>
