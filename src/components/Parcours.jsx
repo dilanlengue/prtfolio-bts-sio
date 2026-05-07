@@ -356,15 +356,7 @@ export default function Parcours() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {[
               {
-                flag: (
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-                    <circle cx="28" cy="28" r="26" fill="#012169" stroke="rgba(34,211,238,0.3)" strokeWidth="1.5"/>
-                    <path d="M4 8L52 48M52 8L4 48" stroke="#fff" strokeWidth="5"/>
-                    <path d="M4 8L52 48M52 8L4 48" stroke="#C8102E" strokeWidth="2.5"/>
-                    <path d="M28 4V52M4 28H52" stroke="#fff" strokeWidth="8"/>
-                    <path d="M28 4V52M4 28H52" stroke="#C8102E" strokeWidth="5"/>
-                  </svg>
-                ),
+                flagUrl: 'https://flagcdn.com/w160/gb.png',
                 lang: 'Anglais',
                 level: 'Bilingue',
                 percent: 90,
@@ -372,20 +364,14 @@ export default function Parcours() {
                 desc: 'Maîtrise complète à l\'oral et à l\'écrit. Communication fluide en contexte professionnel et technique.',
               },
               {
-                flag: (
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-                    <circle cx="28" cy="28" r="26" fill="#fff" stroke="rgba(129,140,248,0.3)" strokeWidth="1.5"/>
-                    <path d="M4 6C4 6 4 50 4 50C12 50 19 50 19 50V6C19 6 12 6 4 6Z" fill="#002395"/>
-                    <path d="M37 6V50H52C52 50 52 6 52 6H37Z" fill="#ED2939"/>
-                  </svg>
-                ),
+                flagUrl: 'https://flagcdn.com/w160/fr.png',
                 lang: 'Français',
                 level: 'Courant — C1',
                 percent: 80,
                 color: '#818cf8',
                 desc: 'Niveau avancé, usage quotidien en formation et en milieu professionnel.',
               },
-            ].map(({ flag, lang, level, percent, color, desc }) => (
+            ].map(({ flagUrl, lang, level, percent, color, desc }) => (
               <div
                 key={lang}
                 className="relative rounded-3xl overflow-hidden transition-all duration-500"
@@ -420,14 +406,16 @@ export default function Parcours() {
                     overflow: 'hidden',
                     width: '80px',
                     height: '80px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'rgba(255,255,255,0.03)',
-                    border: `2.5px solid ${color}35`,
-                    boxShadow: `0 0 30px ${color}12, 0 8px 24px rgba(0,0,0,0.3)`,
+                    border: `3px solid ${color}40`,
+                    boxShadow: `0 0 30px ${color}15, 0 8px 24px rgba(0,0,0,0.3)`,
                   }}>
-                    {flag}
+                    <img
+                      src={flagUrl}
+                      alt={lang}
+                      width="80"
+                      height="80"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
                   </div>
                 </div>
 
