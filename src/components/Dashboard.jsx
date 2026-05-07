@@ -864,7 +864,7 @@ export default function Dashboard() {
         </div>
 
         {/* ── INFRASTRUCTURE ── */}
-        <SectionLabel label="INFRASTRUCTURE" color="#22d3ee" mt="my-20" />
+        <SectionLabel label="INFRASTRUCTURE" color="#22d3ee" mt="my-32" />
 
         {/* ── Matrix Rain + Terminal ── */}
         <div className="animate-fade-up mt-8" style={{ transitionDelay: '0.28s' }}>
