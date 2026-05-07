@@ -344,7 +344,7 @@ export default function Dashboard() {
 
   return (
     <section id="dashboard" className="relative" style={{ paddingTop: '12rem', paddingBottom: '6rem' }}>
-      <div className="w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* ── Profile card ── */}
         <div
@@ -434,64 +434,59 @@ export default function Dashboard() {
         </div>
 
         {/* ── À propos de moi ── */}
-        <div
-          className="animate-fade-up rounded-2xl overflow-hidden mb-24"
-          style={{
-            background: 'linear-gradient(145deg, rgba(11,16,32,0.75), rgba(15,20,40,0.55))',
-            border: '1px solid rgba(129,140,248,0.12)',
-            boxShadow: '0 24px 60px rgba(0,0,0,0.3)',
-            transitionDelay: '0.06s',
-          }}
-        >
-          <div className="px-8 md:px-16 py-16">
+        <div className="animate-fade-up mb-32" style={{ transitionDelay: '0.06s' }}>
 
-            <p
-              style={{
-                fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: '14px',
-                fontWeight: 700,
-                color: '#818cf8',
-                textTransform: 'uppercase',
-                letterSpacing: '0.2em',
-                marginBottom: '2.5rem',
-              }}
-            >
+          {/* Titre */}
+          <div className="flex items-center gap-4 mb-12">
+            <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, #6366f1, transparent)', borderRadius: '2px' }} />
+            <p style={{
+              fontFamily: "'Orbitron', system-ui, sans-serif",
+              fontSize: '15px',
+              fontWeight: 700,
+              color: '#818cf8',
+              textTransform: 'uppercase',
+              letterSpacing: '0.25em',
+            }}>
               {'À'} propos de moi
             </p>
-
-            <p style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '16.5px',
-              fontWeight: 400,
-              color: '#cbd5e1',
-              lineHeight: 2,
-              marginBottom: '1.8rem',
-            }}>
-              Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 600 }}>Dilan Lengue</span>, j'ai <span style={{ color: '#22d3ee', fontWeight: 600 }}>23 ans</span> et je suis {'é'}tudiant en <span style={{ color: '#818cf8', fontWeight: 600 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 600 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'Institut F2I. <span style={{ color: '#22d3ee', fontWeight: 600 }}>Bilingue fran{'ç'}ais / anglais</span>, passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique.
-            </p>
-
-            <p style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '16.5px',
-              fontWeight: 400,
-              color: '#cbd5e1',
-              lineHeight: 2,
-              marginBottom: '1.8rem',
-            }}>
-              Au cours de ma formation, j'ai eu l'opportunit{'é'} de mettre mes connaissances en pratique {'à'} travers plusieurs projets techniques et stages en entreprise. Rigoureux, curieux et motiv{'é'}, j'aime relever des d{'é'}fis techniques et trouver des solutions efficaces aux probl{'è'}mes rencontr{'é'}s.
-            </p>
-
-            <p style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '16.5px',
-              fontWeight: 400,
-              color: '#cbd5e1',
-              lineHeight: 2,
-            }}>
-              {'À'} travers ce portfolio, je souhaite partager mon parcours, mes projets et les comp{'é'}tences que j'ai acquises dans le cadre de mon BTS. Mon projet professionnel est de devenir <span style={{ color: '#a78bfa', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'} & Pen Tester</span> et sp{'é'}cialiste en s{'é'}curisation des infrastructures.
-            </p>
-
+            <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #22d3ee)', borderRadius: '2px' }} />
           </div>
+
+          {/* Paragraphe 1 */}
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '18px',
+            fontWeight: 400,
+            color: '#e2e8f0',
+            lineHeight: 2.1,
+            marginBottom: '2rem',
+          }}>
+            Je m'appelle <span style={{ color: '#22d3ee', fontWeight: 700 }}>Dilan Lengue</span>, j'ai <span style={{ color: '#22d3ee', fontWeight: 700 }}>23 ans</span> et je suis {'é'}tudiant en <span style={{ color: '#818cf8', fontWeight: 700 }}>BTS SIO</span> (Services Informatiques aux Organisations), option <span style={{ color: '#818cf8', fontWeight: 700 }}>SISR</span> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'Institut F2I. <span style={{ color: '#22d3ee', fontWeight: 700 }}>Bilingue fran{'ç'}ais / anglais</span>, passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique.
+          </p>
+
+          {/* Paragraphe 2 */}
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '18px',
+            fontWeight: 400,
+            color: '#e2e8f0',
+            lineHeight: 2.1,
+            marginBottom: '2rem',
+          }}>
+            Au cours de ma formation, j'ai eu l'opportunit{'é'} de mettre mes connaissances en pratique {'à'} travers plusieurs projets techniques et stages en entreprise. Rigoureux, curieux et motiv{'é'}, j'aime relever des d{'é'}fis techniques et trouver des solutions efficaces aux probl{'è'}mes rencontr{'é'}s.
+          </p>
+
+          {/* Paragraphe 3 */}
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '18px',
+            fontWeight: 400,
+            color: '#e2e8f0',
+            lineHeight: 2.1,
+          }}>
+            {'À'} travers ce portfolio, je souhaite partager mon parcours, mes projets et les comp{'é'}tences que j'ai acquises dans le cadre de mon BTS. Mon projet professionnel est de devenir <span style={{ color: '#a78bfa', fontWeight: 700 }}>Expert en Cybers{'é'}curit{'é'} & Pen Tester</span> et sp{'é'}cialiste en s{'é'}curisation des infrastructures.
+          </p>
+
         </div>
 
 
