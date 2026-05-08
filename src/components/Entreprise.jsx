@@ -51,7 +51,7 @@ const stages = [
     description:
       'Entreprise spécialisée dans la réparation, la maintenance et le dépannage de matériels informatiques (Mac et PC). Intervention sur site et en atelier pour les particuliers et professionnels.',
     infos: [
-      { icon: MapPin, label: 'Localisation', value: 'Montreuil, Seine-Saint-Denis' },
+      { icon: MapPin, label: 'Localisation', value: 'Mairie de Montreuil, Seine-Saint-Denis' },
       { icon: Calendar, label: 'Période de stage', value: '12/05/2025 – 21/06/2025 (7 semaines)' },
       { icon: Phone, label: 'Téléphone', value: '06 65 01 86 53' },
       { icon: Globe, label: 'Site web', value: 'lesreparateursmacetpc.com', link: 'https://lesreparateursmacetpc.com' },
