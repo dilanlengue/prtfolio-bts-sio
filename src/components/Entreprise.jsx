@@ -4,9 +4,9 @@ import SectionLabel from './SectionLabel'
 
 const stages = [
   {
-    current: true,
+    current: false,
     tag: 'Stage 2ème année',
-    tagColor: '#22d3ee',
+    tagColor: '#06b6d4',
     name: 'B&A Conseil',
     subtitle: 'Technologies et services de l\'information',
     logo: '/logo-ba-conseil-blanc.png',
@@ -35,13 +35,14 @@ const stages = [
       'Installation et paramétrage d\'applications professionnelles',
       'Utilisation de Miradore pour gérer et configurer les appareils à distance',
       'Enregistrement des téléphones dans une solution de gestion de flotte mobile (MDM)',
+      'Récupération des données sur des disques durs endommagés',
     ],
     attestationPdf: '/attestation-stage-bna.pdf',
   },
   {
     current: false,
     tag: 'Stage 1ère année',
-    tagColor: '#a78bfa',
+    tagColor: '#8b5cf6',
     name: 'Les Réparateurs Mac & PC',
     subtitle: 'Réparation et maintenance informatique',
     logo: '/logo-reparateurs.jpg',
@@ -60,11 +61,12 @@ const stages = [
     ],
     poste: 'Technicien Support Informatique',
     missions: [
-      'Réinstallation et configuration des systèmes d\'exploitation',
-      'Diagnostic et réparation de matériels informatiques (Mac & PC)',
-      'Gestion et configuration de réseaux locaux',
+      'Installation et configuration des systèmes d\'exploitation (Windows, macOS)',
+      'Installation des pilotes de carte graphique et périphériques',
+      'Réparation de PC et MacBook (diagnostic matériel et logiciel)',
+      'Reconfiguration complète de Windows',
+      'Déblocage des machines et ordinateurs sans suppression des données',
       'Assistance technique et support utilisateurs',
-      'Maintenance préventive et nettoyage des équipements',
     ],
     attestationPdf: '/attestation-stage-reparateurs.pdf',
   },
@@ -266,30 +268,46 @@ export default function Entreprise() {
     <section id="entreprise" className="relative" style={{ paddingTop: '8rem', paddingBottom: '8rem' }}>
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header */}
-        <div className="text-center" style={{ marginBottom: '3.5rem' }}>
-          <h2
-            className="animate-fade-up"
-            style={{
-              fontFamily: "'Orbitron', system-ui, sans-serif",
-              fontSize: 'clamp(1.6rem, 4vw, 2.2rem)',
-              fontWeight: 800,
-              letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-              color: '#e6ecf8',
-            }}
-          >
+        <div className="text-center animate-fade-up" style={{ marginBottom: '4rem' }}>
+          <div style={{ marginBottom: '1.2rem' }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '12px', fontWeight: 700,
+              letterSpacing: '0.2em', color: '#06b6d4',
+              textTransform: 'uppercase',
+              padding: '6px 18px',
+              background: 'rgba(6,182,212,0.08)',
+              border: '1px solid rgba(6,182,212,0.2)',
+              borderRadius: '99px',
+            }}>
+              Stages & Expériences
+            </span>
+          </div>
+          <h2 style={{
+            fontFamily: "'Orbitron', system-ui, sans-serif",
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            fontWeight: 900,
+            letterSpacing: '-0.02em',
+            lineHeight: 1.1,
+            marginBottom: '1rem',
+            background: 'linear-gradient(135deg, #ffffff 0%, #06b6d4 40%, #8b5cf6 70%, #f472b6 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}>
             Entreprise d'accueil
           </h2>
           <div style={{
-            width: '100px', height: '2px', margin: '14px auto 0',
-            background: 'linear-gradient(90deg, transparent, #22d3ee, #a78bfa, transparent)',
+            width: '80px', height: '3px', margin: '0 auto 1.2rem',
+            background: 'linear-gradient(90deg, #06b6d4, #8b5cf6, #f472b6)',
+            borderRadius: '99px',
           }} />
-          <p className="animate-fade-up mx-auto" style={{
+          <p className="mx-auto" style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: '15px', fontWeight: 500, color: '#94a3b8',
-            lineHeight: 1.7, maxWidth: '520px', marginTop: '0.8rem',
+            fontSize: '16px', fontWeight: 500, color: '#94a3b8',
+            lineHeight: 1.7, maxWidth: '520px',
           }}>
-            Les entreprises où j'ai effectué mes stages durant ma formation BTS SIO
+            Les structures qui m'ont accueilli en stage durant ma formation BTS SIO SISR
           </p>
         </div>
 
