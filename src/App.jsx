@@ -7,6 +7,7 @@ import CVPage from './pages/CVPage'
 import EntreprisePage from './pages/EntreprisePage'
 import ProjetsPage from './pages/ProjetsPage'
 import BTSPage from './pages/BTSPage'
+import CertificationsPage from './pages/CertificationsPage'
 import VeillePage from './pages/VeillePage'
 import ContactPage from './pages/ContactPage'
 import NotFound from './pages/NotFound'
@@ -25,6 +26,7 @@ function AppContent() {
         <Route path="/entreprise" element={<EntreprisePage />} />
         <Route path="/projets" element={<ProjetsPage />} />
         <Route path="/bts" element={<BTSPage />} />
+        <Route path="/certifications" element={<CertificationsPage />} />
         <Route path="/veille" element={<VeillePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFound />} />

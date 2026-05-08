@@ -7,6 +7,7 @@ import {
   Briefcase,
   FolderKanban,
   GraduationCap,
+  Award,
   Radar,
   Mail,
 } from 'lucide-react'
@@ -19,6 +20,7 @@ const items = [
   { path: '/entreprise',  label: 'Entreprise',   Icon: Briefcase },
   { path: '/projets',     label: 'Projets',      Icon: FolderKanban },
   { path: '/bts',         label: 'BTS SIO',      Icon: GraduationCap },
+  { path: '/certifications', label: 'Certifications', Icon: Award },
   { path: '/veille',      label: 'Veille',       Icon: Radar },
   { path: '/contact',     label: 'Contact',      Icon: Mail },
 ]

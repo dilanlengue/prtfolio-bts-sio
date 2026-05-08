@@ -10,6 +10,7 @@ const navLinks = [
   { path: '/entreprise',    label: 'Entreprise' },
   { path: '/projets',       label: 'Projets' },
   { path: '/bts',           label: 'BTS SIO' },
+  { path: '/certifications', label: 'Certifications' },
   { path: '/veille',        label: 'Veille' },
   { path: '/contact',       label: 'Contact' },
 ]
