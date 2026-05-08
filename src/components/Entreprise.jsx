@@ -9,8 +9,8 @@ const stages = [
     tagColor: '#22d3ee',
     name: 'B&A Conseil',
     subtitle: 'Technologies et services de l\'information',
-    logo: '/logo-ba-conseil.png',
-    logoFallback: null,
+    logo: '/logo-ba-conseil-blanc.png',
+    photo: '/photo-ba-conseil.webp',
     siteUrl: 'https://ba-conseil.fr',
     description:
       'B&A Conseil accompagne les organisations dans leurs enjeux informatique, télécoms et réseaux : connectivité professionnelle (internet & lignes mobiles), MDM/UEM, maintenance & infogérance, développement logiciel, fourniture de matériel/print et interventions de techniciens IT partout en France.',
@@ -45,7 +45,7 @@ const stages = [
     name: 'Les Réparateurs Mac & PC',
     subtitle: 'Réparation et maintenance informatique',
     logo: '/logo-reparateurs.jpg',
-    logoFallback: '🔧',
+    photo: '/photo-reparateurs.png',
     siteUrl: 'https://lesreparateursmacetpc.com',
     description:
       'Entreprise spécialisée dans la réparation, la maintenance et le dépannage de matériels informatiques (Mac et PC). Intervention sur site et en atelier pour les particuliers et professionnels.',
@@ -78,87 +78,75 @@ function StageCard({ stage }) {
     <div
       className="rounded-2xl overflow-hidden"
       style={{
-        background: 'rgba(10,15,30,0.9)',
-        border: `1px solid ${stage.tagColor}18`,
+        background: '#ffffff',
+        boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)',
       }}
     >
-      {/* ── Bannière entreprise ── */}
-      <div
-        style={{
-          background: `linear-gradient(135deg, rgba(10,15,35,0.95), rgba(15,20,45,0.9))`,
-          padding: '3rem 2.5rem',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
+      {/* ── Photo bannière ── */}
+      <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
+        <img
+          src={stage.photo}
+          alt={stage.name}
+          style={{
+            width: '100%', height: '100%', objectFit: 'cover',
+            filter: 'brightness(0.5)',
+          }}
+        />
         <div style={{
-          position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-          background: `linear-gradient(90deg, transparent, ${stage.tagColor}, transparent)`,
-          opacity: 0.5,
-        }} />
-        <div style={{
-          position: 'absolute', top: 0, right: 0, width: '200px', height: '200px',
-          background: `radial-gradient(circle, ${stage.tagColor}08, transparent)`,
-          pointerEvents: 'none',
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%)',
         }} />
 
-        <div className="flex flex-col items-center text-center">
-          {/* Logo */}
-          <div
-            className="flex items-center justify-center overflow-hidden"
-            style={{
-              width: '80px', height: '80px', borderRadius: '20px',
-              background: `linear-gradient(135deg, ${stage.tagColor}15, ${stage.tagColor}08)`,
-              border: `2px solid ${stage.tagColor}30`,
-              marginBottom: '1.2rem',
-            }}
-          >
+        <div style={{
+          position: 'absolute', bottom: '1.5rem', left: '2rem', right: '2rem',
+          display: 'flex', alignItems: 'flex-end', gap: '1rem',
+        }}>
+          <div style={{
+            width: '64px', height: '64px', borderRadius: '14px',
+            background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(12px)',
+            border: '1px solid rgba(255,255,255,0.25)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            flexShrink: 0, overflow: 'hidden',
+          }}>
             {stage.logo && !logoError ? (
-              <img
-                src={stage.logo}
-                alt={`Logo ${stage.name}`}
-                style={{ width: '56px', height: '56px', objectFit: 'contain' }}
-                onError={() => setLogoError(true)}
-              />
-            ) : stage.logoFallback ? (
-              <span style={{ fontSize: '2rem' }}>{stage.logoFallback}</span>
+              <img src={stage.logo} alt="" style={{ width: '44px', height: '44px', objectFit: 'contain' }}
+                onError={() => setLogoError(true)} />
             ) : (
-              <Building2 size={32} style={{ color: stage.tagColor }} />
+              <Building2 size={28} style={{ color: '#fff' }} />
             )}
           </div>
-
-          {/* Nom entreprise */}
-          <h3 style={{
-            fontFamily: "'Orbitron', system-ui, sans-serif",
-            fontSize: '1.4rem', fontWeight: 800, color: '#f1f5f9',
-            letterSpacing: '0.02em', marginBottom: '0.3rem',
-          }}>
-            {stage.name}
-          </h3>
-          <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '13px', fontWeight: 600, color: stage.tagColor,
-            letterSpacing: '0.02em', marginBottom: '0.8rem',
-          }}>
-            {stage.subtitle}
-          </p>
-
-          {/* Tags */}
-          <div className="flex items-center gap-2 flex-wrap justify-center">
+          <div>
+            <h3 style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '1.5rem', fontWeight: 800, color: '#ffffff',
+              lineHeight: 1.2, marginBottom: '4px',
+              textShadow: '0 1px 4px rgba(0,0,0,0.3)',
+            }}>
+              {stage.name}
+            </h3>
+            <p style={{
+              fontSize: '13px', fontWeight: 500, color: 'rgba(255,255,255,0.85)',
+              textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+            }}>
+              {stage.subtitle}
+            </p>
+          </div>
+          <div style={{ marginLeft: 'auto', display: 'flex', gap: '8px' }}>
             {stage.current && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full" style={{
-                background: `${stage.tagColor}12`, border: `1px solid ${stage.tagColor}30`,
-                fontSize: '11px', fontWeight: 700, color: stage.tagColor,
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{
+                background: 'rgba(34,211,238,0.2)', backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(34,211,238,0.4)',
+                fontSize: '11px', fontWeight: 700, color: '#fff',
               }}>
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: stage.tagColor }} />
+                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#22d3ee' }} />
                 Stage actuel
               </span>
             )}
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full" style={{
-              background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)',
-              fontSize: '11px', fontWeight: 700, color: '#94a3b8',
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{
+              background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255,255,255,0.25)',
+              fontSize: '11px', fontWeight: 700, color: '#fff',
             }}>
-              <Building2 size={11} />
               {stage.tag}
             </span>
           </div>
@@ -171,7 +159,7 @@ function StageCard({ stage }) {
         {/* Description */}
         <p style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: '14px', color: '#94a3b8', lineHeight: 1.75,
+          fontSize: '14px', color: '#64748b', lineHeight: 1.8,
           marginBottom: '1.5rem',
         }}>
           {stage.description}
@@ -181,11 +169,11 @@ function StageCard({ stage }) {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3" style={{ marginBottom: '1.5rem' }}>
           {stage.infos.map(({ icon: Icon, label, value, link }) => (
             <div key={label} className="flex items-start gap-2.5 p-3 rounded-xl" style={{
-              background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)',
+              background: '#f8fafc', border: '1px solid #e2e8f0',
             }}>
               <Icon size={14} style={{ color: stage.tagColor, marginTop: '2px', flexShrink: 0 }} />
               <div>
-                <p style={{ fontSize: '10px', color: '#475569', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '2px' }}>
+                <p style={{ fontSize: '10px', color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '2px' }}>
                   {label}
                 </p>
                 {link ? (
@@ -195,7 +183,7 @@ function StageCard({ stage }) {
                     {value} <ExternalLink size={10} />
                   </a>
                 ) : (
-                  <p style={{ fontSize: '13px', color: '#e2e8f0', fontWeight: 600 }}>{value}</p>
+                  <p style={{ fontSize: '13px', color: '#1e293b', fontWeight: 600 }}>{value}</p>
                 )}
               </div>
             </div>
@@ -206,7 +194,7 @@ function StageCard({ stage }) {
         <div className="flex flex-wrap gap-2" style={{ marginBottom: '1.5rem' }}>
           {stage.specialisations.map(s => (
             <span key={s} className="px-2.5 py-1 rounded-md" style={{
-              background: `${stage.tagColor}08`, border: `1px solid ${stage.tagColor}18`,
+              background: `${stage.tagColor}10`, border: `1px solid ${stage.tagColor}25`,
               fontSize: '11px', fontWeight: 600, color: stage.tagColor,
             }}>
               {s}
@@ -216,19 +204,20 @@ function StageCard({ stage }) {
 
         {/* Missions */}
         <div className="rounded-xl overflow-hidden" style={{
-          background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)',
+          background: '#f8fafc', border: '1px solid #e2e8f0',
         }}>
           <button
             className="w-full flex items-center justify-between p-4"
             onClick={() => setMissionsOpen(!missionsOpen)}
+            style={{ cursor: 'pointer' }}
           >
-            <span className="flex items-center gap-2" style={{ fontSize: '13px', fontWeight: 700, color: '#e2e8f0' }}>
+            <span className="flex items-center gap-2" style={{ fontSize: '13px', fontWeight: 700, color: '#1e293b' }}>
               <Shield size={15} style={{ color: stage.tagColor }} />
               Mes missions — {stage.poste}
             </span>
             {missionsOpen
-              ? <ChevronUp size={16} style={{ color: '#475569' }} />
-              : <ChevronDown size={16} style={{ color: '#475569' }} />}
+              ? <ChevronUp size={16} style={{ color: '#94a3b8' }} />
+              : <ChevronDown size={16} style={{ color: '#94a3b8' }} />}
           </button>
 
           {missionsOpen && (
@@ -236,7 +225,7 @@ function StageCard({ stage }) {
               {stage.missions.map((m, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <CheckCircle2 size={14} style={{ color: stage.tagColor, marginTop: '3px', flexShrink: 0 }} />
-                  <span style={{ fontSize: '13px', color: '#94a3b8', lineHeight: 1.6 }}>{m}</span>
+                  <span style={{ fontSize: '13px', color: '#64748b', lineHeight: 1.6 }}>{m}</span>
                 </div>
               ))}
             </div>
@@ -246,25 +235,22 @@ function StageCard({ stage }) {
         {/* Boutons */}
         <div className="flex flex-wrap gap-3 mt-5">
           <a href={stage.attestationPdf} target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all"
             style={{
-              background: `${stage.tagColor}10`, border: `1px solid ${stage.tagColor}25`,
-              fontSize: '13px', fontWeight: 700, color: stage.tagColor,
+              background: stage.tagColor, color: '#fff',
+              fontSize: '13px', fontWeight: 700,
             }}
-            onMouseEnter={e => e.currentTarget.style.background = `${stage.tagColor}20`}
-            onMouseLeave={e => e.currentTarget.style.background = `${stage.tagColor}10`}
           >
             <Download size={14} /> Attestation de stage
           </a>
           {stage.siteUrl && (
             <a href={stage.siteUrl} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all"
               style={{
-                background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
-                fontSize: '13px', fontWeight: 700, color: '#94a3b8',
+                background: '#f1f5f9', border: '1px solid #e2e8f0',
+                fontSize: '13px', fontWeight: 700, color: '#475569',
+                textDecoration: 'none',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#e2e8f0' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.color = '#94a3b8' }}
             >
               <ExternalLink size={14} /> Visiter le site
             </a>
@@ -309,7 +295,7 @@ export default function Entreprise() {
 
         <SectionLabel label="MES STAGES" color="#22d3ee" />
 
-        <div className="space-y-10">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem' }}>
           {stages.map((stage, i) => (
             <StageCard key={i} stage={stage} />
           ))}
