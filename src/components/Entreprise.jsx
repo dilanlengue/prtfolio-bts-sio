@@ -307,7 +307,7 @@ export default function Entreprise() {
             fontSize: '16px', fontWeight: 500, color: '#94a3b8',
             lineHeight: 1.7, maxWidth: '520px',
           }}>
-            Les structures qui m'ont accueilli en stage durant ma formation BTS SIO SISR
+            Les structures qui m'ont accueilli en stage durant ma formation BTS SIO option SISR
           </p>
         </div>
 
