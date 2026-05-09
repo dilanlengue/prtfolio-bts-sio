@@ -76,12 +76,14 @@ const phishingTypes = [
     desc: 'Appels téléphoniques frauduleux — faux conseiller bancaire, faux support Microsoft. L\'IA permet désormais de cloner une voix en 30 secondes.',
     stat: '+28%', statLabel: 'au T3 2024',
     examples: ['Faux conseiller bancaire', 'Arnaque au président (deepfake)', 'Faux support technique'],
+    image: '/phishing-vishing.jpg', imageLabel: 'Vishing — appel frauduleux se faisant passer pour un conseiller bancaire',
   },
   {
     icon: QrCode, title: 'QR Code (Quishing)', color: '#ef4444',
     desc: 'Faux QR codes collés sur des avis de contravention, menus de restaurant ou bornes publiques, redirigeant vers des sites de phishing.',
     stat: '4M', statLabel: 'de tentatives en France en 2025',
     examples: ['Faux PV de stationnement', 'QR codes en restaurant', 'Faux parcmètres'],
+    image: '/phishing-quishing.jpg', imageLabel: 'Quishing — faux QR code sur un avis de contravention',
   },
   {
     icon: Fingerprint, title: 'Spear Phishing', color: '#10b981',
@@ -95,6 +97,7 @@ const phishingTypes = [
     desc: 'Spear phishing ciblant les dirigeants d\'entreprise — "fraude au président". Peut impliquer des deepfakes vidéo en visioconférence.',
     stat: '25M$', statLabel: 'perdu via deepfake vidéo en 2024',
     examples: ['Fraude au président', 'Faux virement urgent', 'Visio deepfake avec le "PDG"'],
+    image: '/phishing-whaling.jpg', imageLabel: 'Whaling — fraude au président ciblant les dirigeants d\'entreprise',
   },
 ]
 
