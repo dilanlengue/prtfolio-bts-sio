@@ -215,14 +215,14 @@ export default function Veille() {
       <div className="w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* ═══════════ HEADER ═══════════ */}
-        <div className="text-center" style={{ marginBottom: '7rem' }}>
-          <div style={{ marginBottom: '1.2rem' }}>
+        <div className="text-center" style={{ marginBottom: '8rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
             <span style={{
               fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '12px', fontWeight: 700,
+              fontSize: '13px', fontWeight: 700,
               letterSpacing: '0.2em', color: '#f59e0b',
               textTransform: 'uppercase',
-              padding: '6px 18px',
+              padding: '8px 22px',
               background: 'rgba(245,158,11,0.08)',
               border: '1px solid rgba(245,158,11,0.2)',
               borderRadius: '99px',
@@ -232,9 +232,9 @@ export default function Veille() {
           </div>
           <h2 style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
-            fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
             fontWeight: 900, letterSpacing: '-0.02em',
-            lineHeight: 1.1, marginBottom: '0.8rem',
+            lineHeight: 1.2, marginBottom: '1.5rem',
             background: 'linear-gradient(135deg, #ffffff 0%, #f59e0b 40%, #ef4444 70%, #a855f7 100%)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
           }}>
@@ -242,21 +242,21 @@ export default function Veille() {
           </h2>
           <p style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
-            fontSize: 'clamp(1rem, 3vw, 1.4rem)',
-            fontWeight: 700, color: '#f59e0b', letterSpacing: '0.02em',
-            marginBottom: '1rem',
+            fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
+            fontWeight: 700, color: '#f59e0b', letterSpacing: '0.03em',
+            marginBottom: '1.8rem',
           }}>
             Le Phishing — Menace n°1 en France
           </p>
           <div style={{
-            width: '80px', height: '3px', margin: '0 auto 1.2rem',
+            width: '80px', height: '3px', margin: '0 auto 2rem',
             background: 'linear-gradient(90deg, #f59e0b, #ef4444, #a855f7)',
             borderRadius: '99px',
           }} />
           <p className="mx-auto" style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: '15px', fontWeight: 500, color: '#94a3b8',
-            lineHeight: 1.7, maxWidth: '600px',
+            fontSize: '16px', fontWeight: 500, color: '#94a3b8',
+            lineHeight: 1.9, maxWidth: '640px', letterSpacing: '0.01em',
           }}>
             Étude approfondie du phishing (hameçonnage) en France — ses formes (email, SMS, vocal, QR code), les campagnes en cours, les incidents majeurs, l'impact de l'IA et les moyens de protection.
           </p>
@@ -303,33 +303,33 @@ export default function Veille() {
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(6,182,212,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6)' }} />
-          <div className="p-10">
-            <div className="flex items-start gap-6 mb-8">
+          <div className="p-10 md:p-14">
+            <div className="flex items-start gap-6 mb-10">
               <div style={{
-                width: '52px', height: '52px', borderRadius: '14px',
+                width: '56px', height: '56px', borderRadius: '14px',
                 background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <BookOpen size={24} style={{ color: '#06b6d4' }} />
+                <BookOpen size={26} style={{ color: '#06b6d4' }} />
               </div>
               <div>
-                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.2rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '0.6rem' }}>
+                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem', letterSpacing: '0.01em' }}>
                   Définition de la veille technologique
                 </h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#cbd5e1', lineHeight: 1.8 }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#cbd5e1', lineHeight: 2 }}>
                   La <strong style={{ color: '#06b6d4' }}>veille technologique</strong> est un processus continu et systématique de collecte, d'analyse et de diffusion d'informations sur les évolutions technologiques, les menaces émergentes et les bonnes pratiques. En BTS SIO SISR, elle permet d'anticiper les risques, d'adapter les pratiques d'administration et de rester à jour dans un environnement en constante évolution.
                 </p>
               </div>
             </div>
-            <div className="grid sm:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-3 gap-8">
               {[
                 { title: 'Collecter', desc: 'Sources officielles (ANSSI, CERT-FR, CNIL), alertes, flux RSS, rapports annuels', color: '#06b6d4' },
                 { title: 'Analyser', desc: 'Trier par pertinence, évaluer l\'impact, identifier les tendances et nouvelles techniques d\'attaque', color: '#3b82f6' },
                 { title: 'Diffuser', desc: 'Documenter les résultats, partager les bonnes pratiques, mettre à jour les procédures de sécurité', color: '#8b5cf6' },
               ].map((step, i) => (
-                <div key={i} className="rounded-xl p-6" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}20` }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 800, color: step.color, marginBottom: '1.5rem' }}>{step.title}</p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7 }}>{step.desc}</p>
+                <div key={i} className="rounded-xl p-7" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}20` }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 800, color: step.color, marginBottom: '1rem' }}>{step.title}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9 }}>{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -341,27 +341,27 @@ export default function Veille() {
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(245,158,11,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #f59e0b, #ef4444, #a855f7)' }} />
-          <div className="p-8 md:p-12">
-            <div className="flex items-start gap-6 mb-8">
+          <div className="p-10 md:p-14">
+            <div className="flex items-start gap-6 mb-10">
               <div style={{
-                width: '52px', height: '52px', borderRadius: '14px',
+                width: '56px', height: '56px', borderRadius: '14px',
                 background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <Mail size={24} style={{ color: '#f59e0b' }} />
+                <Mail size={26} style={{ color: '#f59e0b' }} />
               </div>
               <div>
-                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.2rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '0.6rem' }}>
+                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem', letterSpacing: '0.01em' }}>
                   Qu'est-ce que le phishing ?
                 </h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#cbd5e1', lineHeight: 1.8 }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#cbd5e1', lineHeight: 2 }}>
                   Le <strong style={{ color: '#f59e0b' }}>phishing</strong> (ou hameçonnage) est une technique d'ingénierie sociale qui consiste à se faire passer pour un organisme ou une personne de confiance afin de <strong style={{ color: '#ef4444' }}>voler des informations personnelles</strong> (identifiants, données bancaires, mots de passe) ou d'<strong style={{ color: '#a855f7' }}>installer un logiciel malveillant</strong>. C'est la <strong style={{ color: '#f59e0b' }}>menace n°1 en France</strong> selon Cybermalveillance.gouv.fr et le vecteur initial de <strong style={{ color: '#10b981' }}>91% des cyberattaques</strong>.
                 </p>
               </div>
             </div>
 
             {/* Types de phishing — tabs */}
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.5rem' }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.5rem' }}>
               LES 6 FORMES DE PHISHING
             </p>
 
@@ -387,39 +387,39 @@ export default function Veille() {
             {(() => {
               const t = phishingTypes[openType]
               return (
-                <div className="rounded-xl p-8" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${t.color}20` }}>
-                  <div className="flex items-center gap-3 mb-5">
+                <div className="rounded-xl p-9" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${t.color}20` }}>
+                  <div className="flex items-center gap-4 mb-7">
                     <div style={{
-                      width: '42px', height: '42px', borderRadius: '12px',
+                      width: '46px', height: '46px', borderRadius: '12px',
                       background: `${t.color}12`, border: `1px solid ${t.color}25`,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      <t.icon size={20} style={{ color: t.color }} />
+                      <t.icon size={22} style={{ color: t.color }} />
                     </div>
                     <div>
-                      <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 800, color: '#e2e8f0' }}>
+                      <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', fontWeight: 800, color: '#e2e8f0' }}>
                         {t.title}
                       </h4>
                     </div>
                     <div style={{ marginLeft: 'auto' }}>
                       <span style={{
-                        fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 800,
+                        fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800,
                         color: t.color,
                       }}>{t.stat}</span>
-                      <span style={{ fontSize: '11px', color: '#64748b', marginLeft: '6px' }}>{t.statLabel}</span>
+                      <span style={{ fontSize: '12px', color: '#64748b', marginLeft: '8px' }}>{t.statLabel}</span>
                     </div>
                   </div>
-                  <div className={`grid ${t.image ? 'md:grid-cols-2' : ''} gap-6 items-start`}>
+                  <div className={`grid ${t.image ? 'md:grid-cols-2' : ''} gap-8 items-start`}>
                     <div>
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#cbd5e1', lineHeight: 1.9, marginBottom: '1.2rem' }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#cbd5e1', lineHeight: 2, marginBottom: '1.5rem' }}>
                         {t.desc}
                       </p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-3">
                         {t.examples.map((ex, j) => (
                           <span key={j} style={{
-                            fontSize: '12px', fontWeight: 600, color: t.color,
+                            fontSize: '13px', fontWeight: 600, color: t.color,
                             background: `${t.color}10`, border: `1px solid ${t.color}20`,
-                            padding: '5px 12px', borderRadius: '6px',
+                            padding: '6px 14px', borderRadius: '8px',
                           }}>{ex}</span>
                         ))}
                       </div>
@@ -444,44 +444,44 @@ export default function Veille() {
         {/* ═══════════ ANATOMIE EMAIL PHISHING ═══════════ */}
         <SectionLabel label="ANATOMIE D'UN EMAIL DE PHISHING" color="#ef4444" mt="mt-44 mb-16" />
 
-        <div className="grid lg:grid-cols-5 gap-6">
+        <div className="grid lg:grid-cols-5 gap-8">
           <div className="lg:col-span-3 rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(245,158,11,0.15)' }}>
-            <div className="flex items-center gap-2 px-5 py-3" style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+            <div className="flex items-center gap-2 px-6 py-4" style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
               <div className="flex gap-1.5">
                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }} />
                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }} />
               </div>
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#475569', marginLeft: '8px' }}>Email — Boîte de réception</span>
+              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#475569', marginLeft: '8px' }}>Email — Boîte de réception</span>
             </div>
-            <div className="p-7">
-              <div className="space-y-2 mb-4 pb-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                <div className="flex items-start gap-2">
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#64748b', minWidth: '36px' }}>De:</span>
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#e2e8f0' }}>
+            <div className="p-8 md:p-10">
+              <div className="space-y-3 mb-6 pb-6" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="flex items-start gap-3">
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#64748b', minWidth: '42px' }}>De:</span>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#e2e8f0' }}>
                     support@microsft-security.com
                   </span>
-                  <span style={{ fontSize: '10px', fontWeight: 700, color: '#ef4444', background: 'rgba(239,68,68,0.15)', padding: '1px 8px', borderRadius: '4px', marginLeft: '4px' }}>
+                  <span style={{ fontSize: '10px', fontWeight: 700, color: '#ef4444', background: 'rgba(239,68,68,0.15)', padding: '2px 10px', borderRadius: '4px', marginLeft: '6px' }}>
                     ⚠ SUSPECT
                   </span>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#64748b', minWidth: '36px' }}>À:</span>
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#94a3b8' }}>
+                <div className="flex items-start gap-3">
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#64748b', minWidth: '42px' }}>À:</span>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#94a3b8' }}>
                     j.dupont@entreprise.fr
                   </span>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#64748b', minWidth: '36px' }}>Objet:</span>
-                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 700, color: '#f59e0b' }}>
+                <div className="flex items-start gap-3">
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#64748b', minWidth: '42px' }}>Objet:</span>
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#f59e0b' }}>
                     ⚠️ Urgent : Votre compte Microsoft 365 sera suspendu sous 24h
                   </span>
                 </div>
               </div>
 
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#cbd5e1', lineHeight: 1.8 }}>
-                <p style={{ marginBottom: '0.8rem' }}>Cher utilisateur,</p>
-                <p style={{ marginBottom: '0.8rem' }}>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 2 }}>
+                <p style={{ marginBottom: '1rem' }}>Cher utilisateur,</p>
+                <p style={{ marginBottom: '1rem' }}>
                   Nous avons détecté une <strong>activité suspecte</strong> sur votre compte Microsoft 365. Pour des raisons de sécurité, votre compte sera <strong style={{ color: '#ef4444' }}>définitivement suspendu</strong> si vous ne vérifiez pas votre identité dans les <strong style={{ color: '#f59e0b' }}>24 prochaines heures</strong>.
                 </p>
                 <p style={{ marginBottom: '1.2rem' }}>
@@ -522,13 +522,13 @@ export default function Veille() {
                 🚩 SIGNAUX D'ALERTE
               </p>
             </div>
-            <div className="p-8 space-y-6">
+            <div className="p-8 space-y-5">
               {phishingRedFlags.map((rf, i) => (
-                <div key={i} className="rounded-lg p-5" style={{ background: `${rf.color}08`, border: `1px solid ${rf.color}15` }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 700, color: rf.color, marginBottom: '2px' }}>
+                <div key={i} className="rounded-lg p-6" style={{ background: `${rf.color}08`, border: `1px solid ${rf.color}15` }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: rf.color, marginBottom: '0.6rem' }}>
                     ⚠ {rf.flag}
                   </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#94a3b8', lineHeight: 1.5 }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.8 }}>
                     {rf.detail}
                   </p>
                 </div>
@@ -542,15 +542,15 @@ export default function Veille() {
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(220,38,38,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #dc2626, #f59e0b, #06b6d4)' }} />
-          <div className="p-8 md:p-12">
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.5rem' }}>
+          <div className="p-10 md:p-14">
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.2rem' }}>
               CAPTURES D'ÉCRAN — VRAIS MESSAGES DE PHISHING
             </p>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '3rem' }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '3rem' }}>
               Voici de vrais exemples de phishing interceptés en France — email bancaire, faux PayPal et SMS frauduleux. Apprenez à les reconnaître.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-8">
               {/* SMS Chronopost */}
               <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(6,182,212,0.2)' }}>
                 <div className="px-4 py-2.5" style={{ background: 'rgba(6,182,212,0.06)', borderBottom: '1px solid rgba(6,182,212,0.1)' }}>
@@ -564,11 +564,11 @@ export default function Veille() {
                     width: '100%', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)',
                   }} />
                 </div>
-                <div style={{ padding: '0 16px 16px' }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', fontWeight: 700, color: '#e2e8f0', marginBottom: '4px' }}>
+                <div style={{ padding: '4px 16px 18px' }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
                     Faux SMS Chronopost
                   </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', color: '#94a3b8', lineHeight: 1.5 }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.8 }}>
                     Le lien "chronopost-online-info.com" n'est pas le vrai site de Chronopost. L'URL frauduleuse vise à voler les données bancaires.
                   </p>
                 </div>
@@ -587,11 +587,11 @@ export default function Veille() {
                     width: '100%', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)',
                   }} />
                 </div>
-                <div style={{ padding: '0 16px 16px' }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', fontWeight: 700, color: '#e2e8f0', marginBottom: '4px' }}>
+                <div style={{ padding: '4px 16px 18px' }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
                     Faux email LCL Banque
                   </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', color: '#94a3b8', lineHeight: 1.5 }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.8 }}>
                     Demande de "mise à jour" du numéro de client. L'adresse expéditeur et le lien ne correspondent pas au domaine officiel de LCL.
                   </p>
                 </div>
@@ -610,11 +610,11 @@ export default function Veille() {
                     width: '100%', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)',
                   }} />
                 </div>
-                <div style={{ padding: '0 16px 16px' }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', fontWeight: 700, color: '#e2e8f0', marginBottom: '4px' }}>
+                <div style={{ padding: '4px 16px 18px' }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
                     Faux email PayPal
                   </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', color: '#94a3b8', lineHeight: 1.5 }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.8 }}>
                     "Your account has been limited" — urgence artificielle + bouton "Update your account" menant vers un faux site identique à PayPal.
                   </p>
                 </div>
@@ -628,8 +628,8 @@ export default function Veille() {
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(249,115,22,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #f97316, #f59e0b, #ef4444)' }} />
-          <div className="p-8 md:p-12">
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '3rem' }}>
+          <div className="p-10 md:p-14">
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '3rem' }}>
               Les campagnes de phishing les plus fréquentes visant les citoyens français — identifiées par <strong style={{ color: '#06b6d4' }}>Cybermalveillance.gouv.fr</strong>.
             </p>
 
@@ -647,21 +647,21 @@ export default function Veille() {
                   onMouseEnter={e => { e.currentTarget.style.borderColor = `${c.color}45`; e.currentTarget.style.transform = 'translateY(-3px)' }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = `${c.color}20`; e.currentTarget.style.transform = 'translateY(0)' }}
                 >
-                  <div className="p-7">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span style={{ fontSize: '24px' }}>{c.icon}</span>
+                  <div className="p-8">
+                    <div className="flex items-center gap-4 mb-5">
+                      <span style={{ fontSize: '28px' }}>{c.icon}</span>
                       <div className="flex-1 min-w-0">
-                        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0', lineHeight: 1.2 }}>
+                        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', lineHeight: 1.3, marginBottom: '0.4rem' }}>
                           {c.name}
                         </p>
                         <span style={{
-                          fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', fontWeight: 700,
+                          fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700,
                           color: c.color, background: `${c.color}12`, border: `1px solid ${c.color}25`,
-                          padding: '1px 6px', borderRadius: '4px',
+                          padding: '2px 8px', borderRadius: '4px',
                         }}>{c.frequency}</span>
                       </div>
                     </div>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#94a3b8', lineHeight: 1.6 }}>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.8 }}>
                       {c.desc}
                     </p>
                     {openCampaign === i && (
@@ -685,26 +685,26 @@ export default function Veille() {
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(220,38,38,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #64748b, #f59e0b, #ef4444, #f97316, #a855f7, #dc2626)' }} />
-          <div className="p-8 md:p-12">
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.5rem' }}>
+          <div className="p-10 md:p-14">
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.2rem' }}>
               DE LA RECONNAISSANCE À L'EXPLOITATION
             </p>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '3rem' }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '3rem' }}>
               Chaque étape d'une attaque par phishing est une opportunité de détection et de blocage pour le défenseur.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {killChain.map((step, i) => (
-                <div key={i} className="rounded-xl p-7 relative" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}25` }}>
-                  <div className="flex items-center gap-2 mb-3">
+                <div key={i} className="rounded-xl p-8 relative" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}25` }}>
+                  <div className="flex items-center gap-3 mb-5">
                     <span style={{
-                      fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 800,
+                      fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 800,
                       color: step.color, background: `${step.color}15`, border: `1px solid ${step.color}30`,
-                      padding: '2px 8px', borderRadius: '6px',
+                      padding: '3px 10px', borderRadius: '6px',
                     }}>{step.num}</span>
-                    <step.icon size={16} style={{ color: step.color }} />
+                    <step.icon size={18} style={{ color: step.color }} />
                   </div>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.3rem' }}>{step.title}</p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#94a3b8', lineHeight: 1.5 }}>{step.desc}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.8rem' }}>{step.title}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9 }}>{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -716,8 +716,8 @@ export default function Veille() {
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(168,85,247,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #a855f7, #ef4444, #f59e0b)' }} />
-          <div className="p-8 md:p-12">
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '3rem' }}>
+          <div className="p-10 md:p-14">
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '3rem' }}>
               Cyberattaques majeures ayant touché des organisations françaises — souvent initiées par du phishing. Données vérifiées via sources officielles (CNIL, ANSSI, CERT Santé).
             </p>
 
@@ -725,7 +725,7 @@ export default function Veille() {
               {attacksFrance.map((atk, i) => (
                 <div key={i}>
                   <button
-                    className="w-full flex items-center gap-6 px-6 py-5 rounded-xl transition-all text-left"
+                    className="w-full flex items-center gap-6 px-7 py-6 rounded-xl transition-all text-left"
                     style={{
                       background: openAttack === i ? `${atk.color}08` : 'rgba(0,0,0,0.2)',
                       border: `1px solid ${openAttack === i ? `${atk.color}30` : 'rgba(255,255,255,0.06)'}`,
@@ -734,26 +734,26 @@ export default function Veille() {
                     onClick={() => setOpenAttack(openAttack === i ? null : i)}
                   >
                     <span style={{
-                      fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700,
+                      fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700,
                       color: atk.color, background: `${atk.color}15`, border: `1px solid ${atk.color}30`,
-                      padding: '3px 10px', borderRadius: '6px', flexShrink: 0, minWidth: '90px', textAlign: 'center',
+                      padding: '4px 12px', borderRadius: '6px', flexShrink: 0, minWidth: '95px', textAlign: 'center',
                     }}>{atk.date}</span>
                     <div className="flex-1 min-w-0">
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0' }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.3rem' }}>
                         {atk.target}
                       </p>
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#64748b' }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b' }}>
                         {atk.type}
                       </p>
                     </div>
                     <ChevronDown size={16} style={{ color: '#475569', transform: openAttack === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0 }} />
                   </button>
                   {openAttack === i && (
-                    <div className="mx-5 px-5 py-4 rounded-b-xl" style={{ background: 'rgba(0,0,0,0.3)', borderTop: `1px solid ${atk.color}15` }}>
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#cbd5e1', lineHeight: 1.7, marginBottom: '1.5rem' }}>
+                    <div className="mx-5 px-6 py-5 rounded-b-xl" style={{ background: 'rgba(0,0,0,0.3)', borderTop: `1px solid ${atk.color}15` }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 1.9, marginBottom: '1.5rem' }}>
                         <strong style={{ color: atk.color }}>Impact :</strong> {atk.impact}
                       </p>
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '0.8rem' }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '1rem' }}>
                         {atk.detail}
                       </p>
                       <a href={atk.source} target="_blank" rel="noopener noreferrer"
@@ -781,22 +781,22 @@ export default function Veille() {
               onMouseLeave={e => e.currentTarget.style.borderColor = `${stat.color}20`}
             >
               <div style={{ height: '3px', background: stat.color }} />
-              <div className="p-8 text-center">
+              <div className="p-8 md:p-10 text-center">
                 <p style={{
                   fontFamily: "'Orbitron', system-ui, sans-serif",
-                  fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
+                  fontSize: 'clamp(1.6rem, 4vw, 2.4rem)',
                   fontWeight: 900, color: stat.color,
-                  marginBottom: '0.3rem', lineHeight: 1,
+                  marginBottom: '0.8rem', lineHeight: 1,
                 }}>
                   {stat.value}
                 </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.2rem' }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
                   {stat.label}
                 </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', color: '#64748b', lineHeight: 1.4 }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', lineHeight: 1.7 }}>
                   {stat.detail}
                 </p>
-                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#334155', marginTop: '0.4rem' }}>
+                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#334155', marginTop: '0.8rem' }}>
                   {stat.source}
                 </p>
               </div>
@@ -809,75 +809,75 @@ export default function Veille() {
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(168,85,247,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #a855f7, #ec4899, #ef4444)' }} />
-          <div className="p-8 md:p-12">
-            <div className="flex items-start gap-6 mb-10">
+          <div className="p-10 md:p-14">
+            <div className="flex items-start gap-6 mb-12">
               <div style={{
-                width: '52px', height: '52px', borderRadius: '14px',
+                width: '56px', height: '56px', borderRadius: '14px',
                 background: 'rgba(168,85,247,0.12)', border: '1px solid rgba(168,85,247,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <Brain size={24} style={{ color: '#a855f7' }} />
+                <Brain size={26} style={{ color: '#a855f7' }} />
               </div>
               <div>
-                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.2rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '0.6rem' }}>
+                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem', letterSpacing: '0.01em' }}>
                   L'IA révolutionne le phishing
                 </h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7 }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2 }}>
                   Les LLM, le deepfake et le Phishing-as-a-Service transforment radicalement le paysage. Les emails deviennent parfaits, personnalisés et produits à l'échelle industrielle.
                 </p>
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-8 mb-10">
+            <div className="grid sm:grid-cols-2 gap-8 mb-12">
               {aiImpacts.map((impact, i) => (
-                <div key={i} className="rounded-xl p-7" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${impact.color}20` }}>
-                  <div className="flex items-center gap-3 mb-3">
+                <div key={i} className="rounded-xl p-8" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${impact.color}20` }}>
+                  <div className="flex items-center gap-4 mb-5">
                     <div style={{
-                      width: '36px', height: '36px', borderRadius: '10px',
+                      width: '42px', height: '42px', borderRadius: '12px',
                       background: `${impact.color}12`, border: `1px solid ${impact.color}25`,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      <impact.icon size={18} style={{ color: impact.color }} />
+                      <impact.icon size={20} style={{ color: impact.color }} />
                     </div>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0' }}>{impact.title}</p>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#e2e8f0' }}>{impact.title}</p>
                   </div>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.6, marginBottom: '0.8rem' }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '1.2rem' }}>
                     {impact.desc}
                   </p>
                   <span style={{
-                    fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700,
+                    fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700,
                     color: impact.color, background: `${impact.color}12`, border: `1px solid ${impact.color}25`,
-                    padding: '3px 10px', borderRadius: '6px',
+                    padding: '4px 12px', borderRadius: '6px',
                   }}>{impact.stat}</span>
                 </div>
               ))}
             </div>
 
             {/* Before/After */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-xl p-7" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(100,116,139,0.2)' }}>
-                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#64748b', letterSpacing: '0.1em', marginBottom: '0.8rem' }}>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="rounded-xl p-8" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(100,116,139,0.2)' }}>
+                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700, color: '#64748b', letterSpacing: '0.1em', marginBottom: '1.2rem' }}>
                   AVANT L'IA — Phishing classique
                 </p>
-                <div className="rounded-lg p-4" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#94a3b8', lineHeight: 1.6, fontStyle: 'italic' }}>
+                <div className="rounded-lg p-5" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9, fontStyle: 'italic' }}>
                     "Cher clien, nous avon detecte une probleme sur votre comptes bancaire. Cliquer ici pour verifier vos informations immediatement sinon votre compte sera bloquer."
                   </p>
                 </div>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', color: '#64748b', marginTop: '0.5rem' }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', marginTop: '1rem', lineHeight: 1.7 }}>
                   ❌ Fautes d'orthographe · Formulation maladroite · Facile à détecter
                 </p>
               </div>
-              <div className="rounded-xl p-7" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(239,68,68,0.2)' }}>
-                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#ef4444', letterSpacing: '0.1em', marginBottom: '0.8rem' }}>
+              <div className="rounded-xl p-8" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(239,68,68,0.2)' }}>
+                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700, color: '#ef4444', letterSpacing: '0.1em', marginBottom: '1.2rem' }}>
                   AVEC L'IA — Phishing augmenté
                 </p>
-                <div className="rounded-lg p-4" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#cbd5e1', lineHeight: 1.6, fontStyle: 'italic' }}>
+                <div className="rounded-lg p-5" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 1.9, fontStyle: 'italic' }}>
                     "Bonjour M. Dupont, suite à votre dernier achat chez Amazon le 15 avril, nous avons détecté une tentative de connexion inhabituelle depuis Bucarest. Veuillez confirmer votre identité via notre portail sécurisé sous 48h."
                   </p>
                 </div>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', color: '#ef4444', marginTop: '0.5rem' }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#ef4444', marginTop: '1rem', lineHeight: 1.7 }}>
                   ⚠ Parfait français · Personnalisé · Contexte crédible · Très difficile à détecter
                 </p>
               </div>
@@ -890,11 +890,11 @@ export default function Veille() {
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(16,185,129,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #ef4444, #f59e0b, #10b981)' }} />
-          <div className="p-8 md:p-12">
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '1.5rem' }}>
+          <div className="p-10 md:p-14">
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '1.5rem' }}>
               Procédure à suivre en cas de réception ou d'interaction avec un message de phishing — basée sur les recommandations de l'<strong style={{ color: '#3b82f6' }}>ANSSI</strong> et de <strong style={{ color: '#06b6d4' }}>Cybermalveillance.gouv.fr</strong>.
             </p>
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#f59e0b', marginBottom: '3rem' }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#f59e0b', marginBottom: '3rem' }}>
               ⚠ Si vous avez communiqué des identifiants, agissez immédiatement.
             </p>
 
@@ -902,7 +902,7 @@ export default function Veille() {
               {reactionSteps.map((step, i) => (
                 <div key={i}>
                   <button
-                    className="w-full flex items-center gap-4 px-6 py-5 rounded-xl transition-all text-left"
+                    className="w-full flex items-center gap-5 px-7 py-6 rounded-xl transition-all text-left"
                     style={{
                       background: openStep === i ? `${step.color}08` : 'rgba(0,0,0,0.2)',
                       border: `1px solid ${openStep === i ? `${step.color}30` : 'rgba(255,255,255,0.06)'}`,
@@ -911,29 +911,29 @@ export default function Veille() {
                     onClick={() => setOpenStep(openStep === i ? null : i)}
                   >
                     <div style={{
-                      width: '32px', height: '32px', borderRadius: '10px',
+                      width: '38px', height: '38px', borderRadius: '10px',
                       background: `${step.color}15`, border: `1px solid ${step.color}30`,
                       display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                     }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 800, color: step.color }}>{step.num}</span>
+                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 800, color: step.color }}>{step.num}</span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0' }}>
+                      <div className="flex items-center gap-3">
+                        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0' }}>
                           {step.title}
                         </p>
                         <span style={{
-                          fontSize: '9px', fontWeight: 800, color: step.color,
+                          fontSize: '10px', fontWeight: 800, color: step.color,
                           background: `${step.color}12`, border: `1px solid ${step.color}25`,
-                          padding: '1px 6px', borderRadius: '4px',
+                          padding: '2px 8px', borderRadius: '4px',
                         }}>{step.priority}</span>
                       </div>
                     </div>
                     <ChevronDown size={14} style={{ color: '#475569', transform: openStep === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0 }} />
                   </button>
                   {openStep === i && (
-                    <div className="ml-14 mr-5 px-4 py-3 rounded-b-lg" style={{ background: 'rgba(0,0,0,0.25)', borderTop: `1px solid ${step.color}10` }}>
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#cbd5e1', lineHeight: 1.6 }}>
+                    <div className="ml-16 mr-5 px-6 py-5 rounded-b-lg" style={{ background: 'rgba(0,0,0,0.25)', borderTop: `1px solid ${step.color}10` }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 1.9 }}>
                         {step.desc}
                       </p>
                     </div>
@@ -961,17 +961,17 @@ export default function Veille() {
               }}
             >
               <div style={{
-                width: '42px', height: '42px', borderRadius: '12px',
+                width: '46px', height: '46px', borderRadius: '12px',
                 background: `${cm.color}12`, border: `1px solid ${cm.color}25`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                marginBottom: '1rem',
+                marginBottom: '1.2rem',
               }}>
-                <cm.icon size={20} style={{ color: cm.color }} />
+                <cm.icon size={22} style={{ color: cm.color }} />
               </div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.4rem' }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.8rem' }}>
                 {cm.title}
               </p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.6 }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9 }}>
                 {cm.desc}
               </p>
             </div>
@@ -984,16 +984,16 @@ export default function Veille() {
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
           {veilleMethode.map((step, i) => (
             <div key={i} className="rounded-2xl p-9 text-center" style={{ background: 'rgba(10,15,30,0.85)', border: `1px solid ${step.color}20` }}>
-              <div className="flex items-center justify-center mx-auto mb-3" style={{
-                width: '36px', height: '36px', borderRadius: '50%',
+              <div className="flex items-center justify-center mx-auto mb-5" style={{
+                width: '42px', height: '42px', borderRadius: '50%',
                 background: `${step.color}15`, border: `1px solid ${step.color}35`,
               }}>
-                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 800, color: step.color }}>{step.num}</span>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: step.color }}>{step.num}</span>
               </div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: step.color, marginBottom: '0.4rem' }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: step.color, marginBottom: '0.8rem' }}>
                 {step.title}
               </p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#94a3b8', lineHeight: 1.6 }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9 }}>
                 {step.desc}
               </p>
             </div>
@@ -1012,19 +1012,19 @@ export default function Veille() {
                 href={src.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-6 px-8 py-6 transition-all"
+                className="flex items-center gap-6 px-8 py-7 transition-all"
                 style={{ textDecoration: 'none' }}
                 onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.02)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
               >
                 <span style={{
-                  fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', fontWeight: 800,
+                  fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 800,
                   color: src.color, background: `${src.color}12`, border: `1px solid ${src.color}30`,
-                  padding: '3px 10px', borderRadius: '6px', minWidth: '52px', textAlign: 'center',
+                  padding: '4px 12px', borderRadius: '6px', minWidth: '56px', textAlign: 'center',
                 }}>{src.badge}</span>
                 <div className="flex-1 min-w-0">
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0' }}>{src.name}</p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#64748b' }}>{src.desc} — {src.detail}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.3rem' }}>{src.name}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', lineHeight: 1.6 }}>{src.desc} — {src.detail}</p>
                 </div>
                 <ExternalLink size={14} style={{ color: '#334155', flexShrink: 0 }} />
               </a>
@@ -1061,29 +1061,29 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ CONCLUSION ═══════════ */}
-        <div className="mt-36 rounded-2xl p-12 md:p-16" style={{ background: 'rgba(245,158,11,0.04)', border: '1px solid rgba(245,158,11,0.15)' }}>
-          <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.2rem' }}>
+        <div className="mt-40 rounded-2xl p-12 md:p-16" style={{ background: 'rgba(245,158,11,0.04)', border: '1px solid rgba(245,158,11,0.15)' }}>
+          <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '2rem' }}>
             Conclusion
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2, marginBottom: '2rem' }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.1, marginBottom: '2.5rem' }}>
             Le phishing reste la <strong style={{ color: '#f59e0b' }}>menace n°1 en France</strong> avec <strong style={{ color: '#ef4444' }}>64 000 demandes d'assistance en 2024</strong> sur Cybermalveillance.gouv.fr. Il est le vecteur initial de <strong style={{ color: '#10b981' }}>91% des cyberattaques</strong>, à l'origine des fuites massives de 2024 : <strong style={{ color: '#dc2626' }}>33 millions</strong> (Viamedis), <strong style={{ color: '#dc2626' }}>43 millions</strong> (France Travail), <strong style={{ color: '#dc2626' }}>19,2 millions</strong> (Free). L'intelligence artificielle amplifie cette menace avec des emails <strong style={{ color: '#a855f7' }}>parfaits et personnalisés</strong> (+1 200% d'emails de phishing) et des kits Phishing-as-a-Service accessibles <strong style={{ color: '#06b6d4' }}>dès 50€</strong>. La protection passe par une approche combinée : <strong style={{ color: '#10b981' }}>technique</strong> (MFA, filtrage email, SPF/DKIM/DMARC) et <strong style={{ color: '#a855f7' }}>humaine</strong> (sensibilisation, simulations de phishing). Chaque collaborateur est un maillon de la chaîne de sécurité.
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-3">
             {['Phishing', 'Smishing', 'Vishing', 'Quishing', 'Spear Phishing', 'ANSSI', 'CERT-FR', 'IA & Deepfake', 'Phishing-as-a-Service', 'NIS2', 'MFA', 'SPF/DKIM/DMARC'].map(tag => (
               <span key={tag} style={{
-                fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 600,
+                fontFamily: "'Inter', sans-serif", fontSize: '12px', fontWeight: 600,
                 color: '#f59e0b', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)',
-                padding: '3px 10px', borderRadius: '6px',
+                padding: '5px 14px', borderRadius: '8px',
               }}>{tag}</span>
             ))}
           </div>
         </div>
 
-        <div className="mt-20 flex flex-wrap items-center justify-between gap-3 px-2">
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#475569' }}>
+        <div className="mt-24 flex flex-wrap items-center justify-between gap-4 px-2">
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#475569' }}>
             Veille maintenue mensuellement — dernière mise à jour : mai 2026
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#475569' }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#475569' }}>
             Sources : ANSSI · CERT-FR · Cybermalveillance.gouv.fr · CNIL · Signal Spam · PHAROS
           </p>
         </div>
