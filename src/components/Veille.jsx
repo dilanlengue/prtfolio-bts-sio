@@ -212,7 +212,7 @@ export default function Veille() {
 
   return (
     <section id="veille" className="relative" style={{ paddingTop: '12rem', paddingBottom: '10rem' }}>
-      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* ═══════════ HEADER ═══════════ */}
         <div className="text-center" style={{ marginBottom: '7rem' }}>
@@ -328,7 +328,7 @@ export default function Veille() {
                 { title: 'Diffuser', desc: 'Documenter les résultats, partager les bonnes pratiques, mettre à jour les procédures de sécurité', color: '#8b5cf6' },
               ].map((step, i) => (
                 <div key={i} className="rounded-xl p-6" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}20` }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 800, color: step.color, marginBottom: '0.5rem' }}>{step.title}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 800, color: step.color, marginBottom: '1.5rem' }}>{step.title}</p>
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7 }}>{step.desc}</p>
                 </div>
               ))}
@@ -454,7 +454,7 @@ export default function Veille() {
               </div>
               <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#475569', marginLeft: '8px' }}>Email — Boîte de réception</span>
             </div>
-            <div className="p-5">
+            <div className="p-7">
               <div className="space-y-2 mb-4 pb-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                 <div className="flex items-start gap-2">
                   <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#64748b', minWidth: '36px' }}>De:</span>
@@ -522,9 +522,9 @@ export default function Veille() {
                 🚩 SIGNAUX D'ALERTE
               </p>
             </div>
-            <div className="p-5 space-y-5">
+            <div className="p-8 space-y-6">
               {phishingRedFlags.map((rf, i) => (
-                <div key={i} className="rounded-lg p-3" style={{ background: `${rf.color}08`, border: `1px solid ${rf.color}15` }}>
+                <div key={i} className="rounded-lg p-5" style={{ background: `${rf.color}08`, border: `1px solid ${rf.color}15` }}>
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 700, color: rf.color, marginBottom: '2px' }}>
                     ⚠ {rf.flag}
                   </p>
@@ -543,7 +543,7 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(220,38,38,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #dc2626, #f59e0b, #06b6d4)' }} />
           <div className="p-8 md:p-12">
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.5rem' }}>
               CAPTURES D'ÉCRAN — VRAIS MESSAGES DE PHISHING
             </p>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '3rem' }}>
@@ -647,7 +647,7 @@ export default function Veille() {
                   onMouseEnter={e => { e.currentTarget.style.borderColor = `${c.color}45`; e.currentTarget.style.transform = 'translateY(-3px)' }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = `${c.color}20`; e.currentTarget.style.transform = 'translateY(0)' }}
                 >
-                  <div className="p-5">
+                  <div className="p-7">
                     <div className="flex items-center gap-3 mb-3">
                       <span style={{ fontSize: '24px' }}>{c.icon}</span>
                       <div className="flex-1 min-w-0">
@@ -686,7 +686,7 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(220,38,38,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #64748b, #f59e0b, #ef4444, #f97316, #a855f7, #dc2626)' }} />
           <div className="p-8 md:p-12">
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.5rem' }}>
               DE LA RECONNAISSANCE À L'EXPLOITATION
             </p>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '3rem' }}>
@@ -694,7 +694,7 @@ export default function Veille() {
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {killChain.map((step, i) => (
-                <div key={i} className="rounded-xl p-5 relative" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}25` }}>
+                <div key={i} className="rounded-xl p-7 relative" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}25` }}>
                   <div className="flex items-center gap-2 mb-3">
                     <span style={{
                       fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 800,
@@ -725,7 +725,7 @@ export default function Veille() {
               {attacksFrance.map((atk, i) => (
                 <div key={i}>
                   <button
-                    className="w-full flex items-center gap-6 px-5 py-4 rounded-xl transition-all text-left"
+                    className="w-full flex items-center gap-6 px-6 py-5 rounded-xl transition-all text-left"
                     style={{
                       background: openAttack === i ? `${atk.color}08` : 'rgba(0,0,0,0.2)',
                       border: `1px solid ${openAttack === i ? `${atk.color}30` : 'rgba(255,255,255,0.06)'}`,
@@ -750,7 +750,7 @@ export default function Veille() {
                   </button>
                   {openAttack === i && (
                     <div className="mx-5 px-5 py-4 rounded-b-xl" style={{ background: 'rgba(0,0,0,0.3)', borderTop: `1px solid ${atk.color}15` }}>
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#cbd5e1', lineHeight: 1.7, marginBottom: '0.5rem' }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#cbd5e1', lineHeight: 1.7, marginBottom: '1.5rem' }}>
                         <strong style={{ color: atk.color }}>Impact :</strong> {atk.impact}
                       </p>
                       <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '0.8rem' }}>
@@ -810,16 +810,16 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(168,85,247,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #a855f7, #ec4899, #ef4444)' }} />
           <div className="p-8 md:p-12">
-            <div className="flex items-start gap-6 mb-6">
+            <div className="flex items-start gap-6 mb-10">
               <div style={{
-                width: '48px', height: '48px', borderRadius: '14px',
+                width: '52px', height: '52px', borderRadius: '14px',
                 background: 'rgba(168,85,247,0.12)', border: '1px solid rgba(168,85,247,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <Brain size={22} style={{ color: '#a855f7' }} />
+                <Brain size={24} style={{ color: '#a855f7' }} />
               </div>
               <div>
-                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '0.4rem' }}>
+                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.2rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '0.6rem' }}>
                   L'IA révolutionne le phishing
                 </h3>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7 }}>
@@ -828,9 +828,9 @@ export default function Veille() {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-6 mb-6">
+            <div className="grid sm:grid-cols-2 gap-8 mb-10">
               {aiImpacts.map((impact, i) => (
-                <div key={i} className="rounded-xl p-5" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${impact.color}20` }}>
+                <div key={i} className="rounded-xl p-7" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${impact.color}20` }}>
                   <div className="flex items-center gap-3 mb-3">
                     <div style={{
                       width: '36px', height: '36px', borderRadius: '10px',
@@ -855,7 +855,7 @@ export default function Veille() {
 
             {/* Before/After */}
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-xl p-5" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(100,116,139,0.2)' }}>
+              <div className="rounded-xl p-7" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(100,116,139,0.2)' }}>
                 <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#64748b', letterSpacing: '0.1em', marginBottom: '0.8rem' }}>
                   AVANT L'IA — Phishing classique
                 </p>
@@ -868,7 +868,7 @@ export default function Veille() {
                   ❌ Fautes d'orthographe · Formulation maladroite · Facile à détecter
                 </p>
               </div>
-              <div className="rounded-xl p-5" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(239,68,68,0.2)' }}>
+              <div className="rounded-xl p-7" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(239,68,68,0.2)' }}>
                 <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#ef4444', letterSpacing: '0.1em', marginBottom: '0.8rem' }}>
                   AVEC L'IA — Phishing augmenté
                 </p>
@@ -891,7 +891,7 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(16,185,129,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #ef4444, #f59e0b, #10b981)' }} />
           <div className="p-8 md:p-12">
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '0.5rem' }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '1.5rem' }}>
               Procédure à suivre en cas de réception ou d'interaction avec un message de phishing — basée sur les recommandations de l'<strong style={{ color: '#3b82f6' }}>ANSSI</strong> et de <strong style={{ color: '#06b6d4' }}>Cybermalveillance.gouv.fr</strong>.
             </p>
             <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#f59e0b', marginBottom: '3rem' }}>
@@ -902,7 +902,7 @@ export default function Veille() {
               {reactionSteps.map((step, i) => (
                 <div key={i}>
                   <button
-                    className="w-full flex items-center gap-3 px-5 py-4 rounded-xl transition-all text-left"
+                    className="w-full flex items-center gap-4 px-6 py-5 rounded-xl transition-all text-left"
                     style={{
                       background: openStep === i ? `${step.color}08` : 'rgba(0,0,0,0.2)',
                       border: `1px solid ${openStep === i ? `${step.color}30` : 'rgba(255,255,255,0.06)'}`,
@@ -1012,7 +1012,7 @@ export default function Veille() {
                 href={src.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-6 px-6 py-4 transition-all"
+                className="flex items-center gap-6 px-8 py-6 transition-all"
                 style={{ textDecoration: 'none' }}
                 onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.02)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
