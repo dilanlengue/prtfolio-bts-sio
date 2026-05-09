@@ -13,16 +13,16 @@ import {
 } from 'lucide-react'
 
 const items = [
-  { path: '/',            label: 'Présentation', Icon: Home },
-  { path: '/a-propos',    label: 'À propos',     Icon: User },
-  { path: '/competences', label: 'Compétences',  Icon: Layers },
-  { path: '/cv',          label: 'CV',           Icon: FileText },
-  { path: '/entreprise',  label: 'Entreprise',   Icon: Briefcase },
-  { path: '/projets',     label: 'Projets',      Icon: FolderKanban },
-  { path: '/bts',         label: 'BTS SIO',      Icon: GraduationCap },
+  { path: '/',               label: 'Présentation',   Icon: Home },
+  { path: '/a-propos',       label: 'À propos',       Icon: User },
+  { path: '/bts',            label: 'BTS SIO',        Icon: GraduationCap },
+  { path: '/entreprise',     label: 'Entreprise',     Icon: Briefcase },
+  { path: '/competences',    label: 'Compétences',    Icon: Layers },
+  { path: '/projets',        label: 'Projets',        Icon: FolderKanban },
   { path: '/certifications', label: 'Certifications', Icon: Award },
-  { path: '/veille',      label: 'Veille',       Icon: Radar },
-  { path: '/contact',     label: 'Contact',      Icon: Mail },
+  { path: '/veille',         label: 'Veille',         Icon: Radar },
+  { path: '/cv',             label: 'CV',             Icon: FileText },
+  { path: '/contact',        label: 'Contact',        Icon: Mail },
 ]
 
 export default function SideNav() {

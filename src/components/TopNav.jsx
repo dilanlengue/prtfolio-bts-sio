@@ -3,16 +3,16 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Terminal, Download, ChevronRight } from 'lucide-react'
 
 const navLinks = [
-  { path: '/',              label: 'Présentation' },
-  { path: '/a-propos',      label: 'À propos' },
-  { path: '/competences',   label: 'Compétences' },
-  { path: '/cv',            label: 'CV' },
-  { path: '/entreprise',    label: 'Entreprise' },
-  { path: '/projets',       label: 'Projets' },
-  { path: '/bts',           label: 'BTS SIO' },
+  { path: '/',               label: 'Présentation' },
+  { path: '/a-propos',       label: 'À propos' },
+  { path: '/bts',            label: 'BTS SIO' },
+  { path: '/entreprise',     label: 'Entreprise' },
+  { path: '/competences',    label: 'Compétences' },
+  { path: '/projets',        label: 'Projets' },
   { path: '/certifications', label: 'Certifications' },
-  { path: '/veille',        label: 'Veille' },
-  { path: '/contact',       label: 'Contact' },
+  { path: '/veille',         label: 'Veille' },
+  { path: '/cv',             label: 'CV' },
+  { path: '/contact',        label: 'Contact' },
 ]
 
 export default function TopNav() {
