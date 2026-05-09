@@ -12,12 +12,12 @@ export default function SectionLabel({ label, color = '#22d3ee', mt = 'my-20' })
       <span
         style={{
           fontFamily: "'JetBrains Mono', monospace",
-          fontSize: '12px',
-          fontWeight: 700,
+          fontSize: '15px',
+          fontWeight: 800,
           color,
           letterSpacing: '0.22em',
           whiteSpace: 'nowrap',
-          textShadow: `0 0 16px ${color}66`,
+          textShadow: `0 0 20px ${color}66`,
         }}
       >
         ── {label} ──

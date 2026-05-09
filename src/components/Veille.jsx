@@ -212,7 +212,7 @@ export default function Veille() {
 
   return (
     <section id="veille" className="relative" style={{ paddingTop: '12rem', paddingBottom: '10rem' }}>
-      <div className="w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* ═══════════ HEADER ═══════════ */}
         <div className="text-center" style={{ marginBottom: '8rem' }}>
@@ -299,21 +299,21 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ DÉFINITION VEILLE ═══════════ */}
-        <SectionLabel label="QU'EST-CE QUE LA VEILLE ?" color="#06b6d4" mt="mt-20 mb-14" />
+        <SectionLabel label="QU'EST-CE QUE LA VEILLE ?" color="#06b6d4" mt="mt-28 mb-20" />
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(6,182,212,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6)' }} />
           <div className="p-10 md:p-14">
             <div className="flex items-start gap-6 mb-10">
               <div style={{
-                width: '56px', height: '56px', borderRadius: '14px',
+                width: '60px', height: '60px', borderRadius: '16px',
                 background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <BookOpen size={26} style={{ color: '#06b6d4' }} />
+                <BookOpen size={28} style={{ color: '#06b6d4' }} />
               </div>
               <div>
-                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem', letterSpacing: '0.01em' }}>
+                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.5rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1.2rem', letterSpacing: '0.02em' }}>
                   Définition de la veille technologique
                 </h3>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#cbd5e1', lineHeight: 2 }}>
@@ -337,21 +337,21 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ DÉFINITION PHISHING ═══════════ */}
-        <SectionLabel label="LE PHISHING (HAMEÇONNAGE)" color="#f59e0b" mt="mt-44 mb-16" />
+        <SectionLabel label="LE PHISHING (HAMEÇONNAGE)" color="#f59e0b" mt="mt-48 mb-20" />
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(245,158,11,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #f59e0b, #ef4444, #a855f7)' }} />
           <div className="p-10 md:p-14">
             <div className="flex items-start gap-6 mb-10">
               <div style={{
-                width: '56px', height: '56px', borderRadius: '14px',
+                width: '60px', height: '60px', borderRadius: '16px',
                 background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <Mail size={26} style={{ color: '#f59e0b' }} />
+                <Mail size={28} style={{ color: '#f59e0b' }} />
               </div>
               <div>
-                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem', letterSpacing: '0.01em' }}>
+                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.5rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1.2rem', letterSpacing: '0.02em' }}>
                   Qu'est-ce que le phishing ?
                 </h3>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#cbd5e1', lineHeight: 2 }}>
@@ -361,24 +361,24 @@ export default function Veille() {
             </div>
 
             {/* Types de phishing — tabs */}
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.5rem' }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.18em', marginBottom: '2rem' }}>
               LES 6 FORMES DE PHISHING
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-3 mb-8">
               {phishingTypes.map((type, i) => (
                 <button
                   key={i}
                   onClick={() => setOpenType(i)}
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-lg transition-all"
+                  className="flex items-center gap-3 px-5 py-3 rounded-xl transition-all"
                   style={{
                     background: openType === i ? `${type.color}15` : 'rgba(0,0,0,0.2)',
                     border: `1px solid ${openType === i ? `${type.color}40` : 'rgba(255,255,255,0.06)'}`,
-                    cursor: 'pointer', fontSize: '13px', fontWeight: 700,
+                    cursor: 'pointer', fontSize: '14px', fontWeight: 700,
                     color: openType === i ? type.color : '#94a3b8',
                   }}
                 >
-                  <type.icon size={14} />
+                  <type.icon size={18} />
                   {type.title.split('(')[0].trim()}
                 </button>
               ))}
@@ -442,7 +442,7 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ ANATOMIE EMAIL PHISHING ═══════════ */}
-        <SectionLabel label="ANATOMIE D'UN EMAIL DE PHISHING" color="#ef4444" mt="mt-44 mb-16" />
+        <SectionLabel label="ANATOMIE D'UN EMAIL DE PHISHING" color="#ef4444" mt="mt-48 mb-20" />
 
         <div className="grid lg:grid-cols-5 gap-8">
           <div className="lg:col-span-3 rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(245,158,11,0.15)' }}>
@@ -538,12 +538,12 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ EXEMPLES RÉELS ═══════════ */}
-        <SectionLabel label="EXEMPLES RÉELS DE PHISHING" color="#dc2626" mt="mt-44 mb-16" />
+        <SectionLabel label="EXEMPLES RÉELS DE PHISHING" color="#dc2626" mt="mt-48 mb-20" />
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(220,38,38,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #dc2626, #f59e0b, #06b6d4)' }} />
           <div className="p-10 md:p-14">
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.2rem' }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.18em', marginBottom: '1.5rem' }}>
               CAPTURES D'ÉCRAN — VRAIS MESSAGES DE PHISHING
             </p>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '3rem' }}>
@@ -553,10 +553,10 @@ export default function Veille() {
             <div className="grid md:grid-cols-3 gap-8">
               {/* SMS Chronopost */}
               <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(6,182,212,0.2)' }}>
-                <div className="px-4 py-2.5" style={{ background: 'rgba(6,182,212,0.06)', borderBottom: '1px solid rgba(6,182,212,0.1)' }}>
+                <div className="px-5 py-3.5" style={{ background: 'rgba(6,182,212,0.06)', borderBottom: '1px solid rgba(6,182,212,0.1)' }}>
                   <div className="flex items-center gap-2">
-                    <Smartphone size={13} style={{ color: '#06b6d4' }} />
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#06b6d4' }}>SMISHING — SMS</span>
+                    <Smartphone size={16} style={{ color: '#06b6d4' }} />
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#06b6d4' }}>SMISHING — SMS</span>
                   </div>
                 </div>
                 <div style={{ padding: '12px' }}>
@@ -576,10 +576,10 @@ export default function Veille() {
 
               {/* Email LCL */}
               <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(245,158,11,0.2)' }}>
-                <div className="px-4 py-2.5" style={{ background: 'rgba(245,158,11,0.06)', borderBottom: '1px solid rgba(245,158,11,0.1)' }}>
+                <div className="px-5 py-3.5" style={{ background: 'rgba(245,158,11,0.06)', borderBottom: '1px solid rgba(245,158,11,0.1)' }}>
                   <div className="flex items-center gap-2">
-                    <Mail size={13} style={{ color: '#f59e0b' }} />
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#f59e0b' }}>PHISHING — EMAIL BANCAIRE</span>
+                    <Mail size={16} style={{ color: '#f59e0b' }} />
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#f59e0b' }}>PHISHING — EMAIL BANCAIRE</span>
                   </div>
                 </div>
                 <div style={{ padding: '12px' }}>
@@ -599,10 +599,10 @@ export default function Veille() {
 
               {/* PayPal */}
               <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(168,85,247,0.2)' }}>
-                <div className="px-4 py-2.5" style={{ background: 'rgba(168,85,247,0.06)', borderBottom: '1px solid rgba(168,85,247,0.1)' }}>
+                <div className="px-5 py-3.5" style={{ background: 'rgba(168,85,247,0.06)', borderBottom: '1px solid rgba(168,85,247,0.1)' }}>
                   <div className="flex items-center gap-2">
-                    <CreditCard size={13} style={{ color: '#a855f7' }} />
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700, color: '#a855f7' }}>PHISHING — PAIEMENT</span>
+                    <CreditCard size={16} style={{ color: '#a855f7' }} />
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#a855f7' }}>PHISHING — PAIEMENT</span>
                   </div>
                 </div>
                 <div style={{ padding: '12px' }}>
@@ -624,7 +624,7 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ CAMPAGNES EN FRANCE ═══════════ */}
-        <SectionLabel label="CAMPAGNES DE PHISHING EN FRANCE" color="#f97316" mt="mt-44 mb-16" />
+        <SectionLabel label="CAMPAGNES DE PHISHING EN FRANCE" color="#f97316" mt="mt-48 mb-20" />
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(249,115,22,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #f97316, #f59e0b, #ef4444)' }} />
@@ -681,12 +681,12 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ KILL CHAIN ═══════════ */}
-        <SectionLabel label="CHAÎNE D'ATTAQUE PAR PHISHING" color="#dc2626" mt="mt-44 mb-16" />
+        <SectionLabel label="CHAÎNE D'ATTAQUE PAR PHISHING" color="#dc2626" mt="mt-48 mb-20" />
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(220,38,38,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #64748b, #f59e0b, #ef4444, #f97316, #a855f7, #dc2626)' }} />
           <div className="p-10 md:p-14">
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.2rem' }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.18em', marginBottom: '1.5rem' }}>
               DE LA RECONNAISSANCE À L'EXPLOITATION
             </p>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '3rem' }}>
@@ -695,13 +695,13 @@ export default function Veille() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {killChain.map((step, i) => (
                 <div key={i} className="rounded-xl p-8 relative" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}25` }}>
-                  <div className="flex items-center gap-3 mb-5">
+                  <div className="flex items-center gap-4 mb-6">
                     <span style={{
-                      fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 800,
+                      fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800,
                       color: step.color, background: `${step.color}15`, border: `1px solid ${step.color}30`,
-                      padding: '3px 10px', borderRadius: '6px',
+                      padding: '5px 12px', borderRadius: '8px',
                     }}>{step.num}</span>
-                    <step.icon size={18} style={{ color: step.color }} />
+                    <step.icon size={22} style={{ color: step.color }} />
                   </div>
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.8rem' }}>{step.title}</p>
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9 }}>{step.desc}</p>
@@ -712,7 +712,7 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ ATTAQUES EN FRANCE ═══════════ */}
-        <SectionLabel label="INCIDENTS MAJEURS EN FRANCE (2024-2026)" color="#a855f7" mt="mt-44 mb-16" />
+        <SectionLabel label="INCIDENTS MAJEURS EN FRANCE (2024-2026)" color="#a855f7" mt="mt-48 mb-20" />
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(168,85,247,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #a855f7, #ef4444, #f59e0b)' }} />
@@ -771,7 +771,7 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ STATISTIQUES ═══════════ */}
-        <SectionLabel label="CHIFFRES CLÉS" color="#06b6d4" mt="mt-44 mb-16" />
+        <SectionLabel label="CHIFFRES CLÉS" color="#06b6d4" mt="mt-48 mb-20" />
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
           {statistics.map((stat, i) => (
@@ -805,21 +805,21 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ IMPACT IA ═══════════ */}
-        <SectionLabel label="IMPACT DE L'IA SUR LE PHISHING" color="#a855f7" mt="mt-44 mb-16" />
+        <SectionLabel label="IMPACT DE L'IA SUR LE PHISHING" color="#a855f7" mt="mt-48 mb-20" />
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(168,85,247,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #a855f7, #ec4899, #ef4444)' }} />
           <div className="p-10 md:p-14">
             <div className="flex items-start gap-6 mb-12">
               <div style={{
-                width: '56px', height: '56px', borderRadius: '14px',
+                width: '60px', height: '60px', borderRadius: '16px',
                 background: 'rgba(168,85,247,0.12)', border: '1px solid rgba(168,85,247,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <Brain size={26} style={{ color: '#a855f7' }} />
+                <Brain size={28} style={{ color: '#a855f7' }} />
               </div>
               <div>
-                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem', letterSpacing: '0.01em' }}>
+                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.5rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1.2rem', letterSpacing: '0.02em' }}>
                   L'IA révolutionne le phishing
                 </h3>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2 }}>
@@ -886,7 +886,7 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ QUE FAIRE ═══════════ */}
-        <SectionLabel label="QUE FAIRE EN CAS DE PHISHING ?" color="#10b981" mt="mt-44 mb-16" />
+        <SectionLabel label="QUE FAIRE EN CAS DE PHISHING ?" color="#10b981" mt="mt-48 mb-20" />
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(16,185,129,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #ef4444, #f59e0b, #10b981)' }} />
@@ -911,11 +911,11 @@ export default function Veille() {
                     onClick={() => setOpenStep(openStep === i ? null : i)}
                   >
                     <div style={{
-                      width: '38px', height: '38px', borderRadius: '10px',
+                      width: '44px', height: '44px', borderRadius: '12px',
                       background: `${step.color}15`, border: `1px solid ${step.color}30`,
                       display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                     }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 800, color: step.color }}>{step.num}</span>
+                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: step.color }}>{step.num}</span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3">
@@ -945,7 +945,7 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ CONTRE-MESURES ═══════════ */}
-        <SectionLabel label="CONTRE-MESURES & BONNES PRATIQUES" color="#10b981" mt="mt-44 mb-16" />
+        <SectionLabel label="CONTRE-MESURES & BONNES PRATIQUES" color="#10b981" mt="mt-48 mb-20" />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {counterMeasures.map((cm, i) => (
@@ -961,12 +961,12 @@ export default function Veille() {
               }}
             >
               <div style={{
-                width: '46px', height: '46px', borderRadius: '12px',
+                width: '54px', height: '54px', borderRadius: '14px',
                 background: `${cm.color}12`, border: `1px solid ${cm.color}25`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                marginBottom: '1.2rem',
+                marginBottom: '1.5rem',
               }}>
-                <cm.icon size={22} style={{ color: cm.color }} />
+                <cm.icon size={26} style={{ color: cm.color }} />
               </div>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.8rem' }}>
                 {cm.title}
@@ -979,13 +979,13 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ MA DÉMARCHE ═══════════ */}
-        <SectionLabel label="MA DÉMARCHE DE VEILLE" color="#f59e0b" mt="mt-44 mb-16" />
+        <SectionLabel label="MA DÉMARCHE DE VEILLE" color="#f59e0b" mt="mt-48 mb-20" />
 
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
           {veilleMethode.map((step, i) => (
             <div key={i} className="rounded-2xl p-9 text-center" style={{ background: 'rgba(10,15,30,0.85)', border: `1px solid ${step.color}20` }}>
-              <div className="flex items-center justify-center mx-auto mb-5" style={{
-                width: '42px', height: '42px', borderRadius: '50%',
+              <div className="flex items-center justify-center mx-auto mb-6" style={{
+                width: '52px', height: '52px', borderRadius: '50%',
                 background: `${step.color}15`, border: `1px solid ${step.color}35`,
               }}>
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: step.color }}>{step.num}</span>
@@ -1001,7 +1001,7 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ SOURCES OFFICIELLES ═══════════ */}
-        <SectionLabel label="SOURCES OFFICIELLES" color="#3b82f6" mt="mt-44 mb-16" />
+        <SectionLabel label="SOURCES OFFICIELLES" color="#3b82f6" mt="mt-48 mb-20" />
 
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(59,130,246,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #3b82f6, #06b6d4, #10b981)' }} />
