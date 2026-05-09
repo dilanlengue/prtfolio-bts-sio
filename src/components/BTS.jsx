@@ -580,7 +580,7 @@ export default function BTS() {
           >
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 400, color: '#e6ecf8', lineHeight: 1.7 }}>
               <span style={{ color: '#22d3ee', fontWeight: 700 }}>Institut F2I</span>
-              {' '}(groupe IEF2I) · Option SISR · 2 stages (B&amp;A Conseil + Les Réparateurs Mac &amp; PC) ·Diplôme visé{' '}
+              {' '}(groupe IEF2I) · Option SISR · 2 stages (B&amp;A Conseil + Les Réparateurs Mac &amp; PC) · Diplôme visé{' '}
               <span style={{ color: '#d4af37', fontWeight: 700 }}>juin 2026</span>
             </p>
           </div>

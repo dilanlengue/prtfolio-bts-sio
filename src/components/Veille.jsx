@@ -284,7 +284,7 @@ export default function Veille() {
               border: '1px solid rgba(245,158,11,0.2)',
               borderRadius: '99px',
             }}>
-              BTS SIO SISR — Épreuve E5
+              BTS SIO SISR — Épreuve E6
             </span>
           </div>
           <h2 style={{

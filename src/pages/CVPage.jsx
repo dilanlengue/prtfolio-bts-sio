@@ -70,7 +70,7 @@ const sections = [
         title: 'Technicien Informatique',
         org: 'Douala IT-Tech Solution & Innovation, Cameroun',
         details: [
-          'Installation et configuration de 250 postes au Lycée de Nyall',
+          'Installation et configuration de 250 postes au Lycée de Nyalla',
           'Câblage réseau, création de l\'infrastructure locale',
           'Paramétrage des sessions et gestion des droits',
         ],
@@ -103,14 +103,14 @@ const sections = [
   {
     id: 'certifications',
     icon: Award,
-    title: 'Certifications',
+    title: 'Certifications & Diplôme',
     color: '#22c55e',
     items: [
       {
         period: 'Janv 2026',
         title: 'SecNumacadémie ANSSI',
         org: 'Agence Nationale de la Sécurité des Systèmes d\'Information',
-        details: ['4 modules validés — Cybersécurité, Authentification, Chiffrement, Sécurité réseau'],
+        details: ['4 modules validés — Panorama de la SSI, Authentification, Sécurité sur Internet, Sécurité du poste de travail'],
       },
       {
         period: '2026',
@@ -126,8 +126,8 @@ const sections = [
     title: 'Langues',
     color: '#f472b6',
     langues: [
-      { flag: '🇬🇧', lang: 'Anglais', level: 'Langue maternelle', pct: 100 },
-      { flag: '🇫🇷', lang: 'Français', level: 'C1 — Avancé', pct: 90 },
+      { flag: '🇬🇧', lang: 'Anglais', level: 'Bilingue', pct: 90 },
+      { flag: '🇫🇷', lang: 'Français', level: 'C2 — Courant', pct: 95 },
       { flag: '🇧🇷', lang: 'Portugais', level: 'Débutant', pct: 20 },
     ],
   },

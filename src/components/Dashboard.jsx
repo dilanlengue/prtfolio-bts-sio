@@ -33,7 +33,7 @@ function CountUp({ target, suffix = '', prefix = '' }) {
 /* ─── Data ─── */
 const statsData = [
   { value: 6,  suffix: '',  label: 'PROJETS RÉALISÉS',     desc: 'Infrastructure, support & développement',  color: '#22d3ee', icon: FolderKanban },
-  { value: 3,  suffix: '',  label: 'CERTIFICATIONS',       desc: 'Obtenues et validées',                     color: '#a78bfa', icon: Award },
+  { value: 2,  suffix: '',  label: 'CERTIFICATIONS',       desc: 'Obtenues et validées',                     color: '#a78bfa', icon: Award },
   { value: 2,  suffix: '',  label: 'EN COURS',             desc: 'Certifications en préparation',            color: '#22c55e', icon: ShieldCheck },
   { value: 2,  suffix: '',  label: 'ANNÉES D\'EXPÉRIENCE',  desc: 'Formation + stages en entreprise',         color: '#f59e0b', icon: CalendarDays },
 ]
@@ -106,7 +106,7 @@ export default function Dashboard() {
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
-                  { icon: CalendarDays, label: '23 ans', color: '#22d3ee' },
+                  { icon: CalendarDays, label: `${new Date().getFullYear() - 2003} ans`, color: '#22d3ee' },
                   { icon: Globe, label: 'Bilingue FR / EN', color: '#34d399' },
                   { icon: Award, label: 'Institut F2I', color: '#a78bfa' },
                   { icon: Shield, label: 'BTS SIO option SISR', color: '#fb7185' },
@@ -152,7 +152,7 @@ export default function Dashboard() {
             <div className="lg:col-span-3" style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
               <div className="rounded-xl" style={{ padding: '1.8rem 2rem', borderLeft: '3px solid #818cf8', background: 'linear-gradient(135deg, rgba(129,140,248,0.04), transparent)' }}>
                 <p style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif", fontSize: '17px', fontWeight: 400, color: '#cbd5e1', lineHeight: 2 }}>
-                  Je m'appelle <strong style={{ color: '#818cf8', fontWeight: 700 }}>Dilan Lengue</strong>, j'ai <strong style={{ color: '#22d3ee', fontWeight: 700 }}>23 ans</strong> et je suis {'é'}tudiant en <strong style={{ color: '#818cf8', fontWeight: 700 }}>BTS SIO</strong> (Services Informatiques aux Organisations), option <strong style={{ color: '#a78bfa', fontWeight: 700 }}>SISR</strong> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'<strong style={{ color: '#f1f5f9', fontWeight: 600 }}>Institut F2I</strong>. <span style={{ color: '#34d399', fontWeight: 600 }}>Bilingue fran{'ç'}ais / anglais</span>, passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique.
+                  Je m'appelle <strong style={{ color: '#818cf8', fontWeight: 700 }}>Dilan Lengue</strong>, j'ai <strong style={{ color: '#22d3ee', fontWeight: 700 }}>{new Date().getFullYear() - 2003} ans</strong> et je suis {'é'}tudiant en <strong style={{ color: '#818cf8', fontWeight: 700 }}>BTS SIO</strong> (Services Informatiques aux Organisations), option <strong style={{ color: '#a78bfa', fontWeight: 700 }}>SISR</strong> (Solutions d'Infrastructure, Syst{'è'}mes et R{'é'}seaux) {'à'} l'<strong style={{ color: '#f1f5f9', fontWeight: 600 }}>Institut F2I</strong>. <span style={{ color: '#34d399', fontWeight: 600 }}>Bilingue fran{'ç'}ais / anglais</span>, passionn{'é'} par les technologies de l'information, j'ai choisi cette sp{'é'}cialisation pour d{'é'}velopper mes comp{'é'}tences en administration r{'é'}seau, gestion de serveurs et s{'é'}curit{'é'} informatique.
                 </p>
               </div>
               <div className="rounded-xl" style={{ padding: '1.8rem 2rem', borderLeft: '3px solid #22d3ee', background: 'linear-gradient(135deg, rgba(34,211,238,0.04), transparent)' }}>

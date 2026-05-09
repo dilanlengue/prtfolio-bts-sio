@@ -547,7 +547,7 @@ export default function Parcours() {
                   backgroundClip: 'text',
                   lineHeight: 1.2,
                 }}>
-                  Devenir Experte en Cybersécurité
+                  Devenir Expert en Cybersécurité
                 </h3>
               </div>
             </div>
@@ -575,7 +575,7 @@ export default function Parcours() {
                   step: '03',
                   title: 'Expert Cybersécurité',
                   subtitle: '& Pen Tester',
-                  desc: 'Devenir experte en sécurité informatique et pentesting : tests d\'intrusion, analyse de vulnérabilités et protection des SI.',
+                  desc: 'Devenir expert en sécurité informatique et pentesting : tests d\'intrusion, analyse de vulnérabilités et protection des SI.',
                   status: 'But final',
                   color: '#818cf8',
                 },
