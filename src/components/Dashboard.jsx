@@ -268,24 +268,89 @@ export default function Dashboard() {
           <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #818cf8)', borderRadius: '2px' }} />
         </div>
 
-        <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '2rem', marginTop: '2rem' }}>
+        <div className="animate-fade-up grid grid-cols-2 sm:grid-cols-4" style={{ gap: '1.5rem', marginTop: '2rem' }}>
           {[
-            { label: 'LinkedIn', desc: 'Profil professionnel', href: 'https://www.linkedin.com/in/dilan-lengue', color: '#0A66C2', icon: (<svg viewBox="0 0 24 24" fill="currentColor" width="38" height="38"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>) },
-            { label: 'GitHub', desc: 'Mes projets', href: 'https://github.com/dilan-lengue', color: '#e6ecf8', icon: (<svg viewBox="0 0 24 24" fill="currentColor" width="38" height="38"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>) },
-            { label: 'Discord', desc: 'Communauté', href: '#contact', color: '#5865F2', icon: (<svg viewBox="0 0 24 24" fill="currentColor" width="38" height="38"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>) },
-            { label: 'Email', desc: 'Me contacter', href: 'mailto:lenguedilan@gmail.com', color: '#22d3ee', icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="38" height="38"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>) },
+            { label: 'LinkedIn', desc: 'Profil pro', href: 'https://www.linkedin.com/in/dilan-lengue-600827353', color: '#0A66C2', glow: 'rgba(10,102,194,0.4)', icon: (<svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>) },
+            { label: 'GitHub', desc: 'Mes projets', href: 'https://github.com/dilan-lengue', color: '#c9d1d9', glow: 'rgba(201,209,217,0.3)', icon: (<svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>) },
+            { label: 'Discord', desc: 'Communauté', href: '#contact', color: '#5865F2', glow: 'rgba(88,101,242,0.4)', icon: (<svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>) },
+            { label: 'Email', desc: 'Me contacter', href: 'mailto:lenguedilan@gmail.com', color: '#22d3ee', glow: 'rgba(34,211,238,0.3)', icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="32" height="32"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>) },
           ].map((net, i) => (
             <a key={i} href={net.href} target={net.href.startsWith('http') ? '_blank' : undefined} rel={net.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="group flex flex-col items-center gap-4 rounded-2xl transition-all duration-300"
-              style={{ textDecoration: 'none', padding: '2.5rem 2rem', background: 'linear-gradient(145deg, rgba(11,16,32,0.8), rgba(15,20,40,0.65))', border: `2px solid ${net.color}18` }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = `${net.color}55`; e.currentTarget.style.boxShadow = `0 16px 40px rgba(0,0,0,0.35), 0 0 30px ${net.color}12`; e.currentTarget.style.transform = 'translateY(-6px)' }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = `${net.color}18`; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'translateY(0)' }}
+              className="group relative flex flex-col items-center gap-3 rounded-2xl transition-all duration-500"
+              style={{
+                textDecoration: 'none',
+                padding: '2rem 1.5rem',
+                background: 'linear-gradient(160deg, rgba(15,23,42,0.9), rgba(30,27,75,0.6))',
+                border: `1.5px solid ${net.color}20`,
+                overflow: 'hidden',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = `${net.color}60`
+                e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.4), 0 0 40px ${net.glow}, inset 0 1px 0 ${net.color}25`
+                e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)'
+                e.currentTarget.querySelector('.net-glow').style.opacity = '1'
+                e.currentTarget.querySelector('.net-icon').style.transform = 'scale(1.1) rotate(-3deg)'
+                e.currentTarget.querySelector('.net-icon').style.boxShadow = `0 0 30px ${net.glow}, 0 0 60px ${net.glow}`
+                e.currentTarget.querySelector('.net-ring').style.transform = 'scale(1.5)'
+                e.currentTarget.querySelector('.net-ring').style.opacity = '0.15'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = `${net.color}20`
+                e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                e.currentTarget.querySelector('.net-glow').style.opacity = '0'
+                e.currentTarget.querySelector('.net-icon').style.transform = 'scale(1) rotate(0deg)'
+                e.currentTarget.querySelector('.net-icon').style.boxShadow = `0 0 20px ${net.color}15`
+                e.currentTarget.querySelector('.net-ring').style.transform = 'scale(1)'
+                e.currentTarget.querySelector('.net-ring').style.opacity = '0'
+              }}
             >
-              <div className="flex items-center justify-center rounded-2xl" style={{ width: '80px', height: '80px', background: `${net.color}10`, border: `2px solid ${net.color}30`, boxShadow: `0 0 24px ${net.color}08`, color: net.color }}>{net.icon}</div>
-              <div className="text-center">
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', fontWeight: 800, color: '#f1f5f9', marginBottom: '4px' }}>{net.label}</p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 500, color: '#94a3b8' }}>{net.desc}</p>
+              {/* Background glow on hover */}
+              <div className="net-glow" style={{
+                position: 'absolute', inset: 0,
+                background: `radial-gradient(circle at 50% 30%, ${net.color}12, transparent 70%)`,
+                opacity: 0, transition: 'opacity 0.5s ease',
+                pointerEvents: 'none',
+              }} />
+
+              {/* Expanding ring effect */}
+              <div className="net-ring" style={{
+                position: 'absolute', top: '35%', left: '50%',
+                width: '80px', height: '80px',
+                marginLeft: '-40px', marginTop: '-40px',
+                borderRadius: '50%',
+                border: `2px solid ${net.color}`,
+                opacity: 0, transform: 'scale(1)',
+                transition: 'all 0.6s ease',
+                pointerEvents: 'none',
+              }} />
+
+              {/* Logo container */}
+              <div className="net-icon relative" style={{
+                width: '72px', height: '72px', borderRadius: '20px',
+                background: `linear-gradient(145deg, ${net.color}18, ${net.color}08)`,
+                border: `1.5px solid ${net.color}30`,
+                boxShadow: `0 0 20px ${net.color}15`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: net.color,
+                transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+              }}>
+                {net.icon}
               </div>
+
+              {/* Label */}
+              <div className="relative text-center">
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 800, color: '#f1f5f9', marginBottom: '2px' }}>{net.label}</p>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', fontWeight: 500, color: '#64748b' }}>{net.desc}</p>
+              </div>
+
+              {/* Bottom accent line */}
+              <div style={{
+                position: 'absolute', bottom: 0, left: '20%', right: '20%',
+                height: '2px', borderRadius: '2px',
+                background: `linear-gradient(90deg, transparent, ${net.color}50, transparent)`,
+                opacity: 0.5,
+              }} />
             </a>
           ))}
         </div>
