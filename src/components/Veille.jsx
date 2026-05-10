@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Shield, AlertTriangle, Mail, Eye, ExternalLink, ChevronDown, Wifi, Users, TrendingUp, Globe, Key, HardDrive, Ban, Siren, Phone, ClipboardList, MonitorX, BookOpen, ShieldCheck, ShieldAlert, Activity, Smartphone, QrCode, Fingerprint, CreditCard, Megaphone } from 'lucide-react'
+import { Shield, AlertTriangle, Mail, Lock, Server, Eye, ExternalLink, ChevronDown, Wifi, Users, Database, Brain, ShieldCheck, AlertCircle, Clock, TrendingUp, Globe, Key, HardDrive, Search, FileWarning, Ban, Siren, Phone, ClipboardList, MonitorX, BookOpen, Cpu, MessageSquareWarning, ArrowRight, Bot, Fingerprint, ShieldAlert, Activity, Smartphone, QrCode, UserCheck, MessageCircleWarning, CreditCard, ShieldX, Megaphone } from 'lucide-react'
 
 function SectionHeading({ icon: Icon, title, subtitle, color, gradient }) {
   return (
-    <div style={{ marginTop: '8rem', marginBottom: '4rem' }}>
+    <div style={{ marginTop: '10rem', marginBottom: '5rem' }}>
       <div className="flex items-center justify-center gap-5" style={{ marginBottom: '2rem' }}>
         <div style={{ flex: 1, height: '2px', background: `linear-gradient(90deg, transparent, ${color}50)`, borderRadius: '2px' }} />
         <div style={{
@@ -19,25 +19,38 @@ function SectionHeading({ icon: Icon, title, subtitle, color, gradient }) {
       <h2 className="text-center" style={{
         fontFamily: "'Orbitron', system-ui, sans-serif",
         fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
-        fontWeight: 900, letterSpacing: '0.04em', lineHeight: 1.3, marginBottom: '1.2rem',
+        fontWeight: 900,
+        letterSpacing: '0.04em',
+        lineHeight: 1.3,
+        marginBottom: '1.2rem',
         background: gradient || `linear-gradient(135deg, #ffffff 0%, ${color} 100%)`,
-        WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        textShadow: 'none',
         filter: `drop-shadow(0 0 20px ${color}30)`,
       }}>
         {title}
       </h2>
       {subtitle && (
         <p className="text-center mx-auto" style={{
-          fontFamily: "'Inter', sans-serif", fontSize: '17px', fontWeight: 500,
-          color: '#94a3b8', lineHeight: 1.9, maxWidth: '700px',
+          fontFamily: "'Inter', sans-serif",
+          fontSize: '17px',
+          fontWeight: 500,
+          color: '#94a3b8',
+          lineHeight: 1.9,
+          maxWidth: '700px',
+          letterSpacing: '0.01em',
         }}>
           {subtitle}
         </p>
       )}
       <div style={{
-        width: '100px', height: '3px', margin: '2rem auto 0',
+        width: '100px', height: '3px',
+        margin: '2rem auto 0',
         background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
-        borderRadius: '99px', boxShadow: `0 0 12px ${color}40`,
+        borderRadius: '99px',
+        boxShadow: `0 0 12px ${color}40`,
       }} />
     </div>
   )
@@ -47,44 +60,134 @@ const phishingTypes = [
   {
     icon: Mail, title: 'Email (Phishing)', color: '#f59e0b',
     desc: 'Emails frauduleux imitant des organismes officiels (banques, impôts, Ameli) pour voler des identifiants ou installer un malware via pièce jointe.',
-    stat: '33,7%', statLabel: 'des demandes d\'assistance',
+    stat: '33,7%', statLabel: 'des demandes d\'assistance particuliers',
     examples: ['Faux remboursement d\'impôts', 'Alerte sécurité Microsoft 365', 'Mise à jour de carte bancaire'],
-    image: '/phishing-email-lcl.jpg', imageLabel: 'Exemple réel : faux email LCL',
+    image: '/phishing-email-lcl.jpg', imageLabel: 'Exemple réel : faux email LCL demandant une "mise à jour"',
   },
   {
     icon: Smartphone, title: 'SMS (Smishing)', color: '#06b6d4',
-    desc: 'SMS frauduleux exploitant l\'urgence : faux colis en attente, amendes impayées, Ameli. Le lien redirige vers un faux site.',
+    desc: 'SMS frauduleux exploitant l\'urgence : faux colis en attente, amendes impayées, Ameli. Le lien redirige vers un faux site ou installe un malware.',
     stat: '+85%', statLabel: 'de hausse en 2025',
     examples: ['Faux colis La Poste', 'Faux PV ANTAI', 'Arnaque "Coucou Maman"'],
-    image: '/phishing-sms-chronopost.jpg', imageLabel: 'Exemple réel : faux SMS Chronopost',
+    image: '/phishing-sms-chronopost.jpg', imageLabel: 'Exemple réel : faux SMS Chronopost avec lien frauduleux',
   },
   {
     icon: Phone, title: 'Vocal (Vishing)', color: '#a855f7',
-    desc: 'Appels téléphoniques frauduleux — faux conseiller bancaire, faux support Microsoft. L\'IA permet de cloner une voix en 30 secondes.',
+    desc: 'Appels téléphoniques frauduleux — faux conseiller bancaire, faux support Microsoft. L\'IA permet désormais de cloner une voix en 30 secondes.',
     stat: '+28%', statLabel: 'au T3 2024',
-    examples: ['Faux conseiller bancaire', 'Arnaque au président', 'Faux support technique'],
-    image: '/phishing-vishing.jpg', imageLabel: 'Vishing — appel frauduleux',
+    examples: ['Faux conseiller bancaire', 'Arnaque au président (deepfake)', 'Faux support technique'],
+    image: '/phishing-vishing.jpg', imageLabel: 'Vishing — appel frauduleux se faisant passer pour un conseiller bancaire',
   },
   {
     icon: QrCode, title: 'QR Code (Quishing)', color: '#ef4444',
     desc: 'Faux QR codes collés sur des avis de contravention, menus de restaurant ou bornes publiques, redirigeant vers des sites de phishing.',
-    stat: '4M', statLabel: 'de tentatives en 2025',
+    stat: '4M', statLabel: 'de tentatives en France en 2025',
     examples: ['Faux PV de stationnement', 'QR codes en restaurant', 'Faux parcmètres'],
-    image: '/phishing-quishing.jpg', imageLabel: 'Quishing — faux QR code',
+    image: '/phishing-quishing.jpg', imageLabel: 'Quishing — faux QR code sur un avis de contravention',
   },
   {
     icon: Fingerprint, title: 'Spear Phishing', color: '#10b981',
-    desc: 'Attaque ciblée utilisant les données personnelles de la victime pour créer un message crédible et personnalisé.',
-    stat: '65%', statLabel: 'des groupes APT',
+    desc: 'Attaque ciblée utilisant les données personnelles de la victime (nom, poste, entreprise) pour créer un message crédible et personnalisé.',
+    stat: '65%', statLabel: 'des groupes APT utilisent cette technique',
     examples: ['Email au nom du DRH', 'Faux mail de collègue', 'Fausse facture fournisseur'],
-    image: '/phishing-paypal.png', imageLabel: 'Faux email PayPal — attaque ciblée',
+    image: '/phishing-paypal.png', imageLabel: 'Exemple réel : faux email PayPal — attaque ciblée "account limited"',
   },
   {
     icon: CreditCard, title: 'Whaling', color: '#dc2626',
-    desc: 'Spear phishing ciblant les dirigeants d\'entreprise — "fraude au président". Peut impliquer des deepfakes vidéo.',
-    stat: '25M$', statLabel: 'perdu via deepfake en 2024',
-    examples: ['Fraude au président', 'Faux virement urgent', 'Visio deepfake'],
-    image: '/phishing-whaling.jpg', imageLabel: 'Whaling — fraude au président',
+    desc: 'Spear phishing ciblant les dirigeants d\'entreprise — "fraude au président". Peut impliquer des deepfakes vidéo en visioconférence.',
+    stat: '25M$', statLabel: 'perdu via deepfake vidéo en 2024',
+    examples: ['Fraude au président', 'Faux virement urgent', 'Visio deepfake avec le "PDG"'],
+    image: '/phishing-whaling.jpg', imageLabel: 'Whaling — fraude au président ciblant les dirigeants d\'entreprise',
+  },
+]
+
+const campaignsFrance = [
+  {
+    icon: '🏥', name: 'Faux Ameli / Carte Vitale', color: '#06b6d4',
+    desc: '"Mise à jour de votre carte Vitale obligatoire" ou "remboursement en attente de 284,76€" — SMS et emails imitant l\'Assurance Maladie.',
+    frequency: 'Permanente',
+    source: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/hameconnage-assurance-maladie-ameli',
+  },
+  {
+    icon: '📋', name: 'Faux impots.gouv.fr', color: '#3b82f6',
+    desc: '"Vous avez un remboursement de 198,50€ en attente" — exploite le calendrier fiscal (déclaration, remboursements). En 2025 : fausses alertes crypto.',
+    frequency: 'Saisonnière (avril-sept.)',
+    source: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/hameconnage-impots',
+  },
+  {
+    icon: '📦', name: 'Faux colis La Poste / Colissimo', color: '#f59e0b',
+    desc: '"Votre colis est en attente de livraison — frais de port : 1,99€" — lien vers un faux site qui vole les données bancaires.',
+    frequency: 'Permanente (+fêtes)',
+    source: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing',
+  },
+  {
+    icon: '🅿️', name: 'Faux PV de stationnement (QR)', color: '#ef4444',
+    desc: 'Faux avis de contravention avec QR code collé sur les pare-brise — redirige vers un faux site ANTAI pour payer l\'amende.',
+    frequency: '280 000 visites sur Cybermalveillance',
+    source: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing',
+  },
+  {
+    icon: '🎓', name: 'Arnaque au CPF', color: '#a855f7',
+    desc: '"Vos droits CPF expirent bientôt — 2 340€ à utiliser" — sollicitation interdite par la loi du 19 décembre 2022.',
+    frequency: 'Malgré interdiction légale',
+    source: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing',
+  },
+  {
+    icon: '👋', name: '"Coucou Maman" (Hello Mom)', color: '#f97316',
+    desc: '"Salut maman, j\'ai changé de numéro, tu peux m\'envoyer de l\'argent en urgence ?" — arnaque apparue en 2023, toujours active.',
+    frequency: 'En croissance',
+    source: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing',
+  },
+]
+
+const attacksFrance = [
+  {
+    date: 'Fév. 2024', target: 'Viamedis & Almerys', type: 'Fuite de données — tiers payant',
+    impact: '33 millions d\'assurés sociaux exposés — état civil, n° SS, nom de l\'assureur, garanties du contrat santé.',
+    detail: 'Intrusion dans les plateformes de tiers payant via des identifiants compromis de professionnels de santé. La CNIL a ouvert une enquête et rappelé les obligations RGPD.',
+    color: '#ef4444',
+    source: 'https://www.cnil.fr/fr/violation-de-donnees-de-deux-operateurs-de-tiers-payant-la-cnil-ouvre-une-enquete-et-rappelle-aux',
+    sourceLabel: 'CNIL',
+  },
+  {
+    date: 'Mars 2024', target: 'France Travail', type: 'Vol de données — identifiants compromis',
+    impact: '43 millions de personnes exposées — noms, n° SS, identifiants, emails, téléphones (20 ans d\'historique).',
+    detail: 'Des identifiants de conseillers Cap Emploi ont été compromis (probablement par phishing), donnant accès à la base de données. 3 suspects de 21-23 ans arrêtés le 19 mars 2024.',
+    color: '#dc2626',
+    source: 'https://www.francetravail.org/accueil/communiques/2024/france-travail-et-cap-emploi-victimes-dune-cyberattaque.html',
+    sourceLabel: 'France Travail',
+  },
+  {
+    date: 'Sept. 2024', target: 'SFR', type: 'Fuite de données — faille logicielle',
+    impact: '3,6 millions de données clients publiées en ligne — identités, adresses, téléphones, emails.',
+    detail: 'Exploitation d\'une faille dans le logiciel interne SIBO360 par le collectif Near2tlg. Les données ont été mises en vente puis publiées.',
+    color: '#f97316',
+    source: 'https://www.cybermalveillance.gouv.fr/',
+    sourceLabel: 'Cybermalveillance',
+  },
+  {
+    date: 'Oct. 2024', target: 'Free', type: 'Fuite massive — outil de gestion',
+    impact: '19,2 millions de clients + 5 millions d\'IBAN compromis. Amende CNIL : 42 millions d\'euros (janv. 2026).',
+    detail: 'Attaque ciblant un outil de gestion interne. La CNIL a sanctionné Free de 42M€ (27M Free Mobile + 15M Free) pour manquement à la sécurité des données.',
+    color: '#ef4444',
+    source: 'https://www.cnil.fr/',
+    sourceLabel: 'CNIL',
+  },
+  {
+    date: 'Avril 2024', target: 'CH Simone Veil — Cannes', type: 'Ransomware LockBit via phishing',
+    impact: '61 Go publiés sur le dark web — bilans de santé, RIB, cartes d\'identité, opérations annulées.',
+    detail: 'L\'attaque a commencé par un email de phishing ciblé, menant à l\'installation du ransomware LockBit. L\'hôpital a refusé de payer la rançon conformément aux recommandations ANSSI.',
+    color: '#a855f7',
+    source: 'https://cyberveille.esante.gouv.fr/',
+    sourceLabel: 'CERT Santé',
+  },
+  {
+    date: 'Fév. 2024', target: 'Hôpital d\'Armentières', type: 'Ransomware — urgences fermées',
+    impact: 'Urgences fermées pendant 24h, données patients dérobées, fonctionnement dégradé pendant plusieurs semaines.',
+    detail: 'Le vecteur initial suspecté est un email de phishing. L\'hôpital a dû rediriger les patients vers d\'autres établissements.',
+    color: '#dc2626',
+    source: 'https://cyberveille.esante.gouv.fr/',
+    sourceLabel: 'CERT Santé',
   },
 ]
 
@@ -97,6 +200,23 @@ const statistics = [
   { value: '91%', label: 'Cyberattaques', detail: 'Commencent par du phishing', color: '#10b981', source: 'ANSSI / CERT-FR' },
 ]
 
+const phishingRedFlags = [
+  { flag: 'Domaine suspect', detail: 'microsft-security.com au lieu de microsoft.com — faute volontaire dans le nom de domaine', color: '#ef4444' },
+  { flag: 'Urgence artificielle', detail: '"Votre compte sera suspendu sous 24h" — pression psychologique pour forcer l\'action', color: '#f59e0b' },
+  { flag: 'Lien malveillant', detail: 'URL qui redirige vers un faux site de connexion identique à l\'original pour voler les identifiants', color: '#ef4444' },
+  { flag: 'Pas de personnalisation', detail: '"Cher utilisateur" au lieu de votre vrai nom — message générique envoyé en masse', color: '#f97316' },
+  { flag: 'Menace de conséquences', detail: '"Définitivement suspendu" — créer la peur pour empêcher la réflexion', color: '#dc2626' },
+]
+
+const killChain = [
+  { num: '01', icon: Search, title: 'Reconnaissance', desc: 'L\'attaquant collecte des infos sur la cible : OSINT, LinkedIn, site web de l\'entreprise, organigramme', color: '#64748b' },
+  { num: '02', icon: MessageSquareWarning, title: 'Préparation', desc: 'Création de l\'email/SMS frauduleux, achat du domaine usurpé, clone du site légitime', color: '#f59e0b' },
+  { num: '03', icon: Mail, title: 'Envoi', desc: 'Diffusion du message de phishing — email, SMS, appel vocal, QR code ou réseau social', color: '#ef4444' },
+  { num: '04', icon: Eye, title: 'Interaction', desc: 'La victime clique sur le lien, ouvre la pièce jointe ou communique ses identifiants', color: '#f97316' },
+  { num: '05', icon: Key, title: 'Vol / Installation', desc: 'Identifiants volés via le faux site, ou malware installé via la pièce jointe (dropper)', color: '#a855f7' },
+  { num: '06', icon: Database, title: 'Exploitation', desc: 'Accès aux comptes, mouvement latéral, exfiltration de données, déploiement ransomware', color: '#dc2626' },
+]
+
 const reactionSteps = [
   { num: '01', icon: Ban, title: 'NE PAS cliquer / répondre', desc: 'Ne cliquer sur aucun lien, ne pas ouvrir la pièce jointe, ne pas répondre au message', color: '#ef4444', priority: 'CRITIQUE' },
   { num: '02', icon: Eye, title: 'Vérifier l\'expéditeur', desc: 'Contrôler l\'adresse email réelle (pas le nom affiché), le domaine, les fautes subtiles', color: '#f59e0b', priority: 'VÉRIFICATION' },
@@ -104,34 +224,55 @@ const reactionSteps = [
   { num: '04', icon: Key, title: 'Changer les mots de passe', desc: 'Si des identifiants ont été communiqués, les changer immédiatement + activer le MFA', color: '#a855f7', priority: 'URGENT' },
   { num: '05', icon: ClipboardList, title: 'Conserver les preuves', desc: 'Captures d\'écran du message, de l\'URL, de l\'expéditeur — utiles pour la plainte', color: '#f97316', priority: 'PROCÉDURE' },
   { num: '06', icon: Megaphone, title: 'Signaler', desc: 'Signal Spam (email), 33700 (SMS), Pharos (site web), Cybermalveillance.gouv.fr (assistance)', color: '#10b981', priority: 'SIGNALEMENT' },
+  { num: '07', icon: Siren, title: 'Alerter en entreprise', desc: 'Prévenir le RSSI/DSI, isoler le poste si malware suspecté, ouvrir un ticket d\'incident', color: '#3b82f6', priority: 'ENTREPRISE' },
+  { num: '08', icon: Shield, title: 'Déposer plainte', desc: 'Police/Gendarmerie si préjudice financier ou vol de données — CNIL sous 72h si données personnelles', color: '#8b5cf6', priority: 'LÉGAL' },
 ]
 
-const protectionMeasures = [
-  { icon: Key, title: 'MFA obligatoire', desc: 'Authentification multi-facteurs sur tous les accès critiques : email, VPN, admin, cloud', color: '#06b6d4' },
-  { icon: Mail, title: 'Filtrage email', desc: 'Anti-spam, SPF/DKIM/DMARC, sandboxing des pièces jointes, blocage des macros Office', color: '#ef4444' },
-  { icon: Users, title: 'Sensibilisation', desc: 'Campagnes de simulation de phishing régulières — l\'humain reste le maillon faible', color: '#f59e0b' },
-  { icon: HardDrive, title: 'Sauvegardes 3-2-1', desc: '3 copies, 2 supports, 1 hors site — protection contre le ransomware post-phishing', color: '#3b82f6' },
+const counterMeasures = [
+  { icon: Key, title: 'MFA obligatoire', desc: 'Authentification multi-facteurs sur tous les accès critiques : email, VPN, admin, cloud, banque en ligne', color: '#06b6d4' },
+  { icon: Mail, title: 'Filtrage email avancé', desc: 'Anti-spam, SPF/DKIM/DMARC, sandboxing des pièces jointes, blocage des macros Office par GPO', color: '#ef4444' },
+  { icon: Users, title: 'Sensibilisation', desc: 'Campagnes de simulation de phishing régulières, formations obligatoires — l\'humain reste le maillon faible', color: '#f59e0b' },
+  { icon: ShieldAlert, title: 'Mises à jour', desc: 'Patcher OS, navigateurs et plugins — les vulnérabilités connues sont les premières exploitées après un clic', color: '#a855f7' },
+  { icon: Wifi, title: 'Segmentation réseau', desc: 'VLAN, zones DMZ — limiter l\'impact si un poste est compromis via phishing', color: '#10b981' },
+  { icon: HardDrive, title: 'Sauvegardes 3-2-1', desc: '3 copies, 2 supports différents, 1 hors site déconnecté — protection contre le ransomware post-phishing', color: '#3b82f6' },
+]
+
+const aiImpacts = [
+  { icon: MessageSquareWarning, title: 'Phishing sans fautes', desc: 'Les LLM génèrent des emails parfaits en français, personnalisés au contexte de la cible — le principal indicateur historique (fautes) disparaît', stat: '+1 200% d\'emails', color: '#ef4444' },
+  { icon: Bot, title: 'Deepfake vocal & vidéo', desc: 'Clonage de voix en 30 secondes pour le vishing. En 2024, une entreprise perd 25M$ via une visioconférence entièrement deepfake', stat: '3,5 Mds$ de pertes', color: '#a855f7' },
+  { icon: Fingerprint, title: 'Hyper-personnalisation', desc: 'Chaque email est unique, adapté au poste, aux habitudes et à l\'historique de la cible — grâce aux fuites de données massives', stat: '37% de clics en +', color: '#f59e0b' },
+  { icon: Cpu, title: 'Phishing-as-a-Service', desc: 'Kits clés en main sur le dark web dès 50€ (Tycoon 2FA, Mamba 2FA). Aucune compétence technique requise. +21% de kits en 2024', stat: 'Dès 50€/mois', color: '#06b6d4' },
 ]
 
 const officialSources = [
-  { name: 'ANSSI', desc: 'Agence Nationale de la Sécurité des SI', badge: 'GOV', color: '#3b82f6', url: 'https://cyber.gouv.fr/', detail: 'Panorama de la cybermenace 2024' },
-  { name: 'CERT-FR', desc: 'Centre de réponse aux incidents', badge: 'CERT', color: '#10b981', url: 'https://www.cert.ssi.gouv.fr/', detail: 'Alertes et bulletins sécurité' },
-  { name: 'Cybermalveillance.gouv.fr', desc: 'Plateforme nationale d\'assistance', badge: 'GOV', color: '#06b6d4', url: 'https://www.cybermalveillance.gouv.fr/', detail: '420 000 demandes d\'assistance (2024)' },
-  { name: 'CNIL', desc: 'Commission Nationale Informatique & Libertés', badge: 'RGPD', color: '#a855f7', url: 'https://www.cnil.fr/', detail: 'Sanctions et notifications de fuites' },
-  { name: 'Signal Spam', desc: 'Signalement des emails frauduleux', badge: 'SPAM', color: '#f59e0b', url: 'https://www.signal-spam.fr/', detail: 'Extension navigateur pour signaler' },
-  { name: 'PHAROS', desc: 'Signalement de contenus illicites', badge: 'POLICE', color: '#ef4444', url: 'https://www.internet-signalement.gouv.fr/', detail: 'Ministère de l\'Intérieur' },
+  { name: 'ANSSI', desc: 'Agence Nationale de la Sécurité des SI', badge: 'GOV', color: '#3b82f6', url: 'https://cyber.gouv.fr/', detail: 'Panorama de la cybermenace 2024 — 4 386 événements traités' },
+  { name: 'CERT-FR', desc: 'Centre de réponse aux incidents', badge: 'CERT', color: '#10b981', url: 'https://www.cert.ssi.gouv.fr/', detail: 'Alertes, bulletins sécurité, rapports CTI' },
+  { name: 'Cybermalveillance.gouv.fr', desc: 'Plateforme nationale d\'assistance', badge: 'GOV', color: '#06b6d4', url: 'https://www.cybermalveillance.gouv.fr/', detail: '5,4 millions de visiteurs — 420 000 demandes d\'assistance (2024)' },
+  { name: 'CNIL', desc: 'Commission Nationale Informatique & Libertés', badge: 'RGPD', color: '#a855f7', url: 'https://www.cnil.fr/', detail: 'Notification sous 72h en cas de fuite — sanctions Free 42M€' },
+  { name: 'Signal Spam', desc: 'Signalement des emails frauduleux', badge: 'SPAM', color: '#f59e0b', url: 'https://www.signal-spam.fr/', detail: 'Extension navigateur pour signaler les spams directement' },
+  { name: 'PHAROS', desc: 'Signalement de contenus illicites', badge: 'POLICE', color: '#ef4444', url: 'https://www.internet-signalement.gouv.fr/', detail: 'Plateforme du ministère de l\'Intérieur' },
+  { name: 'Directive NIS2', desc: 'Nouvelle réglementation européenne', badge: 'EU', color: '#f97316', url: 'https://monespacenis2.cyber.gouv.fr/', detail: '15 000 entités concernées en France — obligations renforcées' },
+]
+
+const veilleMethode = [
+  { num: '01', title: 'Collecter', desc: 'Alertes CERT-FR par email, flux RSS ANSSI, veille Cybermalveillance.gouv.fr, Google Alerts "phishing France"', color: '#06b6d4' },
+  { num: '02', title: 'Trier', desc: 'Sélection par pertinence BTS SIO SISR : phishing, fuites de données, vulnérabilités, campagnes en cours en France', color: '#f59e0b' },
+  { num: '03', title: 'Analyser', desc: 'Étude des rapports ANSSI/CNIL, identification des nouvelles techniques (IA, quishing), analyse des incidents récents', color: '#10b981' },
+  { num: '04', title: 'Documenter', desc: 'Synthèse structurée pour le portfolio BTS SIO, fiches techniques, liens vers sources officielles vérifiées', color: '#a855f7' },
 ]
 
 export default function Veille() {
-  const [openType, setOpenType] = useState(0)
+  const [openAttack, setOpenAttack] = useState(null)
   const [openStep, setOpenStep] = useState(null)
+  const [openType, setOpenType] = useState(0)
+  const [openCampaign, setOpenCampaign] = useState(null)
 
   return (
     <section id="veille" className="relative" style={{ paddingTop: '12rem', paddingBottom: '10rem' }}>
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* ═══════════ HEADER ═══════════ */}
-        <div className="text-center" style={{ marginBottom: '6rem' }}>
+        <div className="text-center" style={{ marginBottom: '8rem' }}>
           <div style={{ marginBottom: '2rem' }}>
             <span style={{
               fontFamily: "'JetBrains Mono', monospace",
@@ -172,38 +313,44 @@ export default function Veille() {
           <p className="mx-auto" style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: '16px', fontWeight: 500, color: '#94a3b8',
-            lineHeight: 1.9, maxWidth: '640px',
+            lineHeight: 1.9, maxWidth: '640px', letterSpacing: '0.01em',
           }}>
-            Étude du phishing en France — ses formes, les chiffres clés, les exemples réels et les moyens de protection.
+            Étude approfondie du phishing (hameçonnage) en France — ses formes (email, SMS, vocal, QR code), les campagnes en cours, les incidents majeurs, l'impact de l'IA et les moyens de protection.
           </p>
         </div>
 
         {/* ═══════════ BANNIÈRE VISUELLE ═══════════ */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-24">
           <div className="rounded-2xl overflow-hidden relative" style={{ border: '1px solid rgba(245,158,11,0.2)' }}>
-            <img src="/phishing-france-map.jpg" alt="Carte des cybermenaces en France" style={{ width: '100%', height: '300px', objectFit: 'cover' }} />
+            <img src="/phishing-france-map.jpg" alt="Carte des cybermenaces en France — fuites de données massives" style={{ width: '100%', height: '340px', objectFit: 'cover' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.8) 100%)' }} />
             <div style={{ position: 'absolute', bottom: '1rem', left: '1.2rem', right: '1.2rem' }}>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 700, color: '#fff', textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
-                43M de comptes compromis en France en 2024
+                Carte des fuites de données en France — 43M de comptes compromis en 2024
               </p>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-6">
             <div className="rounded-2xl overflow-hidden relative" style={{ border: '1px solid rgba(239,68,68,0.2)' }}>
-              <img src="/phishing-illustration.jpg" alt="Phishing par email" style={{ width: '100%', height: '140px', objectFit: 'cover', background: '#0f172a' }} />
+              <img src="/phishing-illustration.jpg" alt="Illustration phishing — hacker et email piégé" style={{ width: '100%', height: '160px', objectFit: 'cover', background: '#0f172a' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%)' }} />
-              <p style={{ position: 'absolute', bottom: '8px', left: '10px', fontSize: '10px', fontWeight: 700, color: '#fff' }}>Phishing par email</p>
+              <p style={{ position: 'absolute', bottom: '8px', left: '10px', right: '10px', fontFamily: "'Inter', sans-serif", fontSize: '10px', fontWeight: 700, color: '#fff' }}>
+                Phishing par email
+              </p>
             </div>
             <div className="rounded-2xl overflow-hidden relative" style={{ border: '1px solid rgba(168,85,247,0.2)' }}>
-              <img src="/phishing-hacker.jpg" alt="Vol de données" style={{ width: '100%', height: '140px', objectFit: 'cover', background: '#0f172a' }} />
+              <img src="/phishing-hacker.jpg" alt="Hacker récupérant des données par hameçonnage" style={{ width: '100%', height: '160px', objectFit: 'cover', background: '#0f172a' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%)' }} />
-              <p style={{ position: 'absolute', bottom: '8px', left: '10px', fontSize: '10px', fontWeight: 700, color: '#fff' }}>Vol de données</p>
+              <p style={{ position: 'absolute', bottom: '8px', left: '10px', right: '10px', fontFamily: "'Inter', sans-serif", fontSize: '10px', fontWeight: 700, color: '#fff' }}>
+                Vol de données
+              </p>
             </div>
             <div className="rounded-2xl overflow-hidden relative col-span-2" style={{ border: '1px solid rgba(6,182,212,0.2)' }}>
-              <img src="/phishing-email-inbox.webp" alt="Boîte de réception" style={{ width: '100%', height: '150px', objectFit: 'cover' }} />
+              <img src="/phishing-email-inbox.webp" alt="Boîte de réception email — vecteur principal du phishing" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.75) 100%)' }} />
-              <p style={{ position: 'absolute', bottom: '8px', left: '10px', fontSize: '10px', fontWeight: 700, color: '#fff' }}>91% des cyberattaques commencent par un email de phishing</p>
+              <p style={{ position: 'absolute', bottom: '8px', left: '10px', right: '10px', fontFamily: "'Inter', sans-serif", fontSize: '10px', fontWeight: 700, color: '#fff' }}>
+                91% des cyberattaques commencent par un email de phishing
+              </p>
             </div>
           </div>
         </div>
@@ -212,7 +359,7 @@ export default function Veille() {
         <SectionHeading
           icon={BookOpen}
           title="Qu'est-ce que la Veille ?"
-          subtitle="Le processus de veille technologique en cybersécurité — un pilier du BTS SIO SISR."
+          subtitle="Comprendre le processus de veille technologique en cybersécurité — un pilier du BTS SIO SISR."
           color="#06b6d4"
           gradient="linear-gradient(135deg, #ffffff 0%, #06b6d4 60%, #3b82f6 100%)"
         />
@@ -220,14 +367,28 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(6,182,212,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6)' }} />
           <div className="p-10 md:p-14">
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#cbd5e1', lineHeight: 2, marginBottom: '2.5rem' }}>
-              La <strong style={{ color: '#06b6d4' }}>veille technologique</strong> est un processus continu de collecte, d'analyse et de diffusion d'informations sur les évolutions technologiques et les menaces émergentes. En BTS SIO SISR, elle permet d'anticiper les risques et de rester à jour dans un environnement en constante évolution.
-            </p>
+            <div className="flex items-start gap-8 mb-14">
+              <div style={{
+                width: '60px', height: '60px', borderRadius: '16px',
+                background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.25)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+              }}>
+                <BookOpen size={28} style={{ color: '#06b6d4' }} />
+              </div>
+              <div>
+                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.6rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1.5rem', letterSpacing: '0.02em' }}>
+                  Définition de la veille technologique
+                </h3>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#cbd5e1', lineHeight: 2 }}>
+                  La <strong style={{ color: '#06b6d4' }}>veille technologique</strong> est un processus continu et systématique de collecte, d'analyse et de diffusion d'informations sur les évolutions technologiques, les menaces émergentes et les bonnes pratiques. En BTS SIO SISR, elle permet d'anticiper les risques, d'adapter les pratiques d'administration et de rester à jour dans un environnement en constante évolution.
+                </p>
+              </div>
+            </div>
             <div className="grid sm:grid-cols-3 gap-8">
               {[
-                { title: 'Collecter', desc: 'Sources officielles (ANSSI, CERT-FR, CNIL), alertes, flux RSS', color: '#06b6d4' },
-                { title: 'Analyser', desc: 'Trier par pertinence, évaluer l\'impact, identifier les tendances', color: '#3b82f6' },
-                { title: 'Diffuser', desc: 'Documenter les résultats, partager les bonnes pratiques', color: '#8b5cf6' },
+                { title: 'Collecter', desc: 'Sources officielles (ANSSI, CERT-FR, CNIL), alertes, flux RSS, rapports annuels', color: '#06b6d4' },
+                { title: 'Analyser', desc: 'Trier par pertinence, évaluer l\'impact, identifier les tendances et nouvelles techniques d\'attaque', color: '#3b82f6' },
+                { title: 'Diffuser', desc: 'Documenter les résultats, partager les bonnes pratiques, mettre à jour les procédures de sécurité', color: '#8b5cf6' },
               ].map((step, i) => (
                 <div key={i} className="rounded-xl p-7" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}20` }}>
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 800, color: step.color, marginBottom: '1rem' }}>{step.title}</p>
@@ -242,7 +403,7 @@ export default function Veille() {
         <SectionHeading
           icon={AlertTriangle}
           title="Le Phishing (Hameçonnage)"
-          subtitle="La technique d'attaque n°1 en France — ses 6 formes et comment les reconnaître."
+          subtitle="La technique d'attaque n°1 en France — ses formes, ses mécanismes et comment la reconnaître."
           color="#f59e0b"
           gradient="linear-gradient(135deg, #ffffff 0%, #f59e0b 50%, #ef4444 100%)"
         />
@@ -250,11 +411,27 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(245,158,11,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #f59e0b, #ef4444, #a855f7)' }} />
           <div className="p-10 md:p-14">
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#cbd5e1', lineHeight: 2, marginBottom: '2.5rem' }}>
-              Le <strong style={{ color: '#f59e0b' }}>phishing</strong> est une technique d'ingénierie sociale consistant à se faire passer pour un organisme de confiance afin de <strong style={{ color: '#ef4444' }}>voler des informations personnelles</strong> ou d'<strong style={{ color: '#a855f7' }}>installer un malware</strong>. C'est la <strong style={{ color: '#f59e0b' }}>menace n°1 en France</strong> et le vecteur initial de <strong style={{ color: '#10b981' }}>91% des cyberattaques</strong>.
-            </p>
+            <div className="flex items-start gap-8 mb-14">
+              <div style={{
+                width: '60px', height: '60px', borderRadius: '16px',
+                background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.25)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+              }}>
+                <Mail size={28} style={{ color: '#f59e0b' }} />
+              </div>
+              <div>
+                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.6rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1.5rem', letterSpacing: '0.02em' }}>
+                  Qu'est-ce que le phishing ?
+                </h3>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#cbd5e1', lineHeight: 2 }}>
+                  Le <strong style={{ color: '#f59e0b' }}>phishing</strong> (ou hameçonnage) est une technique d'ingénierie sociale qui consiste à se faire passer pour un organisme ou une personne de confiance afin de <strong style={{ color: '#ef4444' }}>voler des informations personnelles</strong> (identifiants, données bancaires, mots de passe) ou d'<strong style={{ color: '#a855f7' }}>installer un logiciel malveillant</strong>. C'est la <strong style={{ color: '#f59e0b' }}>menace n°1 en France</strong> selon Cybermalveillance.gouv.fr et le vecteur initial de <strong style={{ color: '#10b981' }}>91% des cyberattaques</strong>.
+                </p>
+              </div>
+            </div>
 
-            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.1rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2rem' }}>
+            {/* Types de phishing — tabs */}
+            <div style={{ width: '60px', height: '2px', background: 'rgba(245,158,11,0.3)', borderRadius: '2px', marginBottom: '1.5rem' }} />
+            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.1rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2.5rem' }}>
               Les 6 Formes de Phishing
             </p>
 
@@ -295,7 +472,10 @@ export default function Veille() {
                       </h4>
                     </div>
                     <div style={{ marginLeft: 'auto' }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: t.color }}>{t.stat}</span>
+                      <span style={{
+                        fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800,
+                        color: t.color,
+                      }}>{t.stat}</span>
                       <span style={{ fontSize: '12px', color: '#64748b', marginLeft: '8px' }}>{t.statLabel}</span>
                     </div>
                   </div>
@@ -331,11 +511,113 @@ export default function Veille() {
           </div>
         </div>
 
+        {/* ═══════════ ANATOMIE EMAIL PHISHING ═══════════ */}
+        <SectionHeading
+          icon={Mail}
+          title="Anatomie d'un Email de Phishing"
+          subtitle="Décortiquer un vrai email frauduleux — chaque signal d'alerte identifié et expliqué."
+          color="#ef4444"
+          gradient="linear-gradient(135deg, #ffffff 0%, #ef4444 60%, #f59e0b 100%)"
+        />
+
+        <div className="grid lg:grid-cols-5 gap-8">
+          <div className="lg:col-span-3 rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(245,158,11,0.15)' }}>
+            <div className="flex items-center gap-2 px-6 py-4" style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+              <div className="flex gap-1.5">
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }} />
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }} />
+              </div>
+              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#475569', marginLeft: '8px' }}>Email — Boîte de réception</span>
+            </div>
+            <div className="p-8 md:p-10">
+              <div className="space-y-3 mb-6 pb-6" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="flex items-start gap-3">
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#64748b', minWidth: '42px' }}>De:</span>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#e2e8f0' }}>
+                    support@microsft-security.com
+                  </span>
+                  <span style={{ fontSize: '10px', fontWeight: 700, color: '#ef4444', background: 'rgba(239,68,68,0.15)', padding: '2px 10px', borderRadius: '4px', marginLeft: '6px' }}>
+                    ⚠ SUSPECT
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#64748b', minWidth: '42px' }}>À:</span>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#94a3b8' }}>
+                    j.dupont@entreprise.fr
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#64748b', minWidth: '42px' }}>Objet:</span>
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#f59e0b' }}>
+                    ⚠️ Urgent : Votre compte Microsoft 365 sera suspendu sous 24h
+                  </span>
+                </div>
+              </div>
+
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 2 }}>
+                <p style={{ marginBottom: '1rem' }}>Cher utilisateur,</p>
+                <p style={{ marginBottom: '1rem' }}>
+                  Nous avons détecté une <strong>activité suspecte</strong> sur votre compte Microsoft 365. Pour des raisons de sécurité, votre compte sera <strong style={{ color: '#ef4444' }}>définitivement suspendu</strong> si vous ne vérifiez pas votre identité dans les <strong style={{ color: '#f59e0b' }}>24 prochaines heures</strong>.
+                </p>
+                <p style={{ marginBottom: '1.2rem' }}>
+                  Veuillez cliquer sur le bouton ci-dessous pour confirmer vos informations :
+                </p>
+
+                <div style={{
+                  display: 'inline-block', padding: '10px 28px', borderRadius: '8px',
+                  background: 'rgba(239,68,68,0.15)', border: '2px dashed rgba(239,68,68,0.4)',
+                  color: '#ef4444', fontSize: '13px', fontWeight: 700, marginBottom: '1.2rem',
+                  position: 'relative',
+                }}>
+                  🔗 Vérifier mon compte
+                  <span style={{
+                    position: 'absolute', top: '-10px', right: '-10px',
+                    fontSize: '9px', fontWeight: 800, color: '#fff', background: '#ef4444',
+                    padding: '2px 6px', borderRadius: '4px',
+                  }}>PIÈGE</span>
+                </div>
+
+                <p style={{ fontSize: '12px', color: '#475569', marginTop: '0.5rem' }}>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#ef4444' }}>
+                    → URL réelle : http://microsft-security.phishing-kit.ru/login
+                  </span>
+                </p>
+
+                <p style={{ marginTop: '1rem', color: '#94a3b8' }}>
+                  Cordialement,<br />
+                  L'équipe Microsoft Security
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-2 rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(239,68,68,0.15)' }}>
+            <div className="px-5 py-3.5" style={{ background: 'rgba(239,68,68,0.06)', borderBottom: '1px solid rgba(239,68,68,0.1)' }}>
+              <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700, color: '#ef4444', letterSpacing: '0.1em' }}>
+                🚩 SIGNAUX D'ALERTE
+              </p>
+            </div>
+            <div className="p-8 space-y-5">
+              {phishingRedFlags.map((rf, i) => (
+                <div key={i} className="rounded-lg p-6" style={{ background: `${rf.color}08`, border: `1px solid ${rf.color}15` }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: rf.color, marginBottom: '0.6rem' }}>
+                    ⚠ {rf.flag}
+                  </p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.8 }}>
+                    {rf.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* ═══════════ EXEMPLES RÉELS ═══════════ */}
         <SectionHeading
           icon={MonitorX}
           title="Exemples Réels de Phishing"
-          subtitle="Captures d'écran de vrais messages frauduleux interceptés en France."
+          subtitle="Captures d'écran de vrais messages frauduleux interceptés en France — apprenez à les reconnaître."
           color="#dc2626"
           gradient="linear-gradient(135deg, #ffffff 0%, #dc2626 60%, #f59e0b 100%)"
         />
@@ -343,6 +625,13 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(220,38,38,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #dc2626, #f59e0b, #06b6d4)' }} />
           <div className="p-10 md:p-14">
+            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.1rem', fontWeight: 800, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1.5rem' }}>
+              Captures d'Écran — Vrais Messages
+            </p>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '3rem' }}>
+              Voici de vrais exemples de phishing interceptés en France — email bancaire, faux PayPal et SMS frauduleux. Apprenez à les reconnaître.
+            </p>
+
             <div className="flex flex-col gap-12">
               {/* SMS Chronopost */}
               <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(6,182,212,0.25)' }}>
@@ -354,11 +643,14 @@ export default function Veille() {
                   }}>
                     <Smartphone size={20} style={{ color: '#06b6d4' }} />
                   </div>
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#06b6d4', letterSpacing: '0.08em' }}>SMISHING — SMS FRAUDULEUX</span>
+                  <div>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#06b6d4', letterSpacing: '0.08em' }}>SMISHING — SMS FRAUDULEUX</span>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', marginTop: '2px' }}>Capture d'un vrai SMS intercepte</p>
+                  </div>
                 </div>
                 <div className="grid md:grid-cols-2 gap-0">
                   <div style={{ padding: '24px', background: 'rgba(0,0,0,0.2)' }}>
-                    <img src="/phishing-sms-chronopost.jpg" alt="Vrai SMS de phishing Chronopost" style={{
+                    <img src="/phishing-sms-chronopost.jpg" alt="Vrai SMS de phishing — faux message Chronopost avec lien frauduleux" style={{
                       width: '100%', maxHeight: '500px', objectFit: 'contain', borderRadius: '12px',
                       border: '2px solid rgba(6,182,212,0.2)',
                       boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(6,182,212,0.1)',
@@ -369,11 +661,12 @@ export default function Veille() {
                       Faux SMS Chronopost
                     </h4>
                     <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2, marginBottom: '1.5rem' }}>
-                      Le lien "chronopost-online-info.com" n'est pas le vrai site de Chronopost. L'URL frauduleuse vise a voler les donnees bancaires.
+                      Le lien "chronopost-online-info.com" n'est pas le vrai site de Chronopost. L'URL frauduleuse vise a voler les donnees bancaires de la victime.
                     </p>
                     <div className="flex flex-wrap gap-3">
                       <span style={{ fontSize: '12px', fontWeight: 700, color: '#ef4444', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Fausse URL</span>
                       <span style={{ fontSize: '12px', fontWeight: 700, color: '#f59e0b', background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Urgence artificielle</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#06b6d4', background: 'rgba(6,182,212,0.1)', border: '1px solid rgba(6,182,212,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Vol de donnees</span>
                     </div>
                   </div>
                 </div>
@@ -389,11 +682,14 @@ export default function Veille() {
                   }}>
                     <Mail size={20} style={{ color: '#f59e0b' }} />
                   </div>
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#f59e0b', letterSpacing: '0.08em' }}>PHISHING — EMAIL BANCAIRE</span>
+                  <div>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#f59e0b', letterSpacing: '0.08em' }}>PHISHING — EMAIL BANCAIRE</span>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', marginTop: '2px' }}>Capture d'un vrai email frauduleux LCL</p>
+                  </div>
                 </div>
                 <div className="grid md:grid-cols-2 gap-0">
                   <div style={{ padding: '24px', background: 'rgba(0,0,0,0.2)' }}>
-                    <img src="/phishing-email-lcl.jpg" alt="Vrai email de phishing LCL" style={{
+                    <img src="/phishing-email-lcl.jpg" alt="Vrai email de phishing — faux email LCL banque" style={{
                       width: '100%', maxHeight: '500px', objectFit: 'contain', borderRadius: '12px',
                       border: '2px solid rgba(245,158,11,0.2)',
                       boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(245,158,11,0.1)',
@@ -408,7 +704,8 @@ export default function Veille() {
                     </p>
                     <div className="flex flex-wrap gap-3">
                       <span style={{ fontSize: '12px', fontWeight: 700, color: '#ef4444', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Faux expediteur</span>
-                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#f59e0b', background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Usurpation bancaire</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#f59e0b', background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Mise a jour forcee</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#a855f7', background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Usurpation bancaire</span>
                     </div>
                   </div>
                 </div>
@@ -424,11 +721,14 @@ export default function Veille() {
                   }}>
                     <CreditCard size={20} style={{ color: '#a855f7' }} />
                   </div>
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#a855f7', letterSpacing: '0.08em' }}>PHISHING — PAIEMENT EN LIGNE</span>
+                  <div>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#a855f7', letterSpacing: '0.08em' }}>PHISHING — PAIEMENT EN LIGNE</span>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', marginTop: '2px' }}>Capture d'un vrai email frauduleux PayPal</p>
+                  </div>
                 </div>
                 <div className="grid md:grid-cols-2 gap-0">
                   <div style={{ padding: '24px', background: 'rgba(0,0,0,0.2)' }}>
-                    <img src="/phishing-paypal.png" alt="Vrai email de phishing PayPal" style={{
+                    <img src="/phishing-paypal.png" alt="Vrai email de phishing — faux email PayPal account limited" style={{
                       width: '100%', maxHeight: '500px', objectFit: 'contain', borderRadius: '12px',
                       border: '2px solid rgba(168,85,247,0.2)',
                       boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(168,85,247,0.1)',
@@ -439,10 +739,11 @@ export default function Veille() {
                       Faux email PayPal
                     </h4>
                     <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2, marginBottom: '1.5rem' }}>
-                      "Your account has been limited" — urgence artificielle + bouton menant vers un faux site identique a PayPal.
+                      "Your account has been limited" — urgence artificielle + bouton "Update your account" menant vers un faux site identique a PayPal.
                     </p>
                     <div className="flex flex-wrap gap-3">
                       <span style={{ fontSize: '12px', fontWeight: 700, color: '#ef4444', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Compte limite</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#f59e0b', background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Faux bouton</span>
                       <span style={{ fontSize: '12px', fontWeight: 700, color: '#a855f7', background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Site clone</span>
                     </div>
                   </div>
@@ -452,11 +753,176 @@ export default function Veille() {
           </div>
         </div>
 
+        {/* ═══════════ CAMPAGNES EN FRANCE ═══════════ */}
+        <SectionHeading
+          icon={Globe}
+          title="Campagnes de Phishing en France"
+          subtitle="Les arnaques les plus fréquentes ciblant les citoyens français — identifiées par Cybermalveillance.gouv.fr."
+          color="#f97316"
+          gradient="linear-gradient(135deg, #ffffff 0%, #f97316 50%, #ef4444 100%)"
+        />
+
+        <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(249,115,22,0.15)' }}>
+          <div style={{ height: '3px', background: 'linear-gradient(90deg, #f97316, #f59e0b, #ef4444)' }} />
+          <div className="p-10 md:p-14">
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '3rem' }}>
+              Les campagnes de phishing les plus fréquentes visant les citoyens français — identifiées par <strong style={{ color: '#06b6d4' }}>Cybermalveillance.gouv.fr</strong>.
+            </p>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {campaignsFrance.map((c, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl overflow-hidden transition-all duration-300"
+                  style={{
+                    background: 'rgba(0,0,0,0.3)',
+                    border: `1px solid ${c.color}20`,
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => setOpenCampaign(openCampaign === i ? null : i)}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = `${c.color}45`; e.currentTarget.style.transform = 'translateY(-3px)' }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = `${c.color}20`; e.currentTarget.style.transform = 'translateY(0)' }}
+                >
+                  <div className="p-8">
+                    <div className="flex items-center gap-4 mb-5">
+                      <span style={{ fontSize: '28px' }}>{c.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', lineHeight: 1.3, marginBottom: '0.4rem' }}>
+                          {c.name}
+                        </p>
+                        <span style={{
+                          fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', fontWeight: 700,
+                          color: c.color, background: `${c.color}12`, border: `1px solid ${c.color}25`,
+                          padding: '2px 8px', borderRadius: '4px',
+                        }}>{c.frequency}</span>
+                      </div>
+                    </div>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.8 }}>
+                      {c.desc}
+                    </p>
+                    {openCampaign === i && (
+                      <a href={c.source} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 mt-3 text-xs font-bold"
+                        style={{ color: c.color, textDecoration: 'none' }}
+                        onClick={e => e.stopPropagation()}
+                      >
+                        <ExternalLink size={11} /> Source Cybermalveillance
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ═══════════ KILL CHAIN ═══════════ */}
+        <SectionHeading
+          icon={Activity}
+          title="Chaîne d'Attaque par Phishing"
+          subtitle="Les 6 étapes d'une cyberattaque par phishing — de la reconnaissance à l'exploitation."
+          color="#dc2626"
+          gradient="linear-gradient(135deg, #64748b 0%, #f59e0b 30%, #ef4444 60%, #dc2626 100%)"
+        />
+
+        <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(220,38,38,0.15)' }}>
+          <div style={{ height: '3px', background: 'linear-gradient(90deg, #64748b, #f59e0b, #ef4444, #f97316, #a855f7, #dc2626)' }} />
+          <div className="p-10 md:p-14">
+            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.1rem', fontWeight: 800, color: '#dc2626', letterSpacing: '0.08em', marginBottom: '1.5rem' }}>
+              De la Reconnaissance à l'Exploitation
+            </p>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '3rem' }}>
+              Chaque étape d'une attaque par phishing est une opportunité de détection et de blocage pour le défenseur.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {killChain.map((step, i) => (
+                <div key={i} className="rounded-xl p-8 relative" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}25` }}>
+                  <div className="flex items-center gap-4 mb-6">
+                    <span style={{
+                      fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800,
+                      color: step.color, background: `${step.color}15`, border: `1px solid ${step.color}30`,
+                      padding: '5px 12px', borderRadius: '8px',
+                    }}>{step.num}</span>
+                    <step.icon size={22} style={{ color: step.color }} />
+                  </div>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.8rem' }}>{step.title}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9 }}>{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ═══════════ ATTAQUES EN FRANCE ═══════════ */}
+        <SectionHeading
+          icon={ShieldAlert}
+          title="Incidents Majeurs en France"
+          subtitle="Cyberattaques majeures 2024-2026 — souvent initiées par du phishing. Sources : CNIL, ANSSI, CERT Santé."
+          color="#a855f7"
+          gradient="linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #ef4444 100%)"
+        />
+
+        <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(168,85,247,0.15)' }}>
+          <div style={{ height: '3px', background: 'linear-gradient(90deg, #a855f7, #ef4444, #f59e0b)' }} />
+          <div className="p-10 md:p-14">
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '3rem' }}>
+              Cyberattaques majeures ayant touché des organisations françaises — souvent initiées par du phishing. Données vérifiées via sources officielles (CNIL, ANSSI, CERT Santé).
+            </p>
+
+            <div className="space-y-5">
+              {attacksFrance.map((atk, i) => (
+                <div key={i}>
+                  <button
+                    className="w-full flex items-center gap-6 px-7 py-6 rounded-xl transition-all text-left"
+                    style={{
+                      background: openAttack === i ? `${atk.color}08` : 'rgba(0,0,0,0.2)',
+                      border: `1px solid ${openAttack === i ? `${atk.color}30` : 'rgba(255,255,255,0.06)'}`,
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => setOpenAttack(openAttack === i ? null : i)}
+                  >
+                    <span style={{
+                      fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700,
+                      color: atk.color, background: `${atk.color}15`, border: `1px solid ${atk.color}30`,
+                      padding: '4px 12px', borderRadius: '6px', flexShrink: 0, minWidth: '95px', textAlign: 'center',
+                    }}>{atk.date}</span>
+                    <div className="flex-1 min-w-0">
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.3rem' }}>
+                        {atk.target}
+                      </p>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b' }}>
+                        {atk.type}
+                      </p>
+                    </div>
+                    <ChevronDown size={16} style={{ color: '#475569', transform: openAttack === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0 }} />
+                  </button>
+                  {openAttack === i && (
+                    <div className="mx-5 px-6 py-5 rounded-b-xl" style={{ background: 'rgba(0,0,0,0.3)', borderTop: `1px solid ${atk.color}15` }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 1.9, marginBottom: '1.5rem' }}>
+                        <strong style={{ color: atk.color }}>Impact :</strong> {atk.impact}
+                      </p>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '1rem' }}>
+                        {atk.detail}
+                      </p>
+                      <a href={atk.source} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold transition-colors"
+                        style={{ color: atk.color, textDecoration: 'none' }}
+                      >
+                        <ExternalLink size={12} /> Source : {atk.sourceLabel}
+                      </a>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* ═══════════ STATISTIQUES ═══════════ */}
         <SectionHeading
           icon={TrendingUp}
           title="Chiffres Clés"
-          subtitle="Les statistiques les plus marquantes du phishing en France."
+          subtitle="Les statistiques les plus marquantes du phishing en France — des données vérifiées et sourcées."
           color="#06b6d4"
           gradient="linear-gradient(135deg, #ffffff 0%, #06b6d4 60%, #10b981 100%)"
         />
@@ -473,7 +939,8 @@ export default function Veille() {
                 <p style={{
                   fontFamily: "'Orbitron', system-ui, sans-serif",
                   fontSize: 'clamp(1.6rem, 4vw, 2.4rem)',
-                  fontWeight: 900, color: stat.color, marginBottom: '0.8rem', lineHeight: 1,
+                  fontWeight: 900, color: stat.color,
+                  marginBottom: '0.8rem', lineHeight: 1,
                 }}>
                   {stat.value}
                 </p>
@@ -483,16 +950,106 @@ export default function Veille() {
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', lineHeight: 1.7 }}>
                   {stat.detail}
                 </p>
+                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#334155', marginTop: '0.8rem' }}>
+                  {stat.source}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* ═══════════ QUE FAIRE + PROTECTION ═══════════ */}
+        {/* ═══════════ IMPACT IA ═══════════ */}
+        <SectionHeading
+          icon={Brain}
+          title="Impact de l'IA sur le Phishing"
+          subtitle="Comment l'intelligence artificielle transforme et amplifie les attaques de phishing à l'échelle mondiale."
+          color="#a855f7"
+          gradient="linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #ec4899 100%)"
+        />
+
+        <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(168,85,247,0.15)' }}>
+          <div style={{ height: '3px', background: 'linear-gradient(90deg, #a855f7, #ec4899, #ef4444)' }} />
+          <div className="p-10 md:p-14">
+            <div className="flex items-start gap-8 mb-14">
+              <div style={{
+                width: '60px', height: '60px', borderRadius: '16px',
+                background: 'rgba(168,85,247,0.12)', border: '1px solid rgba(168,85,247,0.25)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+              }}>
+                <Brain size={28} style={{ color: '#a855f7' }} />
+              </div>
+              <div>
+                <h3 style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.6rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1.5rem', letterSpacing: '0.02em' }}>
+                  L'IA révolutionne le phishing
+                </h3>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2 }}>
+                  Les LLM, le deepfake et le Phishing-as-a-Service transforment radicalement le paysage. Les emails deviennent parfaits, personnalisés et produits à l'échelle industrielle.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-8 mb-12">
+              {aiImpacts.map((impact, i) => (
+                <div key={i} className="rounded-xl p-8" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${impact.color}20` }}>
+                  <div className="flex items-center gap-4 mb-5">
+                    <div style={{
+                      width: '42px', height: '42px', borderRadius: '12px',
+                      background: `${impact.color}12`, border: `1px solid ${impact.color}25`,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>
+                      <impact.icon size={20} style={{ color: impact.color }} />
+                    </div>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#e2e8f0' }}>{impact.title}</p>
+                  </div>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '1.2rem' }}>
+                    {impact.desc}
+                  </p>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700,
+                    color: impact.color, background: `${impact.color}12`, border: `1px solid ${impact.color}25`,
+                    padding: '4px 12px', borderRadius: '6px',
+                  }}>{impact.stat}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Before/After */}
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="rounded-xl p-8" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(100,116,139,0.2)' }}>
+                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700, color: '#64748b', letterSpacing: '0.1em', marginBottom: '1.2rem' }}>
+                  AVANT L'IA — Phishing classique
+                </p>
+                <div className="rounded-lg p-5" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9, fontStyle: 'italic' }}>
+                    "Cher clien, nous avon detecte une probleme sur votre comptes bancaire. Cliquer ici pour verifier vos informations immediatement sinon votre compte sera bloquer."
+                  </p>
+                </div>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', marginTop: '1rem', lineHeight: 1.7 }}>
+                  ❌ Fautes d'orthographe · Formulation maladroite · Facile à détecter
+                </p>
+              </div>
+              <div className="rounded-xl p-8" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(239,68,68,0.2)' }}>
+                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 700, color: '#ef4444', letterSpacing: '0.1em', marginBottom: '1.2rem' }}>
+                  AVEC L'IA — Phishing augmenté
+                </p>
+                <div className="rounded-lg p-5" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 1.9, fontStyle: 'italic' }}>
+                    "Bonjour M. Dupont, suite à votre dernier achat chez Amazon le 15 avril, nous avons détecté une tentative de connexion inhabituelle depuis Bucarest. Veuillez confirmer votre identité via notre portail sécurisé sous 48h."
+                  </p>
+                </div>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#ef4444', marginTop: '1rem', lineHeight: 1.7 }}>
+                  ⚠ Parfait français · Personnalisé · Contexte crédible · Très difficile à détecter
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ═══════════ QUE FAIRE ═══════════ */}
         <SectionHeading
           icon={Shield}
-          title="Se Protéger du Phishing"
-          subtitle="Que faire en cas de phishing et les bonnes pratiques de protection."
+          title="Que Faire en Cas de Phishing ?"
+          subtitle="Procédure complète à suivre — basée sur les recommandations de l'ANSSI et Cybermalveillance.gouv.fr."
           color="#10b981"
           gradient="linear-gradient(135deg, #ef4444 0%, #f59e0b 40%, #10b981 100%)"
         />
@@ -500,15 +1057,18 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(16,185,129,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #ef4444, #f59e0b, #10b981)' }} />
           <div className="p-10 md:p-14">
-            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1rem', fontWeight: 800, color: '#ef4444', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2rem' }}>
-              En cas de phishing
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '1.5rem' }}>
+              Procédure à suivre en cas de réception ou d'interaction avec un message de phishing — basée sur les recommandations de l'<strong style={{ color: '#3b82f6' }}>ANSSI</strong> et de <strong style={{ color: '#06b6d4' }}>Cybermalveillance.gouv.fr</strong>.
+            </p>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#f59e0b', marginBottom: '3rem' }}>
+              ⚠ Si vous avez communiqué des identifiants, agissez immédiatement.
             </p>
 
-            <div className="space-y-4 mb-14">
+            <div className="space-y-5">
               {reactionSteps.map((step, i) => (
                 <div key={i}>
                   <button
-                    className="w-full flex items-center gap-5 px-7 py-5 rounded-xl transition-all text-left"
+                    className="w-full flex items-center gap-5 px-7 py-6 rounded-xl transition-all text-left"
                     style={{
                       background: openStep === i ? `${step.color}08` : 'rgba(0,0,0,0.2)',
                       border: `1px solid ${openStep === i ? `${step.color}30` : 'rgba(255,255,255,0.06)'}`,
@@ -517,11 +1077,11 @@ export default function Veille() {
                     onClick={() => setOpenStep(openStep === i ? null : i)}
                   >
                     <div style={{
-                      width: '40px', height: '40px', borderRadius: '10px',
+                      width: '44px', height: '44px', borderRadius: '12px',
                       background: `${step.color}15`, border: `1px solid ${step.color}30`,
                       display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                     }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: step.color }}>{step.num}</span>
+                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: step.color }}>{step.num}</span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3">
@@ -538,7 +1098,7 @@ export default function Veille() {
                     <ChevronDown size={14} style={{ color: '#475569', transform: openStep === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0 }} />
                   </button>
                   {openStep === i && (
-                    <div className="ml-14 mr-5 px-6 py-5 rounded-b-lg" style={{ background: 'rgba(0,0,0,0.25)', borderTop: `1px solid ${step.color}10` }}>
+                    <div className="ml-16 mr-5 px-6 py-5 rounded-b-lg" style={{ background: 'rgba(0,0,0,0.25)', borderTop: `1px solid ${step.color}10` }}>
                       <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 1.9 }}>
                         {step.desc}
                       </p>
@@ -547,41 +1107,82 @@ export default function Veille() {
                 </div>
               ))}
             </div>
-
-            <div style={{ width: '60px', height: '2px', background: 'rgba(16,185,129,0.3)', borderRadius: '2px', marginBottom: '1.5rem' }} />
-            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2rem' }}>
-              Bonnes pratiques de protection
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              {protectionMeasures.map((cm, i) => (
-                <div key={i} className="rounded-xl p-7" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${cm.color}20` }}>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div style={{
-                      width: '42px', height: '42px', borderRadius: '12px',
-                      background: `${cm.color}12`, border: `1px solid ${cm.color}25`,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                      <cm.icon size={20} style={{ color: cm.color }} />
-                    </div>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0' }}>
-                      {cm.title}
-                    </p>
-                  </div>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9 }}>
-                    {cm.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
+        </div>
+
+        {/* ═══════════ CONTRE-MESURES ═══════════ */}
+        <SectionHeading
+          icon={ShieldCheck}
+          title="Contre-Mesures & Bonnes Pratiques"
+          subtitle="Les 6 mesures essentielles pour se protéger contre le phishing en entreprise et à titre personnel."
+          color="#10b981"
+          gradient="linear-gradient(135deg, #ffffff 0%, #10b981 60%, #06b6d4 100%)"
+        />
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {counterMeasures.map((cm, i) => (
+            <div key={i} className="rounded-2xl p-9 transition-all duration-300"
+              style={{ background: 'rgba(10,15,30,0.85)', border: `1px solid ${cm.color}20` }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-4px)'
+                e.currentTarget.style.borderColor = `${cm.color}40`
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.borderColor = `${cm.color}20`
+              }}
+            >
+              <div style={{
+                width: '54px', height: '54px', borderRadius: '14px',
+                background: `${cm.color}12`, border: `1px solid ${cm.color}25`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginBottom: '1.5rem',
+              }}>
+                <cm.icon size={26} style={{ color: cm.color }} />
+              </div>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.8rem' }}>
+                {cm.title}
+              </p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9 }}>
+                {cm.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* ═══════════ MA DÉMARCHE ═══════════ */}
+        <SectionHeading
+          icon={Search}
+          title="Ma Démarche de Veille"
+          subtitle="Ma méthodologie en 4 étapes pour réaliser une veille technologique efficace et structurée."
+          color="#f59e0b"
+          gradient="linear-gradient(135deg, #ffffff 0%, #f59e0b 60%, #f97316 100%)"
+        />
+
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+          {veilleMethode.map((step, i) => (
+            <div key={i} className="rounded-2xl p-9 text-center" style={{ background: 'rgba(10,15,30,0.85)', border: `1px solid ${step.color}20` }}>
+              <div className="flex items-center justify-center mx-auto mb-6" style={{
+                width: '52px', height: '52px', borderRadius: '50%',
+                background: `${step.color}15`, border: `1px solid ${step.color}35`,
+              }}>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: step.color }}>{step.num}</span>
+              </div>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: step.color, marginBottom: '0.8rem' }}>
+                {step.title}
+              </p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.9 }}>
+                {step.desc}
+              </p>
+            </div>
+          ))}
         </div>
 
         {/* ═══════════ SOURCES OFFICIELLES ═══════════ */}
         <SectionHeading
           icon={Globe}
           title="Sources Officielles"
-          subtitle="Sources gouvernementales utilisées pour cette veille technologique."
+          subtitle="Toutes les sources gouvernementales et officielles utilisées pour cette veille technologique."
           color="#3b82f6"
           gradient="linear-gradient(135deg, #ffffff 0%, #3b82f6 50%, #06b6d4 100%)"
         />
@@ -595,7 +1196,7 @@ export default function Veille() {
                 href={src.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-6 px-8 py-6 transition-all"
+                className="flex items-center gap-6 px-8 py-7 transition-all"
                 style={{ textDecoration: 'none' }}
                 onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.02)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
@@ -607,7 +1208,7 @@ export default function Veille() {
                 }}>{src.badge}</span>
                 <div className="flex-1 min-w-0">
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.3rem' }}>{src.name}</p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b' }}>{src.desc} — {src.detail}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', lineHeight: 1.6 }}>{src.desc} — {src.detail}</p>
                 </div>
                 <ExternalLink size={14} style={{ color: '#334155', flexShrink: 0 }} />
               </a>
@@ -616,7 +1217,7 @@ export default function Veille() {
         </div>
 
         {/* Rapports PDF */}
-        <div className="grid sm:grid-cols-2 gap-8 mt-10">
+        <div className="grid sm:grid-cols-2 gap-8 mt-14">
           {[
             { title: 'Panorama de la cybermenace 2024', org: 'ANSSI / CERT-FR', url: 'https://www.cert.ssi.gouv.fr/uploads/CERTFR-2025-CTI-003.pdf', color: '#3b82f6' },
             { title: 'Rapport d\'activité 2024', org: 'Cybermalveillance.gouv.fr', url: 'https://www.cybermalveillance.gouv.fr/medias/2025/03/250327_RA_2024_SCREEN.pdf', color: '#06b6d4' },
@@ -644,15 +1245,15 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ CONCLUSION ═══════════ */}
-        <div className="mt-28 rounded-2xl p-12 md:p-16" style={{ background: 'rgba(245,158,11,0.04)', border: '1px solid rgba(245,158,11,0.15)' }}>
+        <div className="mt-40 rounded-2xl p-12 md:p-16" style={{ background: 'rgba(245,158,11,0.04)', border: '1px solid rgba(245,158,11,0.15)' }}>
           <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '2rem' }}>
             Conclusion
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.1, marginBottom: '2rem' }}>
-            Le phishing reste la <strong style={{ color: '#f59e0b' }}>menace n°1 en France</strong> avec <strong style={{ color: '#ef4444' }}>64 000 demandes d'assistance en 2024</strong>. Il est le vecteur initial de <strong style={{ color: '#10b981' }}>91% des cyberattaques</strong>. La protection passe par une approche combinée : <strong style={{ color: '#10b981' }}>technique</strong> (MFA, filtrage, SPF/DKIM/DMARC) et <strong style={{ color: '#a855f7' }}>humaine</strong> (sensibilisation, vigilance). Chaque collaborateur est un maillon de la chaîne de sécurité.
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.1, marginBottom: '2.5rem' }}>
+            Le phishing reste la <strong style={{ color: '#f59e0b' }}>menace n°1 en France</strong> avec <strong style={{ color: '#ef4444' }}>64 000 demandes d'assistance en 2024</strong> sur Cybermalveillance.gouv.fr. Il est le vecteur initial de <strong style={{ color: '#10b981' }}>91% des cyberattaques</strong>, à l'origine des fuites massives de 2024 : <strong style={{ color: '#dc2626' }}>33 millions</strong> (Viamedis), <strong style={{ color: '#dc2626' }}>43 millions</strong> (France Travail), <strong style={{ color: '#dc2626' }}>19,2 millions</strong> (Free). L'intelligence artificielle amplifie cette menace avec des emails <strong style={{ color: '#a855f7' }}>parfaits et personnalisés</strong> (+1 200% d'emails de phishing) et des kits Phishing-as-a-Service accessibles <strong style={{ color: '#06b6d4' }}>dès 50€</strong>. La protection passe par une approche combinée : <strong style={{ color: '#10b981' }}>technique</strong> (MFA, filtrage email, SPF/DKIM/DMARC) et <strong style={{ color: '#a855f7' }}>humaine</strong> (sensibilisation, simulations de phishing). Chaque collaborateur est un maillon de la chaîne de sécurité.
           </p>
           <div className="flex flex-wrap gap-3">
-            {['Phishing', 'Smishing', 'Vishing', 'Quishing', 'ANSSI', 'CERT-FR', 'MFA', 'SPF/DKIM/DMARC'].map(tag => (
+            {['Phishing', 'Smishing', 'Vishing', 'Quishing', 'Spear Phishing', 'ANSSI', 'CERT-FR', 'IA & Deepfake', 'Phishing-as-a-Service', 'NIS2', 'MFA', 'SPF/DKIM/DMARC'].map(tag => (
               <span key={tag} style={{
                 fontFamily: "'Inter', sans-serif", fontSize: '12px', fontWeight: 600,
                 color: '#f59e0b', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)',
@@ -662,12 +1263,12 @@ export default function Veille() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-wrap items-center justify-between gap-4 px-2">
+        <div className="mt-24 flex flex-wrap items-center justify-between gap-4 px-2">
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#475569' }}>
             Veille maintenue mensuellement — dernière mise à jour : mai 2026
           </p>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#475569' }}>
-            Sources : ANSSI · CERT-FR · Cybermalveillance.gouv.fr · CNIL
+            Sources : ANSSI · CERT-FR · Cybermalveillance.gouv.fr · CNIL · Signal Spam · PHAROS
           </p>
         </div>
 
