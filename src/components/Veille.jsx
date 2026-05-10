@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Shield, AlertTriangle, Mail, Eye, ExternalLink, ChevronDown, Brain, ShieldCheck, TrendingUp, Globe, Key, Search, Ban, Phone, BookOpen, Bot, Activity, Smartphone, QrCode, Megaphone, PhoneOff, Volume2, Video, FileText, Lock, Users, CheckCircle } from 'lucide-react'
+import { Shield, AlertTriangle, Mail, Eye, ExternalLink, ChevronDown, Brain, ShieldCheck, TrendingUp, Globe, Key, Ban, Phone, BookOpen, Bot, Activity, Smartphone, QrCode, Megaphone, PhoneOff, Volume2, Video, FileText, Lock, Users, CheckCircle } from 'lucide-react'
 
 function SectionHeading({ icon: SectionIcon, title, subtitle, color, gradient, num }) {
   return (
@@ -59,12 +59,10 @@ const sommaire = [
   { num: '03', label: 'Les 8 Formes', color: '#ef4444' },
   { num: '04', label: 'Comment le repérer ?', color: '#dc2626' },
   { num: '05', label: "L'IA et le Phishing", color: '#a855f7' },
-  { num: '06', label: 'Exemples réels', color: '#f97316' },
-  { num: '07', label: 'Attaques récentes en France', color: '#dc2626' },
-  { num: '08', label: 'Chiffres Clés 2025', color: '#06b6d4' },
-  { num: '09', label: 'Comment se protéger ?', color: '#10b981' },
-  { num: '10', label: 'Ma Démarche', color: '#f59e0b' },
-  { num: '11', label: 'Mes Sources', color: '#3b82f6' },
+  { num: '06', label: 'Attaques récentes en France', color: '#dc2626' },
+  { num: '07', label: 'Chiffres Clés 2025', color: '#06b6d4' },
+  { num: '08', label: 'Comment se protéger ?', color: '#10b981' },
+  { num: '09', label: 'Mes Sources', color: '#3b82f6' },
 ]
 
 const phishingTypes = [
@@ -276,13 +274,6 @@ const nouvelleLoi = {
   source: 'Loi française anti-spoofing',
 }
 
-const veilleMethode = [
-  { num: '01', title: 'Je collecte', desc: "Je m'inscris aux alertes de l'ANSSI et du CERT-FR. Je consulte régulièrement Cybermalveillance.gouv.fr pour les nouvelles arnaques.", color: '#06b6d4' },
-  { num: '02', title: 'Je trie', desc: "Je sélectionne ce qui est lié à mon BTS SIO SISR : phishing, fuites de données, nouvelles techniques d'attaque en France.", color: '#f59e0b' },
-  { num: '03', title: "J'analyse", desc: "J'étudie les rapports officiels (ANSSI, CNIL, Cybermalveillance) pour comprendre comment les attaques fonctionnent et leurs impacts.", color: '#10b981' },
-  { num: '04', title: 'Je documente', desc: "Je fais une synthèse claire avec des exemples concrets et des sources vérifiées pour mon portfolio BTS SIO.", color: '#a855f7' },
-]
-
 const officialSources = [
   { name: 'Cybermalveillance.gouv.fr', desc: "Le site du gouvernement pour aider les victimes — 504 000 demandes en 2025", badge: 'GOV', color: '#06b6d4', url: 'https://www.cybermalveillance.gouv.fr/' },
   { name: 'ANSSI', desc: "L'agence gouvernementale de cybersécurité — 3 586 événements traités en 2025", badge: 'GOV', color: '#3b82f6', url: 'https://cyber.gouv.fr/' },
@@ -295,7 +286,6 @@ const officialSources = [
 export default function Veille() {
   const [openAttack, setOpenAttack] = useState(null)
   const [openAi, setOpenAi] = useState(0)
-  const [openProtection, setOpenProtection] = useState(null)
 
   return (
     <section id="veille" className="relative" style={{ paddingTop: '12rem', paddingBottom: '10rem' }}>
@@ -371,7 +361,7 @@ export default function Veille() {
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #6366f1, #06b6d4, #f59e0b, #ef4444, #a855f7, #10b981)' }} />
           <div className="p-10 md:p-12">
             <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.1rem', fontWeight: 800, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '2.5rem' }}>
-              Plan de la Veille — 11 parties
+              Plan de la Veille — 9 parties
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {sommaire.map((s) => (
@@ -399,15 +389,25 @@ export default function Veille() {
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.2, marginBottom: '3rem' }}>
               La <strong style={{ color: '#06b6d4' }}>veille technologique</strong>, c'est <strong style={{ color: '#22d3ee' }}>surveiller en continu</strong> les nouvelles menaces, les nouvelles arnaques et les outils pour s'en protéger. En tant qu'étudiant BTS SIO SISR, cette veille me permet de rester à jour pour protéger les systèmes et les utilisateurs. J'ai choisi le <strong style={{ color: '#f59e0b' }}>phishing</strong> parce que c'est la <strong style={{ color: '#f59e0b' }}>menace n°1 en France</strong> et qu'elle touche tout le monde au quotidien.
             </p>
-            <div className="grid sm:grid-cols-3 gap-8">
+            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1rem', fontWeight: 800, color: '#06b6d4', letterSpacing: '0.08em', marginBottom: '2rem' }}>
+              Ma méthode en 4 étapes
+            </p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { title: '1. Je collecte', desc: "Je consulte les sites officiels (ANSSI, CERT-FR, Cybermalveillance.gouv.fr) et je m'inscris à leurs alertes pour être prévenu en temps réel.", color: '#06b6d4' },
-                { title: '2. J\'analyse', desc: "Je lis les rapports annuels (ANSSI 2025 : 3 586 événements traités) et j'étudie les nouvelles techniques d'attaque et leurs impacts.", color: '#3b82f6' },
-                { title: '3. Je documente', desc: "Je fais une synthèse claire avec des exemples concrets et des chiffres vérifiés pour mon portfolio BTS SIO.", color: '#8b5cf6' },
+                { num: '01', title: 'Je collecte', desc: "Je m'inscris aux alertes de l'ANSSI et du CERT-FR. Je consulte Cybermalveillance.gouv.fr pour les nouvelles arnaques.", color: '#06b6d4' },
+                { num: '02', title: 'Je trie', desc: "Je sélectionne ce qui concerne mon BTS SIO SISR : phishing, fuites de données, nouvelles techniques d'attaque.", color: '#3b82f6' },
+                { num: '03', title: "J'analyse", desc: "J'étudie les rapports officiels (ANSSI 2025 : 3 586 événements) pour comprendre les attaques et leurs impacts.", color: '#8b5cf6' },
+                { num: '04', title: 'Je documente', desc: "Je rédige une synthèse claire avec des exemples concrets et des sources vérifiées pour mon portfolio.", color: '#a855f7' },
               ].map((step, i) => (
-                <div key={i} className="rounded-xl p-7" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}20` }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 800, color: step.color, marginBottom: '1rem' }}>{step.title}</p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9 }}>{step.desc}</p>
+                <div key={i} className="rounded-xl p-6 text-center" style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${step.color}20` }}>
+                  <div className="flex items-center justify-center mx-auto mb-4" style={{
+                    width: '44px', height: '44px', borderRadius: '50%',
+                    background: `${step.color}15`, border: `1px solid ${step.color}30`,
+                  }}>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 800, color: step.color }}>{step.num}</span>
+                  </div>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 800, color: step.color, marginBottom: '0.8rem' }}>{step.title}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.8 }}>{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -787,100 +787,9 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ 06 — EXEMPLES RÉELS ═══════════ */}
+        {/* ═══════════ 06 — ATTAQUES EN FRANCE ═══════════ */}
         <SectionHeading
-          num="06" icon={Smartphone}
-          title="Exemples Réels"
-          subtitle="De vrais messages de phishing interceptés en France — pour apprendre à les reconnaître."
-          color="#f97316"
-          gradient="linear-gradient(135deg, #ffffff 0%, #f97316 50%, #ef4444 100%)"
-        />
-
-        <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(249,115,22,0.15)' }}>
-          <div style={{ height: '3px', background: 'linear-gradient(90deg, #f97316, #f59e0b, #06b6d4)' }} />
-          <div className="p-10 md:p-14">
-            <div className="flex flex-col gap-12">
-              {/* SMS Chronopost */}
-              <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(6,182,212,0.25)' }}>
-                <div className="px-8 py-5 flex items-center gap-3" style={{ background: 'rgba(6,182,212,0.08)', borderBottom: '1px solid rgba(6,182,212,0.15)' }}>
-                  <Smartphone size={20} style={{ color: '#06b6d4' }} />
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: '#06b6d4', letterSpacing: '0.08em' }}>FAUX SMS — ARNAQUE AU COLIS</span>
-                </div>
-                <div className="grid md:grid-cols-2 gap-0">
-                  <div style={{ padding: '24px', background: 'rgba(0,0,0,0.2)' }}>
-                    <img src="/phishing-sms-chronopost.jpg" alt="Vrai faux SMS Chronopost" style={{
-                      width: '100%', maxHeight: '500px', objectFit: 'contain', borderRadius: '12px',
-                      border: '2px solid rgba(6,182,212,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-                    }} />
-                  </div>
-                  <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem' }}>Faux SMS Chronopost</h4>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2, marginBottom: '1rem' }}>
-                      Le SMS dit "votre colis est en attente". Le lien <strong style={{ color: '#ef4444' }}>"chronopost-online-info.com"</strong> n'est pas le vrai site de Chronopost. En 2025, les arnaques par SMS ont augmenté de <strong style={{ color: '#06b6d4' }}>+2 500%</strong>. Nouvelle technique IA : les escrocs génèrent même de fausses photos de colis avec ton nom et ton adresse.
-                    </p>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#10b981', fontWeight: 700 }}>
-                      💡 Le vrai site est chronopost.fr — et transfère le SMS au 33700 pour le signaler.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Email LCL */}
-              <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(245,158,11,0.25)' }}>
-                <div className="px-8 py-5 flex items-center gap-3" style={{ background: 'rgba(245,158,11,0.08)', borderBottom: '1px solid rgba(245,158,11,0.15)' }}>
-                  <Mail size={20} style={{ color: '#f59e0b' }} />
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: '#f59e0b', letterSpacing: '0.08em' }}>FAUX EMAIL — ARNAQUE BANCAIRE</span>
-                </div>
-                <div className="grid md:grid-cols-2 gap-0">
-                  <div style={{ padding: '24px', background: 'rgba(0,0,0,0.2)' }}>
-                    <img src="/phishing-email-lcl.jpg" alt="Vrai faux email LCL" style={{
-                      width: '100%', maxHeight: '500px', objectFit: 'contain', borderRadius: '12px',
-                      border: '2px solid rgba(245,158,11,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-                    }} />
-                  </div>
-                  <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem' }}>Faux email LCL Banque</h4>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2, marginBottom: '1rem' }}>
-                      L'email demande de "mettre à jour ton numéro de client". L'adresse de l'expéditeur et le lien <strong style={{ color: '#ef4444' }}>ne correspondent pas</strong> au vrai site de LCL. L'arnaque au faux conseiller bancaire représente <strong style={{ color: '#f59e0b' }}>245 millions d'euros</strong> de pertes en France.
-                    </p>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#10b981', fontWeight: 700 }}>
-                      💡 Ta banque ne te demandera JAMAIS tes codes par email ou SMS.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* QR Code */}
-              <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(239,68,68,0.25)' }}>
-                <div className="px-8 py-5 flex items-center gap-3" style={{ background: 'rgba(239,68,68,0.08)', borderBottom: '1px solid rgba(239,68,68,0.15)' }}>
-                  <QrCode size={20} style={{ color: '#ef4444' }} />
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: '#ef4444', letterSpacing: '0.08em' }}>FAUX QR CODE — ARNAQUE AU PV</span>
-                </div>
-                <div className="grid md:grid-cols-2 gap-0">
-                  <div style={{ padding: '24px', background: 'rgba(0,0,0,0.2)' }}>
-                    <img src="/phishing-quishing.jpg" alt="Faux QR code sur PV" style={{
-                      width: '100%', maxHeight: '500px', objectFit: 'contain', borderRadius: '12px',
-                      border: '2px solid rgba(239,68,68,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-                    }} />
-                  </div>
-                  <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem' }}>Faux QR code sur un PV</h4>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2, marginBottom: '1rem' }}>
-                      Des faux QR codes sont collés sur des PV à <strong style={{ color: '#ef4444' }}>Paris, Lyon et Melun</strong>. Ils redirigent vers un faux site comme "idf-stationnement.com". En 2025, les attaques par QR code ont augmenté de <strong style={{ color: '#ef4444' }}>+146%</strong>. Microsoft a détecté <strong style={{ color: '#06b6d4' }}>8,3 milliards</strong> de menaces phishing au 1er trimestre 2026.
-                    </p>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#10b981', fontWeight: 700 }}>
-                      💡 Le seul vrai site pour payer un PV : amendes.gouv.fr — ne scanne jamais un QR code sur un papier.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ═══════════ 07 — ATTAQUES EN FRANCE ═══════════ */}
-        <SectionHeading
-          num="07" icon={AlertTriangle}
+          num="06" icon={AlertTriangle}
           title="Les Grosses Attaques en France (2024-2025)"
           subtitle="Les cyberattaques qui ont touché des millions de Français — la plupart commencent par du phishing."
           color="#dc2626"
@@ -936,9 +845,9 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ 08 — CHIFFRES CLÉS ═══════════ */}
+        {/* ═══════════ 07 — CHIFFRES CLÉS ═══════════ */}
         <SectionHeading
-          num="08" icon={TrendingUp}
+          num="07" icon={TrendingUp}
           title="Les Chiffres Clés 2025"
           subtitle="Les statistiques les plus récentes — pour comprendre l'ampleur du problème."
           color="#06b6d4"
@@ -967,9 +876,9 @@ export default function Veille() {
           ))}
         </div>
 
-        {/* ═══════════ 09 — COMMENT SE PROTÉGER ═══════════ */}
+        {/* ═══════════ 08 — COMMENT SE PROTÉGER ═══════════ */}
         <SectionHeading
-          num="09" icon={ShieldCheck}
+          num="08" icon={ShieldCheck}
           title="Comment se Protéger ?"
           subtitle="6 réflexes simples et efficaces pour ne pas se faire piéger."
           color="#10b981"
@@ -1019,33 +928,9 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ 10 — MA DÉMARCHE ═══════════ */}
+        {/* ═══════════ 09 — SOURCES ═══════════ */}
         <SectionHeading
-          num="10" icon={Search}
-          title="Comment je fais ma Veille"
-          subtitle="Ma méthode en 4 étapes pour me tenir informé des nouvelles menaces."
-          color="#f59e0b"
-          gradient="linear-gradient(135deg, #ffffff 0%, #f59e0b 60%, #f97316 100%)"
-        />
-
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {veilleMethode.map((step, i) => (
-            <div key={i} className="rounded-2xl p-9 text-center" style={{ background: 'rgba(10,15,30,0.85)', border: `1px solid ${step.color}20` }}>
-              <div className="flex items-center justify-center mx-auto mb-6" style={{
-                width: '52px', height: '52px', borderRadius: '50%',
-                background: `${step.color}15`, border: `1px solid ${step.color}35`,
-              }}>
-                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: step.color }}>{step.num}</span>
-              </div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: step.color, marginBottom: '0.8rem' }}>{step.title}</p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.9 }}>{step.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* ═══════════ 11 — SOURCES ═══════════ */}
-        <SectionHeading
-          num="11" icon={Globe}
+          num="09" icon={Globe}
           title="Mes Sources Officielles"
           subtitle="Les sites du gouvernement et les organismes officiels que j'utilise pour ma veille."
           color="#3b82f6"
