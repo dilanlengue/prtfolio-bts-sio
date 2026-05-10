@@ -1,9 +1,18 @@
 import { useState } from 'react'
 import { Shield, AlertTriangle, Mail, Lock, Server, Eye, ExternalLink, ChevronDown, Wifi, Users, Database, Brain, ShieldCheck, AlertCircle, Clock, TrendingUp, Globe, Key, HardDrive, Search, FileWarning, Ban, Siren, Phone, ClipboardList, MonitorX, BookOpen, Cpu, MessageSquareWarning, ArrowRight, Bot, Fingerprint, ShieldAlert, Activity, Smartphone, QrCode, UserCheck, MessageCircleWarning, CreditCard, ShieldX, Megaphone } from 'lucide-react'
 
-function SectionHeading({ icon: Icon, title, subtitle, color, gradient }) {
+function SectionHeading({ icon: Icon, title, subtitle, color, gradient, num }) {
   return (
-    <div style={{ marginTop: '10rem', marginBottom: '5rem' }}>
+    <div style={{ marginTop: '8rem', marginBottom: '4rem' }}>
+      {num && (
+        <p className="text-center" style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: '13px', fontWeight: 800, letterSpacing: '0.2em',
+          color: `${color}90`, marginBottom: '1.2rem',
+        }}>
+          PARTIE {num}
+        </p>
+      )}
       <div className="flex items-center justify-center gap-5" style={{ marginBottom: '2rem' }}>
         <div style={{ flex: 1, height: '2px', background: `linear-gradient(90deg, transparent, ${color}50)`, borderRadius: '2px' }} />
         <div style={{
@@ -19,42 +28,45 @@ function SectionHeading({ icon: Icon, title, subtitle, color, gradient }) {
       <h2 className="text-center" style={{
         fontFamily: "'Orbitron', system-ui, sans-serif",
         fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
-        fontWeight: 900,
-        letterSpacing: '0.04em',
-        lineHeight: 1.3,
-        marginBottom: '1.2rem',
+        fontWeight: 900, letterSpacing: '0.04em', lineHeight: 1.3, marginBottom: '1.2rem',
         background: gradient || `linear-gradient(135deg, #ffffff 0%, ${color} 100%)`,
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text',
-        textShadow: 'none',
+        WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
         filter: `drop-shadow(0 0 20px ${color}30)`,
       }}>
         {title}
       </h2>
       {subtitle && (
         <p className="text-center mx-auto" style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '17px',
-          fontWeight: 500,
-          color: '#94a3b8',
-          lineHeight: 1.9,
-          maxWidth: '700px',
-          letterSpacing: '0.01em',
+          fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 500,
+          color: '#94a3b8', lineHeight: 1.8, maxWidth: '650px',
         }}>
           {subtitle}
         </p>
       )}
       <div style={{
-        width: '100px', height: '3px',
-        margin: '2rem auto 0',
+        width: '100px', height: '3px', margin: '1.5rem auto 0',
         background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
-        borderRadius: '99px',
-        boxShadow: `0 0 12px ${color}40`,
+        borderRadius: '99px', boxShadow: `0 0 12px ${color}40`,
       }} />
     </div>
   )
 }
+
+const sommaire = [
+  { num: '01', label: 'La Veille Technologique', color: '#06b6d4' },
+  { num: '02', label: 'Le Phishing', color: '#f59e0b' },
+  { num: '03', label: 'Anatomie d\'un Email', color: '#ef4444' },
+  { num: '04', label: 'Exemples Réels', color: '#dc2626' },
+  { num: '05', label: 'Campagnes en France', color: '#f97316' },
+  { num: '06', label: 'Chaîne d\'Attaque', color: '#dc2626' },
+  { num: '07', label: 'Incidents Majeurs', color: '#a855f7' },
+  { num: '08', label: 'Chiffres Clés', color: '#06b6d4' },
+  { num: '09', label: 'Impact de l\'IA', color: '#a855f7' },
+  { num: '10', label: 'Que Faire ?', color: '#10b981' },
+  { num: '11', label: 'Contre-Mesures', color: '#10b981' },
+  { num: '12', label: 'Ma Démarche', color: '#f59e0b' },
+  { num: '13', label: 'Sources Officielles', color: '#3b82f6' },
+]
 
 const phishingTypes = [
   {
@@ -355,11 +367,30 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ DÉFINITION VEILLE ═══════════ */}
+        {/* ═══════════ SOMMAIRE ═══════════ */}
+        <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(99,102,241,0.2)' }}>
+          <div style={{ height: '3px', background: 'linear-gradient(90deg, #6366f1, #06b6d4, #f59e0b, #ef4444, #a855f7, #10b981)' }} />
+          <div className="p-10 md:p-12">
+            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.1rem', fontWeight: 800, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '2.5rem' }}>
+              Plan de la Veille — 13 parties
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {sommaire.map((s) => (
+                <div key={s.num} className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ background: `${s.color}08`, border: `1px solid ${s.color}15` }}>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: s.color }}>{s.num}</span>
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#cbd5e1' }}>{s.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ═══════════ 01 — DÉFINITION VEILLE ═══════════ */}
         <SectionHeading
+          num="01"
           icon={BookOpen}
           title="Qu'est-ce que la Veille ?"
-          subtitle="Comprendre le processus de veille technologique en cybersécurité — un pilier du BTS SIO SISR."
+          subtitle="Processus de collecte et d'analyse des menaces en cybersécurité."
           color="#06b6d4"
           gradient="linear-gradient(135deg, #ffffff 0%, #06b6d4 60%, #3b82f6 100%)"
         />
@@ -399,11 +430,12 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ DÉFINITION PHISHING ═══════════ */}
+        {/* ═══════════ 02 — DÉFINITION PHISHING ═══════════ */}
         <SectionHeading
+          num="02"
           icon={AlertTriangle}
           title="Le Phishing (Hameçonnage)"
-          subtitle="La technique d'attaque n°1 en France — ses formes, ses mécanismes et comment la reconnaître."
+          subtitle="Technique d'attaque n°1 en France — ses 6 formes et comment les reconnaître."
           color="#f59e0b"
           gradient="linear-gradient(135deg, #ffffff 0%, #f59e0b 50%, #ef4444 100%)"
         />
@@ -511,11 +543,12 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ ANATOMIE EMAIL PHISHING ═══════════ */}
+        {/* ═══════════ 03 — ANATOMIE EMAIL PHISHING ═══════════ */}
         <SectionHeading
+          num="03"
           icon={Mail}
           title="Anatomie d'un Email de Phishing"
-          subtitle="Décortiquer un vrai email frauduleux — chaque signal d'alerte identifié et expliqué."
+          subtitle="Un faux email décortiqué avec tous les signaux d'alerte identifiés."
           color="#ef4444"
           gradient="linear-gradient(135deg, #ffffff 0%, #ef4444 60%, #f59e0b 100%)"
         />
@@ -613,11 +646,12 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ EXEMPLES RÉELS ═══════════ */}
+        {/* ═══════════ 04 — EXEMPLES RÉELS ═══════════ */}
         <SectionHeading
+          num="04"
           icon={MonitorX}
           title="Exemples Réels de Phishing"
-          subtitle="Captures d'écran de vrais messages frauduleux interceptés en France — apprenez à les reconnaître."
+          subtitle="Captures d'écran de vrais messages frauduleux interceptés en France."
           color="#dc2626"
           gradient="linear-gradient(135deg, #ffffff 0%, #dc2626 60%, #f59e0b 100%)"
         />
@@ -753,11 +787,12 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ CAMPAGNES EN FRANCE ═══════════ */}
+        {/* ═══════════ 05 — CAMPAGNES EN FRANCE ═══════════ */}
         <SectionHeading
+          num="05"
           icon={Globe}
           title="Campagnes de Phishing en France"
-          subtitle="Les arnaques les plus fréquentes ciblant les citoyens français — identifiées par Cybermalveillance.gouv.fr."
+          subtitle="Les 6 arnaques les plus courantes ciblant les Français."
           color="#f97316"
           gradient="linear-gradient(135deg, #ffffff 0%, #f97316 50%, #ef4444 100%)"
         />
@@ -816,11 +851,12 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ KILL CHAIN ═══════════ */}
+        {/* ═══════════ 06 — KILL CHAIN ═══════════ */}
         <SectionHeading
+          num="06"
           icon={Activity}
           title="Chaîne d'Attaque par Phishing"
-          subtitle="Les 6 étapes d'une cyberattaque par phishing — de la reconnaissance à l'exploitation."
+          subtitle="Les 6 étapes d'une attaque — de la reconnaissance à l'exploitation."
           color="#dc2626"
           gradient="linear-gradient(135deg, #64748b 0%, #f59e0b 30%, #ef4444 60%, #dc2626 100%)"
         />
@@ -853,11 +889,12 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ ATTAQUES EN FRANCE ═══════════ */}
+        {/* ═══════════ 07 — ATTAQUES EN FRANCE ═══════════ */}
         <SectionHeading
+          num="07"
           icon={ShieldAlert}
           title="Incidents Majeurs en France"
-          subtitle="Cyberattaques majeures 2024-2026 — souvent initiées par du phishing. Sources : CNIL, ANSSI, CERT Santé."
+          subtitle="6 cyberattaques majeures en 2024 — souvent initiées par du phishing."
           color="#a855f7"
           gradient="linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #ef4444 100%)"
         />
@@ -918,11 +955,12 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ STATISTIQUES ═══════════ */}
+        {/* ═══════════ 08 — STATISTIQUES ═══════════ */}
         <SectionHeading
+          num="08"
           icon={TrendingUp}
           title="Chiffres Clés"
-          subtitle="Les statistiques les plus marquantes du phishing en France — des données vérifiées et sourcées."
+          subtitle="Les statistiques marquantes du phishing en France — données vérifiées."
           color="#06b6d4"
           gradient="linear-gradient(135deg, #ffffff 0%, #06b6d4 60%, #10b981 100%)"
         />
@@ -958,11 +996,12 @@ export default function Veille() {
           ))}
         </div>
 
-        {/* ═══════════ IMPACT IA ═══════════ */}
+        {/* ═══════════ 09 — IMPACT IA ═══════════ */}
         <SectionHeading
+          num="09"
           icon={Brain}
           title="Impact de l'IA sur le Phishing"
-          subtitle="Comment l'intelligence artificielle transforme et amplifie les attaques de phishing à l'échelle mondiale."
+          subtitle="Comment l'IA transforme et amplifie les attaques de phishing."
           color="#a855f7"
           gradient="linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #ec4899 100%)"
         />
@@ -1045,11 +1084,12 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ QUE FAIRE ═══════════ */}
+        {/* ═══════════ 10 — QUE FAIRE ═══════════ */}
         <SectionHeading
+          num="10"
           icon={Shield}
           title="Que Faire en Cas de Phishing ?"
-          subtitle="Procédure complète à suivre — basée sur les recommandations de l'ANSSI et Cybermalveillance.gouv.fr."
+          subtitle="Les 8 étapes à suivre selon l'ANSSI et Cybermalveillance.gouv.fr."
           color="#10b981"
           gradient="linear-gradient(135deg, #ef4444 0%, #f59e0b 40%, #10b981 100%)"
         />
@@ -1110,11 +1150,12 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ═══════════ CONTRE-MESURES ═══════════ */}
+        {/* ═══════════ 11 — CONTRE-MESURES ═══════════ */}
         <SectionHeading
+          num="11"
           icon={ShieldCheck}
           title="Contre-Mesures & Bonnes Pratiques"
-          subtitle="Les 6 mesures essentielles pour se protéger contre le phishing en entreprise et à titre personnel."
+          subtitle="Les 6 mesures essentielles pour se protéger du phishing."
           color="#10b981"
           gradient="linear-gradient(135deg, #ffffff 0%, #10b981 60%, #06b6d4 100%)"
         />
@@ -1150,11 +1191,12 @@ export default function Veille() {
           ))}
         </div>
 
-        {/* ═══════════ MA DÉMARCHE ═══════════ */}
+        {/* ═══════════ 12 — MA DÉMARCHE ═══════════ */}
         <SectionHeading
+          num="12"
           icon={Search}
           title="Ma Démarche de Veille"
-          subtitle="Ma méthodologie en 4 étapes pour réaliser une veille technologique efficace et structurée."
+          subtitle="Ma méthodologie en 4 étapes : Collecter, Trier, Analyser, Documenter."
           color="#f59e0b"
           gradient="linear-gradient(135deg, #ffffff 0%, #f59e0b 60%, #f97316 100%)"
         />
@@ -1178,11 +1220,12 @@ export default function Veille() {
           ))}
         </div>
 
-        {/* ═══════════ SOURCES OFFICIELLES ═══════════ */}
+        {/* ═══════════ 13 — SOURCES OFFICIELLES ═══════════ */}
         <SectionHeading
+          num="13"
           icon={Globe}
           title="Sources Officielles"
-          subtitle="Toutes les sources gouvernementales et officielles utilisées pour cette veille technologique."
+          subtitle="Les sources gouvernementales utilisées pour cette veille."
           color="#3b82f6"
           gradient="linear-gradient(135deg, #ffffff 0%, #3b82f6 50%, #06b6d4 100%)"
         />
