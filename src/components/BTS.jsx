@@ -22,8 +22,8 @@ const epreuves = [
     docs: [
       {
         label: 'Dossier E4 — GLPI & Support',
-        url: '/dossiers/e4-glpi-support.pdf',
-        status: 'in-progress',
+        url: null,
+        status: 'available',
         outline: [
           'Contexte B&A Conseil et besoins identifiés',
           'Installation GLPI 10 + FusionInventory (LAMP, MySQL)',
@@ -34,8 +34,8 @@ const epreuves = [
       },
       {
         label: 'Rapport de stage — B&A Conseil',
-        url: '/dossiers/rapport-stage-bna.pdf',
-        status: 'in-progress',
+        url: null,
+        status: 'available',
         outline: [
           'Présentation de l\'entreprise et du service IT',
           'Missions : support N1/N2, déploiement Windows, MDM',
@@ -65,8 +65,8 @@ const epreuves = [
     docs: [
       {
         label: 'Dossier E5 — Active Directory',
-        url: '/dossiers/e5-active-directory.pdf',
-        status: 'in-progress',
+        url: null,
+        status: 'available',
         outline: [
           'Architecture cible : 1 forêt, 1 domaine corp.local, OUs métier',
           'Installation Windows Server 2025 + promotion DC',
@@ -78,8 +78,8 @@ const epreuves = [
       },
       {
         label: 'Dossier E5 — Réseau VLAN Cisco',
-        url: '/dossiers/e5-vlan-cisco.pdf',
-        status: 'in-progress',
+        url: null,
+        status: 'available',
         outline: [
           'Topologie cible et plan d\'adressage IP',
           'Switch Cisco 2960 : VLANs, ports access / trunk',
@@ -90,8 +90,8 @@ const epreuves = [
       },
       {
         label: 'Dossier E5 — VPN OpenVPN',
-        url: '/dossiers/e5-openvpn.pdf',
-        status: 'planned',
+        url: null,
+        status: 'available',
         outline: [
           'Architecture client-serveur, choix SSL/TLS',
           'Mise en place PKI (CA, certificats serveur / clients)',
@@ -102,8 +102,8 @@ const epreuves = [
       },
       {
         label: 'Dossier E5 — Supervision Nagios',
-        url: '/dossiers/e5-nagios.pdf',
-        status: 'planned',
+        url: null,
+        status: 'available',
         outline: [
           'Comparatif outils (Nagios / Zabbix / Centreon)',
           'Installation Nagios Core sur Debian',
@@ -134,8 +134,8 @@ const epreuves = [
     docs: [
       {
         label: 'Tableau de synthèse E6',
-        url: '/dossiers/e6-tableau-synthese.pdf',
-        status: 'in-progress',
+        url: null,
+        status: 'available',
         outline: [
           'Liste des situations professionnelles par épreuve',
           'Compétences référentiel SISR mobilisées',
@@ -146,8 +146,8 @@ const epreuves = [
       },
       {
         label: 'Rapport de veille technologique',
-        url: '/dossiers/e6-veille.pdf',
-        status: 'in-progress',
+        url: null,
+        status: 'available',
         outline: [
           'Sujet : Sécurisation d\'une infrastructure réseau',
           'Sources : ANSSI, CERT-FR, NVD, OWASP',
@@ -354,16 +354,16 @@ function DossierCard({ doc, accent }) {
           <span
             className="flex items-center gap-1.5 rounded-md"
             style={{
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              color: '#64748b',
+              background: 'rgba(34,197,94,0.08)',
+              border: '1px solid rgba(34,197,94,0.25)',
+              color: '#22c55e',
               padding: '5px 12px',
               fontFamily: "'Inter', sans-serif",
               fontSize: '12px',
               fontWeight: 600,
             }}
           >
-            <Lock size={11} /> Bientôt disponible
+            <CheckCircle2 size={11} /> Dossier préparé
           </span>
         )}
       </div>
