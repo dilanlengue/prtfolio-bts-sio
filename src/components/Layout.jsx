@@ -8,13 +8,21 @@ import Footer from './Footer'
 export default function Layout() {
   const { pathname } = useLocation()
 
-  // Scroll to top on page change
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    const h = e => {
+      document.documentElement.style.setProperty('--mx', e.clientX + 'px')
+      document.documentElement.style.setProperty('--my', e.clientY + 'px')
+    }
+    window.addEventListener('mousemove', h)
+    return () => window.removeEventListener('mousemove', h)
+  }, [])
 
   return (
     <div className="min-h-screen overflow-x-hidden" style={{ backgroundColor: '#080c1a' }}>
+      <div className="cursor-glow" />
+      <div className="aurora" />
       <CyberBackground />
       <SideNav />
       <TopNav />

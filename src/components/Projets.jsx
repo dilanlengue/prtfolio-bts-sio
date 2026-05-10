@@ -91,7 +91,7 @@ const projets = [
 function ProjetCard({ projet, onClick }) {
   return (
     <div
-      className="rounded-2xl overflow-hidden cursor-pointer transition-all duration-300"
+      className="card-holo rounded-2xl overflow-hidden cursor-pointer transition-all duration-300"
       style={{
         background: 'rgba(11,16,32,0.75)',
         border: '1px solid rgba(255,255,255,0.06)',
@@ -398,7 +398,7 @@ export default function Projets() {
         </div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 stagger-grid">
           {projets.map(projet => (
             <ProjetCard key={projet.id} projet={projet} onClick={setSelected} />
           ))}
