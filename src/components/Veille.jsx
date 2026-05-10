@@ -3,32 +3,33 @@ import { Shield, AlertTriangle, Mail, Eye, ExternalLink, ChevronDown, Brain, Shi
 
 function SectionHeading({ icon: SectionIcon, title, subtitle, color, gradient, num }) {
   return (
-    <div style={{ marginTop: '8rem', marginBottom: '4rem' }}>
+    <div style={{ marginTop: '10rem', marginBottom: '5rem' }}>
       {num && (
         <p className="text-center" style={{
           fontFamily: "'JetBrains Mono', monospace",
-          fontSize: '13px', fontWeight: 800, letterSpacing: '0.2em',
-          color: `${color}90`, marginBottom: '1.2rem',
+          fontSize: '14px', fontWeight: 800, letterSpacing: '0.25em',
+          color: `${color}`, marginBottom: '1.5rem',
+          opacity: 0.7,
         }}>
           PARTIE {num}
         </p>
       )}
-      <div className="flex items-center justify-center gap-5" style={{ marginBottom: '2rem' }}>
+      <div className="flex items-center justify-center gap-5" style={{ marginBottom: '2.5rem' }}>
         <div style={{ flex: 1, height: '2px', background: `linear-gradient(90deg, transparent, ${color}50)`, borderRadius: '2px' }} />
         <div style={{
-          width: '64px', height: '64px', borderRadius: '18px',
-          background: `${color}15`, border: `2px solid ${color}35`,
+          width: '70px', height: '70px', borderRadius: '20px',
+          background: `${color}12`, border: `2px solid ${color}30`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          boxShadow: `0 0 30px ${color}20, 0 0 60px ${color}10`,
+          boxShadow: `0 0 40px ${color}15, 0 0 80px ${color}08`,
         }}>
-          <SectionIcon size={30} style={{ color }} />
+          <SectionIcon size={32} style={{ color }} />
         </div>
         <div style={{ flex: 1, height: '2px', background: `linear-gradient(90deg, ${color}50, transparent)`, borderRadius: '2px' }} />
       </div>
       <h2 className="text-center" style={{
         fontFamily: "'Orbitron', system-ui, sans-serif",
-        fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
-        fontWeight: 900, letterSpacing: '0.04em', lineHeight: 1.3, marginBottom: '1.2rem',
+        fontSize: 'clamp(1.6rem, 4.5vw, 2.5rem)',
+        fontWeight: 900, letterSpacing: '0.04em', lineHeight: 1.3, marginBottom: '1.5rem',
         background: gradient || `linear-gradient(135deg, #ffffff 0%, ${color} 100%)`,
         WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
         filter: `drop-shadow(0 0 20px ${color}30)`,
@@ -37,14 +38,14 @@ function SectionHeading({ icon: SectionIcon, title, subtitle, color, gradient, n
       </h2>
       {subtitle && (
         <p className="text-center mx-auto" style={{
-          fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 500,
-          color: '#94a3b8', lineHeight: 1.8, maxWidth: '650px',
+          fontFamily: "'Inter', sans-serif", fontSize: '17px', fontWeight: 500,
+          color: '#94a3b8', lineHeight: 1.9, maxWidth: '680px',
         }}>
           {subtitle}
         </p>
       )}
       <div style={{
-        width: '100px', height: '3px', margin: '1.5rem auto 0',
+        width: '100px', height: '3px', margin: '2rem auto 0',
         background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
         borderRadius: '99px', boxShadow: `0 0 12px ${color}40`,
       }} />
@@ -68,68 +69,76 @@ const sommaire = [
 
 const phishingTypes = [
   {
-    num: '1', icon: Mail, title: 'Email (Phishing)', color: '#f59e0b',
-    desc: "Tu reçois un faux email qui ressemble à un vrai (ta banque, les impôts, Ameli...). Il te demande de cliquer sur un lien pour \"vérifier ton compte\". Le lien t'envoie sur un faux site qui vole tes identifiants. En 2025, 82% des emails de phishing sont écrits par l'IA — plus aucune faute d'orthographe.",
-    stat: '3,4 Mds', statLabel: "d'emails de phishing envoyés par jour dans le monde",
-    examples: ['Faux email de ta banque', 'Faux remboursement des impôts', 'Fausse alerte Microsoft'],
+    num: '1', icon: Mail, title: 'Email (Phishing classique)', color: '#f59e0b',
+    desc: "Un faux email imite ta banque, les impôts ou Ameli. Il te pousse à cliquer sur un lien qui mène à un faux site pour voler tes identifiants. Avec l'IA, ces emails sont désormais sans aucune faute — 82% sont générés automatiquement.",
+    tip: "Ne clique jamais sur un lien dans un email. Va toi-même sur le site officiel en tapant l'adresse dans ton navigateur.",
+    stat: '3,4 Mds', statLabel: "d'emails de phishing par jour dans le monde",
+    examples: ['Faux email banque', 'Faux remboursement impôts', 'Fausse alerte Microsoft'],
     image: '/phishing-email-lcl.jpg',
-    imageLabel: 'Vrai faux email LCL intercepté en France',
+    imageLabel: 'Faux email LCL intercepté en France',
   },
   {
     num: '2', icon: Smartphone, title: 'SMS (Smishing)', color: '#06b6d4',
-    desc: "Tu reçois un SMS du genre \"votre colis est en attente\" ou \"vous avez une amende à payer\". Le lien t'envoie sur un faux site pour voler tes données bancaires. En 2025, les attaques par SMS ont explosé de +2 500%. Nouvelle technique IA : les escrocs génèrent de fausses photos de colis avec TON nom et TON adresse dessus.",
-    stat: '+2 500%', statLabel: "de hausse en 2025 — le taux de clic sur un SMS est de 36% (vs 4% pour un email)",
+    desc: "\"Votre colis est en attente\" ou \"Vous avez une amende\". Le lien mène vers un faux site qui vole tes données bancaires. En 2025, ces arnaques ont explosé de +2 500%. Avec l'IA, les escrocs créent même de fausses photos de colis avec ton nom dessus.",
+    tip: "Transfère tout SMS suspect au 33700. Le vrai Chronopost ne t'envoie jamais de lien par SMS.",
+    stat: '+2 500%', statLabel: "de hausse en 2025 — 36% de taux de clic (vs 4% par email)",
     examples: ['Faux colis La Poste', 'Fausse amende ANTAI', 'Faux message Ameli'],
     image: '/phishing-sms-chronopost.jpg',
-    imageLabel: 'Vrai faux SMS Chronopost avec lien piégé',
+    imageLabel: 'Faux SMS Chronopost avec lien piégé',
   },
   {
     num: '3', icon: Phone, title: 'Téléphone (Vishing)', color: '#a855f7',
-    desc: "Quelqu'un t'appelle en se faisant passer pour ta banque ou la police. Il te met la pression pour que tu donnes tes codes. En 2025, l'usurpation de numéro a augmenté de +517%. L'arnaque au faux conseiller représente 245M€ de pertes. Depuis le 1er janvier 2026, les appels de l'étranger avec un faux numéro français s'affichent \"numéro masqué\".",
-    stat: '+442%', statLabel: "de hausse du vishing entre le 1er et 2e semestre 2024",
+    desc: "Quelqu'un t'appelle en se faisant passer pour ta banque ou la police et te met la pression pour que tu donnes tes codes. L'arnaque au faux conseiller bancaire a coûté 245M€ aux Français. Depuis janvier 2026, une nouvelle loi force les appels étrangers avec faux numéro français à s'afficher \"numéro masqué\".",
+    tip: "Raccroche et rappelle ta banque toi-même avec le numéro inscrit sur ta carte bancaire.",
+    stat: '+442%', statLabel: "de hausse du vishing en 2024",
     examples: ['Faux conseiller bancaire', 'Faux support Microsoft', 'Faux policier'],
     image: '/phishing-vishing.jpg',
     imageLabel: "Arnaque téléphonique — faux conseiller bancaire",
   },
   {
     num: '4', icon: QrCode, title: 'QR Code (Quishing)', color: '#ef4444',
-    desc: "Un faux QR code est collé sur un PV, un parcmètre ou un menu de restaurant. Quand tu le scannes, tu arrives sur un faux site qui te demande de payer. Des faux PV ont été trouvés à Paris, Lyon et Melun. Au Royaume-Uni, les signalements ont augmenté de +587% entre 2023 et 2025.",
+    desc: "Un faux QR code est collé sur un PV, un parcmètre ou un menu de restaurant. Tu scannes, tu arrives sur un faux site de paiement. Des faux PV ont été trouvés à Paris, Lyon et Melun. Au Royaume-Uni, +587% de signalements entre 2023 et 2025.",
+    tip: "Le seul vrai site pour payer un PV : amendes.gouv.fr. Ne scanne jamais un QR code collé sur du papier dans la rue.",
     stat: '+400%', statLabel: "de hausse du quishing en 2024-2025",
     examples: ['Faux PV avec QR code', 'Faux parcmètre', 'Fausse borne de recharge'],
     image: '/phishing-quishing.jpg',
-    imageLabel: 'Faux QR code collé sur un avis de contravention',
+    imageLabel: 'Faux QR code sur un avis de contravention',
   },
   {
     num: '5', icon: Users, title: 'Ciblé (Spear Phishing)', color: '#10b981',
-    desc: "Contrairement au phishing classique envoyé en masse, ici l'escroc vise UNE personne précise. Il fait des recherches sur toi (ton nom, ton poste, tes collègues) pour créer un message ultra-personnalisé. En 2025, le groupe nord-coréen Lazarus a utilisé cette technique pour voler 1,5 milliard de dollars en cryptomonnaie à la plateforme ByBit — le plus gros braquage crypto de l'histoire.",
-    stat: '54%', statLabel: "de taux de clic quand c'est personnalisé par IA (vs 12% en masse)",
+    desc: "L'escroc ne vise pas tout le monde — il vise TOI. Il cherche ton nom, ton poste, tes collègues sur LinkedIn, puis crée un message personnalisé. En 2025, le groupe Lazarus a volé 1,5 milliard de dollars à la plateforme ByBit avec cette technique — le plus gros braquage crypto de l'histoire.",
+    tip: "Méfie-toi des emails qui utilisent ton prénom et citent tes collègues. Vérifie toujours par un autre canal.",
+    stat: '54%', statLabel: "de taux de clic quand c'est personnalisé (vs 12% en masse)",
     examples: ['Email au nom de ton chef', 'Fausse facture fournisseur', 'Faux mail de collègue'],
     image: '/phishing-spear.jpg',
-    imageLabel: 'Spear phishing — attaque ciblée avec recherche sur la victime',
+    imageLabel: 'Attaque ciblée avec recherche sur la victime',
   },
   {
     num: '6', icon: Bot, title: 'Fraude au Président (Whaling)', color: '#dc2626',
-    desc: "C'est du spear phishing qui cible les dirigeants d'entreprise (PDG, directeur financier). L'escroc se fait passer pour le patron et demande un virement urgent. Avec l'IA, il peut même faire une fausse visioconférence avec le visage et la voix du PDG (deepfake). En janvier 2024, l'entreprise Arup a perdu 25 millions de dollars via une visio 100% deepfake.",
-    stat: '+131%', statLabel: "d'augmentation — 59% des organisations ont eu un dirigeant ciblé",
+    desc: "L'escroc se fait passer pour le PDG et demande un virement urgent. Avec l'IA, il peut créer une fausse visioconférence avec le visage et la voix du patron (deepfake). En 2024, l'entreprise Arup a perdu 25 millions de dollars via une visio où TOUS les participants étaient des deepfakes.",
+    tip: "Toute demande de virement urgente doit être confirmée par un appel direct sur le numéro habituel du dirigeant.",
+    stat: '+131%', statLabel: "d'augmentation — 59% des entreprises ont eu un dirigeant ciblé",
     examples: ['Faux virement urgent du PDG', 'Visioconférence deepfake', 'Email du "directeur financier"'],
     image: '/phishing-whaling.jpg',
-    imageLabel: 'Whaling — fraude au président ciblant les dirigeants',
+    imageLabel: 'Fraude au président ciblant les dirigeants',
   },
   {
     num: '7', icon: Globe, title: 'Réseaux Sociaux (Angler)', color: '#f97316',
-    desc: "L'escroc crée un faux compte de service client sur Twitter, Facebook ou Instagram. Il surveille les plaintes de vrais clients mécontents, puis répond en se faisant passer pour l'entreprise avec un lien piégé. \"Bonjour, nous sommes désolés pour ce problème, cliquez ici pour résoudre votre ticket.\" En 2024, 23% des attaques de phishing passaient par les réseaux sociaux.",
-    stat: '23%', statLabel: 'des attaques de phishing passent par les réseaux sociaux',
-    examples: ['Faux support PayPal sur Twitter', 'Faux SAV sur Instagram', 'Faux compte bancaire Facebook'],
+    desc: "L'escroc crée un faux compte de service client sur Twitter, Instagram ou Facebook. Il guette les clients mécontents et leur répond avec un lien piégé : \"Cliquez ici pour résoudre votre ticket\". En 2024, 23% des attaques de phishing passaient par les réseaux sociaux.",
+    tip: "Vérifie toujours que le compte du SAV a le badge officiel (coche bleue). Ne clique jamais sur un lien en DM.",
+    stat: '23%', statLabel: 'des attaques passent par les réseaux sociaux',
+    examples: ['Faux support PayPal sur Twitter', 'Faux SAV Instagram', 'Faux compte bancaire Facebook'],
     image: '/phishing-angler.jpg',
-    imageLabel: 'Angler phishing — faux comptes SAV sur les réseaux sociaux',
+    imageLabel: 'Faux comptes SAV sur les réseaux sociaux',
   },
   {
     num: '8', icon: Lock, title: 'Faux Wi-Fi (Evil Twin)', color: '#3b82f6',
-    desc: "L'escroc crée un faux réseau Wi-Fi avec le même nom qu'un Wi-Fi public (café, aéroport, hôtel). Quand tu te connectes, il peut voir tout ce que tu fais : mots de passe, emails, données bancaires. En avril 2024, un homme a été arrêté en Australie pour avoir installé des faux Wi-Fi dans les aéroports de Perth, Melbourne et Adelaide pour voler les données des voyageurs.",
-    stat: '15$', statLabel: "c'est le prix d'un outil pour créer un faux Wi-Fi — n'importe qui peut le faire",
+    desc: "L'escroc crée un Wi-Fi avec le même nom qu'un réseau public (café, aéroport, hôtel). Quand tu te connectes, il voit tout : mots de passe, emails, données bancaires. En 2024, un homme a été arrêté en Australie pour avoir installé des faux Wi-Fi dans 3 aéroports.",
+    tip: "N'utilise jamais un Wi-Fi public pour te connecter à ta banque ou tes emails. Utilise tes données mobiles (4G/5G).",
+    stat: '15$', statLabel: "le prix d'un outil pour créer un faux Wi-Fi",
     examples: ['Faux Wi-Fi "Starbucks_Free"', 'Faux Wi-Fi aéroport', 'Faux Wi-Fi hôtel'],
     image: '/phishing-evil-twin.jpg',
-    imageLabel: 'Evil Twin — faux Wi-Fi public dans un café ou aéroport',
+    imageLabel: 'Faux Wi-Fi public dans un café ou aéroport',
   },
 ]
 
@@ -334,9 +343,9 @@ export default function Veille() {
           <p className="mx-auto" style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: '17px', fontWeight: 500, color: '#94a3b8',
-            lineHeight: 1.9, maxWidth: '680px', letterSpacing: '0.01em',
+            lineHeight: 2, maxWidth: '700px', letterSpacing: '0.01em',
           }}>
-            Le phishing, c'est quand un escroc se fait passer pour quelqu'un de confiance (ta banque, La Poste, les impôts...) pour te voler tes informations. En 2025, <strong style={{ color: '#ef4444' }}>504 000 personnes</strong> ont demandé de l'aide sur Cybermalveillance.gouv.fr — et <strong style={{ color: '#a855f7' }}>l'intelligence artificielle</strong> rend ces arnaques de plus en plus dangereuses.
+            Un escroc se fait passer pour quelqu'un de confiance — ta banque, La Poste, les impôts — pour te voler tes données. En 2025, <strong style={{ color: '#ef4444' }}>504 000 victimes</strong> en France. Avec <strong style={{ color: '#a855f7' }}>l'intelligence artificielle</strong>, ces arnaques sont devenues quasi indétectables.
           </p>
         </div>
 
@@ -387,8 +396,8 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(6,182,212,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6)' }} />
           <div className="p-10 md:p-14">
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.1, marginBottom: '2.5rem' }}>
-              La <strong style={{ color: '#06b6d4' }}>veille technologique</strong>, c'est le fait de <strong style={{ color: '#22d3ee' }}>surveiller régulièrement</strong> les nouvelles menaces informatiques, les nouvelles arnaques, et les nouveaux outils de protection. En BTS SIO SISR, ça me permet de rester à jour et de savoir comment protéger les systèmes et les utilisateurs. J'ai choisi le <strong style={{ color: '#f59e0b' }}>phishing</strong> car c'est la menace n°1 en France — et avec l'IA, c'est devenu encore plus dangereux en 2025.
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.2, marginBottom: '3rem' }}>
+              La <strong style={{ color: '#06b6d4' }}>veille technologique</strong>, c'est <strong style={{ color: '#22d3ee' }}>surveiller en continu</strong> les nouvelles menaces, les nouvelles arnaques et les outils pour s'en protéger. En tant qu'étudiant BTS SIO SISR, cette veille me permet de rester à jour pour protéger les systèmes et les utilisateurs. J'ai choisi le <strong style={{ color: '#f59e0b' }}>phishing</strong> parce que c'est la <strong style={{ color: '#f59e0b' }}>menace n°1 en France</strong> et qu'elle touche tout le monde au quotidien.
             </p>
             <div className="grid sm:grid-cols-3 gap-8">
               {[
@@ -417,11 +426,11 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(245,158,11,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #f59e0b, #ef4444, #a855f7)' }} />
           <div className="p-10 md:p-14">
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.1, marginBottom: '2.5rem' }}>
-              Le <strong style={{ color: '#f59e0b' }}>phishing</strong> (ou hameçonnage), c'est quand un <strong style={{ color: '#ef4444' }}>escroc se fait passer</strong> pour quelqu'un de confiance — ta banque, La Poste, les impôts, Ameli — pour te voler tes informations : <strong style={{ color: '#ef4444' }}>mot de passe, numéro de carte bancaire, numéro de sécu</strong>. C'est la <strong style={{ color: '#f59e0b' }}>menace n°1 en France</strong> : en 2025, <strong style={{ color: '#10b981' }}>108 000 personnes</strong> ont demandé de l'aide rien que pour du phishing sur Cybermalveillance.gouv.fr (+70% en 1 an).
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.2, marginBottom: '3rem' }}>
+              Le <strong style={{ color: '#f59e0b' }}>phishing</strong> (hameçonnage en français), c'est quand un escroc <strong style={{ color: '#ef4444' }}>se fait passer pour un organisme de confiance</strong> — banque, impôts, Ameli, La Poste — pour te voler tes <strong style={{ color: '#ef4444' }}>mots de passe ou données bancaires</strong>. C'est la menace n°1 en France : <strong style={{ color: '#10b981' }}>108 000 demandes d'aide</strong> rien qu'en 2025, soit +70% en un an.
             </p>
 
-            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1rem', fontWeight: 800, color: '#f59e0b', letterSpacing: '0.08em', marginBottom: '2rem' }}>
+            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1rem', fontWeight: 800, color: '#f59e0b', letterSpacing: '0.08em', marginBottom: '2.5rem' }}>
               Comment ça marche — en 3 étapes
             </p>
             <div className="grid sm:grid-cols-3 gap-6">
@@ -507,10 +516,26 @@ export default function Veille() {
                   {/* Description */}
                   <p style={{
                     fontFamily: "'Inter', sans-serif", fontSize: '15px',
-                    color: '#cbd5e1', lineHeight: 2, marginBottom: '1.5rem',
+                    color: '#cbd5e1', lineHeight: 2, marginBottom: '1.2rem',
                   }}>
                     {t.desc}
                   </p>
+
+                  {/* Conseil pratique */}
+                  {t.tip && (
+                    <div className="rounded-lg flex items-start gap-3" style={{
+                      padding: '12px 16px', marginBottom: '1.5rem',
+                      background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)',
+                    }}>
+                      <ShieldCheck size={16} style={{ color: '#10b981', marginTop: '3px', flexShrink: 0 }} />
+                      <p style={{
+                        fontFamily: "'Inter', sans-serif", fontSize: '14px',
+                        fontWeight: 600, color: '#10b981', lineHeight: 1.8,
+                      }}>
+                        {t.tip}
+                      </p>
+                    </div>
+                  )}
 
                   {/* Exemples */}
                   <div>
@@ -663,8 +688,8 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(168,85,247,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #a855f7, #ef4444, #06b6d4)' }} />
           <div className="p-10 md:p-14">
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.1, marginBottom: '2.5rem' }}>
-              Avant, on reconnaissait un phishing grâce aux <strong style={{ color: '#64748b' }}>fautes d'orthographe</strong>. Aujourd'hui, <strong style={{ color: '#a855f7' }}>l'IA écrit des messages parfaits</strong>, peut <strong style={{ color: '#ef4444' }}>copier ta voix en 3 secondes</strong>, et même <strong style={{ color: '#06b6d4' }}>créer de fausses vidéos en direct</strong>. C'est la plus grande évolution du phishing depuis son invention.
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.2, marginBottom: '3rem' }}>
+              Avant, on repérait un phishing grâce aux <strong style={{ color: '#64748b' }}>fautes d'orthographe</strong>. C'est fini. Aujourd'hui l'IA peut <strong style={{ color: '#a855f7' }}>écrire des messages parfaits</strong>, <strong style={{ color: '#ef4444' }}>copier ta voix en 3 secondes</strong>, et même <strong style={{ color: '#06b6d4' }}>créer de fausses vidéos en direct</strong>. Voici les 3 nouvelles armes des escrocs.
             </p>
 
             {/* AI threat tabs */}
@@ -865,8 +890,8 @@ export default function Veille() {
         <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(10,15,30,0.85)', border: '1px solid rgba(220,38,38,0.15)' }}>
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #dc2626, #ef4444, #f97316, #a855f7)' }} />
           <div className="p-10 md:p-14">
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 1.9, marginBottom: '1.5rem' }}>
-              En 2024-2025, les données de <strong style={{ color: '#ef4444' }}>plus de 100 millions de comptes français</strong> ont été exposées. La plupart de ces attaques ont commencé par du phishing — un employé qui a cliqué sur un mauvais lien ou donné ses identifiants. En 2025, <strong style={{ color: '#f59e0b' }}>43% des petites entreprises</strong> ont été victimes d'une cyberattaque (contre 24% l'année d'avant).
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.2, marginBottom: '2.5rem' }}>
+              En 2024-2025, <strong style={{ color: '#ef4444' }}>plus de 100 millions de comptes français</strong> ont été compromis. La plupart de ces attaques ont commencé de la même façon : un employé a cliqué sur un lien piégé ou donné ses identifiants par erreur. En 2025, <strong style={{ color: '#f59e0b' }}>43% des petites entreprises</strong> ont été victimes d'une cyberattaque.
             </p>
             <div className="space-y-5">
               {attacksFrance.map((atk, i) => (
@@ -1081,21 +1106,58 @@ export default function Veille() {
         </div>
 
         {/* ═══════════ CONCLUSION ═══════════ */}
-        <div className="mt-40 rounded-2xl p-12 md:p-16" style={{ background: 'rgba(245,158,11,0.04)', border: '1px solid rgba(245,158,11,0.15)' }}>
-          <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '2rem' }}>
+        <div className="mt-40 rounded-2xl overflow-hidden" style={{ background: 'rgba(245,158,11,0.04)', border: '1px solid rgba(245,158,11,0.2)' }}>
+          <div style={{ height: '4px', background: 'linear-gradient(90deg, #f59e0b, #ef4444, #a855f7, #06b6d4, #10b981)' }} />
+          <div className="p-12 md:p-16">
+          <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.2rem', fontWeight: 900, color: '#f59e0b', letterSpacing: '0.08em', marginBottom: '2.5rem' }}>
             Ce qu'il faut retenir
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.1, marginBottom: '2.5rem' }}>
-            Le phishing est <strong style={{ color: '#f59e0b' }}>l'arnaque n°1 en France</strong> — <strong style={{ color: '#ef4444' }}>108 000 demandes d'aide</strong> rien qu'en 2025 (+70%). Il peut arriver par <strong style={{ color: '#06b6d4' }}>email, SMS, téléphone ou QR code</strong>. En 2024-2025, les données de <strong style={{ color: '#dc2626' }}>plus de 100 millions de comptes français</strong> ont été exposées (France Travail, Free, Viamedis, Cegedim, EduConnect). Avec l'IA, les escrocs peuvent <strong style={{ color: '#a855f7' }}>copier ta voix en 3 secondes</strong>, écrire des emails <strong style={{ color: '#a855f7' }}>parfaits</strong> (82,6% contiennent de l'IA), et créer des <strong style={{ color: '#a855f7' }}>fausses vidéos en direct</strong> (25M$ volés par deepfake). Pour se protéger : <strong style={{ color: '#10b981' }}>ne jamais cliquer sur un lien suspect</strong>, ne pas décrocher les inconnus, utiliser un <strong style={{ color: '#10b981' }}>mot de passe familial</strong> contre le clonage de voix, et activer la <strong style={{ color: '#10b981' }}>double authentification</strong> sur tous ses comptes.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {['Phishing 2025', 'Smishing +2500%', 'Clonage de voix IA', 'Deepfake vidéo', 'QR Code +146%', 'France Travail 43M', 'Free 42M€ amende', '504 000 victimes', 'Loi anti-spoofing 2026'].map(tag => (
+
+          <div className="grid sm:grid-cols-2 gap-6 mb-10">
+            <div className="rounded-xl p-6" style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.15)' }}>
+              <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.5rem', fontWeight: 900, color: '#ef4444', marginBottom: '0.5rem' }}>108 000</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#cbd5e1', lineHeight: 1.8 }}>demandes d'aide pour phishing en 2025 — <strong style={{ color: '#ef4444' }}>+70% en 1 an</strong></p>
+            </div>
+            <div className="rounded-xl p-6" style={{ background: 'rgba(168,85,247,0.06)', border: '1px solid rgba(168,85,247,0.15)' }}>
+              <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.5rem', fontWeight: 900, color: '#a855f7', marginBottom: '0.5rem' }}>3 sec</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#cbd5e1', lineHeight: 1.8 }}>suffisent à l'IA pour <strong style={{ color: '#a855f7' }}>cloner ta voix</strong> et appeler tes proches</p>
+            </div>
+            <div className="rounded-xl p-6" style={{ background: 'rgba(220,38,38,0.06)', border: '1px solid rgba(220,38,38,0.15)' }}>
+              <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.5rem', fontWeight: 900, color: '#dc2626', marginBottom: '0.5rem' }}>100M+</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#cbd5e1', lineHeight: 1.8 }}>de comptes français compromis en 2024-2025</p>
+            </div>
+            <div className="rounded-xl p-6" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.15)' }}>
+              <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.5rem', fontWeight: 900, color: '#10b981', marginBottom: '0.5rem' }}>8 formes</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#cbd5e1', lineHeight: 1.8 }}>de phishing : email, SMS, téléphone, QR code, ciblé, président, réseaux sociaux, Wi-Fi</p>
+            </div>
+          </div>
+
+          <div className="rounded-xl p-6" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)' }}>
+            <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '0.9rem', fontWeight: 800, color: '#10b981', letterSpacing: '0.08em', marginBottom: '1rem' }}>
+              Les 3 réflexes essentiels
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {[
+                'Ne clique jamais sur un lien dans un email ou SMS',
+                'Ne décroche pas les numéros inconnus (clonage de voix)',
+                'Active la double authentification sur tous tes comptes',
+              ].map((r, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <span style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '16px', fontWeight: 900, color: '#10b981' }}>{i + 1}.</span>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 600, color: '#e2e8f0', lineHeight: 1.8 }}>{r}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-3 mt-8">
+            {['Phishing 2025', 'Smishing +2500%', 'Clonage de voix IA', 'Deepfake 25M$', 'QR Code +400%', 'France Travail 43M', 'Free 42M€ amende', '504 000 victimes', 'Loi anti-spoofing 2026'].map(tag => (
               <span key={tag} style={{
                 fontFamily: "'Inter', sans-serif", fontSize: '12px', fontWeight: 600,
                 color: '#f59e0b', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)',
-                padding: '5px 14px', borderRadius: '8px',
+                padding: '6px 16px', borderRadius: '8px',
               }}>{tag}</span>
             ))}
+          </div>
           </div>
         </div>
 
