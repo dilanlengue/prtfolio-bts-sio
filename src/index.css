@@ -355,6 +355,10 @@ p {
 .hero-reveal-d6 { animation-delay: 1.15s; }
 .hero-reveal-d7 { animation-delay: 1.35s; }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 .photo-container {
   position: relative;
 }
@@ -434,17 +438,9 @@ p {
   0%, 100% { box-shadow: 0 0 20px rgba(99,102,241,0.2); }
   50% { box-shadow: 0 0 40px rgba(99,102,241,0.4); }
 }
-@keyframes scan-line {
-  0% { top: -10%; }
-  100% { top: 110%; }
-}
 @keyframes typing-cursor {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
-}
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
 }
 @keyframes rotate-slow {
   from { transform: rotate(0deg); }
@@ -506,34 +502,7 @@ p {
 .terminal { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
 .terminal-line::before { content: '$ '; color: #00ff88; }
 
-/* === GLITCH TEXT === */
-.glitch-text { position: relative; display: inline-block; }
-.glitch-text::before, .glitch-text::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  color: #f1f5f9;
-  -webkit-text-fill-color: #f1f5f9;
-}
-.glitch-text::before { animation: glitch-1 8s infinite linear; clip-path: inset(0 0 0 0); }
-.glitch-text::after  { animation: glitch-2 8s infinite linear; clip-path: inset(0 0 0 0); }
-@keyframes glitch-1 {
-  0%,91%,97%,100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-  92% { clip-path: inset(20% 0 60% 0); transform: translate(-3px,0); filter: hue-rotate(-60deg); }
-  93% { clip-path: inset(50% 0 20% 0); transform: translate(3px,0); }
-  94% { clip-path: inset(10% 0 70% 0); transform: translate(-2px,0); filter: hue-rotate(-60deg); }
-  95% { clip-path: inset(80% 0 5% 0); transform: translate(2px,0); }
-  96% { clip-path: inset(40% 0 30% 0); transform: translate(-2px,0); filter: hue-rotate(-60deg); }
-}
-@keyframes glitch-2 {
-  0%,91%,97%,100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-  92% { clip-path: inset(60% 0 10% 0); transform: translate(3px,0); filter: hue-rotate(60deg); }
-  93.5% { clip-path: inset(30% 0 40% 0); transform: translate(-2px,0); }
-  94.5% { clip-path: inset(70% 0 5% 0); transform: translate(2px,0); filter: hue-rotate(60deg); }
-  95.5% { clip-path: inset(15% 0 55% 0); transform: translate(-3px,0); }
-  96.5% { clip-path: inset(5% 0 80% 0); transform: translate(4px,0); filter: hue-rotate(60deg); }
-}
+/* glitch-text rules consolidated above in HERO PREMIUM section */
 
 /* === NEON FLICKER === */
 @keyframes neon-flicker {

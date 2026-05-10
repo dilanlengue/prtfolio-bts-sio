@@ -43,7 +43,9 @@ export default function SideNav() {
       }}
       aria-label="Navigation principale"
     >
-      {items.map(({ path, label, Icon }) => {
+      {items.map((item) => {
+        const { path, label } = item
+        const NavIcon = item.Icon
         const isActive = location.pathname === path
         return (
           <Link
@@ -73,7 +75,7 @@ export default function SideNav() {
               }
             }}
           >
-            <Icon size={20} />
+            <NavIcon size={20} />
 
             {/* Active indicator dot on left edge */}
             {isActive && (

@@ -566,11 +566,14 @@ function StageCard({ stage }) {
 
         {/* Infos en grille */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3" style={{ marginBottom: '1.5rem' }}>
-          {stage.infos.map(({ icon: Icon, label, value, link }) => (
+          {stage.infos.map((info) => {
+            const InfoIcon = info.icon
+            const { label, value, link } = info
+            return (
             <div key={label} className="flex items-start gap-2.5 p-3 rounded-xl" style={{
               background: '#f8fafc', border: '1px solid #e2e8f0',
             }}>
-              <Icon size={14} style={{ color: stage.tagColor, marginTop: '2px', flexShrink: 0 }} />
+              <InfoIcon size={14} style={{ color: stage.tagColor, marginTop: '2px', flexShrink: 0 }} />
               <div>
                 <p style={{ fontSize: '10px', color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '2px' }}>
                   {label}
@@ -586,7 +589,8 @@ function StageCard({ stage }) {
                 )}
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
 
         {/* Spécialisations */}

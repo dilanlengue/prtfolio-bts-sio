@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChevronDown, ExternalLink, Settings, Rocket, ClipboardList, GraduationCap, BookOpen, FileText, Download, Lock, Loader2, CheckCircle2 } from 'lucide-react'
+import { ChevronDown, ExternalLink, Settings, Rocket, ClipboardList, GraduationCap, FileText, Download, Lock, Loader2, CheckCircle2 } from 'lucide-react'
 import SectionLabel from './SectionLabel'
 
 const epreuves = [

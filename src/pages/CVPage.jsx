@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Download, ExternalLink, GraduationCap, Briefcase, Award, Code2, Globe, ChevronDown, ChevronUp, Shield, Server, Wifi, Terminal, Monitor, Activity } from 'lucide-react'
+import { Download, ExternalLink, Eye, GraduationCap, Briefcase, Award, Code2, Globe, ChevronDown, ChevronUp, Shield, Server, Wifi, Terminal, Monitor, Activity, FileText } from 'lucide-react'
 
 const sections = [
   {
@@ -92,18 +92,18 @@ const sections = [
     title: 'Compétences Techniques',
     color: '#818cf8',
     skills: [
-      { icon: Server, label: 'Systèmes', tags: ['Windows Server', 'Active Directory', 'GPO', 'DNS/DHCP', 'Linux Debian'] },
+      { icon: Shield, label: 'Cybersécurité', tags: ['OpenVPN', 'Nessus', 'Kali Linux', 'iptables', 'OWASP', 'SSL/TLS'] },
       { icon: Wifi, label: 'Réseaux', tags: ['Cisco IOS', 'VLAN 802.1Q', 'TCP/IP', 'Wireshark', 'pfSense'] },
-      { icon: Shield, label: 'Cybersécurité', tags: ['OpenVPN', 'Nessus', 'iptables', 'OWASP', 'SSL/TLS'] },
+      { icon: Server, label: 'Systèmes', tags: ['Windows Server', 'Active Directory', 'GPO', 'DNS/DHCP', 'Linux Debian'] },
       { icon: Activity, label: 'Supervision', tags: ['Nagios', 'GLPI', 'SNMP/NRPE', 'Zabbix'] },
-      { icon: Monitor, label: 'Virtualisation', tags: ['VirtualBox', 'VMware ESXi', 'Proxmox', 'Hyper-V'] },
+      { icon: Monitor, label: 'Virtualisation', tags: ['Proxmox', 'VMware ESXi', 'VirtualBox', 'Hyper-V'] },
       { icon: Terminal, label: 'OS & Scripting', tags: ['Bash', 'PowerShell', 'Linux', 'Windows 10/11'] },
     ],
   },
   {
     id: 'certifications',
     icon: Award,
-    title: 'Certifications & Diplôme',
+    title: 'Certifications',
     color: '#22c55e',
     items: [
       {
@@ -132,15 +132,14 @@ const sections = [
     title: 'Langues',
     color: '#f472b6',
     langues: [
-      { flag: '🇬🇧', lang: 'Anglais', level: 'Bilingue', pct: 90 },
       { flag: '🇫🇷', lang: 'Français', level: 'C2 — Courant', pct: 95 },
-      { flag: '🇧🇷', lang: 'Portugais', level: 'Débutant', pct: 20 },
+      { flag: '🇬🇧', lang: 'Anglais', level: 'Bilingue', pct: 90 },
     ],
   },
 ]
 
 function CVSection({ section, isOpen, onToggle }) {
-  const Icon = section.icon
+  const SectionIcon = section.icon
 
   return (
     <div
@@ -148,12 +147,11 @@ function CVSection({ section, isOpen, onToggle }) {
       style={{
         background: 'rgba(10,15,30,0.85)',
         border: `1px solid ${isOpen ? `${section.color}40` : 'rgba(255,255,255,0.06)'}`,
-        boxShadow: isOpen ? `0 0 24px ${section.color}10` : 'none',
+        boxShadow: isOpen ? `0 8px 32px ${section.color}08` : 'none',
       }}
     >
-      {/* Section header — always visible */}
       <button
-        className="w-full flex items-center justify-between p-8 transition-all duration-200"
+        className="w-full flex items-center justify-between px-6 py-5 sm:px-8 sm:py-6 transition-all duration-200"
         onClick={onToggle}
         style={{ cursor: 'pointer' }}
         onMouseEnter={e => {
@@ -165,30 +163,31 @@ function CVSection({ section, isOpen, onToggle }) {
       >
         <div className="flex items-center gap-4">
           <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+            className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0"
             style={{
               background: `${section.color}12`,
               border: `1px solid ${section.color}30`,
             }}
           >
-            <Icon size={22} style={{ color: section.color }} />
+            <SectionIcon size={20} style={{ color: section.color }} />
           </div>
           <div className="text-left">
             <h3 style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '1.15rem',
+              fontSize: '1.05rem',
               fontWeight: 800,
               color: '#f1f5f9',
               letterSpacing: '-0.02em',
-              lineHeight: 1.2,
+              lineHeight: 1.3,
             }}>
               {section.title}
             </h3>
             <p style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '12px',
-              color: '#64748b',
-              marginTop: '2px',
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '11px',
+              color: '#475569',
+              marginTop: '3px',
+              letterSpacing: '0.04em',
             }}>
               {section.items?.length || section.skills?.length || section.langues?.length} éléments
             </p>
@@ -205,35 +204,30 @@ function CVSection({ section, isOpen, onToggle }) {
         </div>
       </button>
 
-      {/* Section content */}
       {isOpen && (
-        <div className="px-8 pb-8">
-          <div style={{ height: '1px', background: `${section.color}20`, marginBottom: '1.5rem' }} />
+        <div className="px-6 pb-6 sm:px-8 sm:pb-8">
+          <div style={{ height: '1px', background: `${section.color}20`, marginBottom: '2.2rem' }} />
 
-          {/* Timeline items (formation, experience, certifications) */}
           {section.items && (
-            <div className="space-y-6">
+            <div className="space-y-7">
               {section.items.map((item, i) => (
                 <div key={i} className="flex gap-4">
-                  {/* Timeline dot + line */}
-                  <div className="flex flex-col items-center flex-shrink-0 pt-1">
+                  <div className="flex flex-col items-center flex-shrink-0 pt-1.5">
                     <div className="w-3 h-3 rounded-full" style={{
                       background: section.color,
                       boxShadow: `0 0 8px ${section.color}50`,
                     }} />
                     {i < section.items.length - 1 && (
-                      <div className="w-px flex-1 mt-1" style={{ background: `${section.color}20`, minHeight: '24px' }} />
+                      <div className="w-px flex-1 mt-2" style={{ background: `${section.color}20`, minHeight: '28px' }} />
                     )}
                   </div>
-
-                  {/* Content */}
-                  <div className="flex-1 pb-2">
+                  <div className="flex-1 pb-1">
                     <span style={{
                       fontFamily: "'JetBrains Mono', monospace",
                       fontSize: '11px',
                       fontWeight: 600,
                       color: section.color,
-                      letterSpacing: '0.05em',
+                      letterSpacing: '0.06em',
                     }}>
                       {item.period}
                     </span>
@@ -242,8 +236,8 @@ function CVSection({ section, isOpen, onToggle }) {
                       fontSize: '15px',
                       fontWeight: 700,
                       color: '#f1f5f9',
-                      marginTop: '4px',
-                      lineHeight: 1.3,
+                      marginTop: '5px',
+                      lineHeight: 1.35,
                     }}>
                       {item.title}
                     </h4>
@@ -252,16 +246,16 @@ function CVSection({ section, isOpen, onToggle }) {
                       fontSize: '13px',
                       fontWeight: 500,
                       color: '#64748b',
-                      marginTop: '2px',
+                      marginTop: '3px',
                     }}>
                       {item.org}
                     </p>
                     {item.details && (
-                      <div className="mt-2 space-y-1">
+                      <div className="mt-3 space-y-1.5">
                         {item.details.map((d, j) => (
-                          <div key={j} className="flex items-start gap-2">
-                            <span style={{ color: section.color, fontSize: '6px', flexShrink: 0, marginTop: '7px' }}>●</span>
-                            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.6 }}>
+                          <div key={j} className="flex items-start gap-2.5">
+                            <span style={{ color: section.color, fontSize: '5px', flexShrink: 0, marginTop: '8px' }}>●</span>
+                            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13.5px', color: '#94a3b8', lineHeight: 1.65 }}>
                               {d}
                             </span>
                           </div>
@@ -274,18 +268,17 @@ function CVSection({ section, isOpen, onToggle }) {
             </div>
           )}
 
-          {/* Skills grid */}
           {section.skills && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {section.skills.map((skill) => {
                 const SkillIcon = skill.icon
                 return (
-                  <div key={skill.label} className="p-5 rounded-xl"
+                  <div key={skill.label} className="p-4 sm:p-5 rounded-xl"
                     style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
                   >
-                    <div className="flex items-center gap-2 mb-3">
+                    <div className="flex items-center gap-2.5 mb-3">
                       <SkillIcon size={16} style={{ color: section.color }} />
-                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 700, color: '#e2e8f0' }}>
+                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13.5px', fontWeight: 700, color: '#e2e8f0' }}>
                         {skill.label}
                       </span>
                     </div>
@@ -309,14 +302,13 @@ function CVSection({ section, isOpen, onToggle }) {
             </div>
           )}
 
-          {/* Langues */}
           {section.langues && (
             <div className="space-y-5">
               {section.langues.map(({ flag, lang, level, pct }) => (
                 <div key={lang}>
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-2.5">
                     <div className="flex items-center gap-3">
-                      <span style={{ fontSize: '1.4rem' }}>{flag}</span>
+                      <span style={{ fontSize: '1.3rem' }}>{flag}</span>
                       <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0' }}>
                         {lang}
                       </span>
@@ -343,7 +335,8 @@ function CVSection({ section, isOpen, onToggle }) {
 }
 
 export default function CVPage() {
-  const [openSections, setOpenSections] = useState(new Set(['formation']))
+  const [openSections, setOpenSections] = useState(new Set(['formation', 'experience']))
+  const [showPreview, setShowPreview] = useState(false)
 
   const toggleSection = (id) => {
     setOpenSections(prev => {
@@ -355,69 +348,204 @@ export default function CVPage() {
   }
 
   return (
-    <section className="relative" style={{ paddingTop: '8rem', paddingBottom: '10rem' }}>
+    <section className="relative" style={{ paddingTop: '10rem', paddingBottom: '12rem' }}>
       <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-10">
 
-        {/* Header */}
-        <div className="text-center mb-14">
+        {/* ═══ HEADER ═══ */}
+        <div className="text-center" style={{ marginBottom: '5rem' }}>
+          <div style={{ marginBottom: '1.8rem' }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '12px', fontWeight: 700,
+              letterSpacing: '0.2em', color: '#22d3ee',
+              textTransform: 'uppercase',
+              padding: '6px 18px',
+              background: 'rgba(34,211,238,0.08)',
+              border: '1px solid rgba(34,211,238,0.2)',
+              borderRadius: '99px',
+            }}>
+              Curriculum Vitae
+            </span>
+          </div>
           <h2
             style={{
               fontFamily: "'Orbitron', system-ui, sans-serif",
               fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
               fontWeight: 800,
               letterSpacing: '-0.025em',
-              color: '#e6ecf8',
-              marginBottom: '8px',
+              marginBottom: '1.5rem',
+              background: 'linear-gradient(135deg, #e6ecf8 0%, #818cf8 50%, #22d3ee 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
             }}
           >
             Mon CV
           </h2>
           <div
             style={{
-              width: '128px',
-              height: '2px',
-              margin: '16px auto',
-              background: 'linear-gradient(90deg, rgba(56,189,248,0) 0%, rgba(56,189,248,0.45) 24%, rgba(212,175,55,0.85) 50%, rgba(147,51,234,0.55) 76%, rgba(56,189,248,0) 100%)',
+              width: '80px',
+              height: '3px',
+              margin: '0 auto 2rem',
+              background: 'linear-gradient(90deg, #6366f1, #22d3ee)',
+              borderRadius: '99px',
             }}
           />
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', maxWidth: '500px', margin: '0 auto' }}>
-            <span style={{ color: '#22d3ee', fontWeight: 600 }}>LENGUE TCHOUBIA Dilan Cabrel</span> — Alternant Admin. Systèmes & Réseaux
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '16px',
+            color: '#94a3b8',
+            maxWidth: '520px',
+            margin: '0 auto',
+            lineHeight: 1.7,
+          }}>
+            <span style={{ color: '#f1f5f9', fontWeight: 600 }}>LENGUE TCHOUBIA Dilan Cabrel</span>
+            <br />
+            Alternant Cybersécurité & Administration Réseaux
           </p>
         </div>
 
-        {/* Download & View buttons */}
-        <div className="flex flex-wrap justify-center gap-5 mb-12">
-          <a
-            href="/cv-dilan-lengue.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
-            style={{
-              background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-              fontFamily: "'Inter', sans-serif",
-              boxShadow: '0 8px 24px rgba(99,102,241,0.35)',
-            }}
-          >
-            <Download size={18} /> Télécharger le PDF
-          </a>
-          <a
-            href="/cv-dilan-lengue.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all"
-            style={{
-              background: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.15)',
-              color: '#f1f5f9',
-              fontFamily: "'Inter', sans-serif",
-            }}
-          >
-            <ExternalLink size={16} /> Voir le PDF complet
-          </a>
+        {/* ═══ BOUTONS D'ACTION ═══ */}
+        <div
+          className="rounded-2xl"
+          style={{
+            background: 'rgba(10,15,30,0.6)',
+            border: '1px solid rgba(99,102,241,0.15)',
+            padding: 'clamp(1.5rem, 4vw, 2.5rem)',
+            marginBottom: '5rem',
+          }}
+        >
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="/cv-dilan-lengue.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                fontFamily: "'Inter', sans-serif",
+                boxShadow: '0 8px 24px rgba(99,102,241,0.35)',
+                letterSpacing: '0.02em',
+              }}
+            >
+              <Download size={18} />
+              Télécharger le PDF
+            </a>
+
+            <a
+              href="/cv-dilan-lengue.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-sm font-bold transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background: 'rgba(34,211,238,0.08)',
+                border: '1px solid rgba(34,211,238,0.25)',
+                color: '#22d3ee',
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: '0.02em',
+              }}
+            >
+              <ExternalLink size={16} />
+              Ouvrir en plein écran
+            </a>
+
+            <button
+              onClick={() => setShowPreview(!showPreview)}
+              className="flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-sm font-bold transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background: showPreview ? 'rgba(0,255,136,0.1)' : 'rgba(255,255,255,0.04)',
+                border: `1px solid ${showPreview ? 'rgba(0,255,136,0.3)' : 'rgba(255,255,255,0.1)'}`,
+                color: showPreview ? '#00ff88' : '#94a3b8',
+                fontFamily: "'Inter', sans-serif",
+                cursor: 'pointer',
+                letterSpacing: '0.02em',
+              }}
+            >
+              <Eye size={16} />
+              {showPreview ? 'Masquer l\'aperçu' : 'Aperçu rapide'}
+            </button>
+          </div>
         </div>
 
-        {/* Expandable CV sections */}
-        <div className="space-y-6">
+        {/* ═══ APERCU IFRAME ═══ */}
+        {showPreview && (
+          <div
+            className="rounded-2xl overflow-hidden animate-fade-up"
+            style={{
+              marginBottom: '5rem',
+              border: '1px solid rgba(34,211,238,0.2)',
+              boxShadow: '0 16px 48px rgba(0,0,0,0.4), 0 0 30px rgba(34,211,238,0.05)',
+            }}
+          >
+            <div
+              className="flex items-center justify-between px-5 py-3"
+              style={{
+                background: 'rgba(10,15,30,0.95)',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+              }}
+            >
+              <div className="flex items-center gap-3">
+                <FileText size={14} style={{ color: '#22d3ee' }} />
+                <span style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: '11px',
+                  color: '#64748b',
+                  letterSpacing: '0.08em',
+                }}>
+                  CV_LENGUE_DILAN.html
+                </span>
+              </div>
+              <a
+                href="/cv-dilan-lengue.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '11px',
+                  fontWeight: 600,
+                  color: '#22d3ee',
+                  textDecoration: 'none',
+                }}
+              >
+                Ouvrir <ExternalLink size={11} />
+              </a>
+            </div>
+            <iframe
+              src="/cv-dilan-lengue.html"
+              title="Aperçu du CV"
+              style={{
+                width: '100%',
+                height: '700px',
+                border: 'none',
+                background: '#ffffff',
+              }}
+            />
+          </div>
+        )}
+
+        {/* ═══ SECTIONS DÉTAILLÉES ═══ */}
+        <div style={{ marginBottom: '3rem' }}>
+          <div className="flex items-center gap-4 mb-8">
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.3))' }} />
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '11px',
+              fontWeight: 700,
+              color: '#818cf8',
+              letterSpacing: '0.2em',
+              padding: '5px 14px',
+              background: 'rgba(99,102,241,0.06)',
+              border: '1px solid rgba(99,102,241,0.15)',
+              borderRadius: '8px',
+            }}>
+              DÉTAILS
+            </span>
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(99,102,241,0.3), transparent)' }} />
+          </div>
+        </div>
+
+        <div className="space-y-5">
           {sections.map(section => (
             <CVSection
               key={section.id}
@@ -428,33 +556,36 @@ export default function CVPage() {
           ))}
         </div>
 
-        {/* Open all / Close all */}
-        <div className="flex justify-center gap-5 mt-8">
+        {/* ═══ CONTROLES ═══ */}
+        <div className="flex justify-center gap-4 mt-14">
           <button
-            className="px-4 py-2 rounded-lg text-sm font-semibold transition-all"
+            className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5"
             style={{
               background: 'rgba(99,102,241,0.1)',
               border: '1px solid rgba(99,102,241,0.25)',
               color: '#818cf8',
               fontFamily: "'Inter', sans-serif",
+              cursor: 'pointer',
             }}
             onClick={() => setOpenSections(new Set(sections.map(s => s.id)))}
           >
             Tout ouvrir
           </button>
           <button
-            className="px-4 py-2 rounded-lg text-sm font-semibold transition-all"
+            className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5"
             style={{
               background: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.1)',
               color: '#94a3b8',
               fontFamily: "'Inter', sans-serif",
+              cursor: 'pointer',
             }}
             onClick={() => setOpenSections(new Set())}
           >
             Tout fermer
           </button>
         </div>
+
       </div>
     </section>
   )

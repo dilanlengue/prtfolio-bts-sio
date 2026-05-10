@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { ChevronDown } from 'lucide-react'
 
 function CountUp({ target, suffix = '' }) {
@@ -95,15 +95,15 @@ const stats = [
 ]
 
 function FloatingParticles() {
-  const particles = Array.from({ length: 20 }, (_, i) => ({
+  const particles = useMemo(() => Array.from({ length: 20 }, (_, i) => ({
     id: i,
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    size: Math.random() * 4 + 2,
-    delay: Math.random() * 5,
-    duration: Math.random() * 4 + 4,
-    color: ['#6366f1', '#22d3ee', '#00ff88', '#a78bfa', '#f59e0b'][Math.floor(Math.random() * 5)],
-  }))
+    left: `${((i * 37 + 13) % 100)}%`,
+    top: `${((i * 53 + 7) % 100)}%`,
+    size: (i % 4) + 2,
+    delay: (i * 0.25) % 5,
+    duration: (i % 4) + 4,
+    color: ['#6366f1', '#22d3ee', '#00ff88', '#a78bfa', '#f59e0b'][i % 5],
+  })), [])
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
@@ -453,7 +453,10 @@ export default function Presentation() {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-7">
-            {stats.map(({ value, label, color, Illustration }) => (
+            {stats.map((stat) => {
+              const { value, label, color } = stat
+              const StatIllustration = stat.Illustration
+              return (
               <div
                 key={label}
                 className="group relative rounded-2xl text-center transition-all duration-500"
@@ -493,7 +496,7 @@ export default function Presentation() {
 
                 {/* Illustration SVG */}
                 <div className="mx-auto flex items-center justify-center" style={{ marginBottom: '1.2rem', opacity: 0.9 }}>
-                  <Illustration />
+                  <StatIllustration />
                 </div>
 
                 {/* Chiffre */}
@@ -521,7 +524,8 @@ export default function Presentation() {
                   {label}
                 </p>
               </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
