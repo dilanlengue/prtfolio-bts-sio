@@ -91,7 +91,7 @@ const projets = [
 function ProjetCard({ projet, onClick }) {
   return (
     <div
-      className="card-holo rounded-2xl overflow-hidden cursor-pointer transition-all duration-300"
+      className="card-holo card-3d rounded-2xl overflow-hidden cursor-pointer transition-all duration-300"
       style={{
         background: 'rgba(11,16,32,0.75)',
         border: '1px solid rgba(255,255,255,0.06)',
@@ -349,7 +349,7 @@ export default function Projets() {
   const [selected, setSelected] = useState(null)
 
   return (
-    <section id="projets" className="relative" style={{ paddingTop: '8rem', paddingBottom: '8rem' }}>
+    <section id="projets" className="relative dots-bg" style={{ paddingTop: '8rem', paddingBottom: '8rem' }}>
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Header */}

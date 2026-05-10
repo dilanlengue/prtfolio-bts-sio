@@ -29,7 +29,7 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="relative" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
+    <section id="certifications" className="relative dots-bg" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
 
         {/* Header */}

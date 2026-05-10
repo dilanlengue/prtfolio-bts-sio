@@ -475,7 +475,7 @@ function StageCard({ stage }) {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden"
+      className="card-holo rounded-2xl overflow-hidden"
       style={{
         background: '#ffffff',
         boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)',
@@ -771,7 +771,7 @@ function StageCard({ stage }) {
 
 export default function Entreprise() {
   return (
-    <section id="entreprise" className="relative" style={{ paddingTop: '8rem', paddingBottom: '8rem' }}>
+    <section id="entreprise" className="relative dots-bg" style={{ paddingTop: '8rem', paddingBottom: '8rem' }}>
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="text-center animate-fade-up" style={{ marginBottom: '4rem' }}>

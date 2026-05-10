@@ -7,9 +7,9 @@ export default function Footer() {
 
   return (
     <footer className="relative">
+      <div className="glow-divider" />
       <div
         style={{
-          borderTop: '1px solid rgba(99,102,241,0.12)',
           background: 'linear-gradient(180deg, transparent, rgba(11,16,32,0.4))',
         }}
       >

@@ -375,7 +375,7 @@ function EpreuveCard({ ep }) {
   const [open, setOpen] = useState(false)
   return (
     <div
-      className="rounded-2xl transition-all duration-300 cursor-pointer"
+      className="card-holo rounded-2xl transition-all duration-300 cursor-pointer"
       style={{
         background: 'rgba(11,16,32,0.62)',
         border: open ? `2px solid ${ep.color}80` : `1px solid ${ep.color}30`,
@@ -487,7 +487,7 @@ function EpreuveCard({ ep }) {
 
 export default function BTS() {
   return (
-    <section id="bts" className="relative" style={{ paddingTop: '10rem', paddingBottom: '10rem', background: 'rgba(8,12,24,0.25)' }}>
+    <section id="bts" className="relative dots-bg cyber-grid" style={{ paddingTop: '10rem', paddingBottom: '10rem', background: 'rgba(8,12,24,0.25)' }}>
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* ── Header ── */}

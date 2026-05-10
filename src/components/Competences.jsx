@@ -53,7 +53,7 @@ const categories = [
 
 export default function Competences() {
   return (
-    <section id="competences" className="py-32 md:py-40 relative">
+    <section id="competences" className="py-32 md:py-40 relative dots-bg">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Header */}
@@ -119,7 +119,7 @@ export default function Competences() {
                     href={tool.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-start gap-5 rounded-2xl transition-all duration-300"
+                    className="card-holo group flex items-start gap-5 rounded-2xl transition-all duration-300"
                     style={{
                       padding: '1.5rem 1.6rem',
                       background: 'rgba(11,16,32,0.65)',
@@ -195,7 +195,7 @@ export default function Competences() {
               href="/cv-dilan-lengue.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center justify-center gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+              className="btn-glow group relative flex items-center justify-center gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-1"
               style={{
                 padding: '20px 40px',
                 background: 'linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa)',
@@ -229,7 +229,7 @@ export default function Competences() {
             {/* Bouton Contact — glass border glow */}
             <a
               href="/contact"
-              className="group relative flex items-center justify-center gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+              className="btn-glow group relative flex items-center justify-center gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-1"
               style={{
                 padding: '20px 40px',
                 background: 'rgba(11,16,32,0.8)',

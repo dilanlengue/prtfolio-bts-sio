@@ -143,7 +143,7 @@ function CVSection({ section, isOpen, onToggle }) {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden transition-all duration-300"
+      className="card-holo rounded-2xl overflow-hidden transition-all duration-300"
       style={{
         background: 'rgba(10,15,30,0.85)',
         border: `1px solid ${isOpen ? `${section.color}40` : 'rgba(255,255,255,0.06)'}`,
@@ -348,7 +348,7 @@ export default function CVPage() {
   }
 
   return (
-    <section className="relative" style={{ paddingTop: '10rem', paddingBottom: '12rem' }}>
+    <section className="relative dots-bg" style={{ paddingTop: '10rem', paddingBottom: '12rem' }}>
       <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* ═══ HEADER ═══ */}

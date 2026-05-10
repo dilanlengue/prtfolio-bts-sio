@@ -532,7 +532,7 @@ function MagicFooter() {
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative" style={{ paddingTop: '8rem', paddingBottom: '8rem' }}>
+    <section id="contact" className="relative dots-bg" style={{ paddingTop: '8rem', paddingBottom: '8rem' }}>
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Header */}
