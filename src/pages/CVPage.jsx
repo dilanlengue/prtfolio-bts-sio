@@ -114,6 +114,12 @@ const sections = [
       },
       {
         period: '2026',
+        title: 'Introduction to Cybersecurity',
+        org: 'Cisco Networking Academy',
+        details: ['Fondamentaux cybersécurité, Menaces & vulnérabilités, Protection des données, Sécurité des réseaux'],
+      },
+      {
+        period: '2026',
         title: 'BTS SIO SISR (en cours)',
         org: 'Diplôme d\'État — Niveau 5',
         details: ['Services Informatiques aux Organisations — Option SISR'],
