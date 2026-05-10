@@ -632,73 +632,121 @@ export default function Veille() {
               Voici de vrais exemples de phishing interceptés en France — email bancaire, faux PayPal et SMS frauduleux. Apprenez à les reconnaître.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="flex flex-col gap-12">
               {/* SMS Chronopost */}
-              <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(6,182,212,0.2)' }}>
-                <div className="px-5 py-3.5" style={{ background: 'rgba(6,182,212,0.06)', borderBottom: '1px solid rgba(6,182,212,0.1)' }}>
-                  <div className="flex items-center gap-2">
-                    <Smartphone size={16} style={{ color: '#06b6d4' }} />
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#06b6d4' }}>SMISHING — SMS</span>
+              <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(6,182,212,0.25)' }}>
+                <div className="px-8 py-5 flex items-center gap-3" style={{ background: 'rgba(6,182,212,0.08)', borderBottom: '1px solid rgba(6,182,212,0.15)' }}>
+                  <div style={{
+                    width: '40px', height: '40px', borderRadius: '12px',
+                    background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.3)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <Smartphone size={20} style={{ color: '#06b6d4' }} />
+                  </div>
+                  <div>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#06b6d4', letterSpacing: '0.08em' }}>SMISHING — SMS FRAUDULEUX</span>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', marginTop: '2px' }}>Capture d'un vrai SMS intercepte</p>
                   </div>
                 </div>
-                <div style={{ padding: '12px' }}>
-                  <img src="/phishing-sms-chronopost.jpg" alt="Vrai SMS de phishing — faux message Chronopost avec lien frauduleux" style={{
-                    width: '100%', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)',
-                  }} />
-                </div>
-                <div style={{ padding: '4px 16px 18px' }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
-                    Faux SMS Chronopost
-                  </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.8 }}>
-                    Le lien "chronopost-online-info.com" n'est pas le vrai site de Chronopost. L'URL frauduleuse vise à voler les données bancaires.
-                  </p>
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div style={{ padding: '24px', background: 'rgba(0,0,0,0.2)' }}>
+                    <img src="/phishing-sms-chronopost.jpg" alt="Vrai SMS de phishing — faux message Chronopost avec lien frauduleux" style={{
+                      width: '100%', maxHeight: '500px', objectFit: 'contain', borderRadius: '12px',
+                      border: '2px solid rgba(6,182,212,0.2)',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(6,182,212,0.1)',
+                    }} />
+                  </div>
+                  <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem' }}>
+                      Faux SMS Chronopost
+                    </h4>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2, marginBottom: '1.5rem' }}>
+                      Le lien "chronopost-online-info.com" n'est pas le vrai site de Chronopost. L'URL frauduleuse vise a voler les donnees bancaires de la victime.
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#ef4444', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Fausse URL</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#f59e0b', background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Urgence artificielle</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#06b6d4', background: 'rgba(6,182,212,0.1)', border: '1px solid rgba(6,182,212,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Vol de donnees</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Email LCL */}
-              <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(245,158,11,0.2)' }}>
-                <div className="px-5 py-3.5" style={{ background: 'rgba(245,158,11,0.06)', borderBottom: '1px solid rgba(245,158,11,0.1)' }}>
-                  <div className="flex items-center gap-2">
-                    <Mail size={16} style={{ color: '#f59e0b' }} />
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#f59e0b' }}>PHISHING — EMAIL BANCAIRE</span>
+              <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(245,158,11,0.25)' }}>
+                <div className="px-8 py-5 flex items-center gap-3" style={{ background: 'rgba(245,158,11,0.08)', borderBottom: '1px solid rgba(245,158,11,0.15)' }}>
+                  <div style={{
+                    width: '40px', height: '40px', borderRadius: '12px',
+                    background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.3)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <Mail size={20} style={{ color: '#f59e0b' }} />
+                  </div>
+                  <div>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#f59e0b', letterSpacing: '0.08em' }}>PHISHING — EMAIL BANCAIRE</span>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', marginTop: '2px' }}>Capture d'un vrai email frauduleux LCL</p>
                   </div>
                 </div>
-                <div style={{ padding: '12px' }}>
-                  <img src="/phishing-email-lcl.jpg" alt="Vrai email de phishing — faux email LCL banque" style={{
-                    width: '100%', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)',
-                  }} />
-                </div>
-                <div style={{ padding: '4px 16px 18px' }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
-                    Faux email LCL Banque
-                  </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.8 }}>
-                    Demande de "mise à jour" du numéro de client. L'adresse expéditeur et le lien ne correspondent pas au domaine officiel de LCL.
-                  </p>
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div style={{ padding: '24px', background: 'rgba(0,0,0,0.2)' }}>
+                    <img src="/phishing-email-lcl.jpg" alt="Vrai email de phishing — faux email LCL banque" style={{
+                      width: '100%', maxHeight: '500px', objectFit: 'contain', borderRadius: '12px',
+                      border: '2px solid rgba(245,158,11,0.2)',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(245,158,11,0.1)',
+                    }} />
+                  </div>
+                  <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem' }}>
+                      Faux email LCL Banque
+                    </h4>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2, marginBottom: '1.5rem' }}>
+                      Demande de "mise a jour" du numero de client. L'adresse expediteur et le lien ne correspondent pas au domaine officiel de LCL.
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#ef4444', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Faux expediteur</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#f59e0b', background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Mise a jour forcee</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#a855f7', background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Usurpation bancaire</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* PayPal */}
-              <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(168,85,247,0.2)' }}>
-                <div className="px-5 py-3.5" style={{ background: 'rgba(168,85,247,0.06)', borderBottom: '1px solid rgba(168,85,247,0.1)' }}>
-                  <div className="flex items-center gap-2">
-                    <CreditCard size={16} style={{ color: '#a855f7' }} />
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', fontWeight: 700, color: '#a855f7' }}>PHISHING — PAIEMENT</span>
+              <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(168,85,247,0.25)' }}>
+                <div className="px-8 py-5 flex items-center gap-3" style={{ background: 'rgba(168,85,247,0.08)', borderBottom: '1px solid rgba(168,85,247,0.15)' }}>
+                  <div style={{
+                    width: '40px', height: '40px', borderRadius: '12px',
+                    background: 'rgba(168,85,247,0.12)', border: '1px solid rgba(168,85,247,0.3)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <CreditCard size={20} style={{ color: '#a855f7' }} />
+                  </div>
+                  <div>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 800, color: '#a855f7', letterSpacing: '0.08em' }}>PHISHING — PAIEMENT EN LIGNE</span>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#64748b', marginTop: '2px' }}>Capture d'un vrai email frauduleux PayPal</p>
                   </div>
                 </div>
-                <div style={{ padding: '12px' }}>
-                  <img src="/phishing-paypal.png" alt="Vrai email de phishing — faux email PayPal account limited" style={{
-                    width: '100%', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)',
-                  }} />
-                </div>
-                <div style={{ padding: '4px 16px 18px' }}>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
-                    Faux email PayPal
-                  </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', lineHeight: 1.8 }}>
-                    "Your account has been limited" — urgence artificielle + bouton "Update your account" menant vers un faux site identique à PayPal.
-                  </p>
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div style={{ padding: '24px', background: 'rgba(0,0,0,0.2)' }}>
+                    <img src="/phishing-paypal.png" alt="Vrai email de phishing — faux email PayPal account limited" style={{
+                      width: '100%', maxHeight: '500px', objectFit: 'contain', borderRadius: '12px',
+                      border: '2px solid rgba(168,85,247,0.2)',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(168,85,247,0.1)',
+                    }} />
+                  </div>
+                  <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: '1.3rem', fontWeight: 800, color: '#e2e8f0', marginBottom: '1rem' }}>
+                      Faux email PayPal
+                    </h4>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', color: '#94a3b8', lineHeight: 2, marginBottom: '1.5rem' }}>
+                      "Your account has been limited" — urgence artificielle + bouton "Update your account" menant vers un faux site identique a PayPal.
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#ef4444', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Compte limite</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#f59e0b', background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Faux bouton</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#a855f7', background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.2)', padding: '6px 14px', borderRadius: '8px' }}>Site clone</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
