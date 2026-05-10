@@ -82,6 +82,7 @@ export default function Competences() {
           }}>
             Domaines de ma{'î'}trise, outils et savoir-faire acquis durant ma formation BTS SIO.
           </p>
+
         </div>
 
         {/* Catégories */}

@@ -9,6 +9,8 @@ const projets = [
     logo: '/logos/cisco.svg',
     color: '#049FD9',
     image: '/projects/vlan.webp',
+    badge: 'E5',
+    badgeColor: '#a855f3',
     description: 'Segmentation VLAN et routage inter-VLAN via Router-on-a-Stick avec liens trunk 802.1Q.',
     fullDesc: "Segmentation d'un réseau d'entreprise par VLAN sur switch Cisco avec routage inter-VLAN (Router-on-a-Stick) et liens trunk 802.1Q pour isoler les flux services.",
     technologies: ['Cisco IOS', 'VLAN', '802.1Q', 'TCP/IP', 'Trunk'],
@@ -21,6 +23,8 @@ const projets = [
     logo: '/logos/activedirectory.svg',
     color: '#00BEF2',
     image: '/projects/ad.webp',
+    badge: 'E5',
+    badgeColor: '#a855f3',
     description: "Déploiement d'un contrôleur de domaine AD DS & DNS intégré en environnement Windows Server.",
     fullDesc: "Déploiement complet d'un domaine Windows Server avec contrôleur de domaine, DNS intégré, DHCP et stratégies de groupe (GPO) pour la gestion centralisée des utilisateurs et postes.",
     technologies: ['Windows Server', 'AD DS', 'DNS', 'DHCP'],
@@ -33,6 +37,8 @@ const projets = [
     logo: '/logos/windows.svg',
     color: '#0078D4',
     image: '/projects/ad.webp',
+    badge: 'E5',
+    badgeColor: '#a855f3',
     description: "Configuration du rôle DHCP — étendues, réservations et options de serveur.",
     fullDesc: "Mise en place du service DHCP sur Windows Server : création d'étendues, options de serveur, réservations d'adresses IP, baux et exclusions pour l'attribution automatique des adresses réseau.",
     technologies: ['Windows Server', 'DHCP', 'TCP/IP', 'DNS'],
@@ -45,6 +51,8 @@ const projets = [
     logo: '/logos/glpi.svg',
     color: '#8B5CF6',
     image: '/projects/glpi.webp',
+    badge: 'E4',
+    badgeColor: '#22d3ee',
     description: "Déploiement GLPI + FusionInventory : gestion de parc, ticketing et inventaire automatique.",
     fullDesc: "Déploiement d'une solution ITSM avec GLPI + FusionInventory : inventaire automatique du parc, ticketing ITIL et gestion du support utilisateur.",
     technologies: ['GLPI', 'FusionInventory', 'LAMP', 'ITIL'],
@@ -57,6 +65,8 @@ const projets = [
     logo: null,
     color: '#10b981',
     image: '/projects/marketplace.webp',
+    badge: 'E4',
+    badgeColor: '#22d3ee',
     description: "Formulaires d'authentification sécurisés avec sessions PHP et protection SQL.",
     fullDesc: "Développement de formulaires d'authentification avec gestion des sessions, hachage des mots de passe, validation côté serveur et protection contre les injections SQL.",
     technologies: ['PHP', 'MySQL', 'HTML/CSS', 'Sessions'],
@@ -69,6 +79,8 @@ const projets = [
     logo: '/logos/gpo.svg',
     color: '#3B82F6',
     image: '/projects/ad.webp',
+    badge: 'E5',
+    badgeColor: '#a855f3',
     description: "Configuration de GPO pour sécuriser et administrer les postes du domaine AD.",
     fullDesc: "Création et déploiement de GPO dans Active Directory : restriction des accès, déploiement de logiciels, configuration du pare-feu Windows, politique de mots de passe et audit de sécurité.",
     technologies: ['GPO', 'Active Directory', 'Windows Server', 'Sécurité'],
@@ -116,6 +128,20 @@ function ProjetCard({ projet, onClick }) {
           position: 'absolute', bottom: 0, left: 0, right: 0,
           height: '3px', background: projet.color,
         }} />
+        {projet.badge && (
+          <span style={{
+            position: 'absolute', top: '10px', right: '10px',
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: '10px', fontWeight: 800,
+            padding: '4px 10px', borderRadius: '6px',
+            background: `${projet.badgeColor}25`,
+            color: projet.badgeColor,
+            backdropFilter: 'blur(8px)',
+            zIndex: 3,
+          }}>
+            {projet.badge}
+          </span>
+        )}
       </div>
 
       {/* Logo badge */}
@@ -237,13 +263,14 @@ function ProjetModal({ projet, onClose }) {
               )}
             </div>
             <div>
-              <h3 style={{
-                fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: '1.15rem', fontWeight: 800, color: '#fff',
-                marginBottom: '4px',
-              }}>
-                {projet.title}
-              </h3>
+              <div className="flex items-center gap-2 mb-1">
+                <h3 style={{
+                  fontFamily: "'Orbitron', system-ui, sans-serif",
+                  fontSize: '1.15rem', fontWeight: 800, color: '#fff',
+                }}>
+                  {projet.title}
+                </h3>
+              </div>
               <p style={{
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: '12px', fontWeight: 600, color: projet.color,
@@ -363,10 +390,11 @@ export default function Projets() {
           <p className="mx-auto" style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: '16px', fontWeight: 500, color: '#94a3b8',
-            lineHeight: 1.7, maxWidth: '520px',
+            lineHeight: 1.7, maxWidth: '560px',
           }}>
-            Projets réalisés durant ma formation BTS SIO option SISR
+            Projets BTS SIO option SISR
           </p>
+
         </div>
 
         {/* Grid */}
