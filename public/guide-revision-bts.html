@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide de Revision BTS SIO SISR — Dilan Lengue — Session 2026</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 20mm 16mm;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: #1a1a1a;
+    background: #fff;
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: #111;
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 26pt;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  h2 {
+    font-size: 18pt;
+    font-weight: 700;
+    color: #1e3a5f;
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  h3 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #1e40af;
+    margin-bottom: 10px;
+    margin-top: 22px;
+    padding-left: 10px;
+    border-left: 4px solid #3b82f6;
+  }
+
+  h4 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 6px;
+    margin-top: 14px;
+  }
+
+  p {
+    margin-bottom: 8px;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin-left: 22px;
+    margin-bottom: 10px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    text-align: center;
+    padding: 60px 40px;
+  }
+
+  .cover h1 {
+    font-size: 30pt;
+    color: #1e3a5f;
+    margin-bottom: 12px;
+  }
+
+  .cover .subtitle {
+    font-size: 16pt;
+    color: #475569;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  .cover .info {
+    font-size: 13pt;
+    color: #64748b;
+    margin-bottom: 6px;
+  }
+
+  .cover .line {
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    border-radius: 2px;
+    margin: 20px auto;
+  }
+
+  .cover .badge {
+    display: inline-block;
+    background: #eef2ff;
+    border: 2px solid #6366f1;
+    color: #4338ca;
+    font-weight: 700;
+    font-size: 11pt;
+    padding: 8px 24px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+
+  .toc {
+    padding: 20px 0;
+  }
+
+  .toc ul {
+    list-style: none;
+    margin-left: 0;
+  }
+
+  .toc li {
+    padding: 6px 0;
+    border-bottom: 1px dotted #cbd5e1;
+    font-size: 11.5pt;
+  }
+
+  .toc li span.num {
+    display: inline-block;
+    width: 40px;
+    font-weight: 800;
+    color: #2563eb;
+  }
+
+  .toc li span.page {
+    float: right;
+    color: #94a3b8;
+    font-size: 10pt;
+  }
+
+  .qa-block {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+
+  .qa-block .question {
+    font-weight: 700;
+    color: #1e40af;
+    font-size: 11pt;
+    margin-bottom: 6px;
+  }
+
+  .qa-block .question::before {
+    content: "Q : ";
+    color: #dc2626;
+    font-weight: 800;
+  }
+
+  .qa-block .answer {
+    color: #334155;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    padding-left: 6px;
+  }
+
+  .qa-block .answer::before {
+    content: "R : ";
+    color: #16a34a;
+    font-weight: 800;
+  }
+
+  .script-block {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font-size: 10.5pt;
+    line-height: 1.7;
+    page-break-inside: avoid;
+  }
+
+  .script-block .timing {
+    font-weight: 700;
+    color: #92400e;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .project-header {
+    background: #eef2ff;
+    border: 2px solid #6366f1;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    margin-top: 20px;
+    page-break-after: avoid;
+  }
+
+  .project-header h3 {
+    border-left: none;
+    padding-left: 0;
+    color: #4338ca;
+    margin: 0;
+  }
+
+  .project-header .meta {
+    font-size: 9.5pt;
+    color: #64748b;
+    margin-top: 4px;
+  }
+
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 16px;
+  }
+
+  .comp-table th {
+    background: #1e3a5f;
+    color: #fff;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 9pt;
+  }
+
+  .comp-table td {
+    padding: 6px 10px;
+    border: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+
+  .comp-table tr:nth-child(even) {
+    background: #f8fafc;
+  }
+
+  .comp-table .check {
+    text-align: center;
+    color: #16a34a;
+    font-weight: 800;
+    font-size: 12pt;
+  }
+
+  .comp-table .empty {
+    text-align: center;
+    color: #e2e8f0;
+  }
+
+  .tip-box {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    font-size: 10pt;
+    color: #065f46;
+    page-break-inside: avoid;
+  }
+
+  .tip-box strong {
+    color: #047857;
+  }
+
+  .warn-box {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    font-size: 10pt;
+    color: #991b1b;
+    page-break-inside: avoid;
+  }
+
+  .section-intro {
+    font-size: 11pt;
+    color: #475569;
+    font-style: italic;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .footer-print {
+    text-align: center;
+    font-size: 8pt;
+    color: #94a3b8;
+    margin-top: 40px;
+    padding-top: 10px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  @media print {
+    .page-break { page-break-before: always; }
+    body { font-size: 10.5pt; }
+    .qa-block { break-inside: avoid; }
+    .script-block { break-inside: avoid; }
+    .project-header { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PAGE DE COUVERTURE                                  -->
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="cover">
+  <p style="font-size:13pt; color:#6366f1; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px;">BTS Services Informatiques aux Organisations</p>
+  <h1>Guide de Revision</h1>
+  <p class="subtitle">Option SISR — Session 2026</p>
+  <div class="line"></div>
+  <p class="info" style="font-size:16pt; font-weight:700; color:#1e293b; margin-bottom:4px;">Dilan Lengue</p>
+  <p class="info">Institut F2I — Paris</p>
+  <p class="info">Epreuve E4 (Support) &amp; E5 (Administration) &amp; E6 (Veille)</p>
+  <div class="line"></div>
+  <p class="info" style="margin-top:10px;">Preparation a l'oral — 40 minutes de jury</p>
+  <p class="info">Script de presentation + Fiches projets + Questions/Reponses</p>
+  <div class="badge">Document confidentiel — Usage personnel uniquement</div>
+  <p style="margin-top:40px; font-size:10pt; color:#94a3b8;">Mai 2026</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SOMMAIRE                                            -->
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="page-break"></div>
+<h2>Sommaire</h2>
+
+<div class="toc">
+<ul>
+  <li><span class="num">1</span> Script de presentation orale (8-10 minutes)</li>
+  <li><span class="num">2</span> Fiches projets — Questions / Reponses
+    <ul style="margin-top:4px; margin-left:40px; font-size:10pt; color:#64748b;">
+      <li>2.1 Active Directory &amp; DNS</li>
+      <li>2.2 Segmentation VLAN</li>
+      <li>2.3 Strategies de Groupe (GPO)</li>
+      <li>2.4 Supervision Nagios</li>
+      <li>2.5 Telephonie VOIP Cisco</li>
+      <li>2.6 Calculatrice Web</li>
+      <li>2.7 Analyse Reseau Wireshark</li>
+    </ul>
+  </li>
+  <li><span class="num">3</span> Questions sur les stages
+    <ul style="margin-top:4px; margin-left:40px; font-size:10pt; color:#64748b;">
+      <li>3.1 B&amp;A Conseil (Stage 2e annee)</li>
+      <li>3.2 Les Reparateurs Mac &amp; PC (Stage 1ere annee)</li>
+    </ul>
+  </li>
+  <li><span class="num">4</span> Veille technologique — Le Phishing</li>
+  <li><span class="num">5</span> Questions generales BTS SIO SISR</li>
+  <li><span class="num">6</span> Competences SISR — Mapping par projet</li>
+</ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 1 : SCRIPT DE PRESENTATION                  -->
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="page-break"></div>
+<h2>Section 1 — Script de presentation orale (8-10 min)</h2>
+<p class="section-intro">Script complet a memoriser et repeter. Parle lentement, regarde le jury, et utilise ton portfolio comme support visuel. Objectif : montrer ta maitrise technique ET ton aisance professionnelle.</p>
+
+<div class="script-block">
+  <div class="timing">Introduction — 1 minute</div>
+  <p>Bonjour, je m'appelle <strong>Dilan Lengue</strong>. Je suis etudiant en <strong>BTS SIO, option SISR</strong> — Solutions d'Infrastructure, Systemes et Reseaux — a l'<strong>Institut F2I</strong> a Paris. Je suis passionne par l'administration systeme, les reseaux et la cybersecurite. Aujourd'hui, je vais vous presenter mon parcours de formation a travers mon portfolio numerique, mes projets techniques, mes experiences en stage, et ma veille technologique sur le phishing.</p>
+</div>
+
+<div class="script-block">
+  <div class="timing">Presentation du portfolio — 1 minute</div>
+  <p>J'ai concu et developpe un <strong>portfolio web professionnel</strong> pour centraliser l'ensemble de mes travaux. Il est construit avec <strong>React 19</strong> pour l'interface, <strong>Vite 7</strong> comme outil de build pour la rapidite de developpement, et <strong>Tailwind CSS 4</strong> pour le design responsive. Le site est structure en plusieurs pages : accueil, presentation, competences, projets, parcours, stages, veille technologique, certifications et contact. C'est une application monopage (SPA) avec un routeur React. Chaque projet est documente avec son contexte, ses objectifs, les etapes de realisation, les resultats obtenus et les competences SISR couvertes.</p>
+</div>
+
+<div class="script-block">
+  <div class="timing">Presentation des projets — 3 minutes</div>
+  <p>J'ai realise <strong>7 projets</strong> couvrant les blocs B1, B2 et B3 du referentiel BTS SIO SISR :</p>
+  <p>Mon premier projet est le <strong>deploiement d'Active Directory et DNS</strong> sur Windows Server 2025. J'ai installe le role AD DS, promu le serveur en controleur de domaine pour la foret sio.lan, configure le DNS integre, et cree des unites d'organisation avec des comptes utilisateurs.</p>
+  <p>Le deuxieme projet porte sur la <strong>segmentation VLAN</strong> dans Cisco Packet Tracer. J'ai cree 4 VLAN (IT, Comptabilite, RH, Wi-Fi invite) avec un routage inter-VLAN en Router-on-a-Stick et des pools DHCP par VLAN.</p>
+  <p>Troisieme projet : les <strong>Strategies de Groupe (GPO)</strong>. J'ai securise les comptes stagiaires via une GPO liee a une OU dediee pour bloquer l'acces a CMD et au Panneau de configuration.</p>
+  <p>Quatrieme projet : la <strong>supervision avec Nagios Core</strong>. J'ai compile et installe Nagios depuis les sources sur Ubuntu Server, configure Apache et l'interface web de supervision accessible sur le reseau.</p>
+  <p>Cinquieme projet : la <strong>telephonie VOIP Cisco</strong>. J'ai configure une infrastructure complete avec Cisco CME sur des routeurs 2811, des IP Phones 7960 et des telephones analogiques.</p>
+  <p>Sixieme projet, dans le cadre de l'epreuve E4 : une <strong>calculatrice web interactive</strong> en HTML5/CSS3/JavaScript avec manipulation du DOM, validation des entrees et gestion de la division par zero.</p>
+  <p>Enfin, mon septieme projet : l'<strong>analyse reseau avec Wireshark</strong> sur Linux. J'ai installe Wireshark, capture du trafic reseau et analyse en detail un paquet DNS pour comprendre les couches du modele OSI.</p>
+</div>
+
+<div class="script-block">
+  <div class="timing">Stages — 1 minute 30</div>
+  <p>J'ai effectue deux stages durant ma formation.</p>
+  <p>En <strong>premiere annee</strong>, j'etais chez <strong>Les Reparateurs Mac &amp; PC</strong> a Montreuil pendant 7 semaines, de mai a juin 2025. J'ai travaille comme technicien support informatique : diagnostic et reparation de PC et Mac, recuperation de donnees, remplacement de composants, reinstallation d'OS et accueil des clients avec diagnostic gratuit.</p>
+  <p>En <strong>deuxieme annee</strong>, j'ai rejoint <strong>B&amp;A Conseil</strong> a Coignieres pendant 5 semaines, de janvier a fevrier 2026. Mon poste etait technicien support et administration IT. Mes missions principales : administration de la plateforme MDM Miradore pour gerer les appareils mobiles a distance, enrolement de smartphones dans la solution de flotte mobile, deploiement et masterisation de postes Windows, maintenance du parc informatique, et gestion des tickets d'incidents.</p>
+</div>
+
+<div class="script-block">
+  <div class="timing">Veille technologique — 1 minute 30</div>
+  <p>Pour ma veille technologique, j'ai choisi le theme du <strong>phishing</strong>, car c'est la menace numero 1 en France avec 108 000 demandes d'aide en 2025, soit une hausse de 70% en un an.</p>
+  <p>J'ai etudie les <strong>8 formes de phishing</strong> : l'email classique, le smishing par SMS, le vishing par telephone, le quishing par QR code, le spear phishing cible, la fraude au president (whaling), le phishing sur les reseaux sociaux et le faux Wi-Fi (Evil Twin).</p>
+  <p>J'ai analyse l'impact de <strong>l'intelligence artificielle</strong> sur le phishing : le clonage de voix en 3 secondes, les emails parfaits generes par IA, et les deepfakes video en temps reel comme l'affaire Arup ou 25 millions de dollars ont ete voles.</p>
+  <p>J'ai documente les <strong>attaques recentes en France</strong> : France Travail (43 millions de personnes touchees), Free (42 millions d'euros d'amende CNIL), et l'hopital de Cannes paralyse par un ransomware. Pour mes sources, j'utilise Cybermalveillance.gouv.fr, l'ANSSI, le CERT-FR et la CNIL.</p>
+</div>
+
+<div class="script-block">
+  <div class="timing">Certifications — 30 secondes</div>
+  <p>J'ai obtenu deux certifications en cybersecurite. La premiere est <strong>SecNumacademie de l'ANSSI</strong>, avec 4 modules valides et des scores entre 88% et 94% couvrant le panorama de la SSI, l'authentification, la securite sur Internet et la securite du poste de travail. La seconde est <strong>Introduction to Cybersecurity de Cisco Networking Academy</strong>, qui couvre les fondamentaux de la cybersecurite, les menaces et vulnerabilites, la protection des donnees et la securite des reseaux.</p>
+</div>
+
+<div class="script-block">
+  <div class="timing">Conclusion et ouverture — 1 minute</div>
+  <p>Cette formation BTS SIO SISR m'a permis d'acquerir des competences solides en administration systeme et reseau, en deploiement d'infrastructure et en cybersecurite. Mes stages m'ont donne une experience concrete du support IT en entreprise et de la gestion de parc informatique. Mes projets couvrent l'ensemble des blocs de competences B1, B2 et B3 du referentiel.</p>
+  <p>Apres le BTS, je souhaite poursuivre en <strong>licence professionnelle</strong> ou en <strong>bachelor</strong> dans le domaine de l'administration des systemes et reseaux ou de la cybersecurite, idealement en alternance pour continuer a developper mon experience professionnelle. Je suis convaincu que le secteur de la cybersecurite offre des perspectives d'emploi excellentes compte tenu de la hausse constante des cybermenaces.</p>
+  <p>Je vous remercie pour votre attention. Je suis pret a repondre a vos questions.</p>
+</div>
+
+<div class="tip-box">
+  <strong>Conseils pour l'oral :</strong> Chronometre-toi (8-10 min max). Parle a un rythme calme. Montre ton portfolio a l'ecran pendant que tu parles. Regarde les membres du jury, pas l'ecran. Prepare des transitions fluides entre les parties. Souris et reste confiant.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 2 : FICHES PROJETS                          -->
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="page-break"></div>
+<h2>Section 2 — Fiches projets : Questions / Reponses</h2>
+<p class="section-intro">Pour chaque projet, voici les questions les plus probables du jury avec des reponses detaillees. Maitrise les details techniques, les difficultes rencontrees et les competences SISR couvertes.</p>
+
+<!-- ────── 2.1 Active Directory & DNS ────── -->
+
+<div class="project-header">
+  <h3>2.1 — Active Directory &amp; DNS (Windows Server 2025)</h3>
+  <div class="meta">Epreuve E5 | Domaine sio.lan | Serveur SVR-WND | IP 172.16.1.1 | Competences B2.1, B2.2, B3.2, B3.3</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce qu'Active Directory et a quoi sert-il ?</div>
+  <div class="answer">Active Directory (AD) est un service d'annuaire developpe par Microsoft qui permet de centraliser la gestion des ressources d'un reseau : utilisateurs, ordinateurs, groupes et politiques de securite. Il repose sur le protocole LDAP pour l'interrogation de l'annuaire et Kerberos pour l'authentification. Dans mon projet, AD DS me permet de gerer tous les comptes utilisateurs depuis un seul point, de les organiser en Unites d'Organisation (OU), et d'appliquer des politiques de securite uniformes a l'ensemble du domaine sio.lan. Sans AD, chaque poste devrait etre administre individuellement, ce qui serait ingerable dans une entreprise.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Pourquoi avoir choisi Windows Server 2025 ? Quelles differences avec 2022 ?</div>
+  <div class="answer">J'ai utilise Windows Server 2025 car c'est la version la plus recente, ce qui me permet de travailler avec les fonctionnalites les plus actuelles. Par rapport a Windows Server 2022, la version 2025 apporte des ameliorations en termes de securite (notamment le support de TLS 1.3 par defaut), des performances ameliorees pour Hyper-V, et une meilleure integration avec les services cloud Azure. Le processus d'installation et de configuration d'AD DS reste similaire entre les deux versions, mais il est important de se former sur la derniere version pour etre a jour en entreprise.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Expliquez les etapes de promotion d'un serveur en controleur de domaine.</div>
+  <div class="answer">D'abord, j'ai configure l'IP statique du serveur SVR-WND en 172.16.1.1 et defini le DNS prefere sur 127.0.0.1 (lui-meme). Ensuite, j'ai installe le role AD DS via le Gestionnaire de serveur, onglet "Ajout de roles et fonctionnalites". Apres l'installation du role, j'ai lance l'assistant de promotion en controleur de domaine ou j'ai selectionne "Ajouter une nouvelle foret" avec le nom de domaine sio.lan. L'assistant cree automatiquement la zone DNS integree avec les enregistrements SRV necessaires (_ldap, _kerberos). Enfin, le serveur redemarre et devient le premier controleur de domaine de la foret.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quelle difficulte avez-vous rencontree et comment l'avez-vous resolue ?</div>
+  <div class="answer">La principale difficulte a ete un echec de promotion du serveur en controleur de domaine avec une erreur de prerequis DNS. Le probleme venait du fait que le serveur n'avait pas de serveur DNS configure dans ses parametres reseau. J'ai resolu le probleme en configurant le DNS prefere sur 127.0.0.1, c'est-a-dire le serveur lui-meme, avant la promotion. Cela permet l'installation automatique du DNS integre. Une deuxieme difficulte a ete l'absence des enregistrements SRV (_ldap, _kerberos) dans la zone DNS apres la promotion. J'ai resolu cela en redemarrant le service Netlogon avec les commandes "net stop netlogon" puis "net start netlogon" pour forcer la recreation de ces enregistrements indispensables a la localisation du controleur de domaine.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce qu'une OU et pourquoi en creer ?</div>
+  <div class="answer">Une Unite d'Organisation (OU) est un conteneur dans Active Directory qui permet d'organiser logiquement les objets de l'annuaire (utilisateurs, groupes, ordinateurs). Les OU refletent generalement la structure de l'entreprise : par service (IT, RH, Comptabilite), par site geographique, ou par type de personnel (employes, stagiaires). L'interet principal des OU est de pouvoir y lier des GPO (Strategies de Groupe) pour appliquer des politiques specifiques a un groupe d'objets. Par exemple, dans mon projet, j'ai cree une OU "Stagiaires" pour y appliquer des restrictions specifiques via GPO.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que le DNS integre a Active Directory et quel est son avantage ?</div>
+  <div class="answer">Le DNS integre a Active Directory stocke les zones DNS directement dans la base de donnees AD au lieu de fichiers texte. Cela presente plusieurs avantages : la replication DNS est automatiquement geree par la replication AD (pas besoin de transferts de zone separees), la securite est renforcee car seuls les controleurs de domaine autorises peuvent modifier les enregistrements, et les mises a jour dynamiques securisees sont possibles. Dans mon projet, la zone directe sio.lan a ete creee automatiquement lors de la promotion du serveur, avec les enregistrements SRV necessaires au fonctionnement du domaine.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quels protocoles utilise Active Directory ?</div>
+  <div class="answer">Active Directory utilise principalement trois protocoles. LDAP (Lightweight Directory Access Protocol) sur le port 389 permet d'interroger et de modifier l'annuaire. Kerberos sur le port 88 gere l'authentification des utilisateurs et des services avec un systeme de tickets securises. DNS (Domain Name System) sur le port 53 permet la localisation des controleurs de domaine grace aux enregistrements SRV. Active Directory utilise aussi le protocole de replication DFS-R pour synchroniser les donnees entre controleurs de domaine, et NTLM comme protocole d'authentification de secours quand Kerberos n'est pas disponible.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Ce projet couvre quelles competences SISR exactement ?</div>
+  <div class="answer">Ce projet couvre quatre competences du referentiel. B2.1 "Concevoir une solution d'infrastructure reseau" car j'ai du concevoir l'architecture du domaine (nom de foret, plan d'adressage, structure des OU). B2.2 "Installer, tester et deployer une solution d'infrastructure reseau" car j'ai installe et configure AD DS et DNS sur le serveur. B3.2 "Preserver l'identite numerique de l'organisation" car la gestion centralisee des comptes utilisateurs et des droits d'acces protege les identites. B3.3 "Securiser les equipements et les usages des utilisateurs" car l'authentification centralisee via Kerberos et les politiques de mot de passe renforcent la securite des postes.</div>
+</div>
+
+<!-- ────── 2.2 Segmentation VLAN ────── -->
+
+<div class="page-break"></div>
+<div class="project-header">
+  <h3>2.2 — Segmentation VLAN (Cisco Packet Tracer)</h3>
+  <div class="meta">Epreuve E5 | VLAN 10 IT, VLAN 20 Compta, VLAN 30 RH, VLAN 99 Wi-Fi | Switch 2960, Router-on-a-Stick | Competences B2.1, B2.2, B2.3, B3.5</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce qu'un VLAN et pourquoi segmenter un reseau ?</div>
+  <div class="answer">Un VLAN (Virtual Local Area Network) est un reseau local virtuel qui permet de segmenter logiquement un reseau physique en plusieurs sous-reseaux isoles. La segmentation VLAN presente trois avantages majeurs : la securite (les flux du service RH ne sont pas visibles par le service IT), la performance (reduction des domaines de broadcast, donc moins de trafic inutile sur le reseau) et l'administration (possibilite d'appliquer des regles differentes par service). Dans mon projet, j'ai cree 4 VLAN pour isoler les services IT, Comptabilite, RH et le Wi-Fi invite d'une PME.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Expliquez la difference entre un port access et un port trunk.</div>
+  <div class="answer">Un port en mode access appartient a un seul VLAN et transporte les trames sans etiquette 802.1Q. C'est le mode utilise pour connecter les postes de travail : on configure "switchport mode access" puis "switchport access vlan X". Un port en mode trunk peut transporter les trames de plusieurs VLAN simultanement en ajoutant une etiquette 802.1Q a chaque trame pour identifier a quel VLAN elle appartient. Le trunk est utilise entre les switches ou entre le switch et le routeur. Dans mon projet, le port connectant le switch 2960 au routeur est en mode trunk pour permettre le routage inter-VLAN.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment fonctionne le Router-on-a-Stick ? Pourquoi cette methode ?</div>
+  <div class="answer">Le Router-on-a-Stick est une methode de routage inter-VLAN qui utilise une seule interface physique du routeur, divisee en sous-interfaces logiques. Chaque sous-interface est associee a un VLAN avec la commande "encapsulation dot1Q [numero_vlan]" et recoit une adresse IP qui sert de passerelle par defaut pour ce VLAN. Le trafic entre VLAN passe par le trunk jusqu'au routeur, qui route le paquet vers la bonne sous-interface et le renvoie sur le trunk avec le bon tag VLAN. J'ai choisi cette methode car elle ne necessite qu'un seul lien physique entre le switch et le routeur, ce qui est economique pour une PME. L'alternative serait un switch de couche 3 capable de faire du routage inter-VLAN directement.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">A quoi sert le VLAN 99 Wi-Fi invite ? Pourquoi l'isoler ?</div>
+  <div class="answer">Le VLAN 99 (192.168.99.0/24) est dedie aux visiteurs qui se connectent au Wi-Fi de l'entreprise. Il est isole des VLAN internes (10, 20, 30) pour des raisons de securite : les visiteurs ne doivent pas avoir acces aux ressources internes de l'entreprise (serveurs de fichiers, imprimantes, applications metier). Ce VLAN permet aux invites d'acceder uniquement a Internet. En production, on ajouterait des ACL (Access Control Lists) sur le routeur pour bloquer explicitement le trafic du VLAN 99 vers les VLAN internes tout en autorisant le trafic vers Internet.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment fonctionne le DHCP avec les VLAN ? Expliquez le ip helper-address.</div>
+  <div class="answer">Le DHCP utilise des messages broadcast (DHCPDISCOVER) qui ne traversent pas les limites des VLAN. Si le serveur DHCP est sur un autre VLAN que le client, les requetes DHCP n'arriveront jamais au serveur. La commande "ip helper-address" configuree sur la sous-interface du routeur resout ce probleme : elle convertit le broadcast DHCP en unicast et le redirige vers l'adresse IP du serveur DHCP. Dans mon projet, j'ai configure des pools DHCP directement sur le routeur avec un pool par VLAN, chacun definissant la plage d'adresses, la passerelle par defaut et le serveur DNS. Le ip helper-address pointe vers le routeur lui-meme pour relayer les requetes.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quelle difficulte avez-vous rencontree sur ce projet ?</div>
+  <div class="answer">J'ai rencontre deux difficultes majeures. Premierement, le routage inter-VLAN ne fonctionnait pas car le port du switch connecte au routeur etait configure en mode access au lieu de trunk. Les sous-interfaces du routeur ne recevaient pas les trames taguees 802.1Q. La solution a ete de passer le port en mode trunk avec "switchport mode trunk". Deuxiemement, les postes du VLAN 20 (Comptabilite) n'obtenaient pas d'adresse IP via DHCP malgre la configuration du pool. La commande "ip helper-address" manquait sur la sous-interface du VLAN 20. Apres son ajout, les requetes DHCP broadcast ont ete correctement relayees vers le pool DHCP du routeur.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que le protocole 802.1Q ?</div>
+  <div class="answer">Le protocole IEEE 802.1Q est le standard de marquage (tagging) des trames Ethernet pour identifier l'appartenance a un VLAN. Il insere un champ de 4 octets dans l'en-tete Ethernet qui contient le VLAN ID (numero du VLAN, de 1 a 4094) et un champ de priorite (802.1p pour la QoS). Quand une trame traverse un port trunk, elle est taguee avec son VLAN ID. Quand elle arrive sur un port access, le tag est retire avant d'etre envoyee au poste. Le VLAN natif est le VLAN dont les trames ne sont pas taguees sur le trunk, par defaut c'est le VLAN 1.</div>
+</div>
+
+<!-- ────── 2.3 GPO ────── -->
+
+<div class="page-break"></div>
+<div class="project-header">
+  <h3>2.3 — Strategies de Groupe / GPO (Active Directory)</h3>
+  <div class="meta">Epreuve E5 | OU Stagiaires | Blocage CMD + Panneau de configuration | Competences B2.2, B2.3, B3.2, B3.3, B3.4</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce qu'une GPO et comment fonctionne-t-elle ?</div>
+  <div class="answer">Une GPO (Group Policy Object) est un ensemble de parametres de configuration qui s'appliquent automatiquement aux utilisateurs et/ou aux ordinateurs dans un environnement Active Directory. Les GPO sont creees dans la console GPMC (gpmc.msc) et liees a des OU, des sites ou des domaines. Elles contiennent deux categories de parametres : la configuration ordinateur (qui s'applique au demarrage de la machine) et la configuration utilisateur (qui s'applique a l'ouverture de session). Les GPO sont appliquees dans l'ordre LSDOU : Local, Site, Domaine, OU. Si plusieurs GPO se contredisent, la derniere appliquee (la plus proche de l'objet) l'emporte.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Pourquoi avoir cree un groupe de securite en plus de l'OU ?</div>
+  <div class="answer">L'OU et le groupe de securite ont des roles differents et complementaires. L'OU est un conteneur qui sert a organiser les objets dans l'annuaire et c'est l'entite a laquelle on lie les GPO. Le groupe de securite "Groupe Stagiaires" permet de gerer les permissions d'acces aux ressources partagees (dossiers, imprimantes) et peut etre utilise dans le filtrage de securite des GPO pour cibler precisement quels utilisateurs dans l'OU sont affectes. Cela offre une granularite supplementaire : on peut avoir plusieurs groupes dans une meme OU avec des permissions differentes.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quelles restrictions avez-vous mises en place exactement ?</div>
+  <div class="answer">J'ai configure deux restrictions via une GPO liee a l'OU Stagiaires. La premiere bloque l'acces a l'invite de commandes (CMD) via le parametre "User Configuration > Administrative Templates > System > Empecher l'acces a l'invite de commandes". Ce parametre a une option pour autoriser ou non le traitement des scripts batch. La seconde interdit l'acces au Panneau de configuration via "User Configuration > Administrative Templates > Control Panel > Interdire l'acces au Panneau de configuration et aux parametres PC". Ces restrictions empechent les stagiaires de modifier la configuration des postes de travail, ce qui reduit les risques de mauvaise manipulation.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment verifier qu'une GPO s'applique correctement ?</div>
+  <div class="answer">Il existe plusieurs methodes de verification. La commande "gpresult /r" sur le poste client affiche un resume de toutes les GPO appliquees a l'utilisateur et a l'ordinateur. La commande "gpresult /h rapport.html" genere un rapport HTML detaille. La commande "gpupdate /force" force la mise a jour immediate des GPO sans attendre le cycle de rafraichissement (par defaut 90 minutes). Dans la console GPMC, l'onglet "Resultant Set of Policy" (RSoP) permet de simuler l'application des GPO. Enfin, le test fonctionnel consiste a se connecter avec un compte stagiaire et verifier que CMD et le Panneau de configuration sont bien bloques.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quelle difficulte avez-vous rencontree avec la GPO ?</div>
+  <div class="answer">La GPO ne s'appliquait pas sur le poste client malgre la liaison a l'OU Stagiaires. Apres investigation avec "gpresult /r", j'ai decouvert que le compte utilisateur etait reste dans l'OU "Users" par defaut au lieu d'etre dans l'OU "Stagiaires". Comme la GPO etait liee a l'OU Stagiaires, elle ne s'appliquait pas. J'ai deplace le compte dans la bonne OU puis execute "gpupdate /force" sur le poste client pour forcer l'application. Une deuxieme difficulte : la restriction CMD bloquait aussi les scripts batch automatises. J'ai configure l'option "Desactiver le traitement des scripts" sur "Non" pour autoriser l'execution des scripts tout en bloquant l'acces interactif a CMD.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quels autres types de restrictions peut-on mettre en place avec les GPO ?</div>
+  <div class="answer">Les GPO offrent des centaines de parametres. On peut gerer les politiques de mot de passe (longueur minimale, complexite, expiration), configurer le pare-feu Windows, deployer des logiciels automatiquement (via MSI), rediriger les dossiers utilisateurs vers un serveur, configurer les parametres de proxy, activer BitLocker pour le chiffrement des disques, desactiver les peripheriques USB, configurer les mises a jour Windows via WSUS, personnaliser le bureau et le menu Demarrer, et bien plus. En entreprise, les GPO sont essentielles pour maintenir une configuration coherente et securisee sur l'ensemble du parc.</div>
+</div>
+
+<!-- ────── 2.4 Nagios ────── -->
+
+<div class="page-break"></div>
+<div class="project-header">
+  <h3>2.4 — Supervision Nagios (Ubuntu Server)</h3>
+  <div class="meta">Epreuve E5 | Nagios Core | Apache + Perl + GD | IP 192.168.56.102 | Competences B1.2, B2.2, B2.3, B3.4</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que Nagios et pourquoi est-ce important en entreprise ?</div>
+  <div class="answer">Nagios est un outil de supervision open source qui permet de surveiller en temps reel l'etat des serveurs, des services et des equipements reseau. Il verifie regulierement que les hotes sont accessibles (ping), que les services fonctionnent (HTTP, SSH, DNS, SMTP) et alerte l'administrateur en cas de panne ou de degradation de performance. En entreprise, la supervision est essentielle pour garantir la disponibilite des services : sans outil de monitoring, on decouvre les pannes quand les utilisateurs se plaignent, ce qui augmente le temps de resolution. Nagios permet de detecter proactivement les problemes et de les corriger avant qu'ils n'affectent les utilisateurs.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Pourquoi avoir compile Nagios depuis les sources plutot qu'un paquet APT ?</div>
+  <div class="answer">La compilation depuis les sources offre plusieurs avantages : on obtient la derniere version de Nagios Core (les depots APT contiennent souvent des versions plus anciennes), on peut personnaliser l'installation (repertoires, options de compilation), et on comprend mieux l'architecture du logiciel (dependances, fichiers de configuration). C'est aussi une competence technique valorisee en SISR : savoir compiler un logiciel depuis les sources sous Linux demontre une bonne maitrise de l'environnement. Le processus implique ./configure (verification des dependances), make all (compilation), make install (installation) et make install-config (fichiers de configuration par defaut).</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Expliquez le role de l'utilisateur nagios et du groupe nagcmd.</div>
+  <div class="answer">L'utilisateur "nagios" est un compte systeme dedie qui execute le processus Nagios. Il est cree avec "useradd nagios" et ne dispose pas de shell de connexion pour des raisons de securite. Le groupe "nagcmd" (nagios command group) permet a l'utilisateur nagios et a l'utilisateur Apache (www-data) de communiquer via le fichier pipe de commandes externes. Cela permet a l'interface web d'envoyer des commandes a Nagios (acquitter une alerte, planifier une verification, desactiver les notifications). L'utilisateur www-data est ajoute au groupe nagcmd avec "usermod -aG nagcmd www-data".</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment fonctionne l'authentification de l'interface web Nagios ?</div>
+  <div class="answer">L'interface web de Nagios utilise l'authentification HTTP Basic geree par Apache via le fichier htpasswd. La commande "htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin" cree le fichier de mots de passe avec un premier utilisateur "nagiosadmin". Le mot de passe est stocke sous forme de hash. La configuration Apache de Nagios (fichier nagios.conf dans sites-enabled) contient les directives AuthType Basic et AuthUserFile qui pointent vers ce fichier. En production, il est indispensable d'activer HTTPS (certificat SSL) pour que les identifiants ne circulent pas en clair sur le reseau.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quels modules Apache avez-vous du activer et pourquoi ?</div>
+  <div class="answer">J'ai du activer deux modules Apache. Le module mod_cgi permet a Apache d'executer les scripts CGI de Nagios qui generent les pages dynamiques de l'interface web (etat des hotes, historique, rapports). Sans ce module, les pages CGI renvoient une erreur 403 Forbidden. Le module mod_rewrite permet la reecriture d'URL, necessaire pour le fonctionnement correct des liens internes de l'interface Nagios. L'activation se fait avec "a2enmod cgi rewrite" suivi d'un redemarrage d'Apache avec "systemctl restart apache2". C'est exactement la difficulte que j'ai rencontree : l'interface affichait une erreur 403 avant l'activation de ces modules.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quelle est la difference entre Nagios et d'autres outils comme Zabbix ou Grafana ?</div>
+  <div class="answer">Nagios est l'outil historique de supervision, tres flexible grace a ses plugins mais avec une interface web datee. Zabbix est une alternative plus moderne avec une interface graphique integree, une decouverte automatique des equipements et une base de donnees integree. Grafana n'est pas un outil de supervision a proprement parler mais un outil de visualisation de donnees qui s'interface avec des sources comme Prometheus, InfluxDB ou Zabbix pour creer des tableaux de bord. En entreprise, le choix depend des besoins : Nagios pour sa flexibilite et sa communaute, Zabbix pour une solution complete "all-in-one", Grafana pour des dashboards visuels avances.</div>
+</div>
+
+<!-- ────── 2.5 VOIP ────── -->
+
+<div class="page-break"></div>
+<div class="project-header">
+  <h3>2.5 — Telephonie VOIP Cisco (Packet Tracer)</h3>
+  <div class="meta">Epreuve E5 | CME, 2x Routeur 2811, Switch 2960, 3x IP Phone 7960, 2x analogiques | Competences B2.1, B2.2, B2.3</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que la VOIP et quels sont ses avantages par rapport a la telephonie classique ?</div>
+  <div class="answer">La VOIP (Voice Over IP) est une technologie qui permet de transmettre la voix sous forme de paquets numeriques sur le reseau IP, au lieu d'utiliser des lignes telephoniques analogiques dediees. Les avantages sont multiples : reduction des couts (pas besoin de cablage telephonique separe, appels entre sites gratuits via le reseau IP existant), flexibilite (ajout facile de postes telephoniques, mobilite des utilisateurs), fonctionnalites avancees (messagerie vocale, renvoi d'appels, conference, integration avec la messagerie email) et administration centralisee. L'inconvenient principal est la dependance au reseau IP : si le reseau tombe, la telephonie aussi.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que Cisco CME et comment l'avez-vous configure ?</div>
+  <div class="answer">Cisco CME (Call Manager Express) est une solution de telephonie IP integree dans les routeurs Cisco. Elle permet de gerer les telephones IP directement depuis le routeur, sans avoir besoin d'un serveur dedie. J'ai configure CME avec les parametres suivants : "max-ephones 10" pour definir le nombre maximum de telephones physiques, "max-dn 10" pour le nombre maximum de numeros de repertoire, "ip source-address 192.168.10.100 port 2000" pour definir l'adresse d'ecoute du service CME, "auto assign 1 to 10" pour l'attribution automatique des numeros aux telephones qui s'enregistrent, et "create cnf" pour generer les fichiers de configuration que les telephones telechargent via TFTP.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment les IP Phones obtiennent-ils leur configuration automatiquement ?</div>
+  <div class="answer">Le processus est automatise en plusieurs etapes. D'abord, le telephone IP obtient une adresse IP via DHCP. Le pool DHCP contient l'option 150 qui indique l'adresse du serveur TFTP (ici le routeur CME a 192.168.10.100). Le telephone telecharge alors son fichier de configuration CNF depuis le serveur TFTP. Ce fichier contient les parametres du CME (adresse IP, port, certificats). Enfin, le telephone s'enregistre aupres du CME sur le port 2000 et recoit son numero de repertoire. Dans mon projet, l'oubli de l'option 150 dans le pool DHCP a empeche les telephones de s'enregistrer, car ils ne savaient pas ou trouver le serveur TFTP.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment avez-vous integre les telephones analogiques ?</div>
+  <div class="answer">Les telephones analogiques sont connectes aux ports FXS (Foreign Exchange Station) des routeurs 2811. Les ports FXS fournissent la tonalite et l'alimentation aux telephones analogiques, comme le ferait une prise telephonique classique. Pour les integrer a l'infrastructure VOIP, j'ai configure des dial-peers POTS (Plain Old Telephone Service) qui associent chaque port FXS a un numero de repertoire (directory number). Ainsi, les telephones analogiques peuvent appeler et etre appeles par les IP Phones, comme s'ils faisaient partie du meme systeme telephonique. La difficulte a ete de configurer correctement les dial-peers pour router les appels entre les ports FXS et les ephones.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que la QoS et pourquoi est-elle importante en VOIP ?</div>
+  <div class="answer">La QoS (Quality of Service) est l'ensemble des mecanismes qui garantissent la qualite des communications voix sur un reseau IP. La voix est tres sensible a trois parametres : la latence (delai de transmission, doit etre inferieure a 150 ms), la gigue (variation de la latence, perturbante pour la voix) et la perte de paquets (doit etre inferieure a 1%). La QoS permet de prioriser le trafic voix par rapport aux autres types de trafic (navigation web, telechargements). Dans Packet Tracer, la QoS est limitee, mais en production, on configurerait des files de priorite, du marquage DSCP et du traffic shaping pour garantir la qualite des appels.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quelle est la difference entre FXS et FXO ?</div>
+  <div class="answer">FXS (Foreign Exchange Station) et FXO (Foreign Exchange Office) sont deux types d'interfaces utilisees pour connecter la telephonie analogique au monde VOIP. Le port FXS fournit la tonalite et l'alimentation : c'est le port sur lequel on branche un telephone analogique. Le port FXO recoit la tonalite : c'est le port qu'on connecte a une ligne telephonique publique (PSTN). Dans mon projet, j'utilise des ports FXS pour connecter les 2 telephones analogiques au routeur. Si l'entreprise voulait se connecter au reseau telephonique public, elle utiliserait un port FXO pour recevoir la ligne de l'operateur.</div>
+</div>
+
+<!-- ────── 2.6 Calculatrice ────── -->
+
+<div class="page-break"></div>
+<div class="project-header">
+  <h3>2.6 — Calculatrice Web Interactive (HTML5/CSS3/JavaScript)</h3>
+  <div class="meta">Epreuve E4 (Support) | DOM, getElementById, parseFloat, switch/case | Competences B1.1, B1.3</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Pourquoi ce projet dans le cadre de l'epreuve E4 ?</div>
+  <div class="answer">L'epreuve E4 porte sur le "Support et la mise a disposition de services informatiques", qui inclut le developpement de la presence en ligne de l'organisation. Ce projet demontre ma capacite a developper une application web fonctionnelle en utilisant les technologies front-end standard : HTML5 pour la structure, CSS3 pour le design responsive et JavaScript pour l'interactivite. Meme si c'est un projet de programmation dans une option infrastructure (SISR), il montre que je maitrise les bases du developpement web, ce qui est utile pour comprendre les services web que je suis amene a deployer et maintenir.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Expliquez la manipulation du DOM en JavaScript.</div>
+  <div class="answer">Le DOM (Document Object Model) est la representation en memoire de la page HTML sous forme d'arborescence d'objets. JavaScript peut lire et modifier le DOM pour rendre la page interactive. Dans ma calculatrice, j'utilise "document.getElementById" pour recuperer les elements HTML (champs de saisie, zone de resultat). La methode "parseFloat" convertit les chaines de caracteres saisies par l'utilisateur en nombres a virgule flottante. La propriete "innerText" me permet d'afficher le resultat dans la zone dediee. Le DOM est l'interface entre le HTML statique et le JavaScript dynamique : sans lui, JavaScript ne pourrait pas interagir avec les elements de la page.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment avez-vous gere la validation des entrees et les erreurs ?</div>
+  <div class="answer">J'ai mis en place deux types de validation. Premierement, la detection des saisies non numeriques avec la fonction "isNaN(parseFloat(valeur))" : si l'utilisateur entre des lettres ou des symboles, un message "Veuillez entrer des nombres valides" s'affiche. Deuxiemement, la gestion de la division par zero : avant d'effectuer la division, je verifie si le diviseur est egal a zero et j'affiche un message d'avertissement "Division par zero impossible". J'ai aussi utilise "toFixed(2)" pour arrondir les resultats a 2 decimales, resolvant les erreurs de precision de la virgule flottante IEEE 754 (comme 0.1 + 0.2 = 0.30000000000000004).</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Pourquoi avoir utilise un switch/case plutot qu'un if/else ?</div>
+  <div class="answer">La structure switch/case est plus adaptee quand on doit tester une variable contre plusieurs valeurs distinctes (ici les 4 operateurs : +, -, *, /). Le code est plus lisible et plus facile a maintenir qu'une chaine de if/else if. Le switch/case permet aussi au compilateur d'optimiser le branchement (table de saut), ce qui peut etre plus performant pour de nombreuses valeurs. Chaque "case" contient l'operation correspondante et un "break" pour sortir du switch. Le "default" gere le cas ou l'operateur ne serait pas reconnu. En termes de bonnes pratiques, le switch/case est le pattern recommande pour ce type de logique de selection multiple.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Ce projet est-il pertinent pour un technicien SISR ?</div>
+  <div class="answer">Oui, meme si le developpement n'est pas le coeur de l'option SISR, comprendre les technologies web est indispensable pour un technicien infrastructure. En entreprise, je suis amene a deployer des applications web sur des serveurs, configurer Apache ou Nginx, gerer les certificats SSL, deboguer des problemes d'affichage, et comprendre les architectures client-serveur. Connaitre HTML, CSS et JavaScript me permet de mieux communiquer avec les developpeurs, de comprendre les contraintes techniques de leurs applications, et de diagnostiquer plus efficacement les problemes lies a l'hebergement web.</div>
+</div>
+
+<!-- ────── 2.7 Wireshark ────── -->
+
+<div class="page-break"></div>
+<div class="project-header">
+  <h3>2.7 — Analyse Reseau Wireshark (Linux)</h3>
+  <div class="meta">Epreuve E5 | Wireshark, DNS, UDP | IP source 192.168.84.152 &rarr; 8.8.8.8 | Port 53433 &rarr; 53 | Competences B2.3, B3.4, B3.5</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que Wireshark et a quoi sert-il ?</div>
+  <div class="answer">Wireshark est un analyseur de protocoles reseau open source, considere comme l'outil de reference pour la capture et l'analyse de trames. Il permet de capturer en temps reel tout le trafic qui passe sur une interface reseau, puis de l'analyser couche par couche selon le modele OSI. En entreprise, Wireshark est utilise pour diagnostiquer des problemes reseau (lenteurs, pertes de paquets), verifier la securite (detecter du trafic suspect), analyser les protocoles, et valider la configuration des equipements. C'est un outil indispensable pour tout technicien reseau et cybersecurite.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Expliquez l'analyse du paquet DNS que vous avez capture.</div>
+  <div class="answer">J'ai capture un paquet DNS avec les details suivants : au niveau de la couche 2 (Ethernet), les adresses MAC source et destination identifient les equipements locaux. Au niveau de la couche 3 (IP), l'adresse source est 192.168.84.152 (mon poste) et la destination est 8.8.8.8 (serveur DNS public de Google). Au niveau de la couche 4 (Transport), le protocole est UDP, le port source est 53433 (port ephemere attribue par le systeme) et le port destination est 53 (port standard du DNS). Au niveau de la couche 7 (Application), c'est une requete DNS de type A qui demande la resolution d'un nom de domaine en adresse IPv4. Cette analyse montre les 4 couches du modele TCP/IP en action.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Pourquoi le DNS utilise UDP et pas TCP ?</div>
+  <div class="answer">Le DNS utilise principalement UDP (port 53) car les requetes DNS sont petites (quelques centaines d'octets) et necessitent une reponse rapide. UDP est un protocole non connecte, sans mecanisme d'etablissement de connexion (pas de handshake TCP en 3 etapes), ce qui reduit la latence. La plupart des requetes DNS tiennent dans un seul paquet UDP. Cependant, le DNS utilise TCP dans deux cas : quand la reponse depasse 512 octets (ou 4096 avec EDNS) et pour les transferts de zone entre serveurs DNS (AXFR/IXFR). En resume, UDP pour la performance au quotidien, TCP quand la fiabilite est necessaire pour de gros volumes de donnees.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Pourquoi avoir du configurer les permissions avec usermod ?</div>
+  <div class="answer">Par defaut sous Linux, la capture de paquets reseau necessite des privileges root car elle implique la mise de l'interface en mode promiscuous (capture de tous les paquets, pas seulement ceux destines a la machine). Plutot que de lancer Wireshark en root (ce qui serait un risque de securite), on ajoute l'utilisateur au groupe "wireshark" avec la commande "sudo usermod -aG wireshark $USER". Ce groupe a les permissions necessaires via des capabilities Linux (CAP_NET_RAW, CAP_NET_ADMIN) pour capturer le trafic sans etre root. Il faut se deconnecter et se reconnecter pour que l'appartenance au nouveau groupe soit prise en compte.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que le modele OSI ? Combien de couches ?</div>
+  <div class="answer">Le modele OSI (Open Systems Interconnection) est un modele theorique a 7 couches qui decompose la communication reseau. De bas en haut : couche 1 (Physique) gere le signal electrique/optique, couche 2 (Liaison de donnees) gere les trames Ethernet et les adresses MAC, couche 3 (Reseau) gere les paquets IP et le routage, couche 4 (Transport) gere les segments TCP/UDP et les ports, couche 5 (Session) gere l'etablissement des sessions, couche 6 (Presentation) gere le chiffrement et la compression, couche 7 (Application) gere les protocoles applicatifs (HTTP, DNS, SMTP). Dans la pratique, on utilise souvent le modele TCP/IP a 4 couches qui fusionne les couches 5, 6 et 7.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment avez-vous filtre les paquets pour trouver le DNS ?</div>
+  <div class="answer">Wireshark offre deux types de filtres. Les filtres de capture (BPF) definis avant la capture limitent ce qui est enregistre (ex: "port 53"). Les filtres d'affichage, que j'ai utilises, filtrent les paquets deja captures. J'ai tape "dns" dans la barre de filtre d'affichage pour isoler uniquement les paquets du protocole DNS parmi les milliers de paquets captures. On peut aussi utiliser des filtres plus precis comme "dns.qry.name contains google" pour trouver les requetes vers un domaine specifique, ou "ip.addr == 8.8.8.8" pour voir tout le trafic vers le DNS de Google. La maitrise des filtres Wireshark est essentielle car une capture brute contient trop de paquets pour etre analysee manuellement.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 3 : QUESTIONS SUR LES STAGES                -->
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="page-break"></div>
+<h2>Section 3 — Questions sur les stages</h2>
+<p class="section-intro">Le jury posera des questions sur tes experiences en entreprise. Prepare des exemples concrets et des anecdotes pour chaque mission. Montre que tu as appris et progresse.</p>
+
+<h3>3.1 — B&amp;A Conseil (Stage 2e annee, 5 semaines)</h3>
+<p style="font-size:10pt; color:#64748b; margin-bottom:14px;">Janvier - Fevrier 2026 | Coignieres, Yvelines | Technicien Support &amp; Administration IT | Solutions IT, telecoms et reseaux pour les professionnels</p>
+
+<div class="qa-block">
+  <div class="question">Presentez l'entreprise B&amp;A Conseil et son activite.</div>
+  <div class="answer">B&amp;A Conseil est une entreprise de 2 a 10 employes fondee en 2018, basee a Coignieres dans les Yvelines. Elle est specialisee dans les solutions informatiques, telecoms et reseaux pour les professionnels. Ses clients incluent des grandes enseignes comme Galeries Lafayette, Hyundai et des ministeres. L'entreprise propose quatre types de services : la gestion de la connectivite (internet haut debit, lignes mobiles), le deploiement et l'administration de flottes mobiles via des plateformes MDM/UEM, la maintenance et l'infogerance du parc informatique, et la fourniture de materiel avec intervention de techniciens sur tout le territoire francais.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que le MDM et quelle plateforme avez-vous utilisee ?</div>
+  <div class="answer">Le MDM (Mobile Device Management) est une solution de gestion centralisee des appareils mobiles (smartphones, tablettes) d'une entreprise. J'ai utilise la plateforme <strong>Miradore</strong> pour administrer et configurer a distance les appareils. Le MDM permet d'appliquer des politiques de securite (chiffrement obligatoire, complexite du mot de passe), de gerer les acces (interdire certaines applications, configurer le VPN), de deployer des applications metier, de localiser les appareils perdus et d'effectuer un effacement a distance en cas de vol. J'ai enrole des smartphones et tablettes dans la solution avant leur deploiement chez les clients, en configurant les comptes email professionnels, le Wi-Fi et les restrictions d'usage.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Decrivez une mission de deploiement de poste que vous avez realisee.</div>
+  <div class="answer">J'ai realise des deploiements et masterisations de postes de travail sous Windows. Le processus comprenait : l'installation du systeme d'exploitation Windows a partir d'une image master, l'installation des drivers specifiques au materiel, la jonction du poste au domaine Active Directory de l'entreprise, l'installation et la configuration des logiciels professionnels requis (suite Office, antivirus, applications metier), et la configuration des parametres reseau (proxy, Wi-Fi). J'ai aussi assure la maintenance preventive du parc existant : mises a jour systeme, nettoyage logiciel, remplacement de composants defectueux (RAM, SSD) et verification de l'etat general des postes.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment geriez-vous les tickets d'incidents ?</div>
+  <div class="answer">Les incidents etaient traces dans l'outil de ticketing interne de l'entreprise. Le processus etait le suivant : reception de la demande (telephone, email ou portail), creation du ticket avec la description du probleme et la priorite, diagnostic du probleme (support niveau 1 pour les problemes simples comme les resets de mot de passe, niveau 2 pour les problemes plus complexes comme les pannes materiel), resolution et documentation de la solution dans le ticket, puis cloture avec validation aupres de l'utilisateur. J'ai gere des incidents varies : problemes de connexion VPN, pannes d'imprimante, lenteurs de poste, problemes d'acces aux applications. Cette experience m'a appris l'importance de la documentation et du suivi rigoureux des interventions.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'avez-vous appris de ce stage ?</div>
+  <div class="answer">Ce stage m'a apporte une experience concrete de l'environnement professionnel IT. J'ai appris a gerer un parc informatique en production avec de vrais utilisateurs et de vraies contraintes de temps. J'ai decouvert le MDM qui est une technologie en forte croissance avec le teletravail et le BYOD. J'ai developpe mes competences en communication avec les utilisateurs finaux : savoir expliquer un probleme technique de maniere comprehensible et rassurante. J'ai aussi compris l'importance de la documentation et des procedures dans une entreprise de services IT. Enfin, j'ai vu comment une petite structure peut gerer des clients de grande envergure grace a une bonne organisation et des outils adaptes.</div>
+</div>
+
+<h3 class="page-break">3.2 — Les Reparateurs Mac &amp; PC (Stage 1ere annee, 7 semaines)</h3>
+<p style="font-size:10pt; color:#64748b; margin-bottom:14px;">Mai - Juin 2025 | Montreuil | Technicien Support Informatique | Reparation Mac &amp; PC toutes marques</p>
+
+<div class="qa-block">
+  <div class="question">Presentez l'entreprise Les Reparateurs et votre poste.</div>
+  <div class="answer">Les Reparateurs Mac &amp; PC est un centre de reparation informatique situe au 31 rue Franklin a Montreuil, specialise dans le diagnostic, la reparation et la maintenance d'ordinateurs Apple et PC de toutes marques (Asus, Lenovo, MSI, HP, Samsung, Acer, Alienware, Razer). L'entreprise propose des diagnostics gratuits, des reparations sous 48h a 96h avec garantie 6 mois, la recuperation de donnees sur disques durs endommages, et la vente d'ordinateurs et peripheriques. Mon poste etait technicien support informatique, avec un contact direct avec les clients : accueil, diagnostic, reparation et conseil technique.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Decrivez une operation de recuperation de donnees que vous avez realisee.</div>
+  <div class="answer">La recuperation de donnees est une mission delicate car les donnees des clients sont souvent irreplacables (photos, documents professionnels). J'ai travaille sur des disques durs endommages en utilisant des outils specialises. Le processus commence par un diagnostic pour evaluer l'etat du support : si le disque est encore reconnu par le systeme mais inaccessible, on peut utiliser des logiciels de recuperation pour extraire les fichiers. Si le disque a des secteurs defectueux, on cree d'abord un clone bit-a-bit sur un disque sain avant toute tentative de recuperation. J'ai appris l'importance de ne jamais travailler directement sur le disque original pour eviter d'aggraver les dommages. En cas de panne mecanique (tete de lecture), la recuperation necessite un laboratoire specialise (salle blanche).</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment diagnostiquiez-vous une panne materielle ?</div>
+  <div class="answer">Le diagnostic materiel suit une methode systematique. D'abord, l'ecoute du client pour comprendre les symptomes (ecran noir, redemarrages intempestifs, bruit anormal). Ensuite, l'inspection visuelle (composants brules, condensateurs gonfles, traces de liquide). Puis les tests composant par composant : test de la RAM avec Memtest86, test du disque dur/SSD avec CrystalDiskInfo ou smartctl, test de l'alimentation avec un multimetre, test de l'ecran avec un moniteur externe. Pour les MacBooks, les codes de diagnostic Apple (LED clignotantes, bips) orientent rapidement vers le composant defaillant. J'ai realise des remplacements d'ecrans, des changements de RAM et SSD, des nettoyages de cartes meres apres degats des eaux, et des remplacements de batteries.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment geriez-vous la relation client dans un contexte de reparation ?</div>
+  <div class="answer">La relation client en reparation informatique est cruciale car les clients sont souvent stresses par la panne de leur ordinateur. J'ai appris a accueillir chaque client avec un diagnostic gratuit et transparent : j'expliquais le probleme de maniere comprehensible, les solutions possibles et le cout estime avant toute intervention. La transparence est essentielle pour etablir la confiance. Quand la reparation n'etait pas economiquement viable (cout superieur a la valeur de l'ordinateur), je conseillais honnetement le client sur l'option la plus adaptee. J'ai aussi appris a gerer les situations difficiles : annonce de donnees non recuperables, delais de reparation allonges par manque de pieces. Cette experience m'a forme a la communication professionnelle et a l'ecoute client.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quelles differences avez-vous constatees entre vos deux stages ?</div>
+  <div class="answer">Les deux stages sont complementaires mais tres differents. Chez Les Reparateurs, le travail etait principalement du support de proximite avec contact direct client, de la reparation materielle et du depannage individuel. Chez B&amp;A Conseil, le travail etait plus oriente administration et gestion de parc a l'echelle d'une entreprise, avec des outils professionnels comme le MDM Miradore et des processus structures de ticketing. Le premier stage m'a donne une excellente base technique en hardware et en relation client. Le second m'a forme aux methodes professionnelles de gestion d'infrastructure IT, plus proches de ce qu'un technicien SISR fait au quotidien en entreprise. Les deux experiences m'ont confirme mon choix de carriere dans l'IT.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 4 : VEILLE TECHNOLOGIQUE                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="page-break"></div>
+<h2>Section 4 — Veille technologique : Le Phishing</h2>
+<p class="section-intro">Le jury evaluera ta capacite a faire de la veille, ta comprehension du sujet choisi, et ta methode de collecte d'informations. Prepare des chiffres et des exemples concrets.</p>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que la veille technologique et pourquoi est-ce important en SISR ?</div>
+  <div class="answer">La veille technologique consiste a surveiller en continu les evolutions technologiques, les nouvelles menaces et les bonnes pratiques dans son domaine professionnel. Pour un technicien SISR, c'est indispensable car les cybermenaces evoluent en permanence : de nouvelles vulnerabilites sont decouvertes chaque jour, les techniques d'attaque se perfectionnent (notamment grace a l'IA), et les reglementations changent. Ma methode de veille se deroule en 4 etapes : je collecte les informations via les alertes ANSSI et CERT-FR, je trie ce qui concerne mon domaine, j'analyse les rapports officiels, et je documente mes decouvertes dans mon portfolio. Sans veille, un administrateur systeme risque de ne pas appliquer les correctifs de securite a temps ou de ne pas connaitre les nouvelles menaces.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Pourquoi avoir choisi le phishing comme sujet de veille ?</div>
+  <div class="answer">J'ai choisi le phishing car c'est la menace numero 1 en France selon le rapport Cybermalveillance 2025 : 108 000 demandes d'aide pour phishing en 2025, soit une hausse de 70% en un an. C'est un sujet qui touche autant les particuliers que les entreprises. En tant que futur technicien SISR, je serai en premiere ligne pour sensibiliser les utilisateurs et mettre en place des mesures de protection. Le phishing est aussi un sujet en pleine evolution avec l'apparition de l'IA generative qui rend les attaques beaucoup plus sophistiquees. Enfin, les attaques recentes en France (France Travail, Free, hopital de Cannes) montrent que le phishing a des consequences massives sur la societe.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quels sont les differents types de phishing que vous avez etudies ?</div>
+  <div class="answer">J'ai identifie 8 formes de phishing. Le phishing par email (classique), le plus repandu avec 3,4 milliards d'emails frauduleux par jour dans le monde. Le smishing par SMS, en hausse de 2 500% en 2025 (faux colis, fausses amendes). Le vishing par telephone (faux conseillers bancaires, 245 millions d'euros voles en France). Le quishing par QR code, en hausse de 400% (faux PV, faux parcmetres). Le spear phishing cible, personalise grace aux reseaux sociaux (54% de taux de clic). Le whaling / fraude au president, ciblant les dirigeants (25 millions de dollars voles chez Arup par deepfake). Le phishing sur les reseaux sociaux (23% des attaques) avec de faux comptes SAV. Et le Evil Twin, un faux Wi-Fi public qui intercepte les donnees.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment l'intelligence artificielle a-t-elle change le phishing ?</div>
+  <div class="answer">L'IA a revolutionne le phishing de trois manieres. Premierement, le clonage de voix : avec seulement 3 secondes d'enregistrement, l'IA peut reproduire une voix avec 85% de precision (etude McAfee), permettant des arnaques telephoniques ou l'escroc se fait passer pour un proche. Deuxiemement, les emails parfaits : 82,6% des emails de phishing contiennent des elements generes par IA (rapport KnowBe4 2025). L'IA ecrit un email de phishing en 5 minutes contre 16 heures pour un humain, et les victimes cliquent 60% plus souvent sur un email ecrit par IA (etude Oxford). Troisiemement, les deepfakes video : en janvier 2024, l'entreprise Arup a perdu 25 millions de dollars suite a une visioconference ou tous les participants etaient des deepfakes. Les fraudes par deepfake ont augmente de 700% aux USA en 2025.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Citez des exemples concrets d'attaques de phishing recentes en France.</div>
+  <div class="answer">En mars 2024, France Travail (ex-Pole Emploi) a subi une attaque : les pirates ont vole les identifiants de conseillers Cap Emploi probablement par phishing, exposant les donnees de 43 millions de personnes (noms, numeros de secu, emails). En fevrier 2024, les plateformes de mutuelles Viamedis et Almerys ont ete compromises, exposant les donnees de sante de 33 millions de personnes. En octobre 2024, Free a subi un vol de donnees touchant 19,2 millions de clients et 5 millions d'IBAN, resultant en une amende CNIL de 42 millions d'euros. En avril 2024, l'hopital de Cannes a ete paralyse par un ransomware LockBit installe apres qu'un employe ait clique sur un lien piege, conduisant a la publication de 61 Go de donnees medicales sur le dark web.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment se proteger contre le phishing ?</div>
+  <div class="answer">J'ai identifie 6 mesures de protection. Ne jamais dechrocher les numeros inconnus pour empecher le clonage de voix par IA. Creer un mot de passe familial, un mot secret que seuls les proches connaissent pour verifier l'identite en cas d'appel suspect. Activer la double authentification (MFA) sur tous les comptes importants : meme si le mot de passe est vole, le pirate ne peut pas se connecter sans le deuxieme facteur. Toujours verifier l'adresse email de l'expediteur (pas juste le nom affiche) et ne jamais cliquer sur un lien dans un email. Ne jamais communiquer ses codes bancaires ou mots de passe. Signaler les arnaques : emails suspects a signal-spam.fr, SMS suspects au 33700, et sites frauduleux sur internet-signalement.gouv.fr.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quels outils et sources utilisez-vous pour votre veille ?</div>
+  <div class="answer">J'utilise 6 sources officielles principales. Cybermalveillance.gouv.fr est le site gouvernemental d'aide aux victimes qui publie des alertes et des rapports annuels (504 000 demandes d'aide en 2025). L'ANSSI (Agence Nationale de la Securite des SI) publie le Panorama de la cybermenace et des guides techniques. Le CERT-FR est l'equipe d'alerte et de reponse aux cyberattaques en France qui publie des bulletins d'alerte 24h/24. La CNIL est l'autorite de protection des donnees personnelles qui publie les sanctions et les enquetes RGPD. Signal Spam permet de signaler les emails frauduleux. Le 33700 permet de signaler les SMS frauduleux. J'utilise aussi les rapports annuels de KnowBe4, Proofpoint et McAfee pour les statistiques mondiales.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quel est le cadre legal autour du phishing ? Que dit le RGPD ?</div>
+  <div class="answer">Le phishing est un delit puni par le Code penal francais : l'usurpation d'identite en ligne est punie de 1 an d'emprisonnement et 15 000 euros d'amende (article 226-4-1), et l'escroquerie est punie de 5 ans et 375 000 euros. Le RGPD (Reglement General sur la Protection des Donnees) impose aux organisations de proteger les donnees personnelles sous peine de sanctions pouvant atteindre 4% du chiffre d'affaires mondial. La CNIL est l'autorite de controle en France : elle a sanctionne Free de 42 millions d'euros en janvier 2026 suite a la fuite de donnees. Depuis le 1er janvier 2026, une nouvelle loi anti-spoofing force les appels etrangers avec faux numero francais a s'afficher "numero masque" pour lutter contre le vishing.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment reperer un email de phishing ?</div>
+  <div class="answer">Il y a 5 signaux d'alerte. L'adresse email suspecte : "support@microsft-security.com" au lieu de "microsoft.com" — il faut toujours regarder l'adresse complete, pas juste le nom affiche. La mise sous pression : "Votre compte sera bloque dans 24h" — les escrocs veulent que vous agissiez vite sans reflechir. Le lien suspect : en passant la souris sur le lien sans cliquer, on voit que l'URL ne correspond pas au vrai site. L'absence de personnalisation : "Cher client" au lieu de votre vrai nom, ce qui indique un envoi en masse. La demande d'informations sensibles : aucune banque ni administration ne demande de mot de passe ou code de carte par email. Aujourd'hui avec l'IA, le critere des fautes d'orthographe n'est plus fiable car les emails generes par IA sont parfaitement rediges.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quel lien faites-vous entre votre veille sur le phishing et vos certifications ?</div>
+  <div class="answer">Mes deux certifications sont directement liees a ma veille. La certification SecNumacademie de l'ANSSI, avec ses 4 modules (panorama de la SSI, authentification, securite sur Internet, securite du poste de travail), m'a donne les bases theoriques pour comprendre les mecanismes du phishing et les mesures de protection. La certification Cisco Introduction to Cybersecurity couvre les fondamentaux de la cybersecurite, les menaces et vulnerabilites, la protection des donnees et la securite des reseaux, ce qui me permet de contextualiser le phishing dans le paysage global des cybermenaces. Ces certifications valident ma competence en cybersecurite et montrent que je ne me contente pas de faire de la veille passive, mais que je me forme activement sur les sujets que j'etudie.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 5 : QUESTIONS GENERALES BTS SIO SISR        -->
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="page-break"></div>
+<h2>Section 5 — Questions generales BTS SIO SISR</h2>
+<p class="section-intro">Ces questions peuvent tomber a tout moment pendant l'oral. Elles testent ta culture technique et ta comprehension des fondamentaux reseaux et systemes.</p>
+
+<div class="qa-block">
+  <div class="question">Pourquoi avoir choisi l'option SISR plutot que SLAM ?</div>
+  <div class="answer">J'ai choisi SISR car je suis passionne par l'infrastructure reseau, l'administration systeme et la cybersecurite. J'aime comprendre comment les systemes fonctionnent "sous le capot" : configurer un reseau, deployer un serveur, securiser une infrastructure. L'option SLAM est orientee developpement d'applications, ce qui m'interesse moins que la gestion d'infrastructure. De plus, le secteur des reseaux et de la cybersecurite offre d'excellentes perspectives d'emploi : avec la hausse des cybermenaces (+70% de phishing en 2025), les entreprises ont un besoin croissant de techniciens capables de securiser et d'administrer leurs infrastructures.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quelle est la difference entre SISR et SLAM ?</div>
+  <div class="answer">SISR (Solutions d'Infrastructure, Systemes et Reseaux) forme des techniciens qui installent, configurent et maintiennent les serveurs, les reseaux, la virtualisation et la securite des infrastructures informatiques. Le quotidien d'un technicien SISR inclut l'administration de serveurs Windows et Linux, la configuration de routeurs et switches, la mise en place de VPN, la supervision reseau et la cybersecurite. SLAM (Solutions Logicielles et Applications Metier) forme des developpeurs qui concoivent, codent et maintiennent des applications web, mobiles et de bureau. Ils travaillent avec des langages de programmation (Java, PHP, Python), des bases de donnees (SQL) et des frameworks. Les deux options partagent un socle commun (B1 Support et B3 Cybersecurite) mais different sur le bloc B2.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que le modele OSI ? Citez les 7 couches.</div>
+  <div class="answer">Le modele OSI (Open Systems Interconnection) est un modele de reference theorique a 7 couches qui standardise la communication reseau. Couche 1 Physique : les signaux electriques, cables, connecteurs (RJ45, fibre optique). Couche 2 Liaison de donnees : les trames, adresses MAC, switches, protocole Ethernet. Couche 3 Reseau : les paquets, adresses IP, routage, routeurs. Couche 4 Transport : les segments, ports TCP/UDP, controle de flux. Couche 5 Session : etablissement et maintien des sessions de communication. Couche 6 Presentation : chiffrement, compression, encodage des donnees. Couche 7 Application : les protocoles utilisateurs comme HTTP, DNS, SMTP, FTP. En pratique, le modele TCP/IP a 4 couches est plus utilise : Acces reseau, Internet, Transport, Application.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Expliquez le processus DORA du DHCP.</div>
+  <div class="answer">DORA est l'acronyme des 4 etapes de l'attribution d'une adresse IP par DHCP. Discovery : le client envoie un message broadcast DHCPDISCOVER sur le reseau pour trouver un serveur DHCP (il n'a pas encore d'IP, il utilise 0.0.0.0 comme source et 255.255.255.255 comme destination). Offer : le serveur DHCP repond avec un DHCPOFFER contenant une adresse IP proposee, le masque, la passerelle et le serveur DNS. Request : le client accepte l'offre en envoyant un DHCPREQUEST en broadcast (car il peut y avoir plusieurs serveurs DHCP). Acknowledge : le serveur confirme l'attribution avec un DHCPACK. L'adresse est attribuee pour une duree definie (le bail/lease), apres quoi le client doit la renouveler. Ce mecanisme permet une gestion centralisee et automatisee de l'adressage IP.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce qu'un VLAN ? A quoi sert un trunk ? Qu'est-ce que le 802.1Q ?</div>
+  <div class="answer">Un VLAN (Virtual LAN) est un reseau local virtuel qui segmente logiquement un reseau physique. Les postes dans le meme VLAN communiquent comme s'ils etaient sur le meme switch, meme s'ils sont physiquement eloignes. Les avantages sont la securite (isolation des flux), la performance (reduction du broadcast) et la flexibilite (reorganisation sans recablage). Un trunk est un lien reseau qui transporte le trafic de plusieurs VLAN simultanement, generalement entre deux switches ou entre un switch et un routeur. Le 802.1Q est le protocole IEEE de marquage des trames : il ajoute un tag de 4 octets dans l'en-tete Ethernet contenant le VLAN ID (1-4094), ce qui permet d'identifier a quel VLAN appartient chaque trame sur un trunk. Le VLAN natif est celui dont les trames ne sont pas taguees.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Expliquez ce qu'est Active Directory et a quoi il sert.</div>
+  <div class="answer">Active Directory est le service d'annuaire de Microsoft qui centralise la gestion de tous les objets d'un reseau d'entreprise : utilisateurs, groupes, ordinateurs, imprimantes et politiques de securite. Il repose sur une structure hierarchique (foret > domaine > OU) et utilise les protocoles LDAP (consultation de l'annuaire), Kerberos (authentification) et DNS (localisation des services). L'interet principal est la centralisation : au lieu de gerer chaque poste individuellement, l'administrateur cree les comptes et applique les politiques depuis un seul point (le controleur de domaine). Un utilisateur se connecte avec ses identifiants AD sur n'importe quel poste du domaine et retrouve ses droits d'acces. Les GPO permettent d'appliquer des configurations uniformes a l'ensemble du parc.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">C'est quoi une GPO ? Donnez des exemples d'utilisation.</div>
+  <div class="answer">Une GPO (Group Policy Object) est un ensemble de parametres de configuration appliques automatiquement aux utilisateurs ou aux ordinateurs d'un domaine Active Directory. Elles sont creees dans la console GPMC et liees a des OU, des domaines ou des sites. Exemples d'utilisation : politique de mot de passe (longueur minimale 12 caracteres, complexite obligatoire, expiration tous les 90 jours), deploiement automatique de logiciels (MSI), redirection des dossiers utilisateurs vers un serveur (Bureau, Documents), configuration du pare-feu Windows, blocage de l'acces a CMD ou PowerShell pour certains utilisateurs, configuration du fond d'ecran et du menu Demarrer, activation du chiffrement BitLocker, configuration des mises a jour WSUS. Les GPO sont essentielles pour la securite et la coherence du parc informatique.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Expliquez le fonctionnement du DNS.</div>
+  <div class="answer">Le DNS (Domain Name System) est le systeme qui traduit les noms de domaine lisibles par l'homme (google.com) en adresses IP (142.250.74.238). Le processus de resolution fonctionne ainsi : le client interroge son serveur DNS local (recursif), qui verifie son cache. S'il n'a pas la reponse, il interroge un serveur racine (.) qui redirige vers le serveur TLD (.com, .fr), qui redirige vers le serveur autoritaire du domaine, qui renvoie l'adresse IP. Le resultat est mis en cache pour accelerer les futures requetes (duree definie par le TTL). Le DNS utilise le port 53, principalement en UDP pour les requetes simples et en TCP pour les transferts de zone. Les types d'enregistrements courants sont A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), NS (serveur de noms), PTR (inverse) et SRV (services).</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Comment fonctionne un VPN ?</div>
+  <div class="answer">Un VPN (Virtual Private Network) cree un tunnel chiffre entre deux points sur un reseau non securise (Internet). Le principe est l'encapsulation : les paquets de donnees originaux sont chiffres et encapsules dans de nouveaux paquets qui transitent sur Internet. Seuls les deux extremites du tunnel (le client VPN et le serveur VPN) peuvent dechiffrer le contenu. Les protocoles VPN les plus courants sont OpenVPN (open source, port 1194), IPSec (souvent combine avec L2TP), WireGuard (plus recent et performant) et SSL/TLS VPN. En entreprise, le VPN permet aux employes en teletravail d'acceder au reseau interne de maniere securisee, comme s'ils etaient physiquement au bureau. Il protege aussi la confidentialite des communications sur les reseaux Wi-Fi publics.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que la cybersecurite ? Quelles sont les menaces principales ?</div>
+  <div class="answer">La cybersecurite est l'ensemble des pratiques, technologies et processus visant a proteger les systemes informatiques, les reseaux et les donnees contre les acces non autorises, les attaques et les dommages. Les menaces principales sont : le phishing (108 000 cas en France en 2025), les ransomwares (logiciels qui chiffrent les donnees et demandent une rancon, comme LockBit qui a touche l'hopital de Cannes), les fuites de donnees (France Travail, Free), les attaques par force brute sur les mots de passe, les attaques DDoS (deni de service distribue), les malwares (virus, trojans, spywares), l'ingenierie sociale, et les vulnerabilites zero-day. La cybersecurite repose sur trois piliers : la confidentialite, l'integrite et la disponibilite des donnees (triade CIA).</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que le RGPD ? Quelles sont ses obligations principales ?</div>
+  <div class="answer">Le RGPD (Reglement General sur la Protection des Donnees) est un reglement europeen entre en vigueur en mai 2018 qui encadre le traitement des donnees personnelles. Ses principes cles sont : le consentement eclaire de l'utilisateur, la minimisation des donnees (ne collecter que le necessaire), la limitation de conservation, la securite des donnees, et le droit des personnes (acces, rectification, effacement, portabilite). Les entreprises doivent nommer un DPO (Data Protection Officer) si elles traitent des donnees sensibles, tenir un registre des traitements, et notifier la CNIL dans les 72h en cas de violation de donnees. Les sanctions peuvent aller jusqu'a 4% du chiffre d'affaires mondial ou 20 millions d'euros. En France, la CNIL est l'autorite de controle et a sanctionne Free de 42 millions d'euros en 2026.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quelle est la difference entre TCP et UDP ?</div>
+  <div class="answer">TCP (Transmission Control Protocol) et UDP (User Datagram Protocol) sont les deux protocoles de la couche Transport. TCP est un protocole connecte et fiable : il etablit une connexion en 3 etapes (SYN, SYN-ACK, ACK), garantit la livraison des donnees (acquittements, retransmissions), et assure l'ordre des paquets. Il est utilise pour HTTP, HTTPS, SMTP, FTP, SSH. UDP est un protocole non connecte et non fiable : il envoie les paquets sans verification de reception ni d'ordre, ce qui le rend plus rapide mais sans garantie de livraison. Il est utilise pour DNS (requetes simples), DHCP, VOIP, streaming video, et jeux en ligne. Le choix entre TCP et UDP depend du besoin : fiabilite (TCP) ou rapidite (UDP).</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que la virtualisation et quel est son interet ?</div>
+  <div class="answer">La virtualisation est la technologie qui permet de creer des machines virtuelles (VM) sur un seul serveur physique, grace a un hyperviseur. Chaque VM dispose de son propre systeme d'exploitation, de ses ressources (CPU, RAM, stockage) et fonctionne de maniere isolee des autres. Les avantages sont : la consolidation des serveurs (un seul serveur physique peut heberger 5-10 VM), la reduction des couts d'infrastructure et d'energie, la flexibilite (creation et suppression rapide de VM), les snapshots (sauvegarde instantanee de l'etat d'une VM), et la haute disponibilite (migration des VM entre serveurs). Les hyperviseurs les plus courants sont VMware vSphere, Microsoft Hyper-V, Proxmox (que j'utilise dans ma formation) et VirtualBox. La virtualisation est la base du cloud computing.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce qu'un pare-feu et comment fonctionne-t-il ?</div>
+  <div class="answer">Un pare-feu (firewall) est un equipement ou logiciel de securite qui filtre le trafic reseau entrant et sortant selon des regles predefinies. Il se place entre le reseau interne (de confiance) et le reseau externe (Internet, non securise). Le filtrage peut se faire par adresse IP source/destination, par port (ex: autoriser le port 80/443 pour le web, bloquer tout le reste), par protocole, ou par etat de connexion (stateful inspection). Les pare-feux modernes integrent aussi la detection d'intrusion (IDS/IPS), le filtrage applicatif (couche 7) et le VPN. Dans ma formation, j'ai travaille avec pfSense (pare-feu open source) et iptables (pare-feu Linux). En entreprise, le pare-feu est la premiere ligne de defense du reseau.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que le subnetting ? Donnez un exemple.</div>
+  <div class="answer">Le subnetting (sous-reseautage) est la technique qui consiste a diviser un reseau IP en sous-reseaux plus petits. Par exemple, le reseau 192.168.1.0/24 (256 adresses) peut etre divise en 4 sous-reseaux /26 de 64 adresses chacun : 192.168.1.0/26 (0-63), 192.168.1.64/26 (64-127), 192.168.1.128/26 (128-191), 192.168.1.192/26 (192-255). Le masque /26 correspond a 255.255.255.192. Le subnetting permet d'optimiser l'utilisation des adresses IP, de reduire les domaines de broadcast, et de segmenter le reseau pour des raisons de securite. Pour calculer, il faut connaitre les puissances de 2 : /24 = 256 adresses, /25 = 128, /26 = 64, /27 = 32, /28 = 16. On soustrait 2 (adresse reseau et broadcast) pour obtenir le nombre d'hotes utilisables.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Quels sont vos projets professionnels apres le BTS ?</div>
+  <div class="answer">Apres le BTS SIO SISR, je souhaite poursuivre mes etudes en licence professionnelle ou bachelor dans le domaine de l'administration des systemes et reseaux ou de la cybersecurite, idealement en alternance pour combiner formation theorique et experience professionnelle. A plus long terme, je vise un poste d'administrateur systemes et reseaux ou d'administrateur cybersecurite en entreprise. Le secteur de la cybersecurite m'attire particulierement car la demande est en forte croissance : avec la hausse constante des cybermenaces et les obligations reglementaires (RGPD, NIS2), les entreprises ont un besoin croissant de professionnels qualifies. Je compte aussi continuer a me certifier (Cisco CCNA, CompTIA Security+) pour renforcer mes competences.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce que le protocole SNMP ?</div>
+  <div class="answer">SNMP (Simple Network Management Protocol) est un protocole de supervision qui permet de collecter des informations et de gerer les equipements reseau a distance. Il fonctionne avec un systeme de manager (la station de supervision comme Nagios) qui interroge les agents SNMP installes sur les equipements (routeurs, switches, serveurs). Chaque equipement dispose d'une MIB (Management Information Base) qui contient les variables surveillees (utilisation CPU, memoire, trafic reseau, etat des interfaces). SNMP utilise le port UDP 161 pour les requetes (GET, SET) et le port 162 pour les alertes (TRAP). Il existe 3 versions : SNMPv1 et v2c utilisent des community strings en clair, tandis que SNMPv3 ajoute l'authentification et le chiffrement. Dans ma formation, j'ai utilise SNMP avec Nagios via le plugin NRPE pour superviser les serveurs distants.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Qu'est-ce qu'une adresse MAC ? Une adresse IP ? Quelle difference ?</div>
+  <div class="answer">L'adresse MAC (Media Access Control) est un identifiant physique unique grave dans la carte reseau de chaque equipement, codee sur 48 bits (6 octets) en hexadecimal (ex: AA:BB:CC:DD:EE:FF). Les 3 premiers octets identifient le fabricant (OUI). Elle opere a la couche 2 du modele OSI et est utilisee pour la communication locale sur un meme reseau (segment Ethernet). L'adresse IP (Internet Protocol) est un identifiant logique attribue par un administrateur ou par DHCP, codee sur 32 bits pour IPv4 (ex: 192.168.1.100) ou 128 bits pour IPv6. Elle opere a la couche 3 et permet le routage entre differents reseaux. La difference cle : l'adresse MAC identifie l'equipement physique de maniere permanente, tandis que l'adresse IP identifie sa position logique dans le reseau et peut changer.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTION 6 : MAPPING COMPETENCES                     -->
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="page-break"></div>
+<h2>Section 6 — Competences SISR : Mapping par projet</h2>
+<p class="section-intro">Ce tableau de reference montre quelles competences du referentiel BTS SIO SISR sont couvertes par chaque projet. A connaitre pour pouvoir justifier le rattachement d'un projet a une competence.</p>
+
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th style="min-width:80px;">Comp.</th>
+      <th>Intitule</th>
+      <th style="width:35px; text-align:center;" title="Active Directory & DNS">AD</th>
+      <th style="width:35px; text-align:center;" title="Segmentation VLAN">VLAN</th>
+      <th style="width:35px; text-align:center;" title="GPO">GPO</th>
+      <th style="width:35px; text-align:center;" title="Nagios">NAG</th>
+      <th style="width:35px; text-align:center;" title="VOIP">VOIP</th>
+      <th style="width:35px; text-align:center;" title="Calculatrice Web">CALC</th>
+      <th style="width:35px; text-align:center;" title="Wireshark">WRK</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>B1.1</strong></td>
+      <td>Gerer le patrimoine informatique</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+    </tr>
+    <tr>
+      <td><strong>B1.2</strong></td>
+      <td>Repondre aux incidents et demandes d'assistance</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+    </tr>
+    <tr>
+      <td><strong>B1.3</strong></td>
+      <td>Developper la presence en ligne</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+    </tr>
+    <tr>
+      <td><strong>B1.4</strong></td>
+      <td>Travailler en mode projet</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+    </tr>
+    <tr style="background:#f0f9ff !important;">
+      <td><strong>B2.1</strong></td>
+      <td>Concevoir une solution d'infrastructure reseau</td>
+      <td class="check">X</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+    </tr>
+    <tr style="background:#f0f9ff !important;">
+      <td><strong>B2.2</strong></td>
+      <td>Installer, tester et deployer une solution d'infrastructure reseau</td>
+      <td class="check">X</td>
+      <td class="check">X</td>
+      <td class="check">X</td>
+      <td class="check">X</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+    </tr>
+    <tr style="background:#f0f9ff !important;">
+      <td><strong>B2.3</strong></td>
+      <td>Exploiter, depanner et superviser une solution d'infrastructure reseau</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+      <td class="check">X</td>
+      <td class="check">X</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+    </tr>
+    <tr>
+      <td><strong>B3.1</strong></td>
+      <td>Proteger les donnees a caractere personnel</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+    </tr>
+    <tr>
+      <td><strong>B3.2</strong></td>
+      <td>Preserver l'identite numerique de l'organisation</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+    </tr>
+    <tr>
+      <td><strong>B3.3</strong></td>
+      <td>Securiser les equipements et les usages des utilisateurs</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+    </tr>
+    <tr>
+      <td><strong>B3.4</strong></td>
+      <td>Garantir la disponibilite, l'integrite et la confidentialite</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+    </tr>
+    <tr>
+      <td><strong>B3.5</strong></td>
+      <td>Assurer la cybersecurite d'une infrastructure reseau</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="empty">-</td>
+      <td class="check">X</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Legende des colonnes</h4>
+<table class="comp-table" style="max-width:600px;">
+  <thead>
+    <tr>
+      <th>Abrev.</th>
+      <th>Projet</th>
+      <th>Epreuve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>AD</strong></td><td>Active Directory &amp; DNS — Windows Server 2025</td><td>E5</td></tr>
+    <tr><td><strong>VLAN</strong></td><td>Segmentation VLAN — Cisco Packet Tracer</td><td>E5</td></tr>
+    <tr><td><strong>GPO</strong></td><td>Strategies de Groupe — Active Directory</td><td>E5</td></tr>
+    <tr><td><strong>NAG</strong></td><td>Supervision Nagios — Ubuntu Server</td><td>E5</td></tr>
+    <tr><td><strong>VOIP</strong></td><td>Telephonie VOIP — Cisco CME</td><td>E5</td></tr>
+    <tr><td><strong>CALC</strong></td><td>Calculatrice Web — HTML/CSS/JS</td><td>E4</td></tr>
+    <tr><td><strong>WRK</strong></td><td>Analyse Reseau Wireshark — Linux</td><td>E5</td></tr>
+  </tbody>
+</table>
+
+<div class="tip-box" style="margin-top:20px;">
+  <strong>Couverture des blocs :</strong> Le bloc B2 (Administration des systemes et reseaux) est le mieux couvert avec 5 projets sur 7 qui adressent au moins une competence B2. Le bloc B3 (Cybersecurite) est couvert par 5 projets. Le bloc B1 (Support) est couvert principalement par la calculatrice web (E4) et Nagios. Chaque competence est couverte par au moins un projet, sauf B1.4 (Travailler en mode projet) et B3.1 (Proteger les donnees a caractere personnel) qui sont couverts transversalement par les stages et la veille technologique.
+</div>
+
+<h3 style="margin-top:30px;">Aide-memoire : Blocs de competences</h3>
+
+<div class="qa-block">
+  <div class="question">Bloc B1 — Support et mise a disposition des services informatiques</div>
+  <div class="answer">B1.1 Gerer le patrimoine informatique (inventaire, documentation, suivi) | B1.2 Repondre aux incidents et aux demandes d'assistance (ticketing, diagnostic, resolution) | B1.3 Developper la presence en ligne (site web, portfolio, communication) | B1.4 Travailler en mode projet (planification, suivi, livrables). Ce bloc est commun SISR et SLAM.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Bloc B2 — Administration des systemes et des reseaux (specifique SISR)</div>
+  <div class="answer">B2.1 Concevoir une solution d'infrastructure reseau (cahier des charges, architecture, choix techniques) | B2.2 Installer, tester et deployer une solution d'infrastructure reseau (mise en oeuvre, tests, validation) | B2.3 Exploiter, depanner et superviser une solution d'infrastructure reseau (maintenance, monitoring, resolution de problemes). C'est le coeur de l'option SISR.</div>
+</div>
+
+<div class="qa-block">
+  <div class="question">Bloc B3 — Cybersecurite des services informatiques</div>
+  <div class="answer">B3.1 Proteger les donnees a caractere personnel (RGPD, CNIL, anonymisation) | B3.2 Preserver l'identite numerique de l'organisation (gestion des comptes, droits d'acces) | B3.3 Securiser les equipements et les usages des utilisateurs (GPO, antivirus, chiffrement) | B3.4 Garantir la disponibilite, l'integrite et la confidentialite (sauvegardes, redondance, chiffrement) | B3.5 Assurer la cybersecurite d'une infrastructure reseau (pare-feu, IDS/IPS, audit). Ce bloc est commun SISR et SLAM avec des specificites SISR pour B3.5.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- FOOTER                                              -->
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="footer-print" style="margin-top:60px;">
+  <p>Guide de Revision BTS SIO SISR — Dilan Lengue — Institut F2I — Session 2026</p>
+  <p>Document confidentiel a usage personnel — Preparation a l'oral du jury</p>
+</div>
+
+</body>
+</html>
