@@ -280,8 +280,8 @@ const projets = [
     logo: null,
     color: '#10b981',
     image: '/projects/marketplace.webp',
-    badge: 'E4',
-    badgeColor: '#22d3ee',
+    badge: 'E5',
+    badgeColor: '#a855f3',
     description: "Développement d'une calculatrice web interactive avec manipulation du DOM et validation des entrées.",
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'DOM', 'Responsive'],
     docPdf: '/dossiers/dossier-calculatrice.pdf',
@@ -1030,34 +1030,6 @@ export default function Projets() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 stagger-grid">
             {projets.filter(p => p.badge === 'E5').map(projet => (
-              <ProjetCard key={projet.id} projet={projet} onClick={setSelected} />
-            ))}
-          </div>
-        </div>
-
-        {/* E4 — Support et mise à disposition */}
-        <div className="animate-fade-up" style={{ marginBottom: '3rem' }}>
-          <div className="flex items-center gap-3" style={{ marginBottom: '1.5rem' }}>
-            <span style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '12px', fontWeight: 800,
-              padding: '5px 14px', borderRadius: '8px',
-              background: 'rgba(34,211,238,0.15)',
-              color: '#22d3ee',
-              border: '1px solid rgba(34,211,238,0.3)',
-            }}>
-              E4
-            </span>
-            <h3 style={{
-              fontFamily: "'Orbitron', system-ui, sans-serif",
-              fontSize: '1.1rem', fontWeight: 700, color: '#e2e8f0',
-              margin: 0,
-            }}>
-              Support et mise à disposition de services
-            </h3>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 stagger-grid">
-            {projets.filter(p => p.badge === 'E4').map(projet => (
               <ProjetCard key={projet.id} projet={projet} onClick={setSelected} />
             ))}
           </div>
