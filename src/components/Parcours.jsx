@@ -90,7 +90,7 @@ function StageCard({ stage, index }) {
 
       {/* Card */}
       <div
-        className="relative rounded-2xl overflow-hidden transition-all duration-300 flex-1"
+        className="card-holo relative rounded-2xl overflow-hidden transition-all duration-300 flex-1"
         style={{
           background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
           border: '1.5px solid rgba(251,191,36,0.12)',
@@ -215,7 +215,7 @@ function FormationCard({ formation, index }) {
 
       {/* Card */}
       <div
-        className="relative rounded-2xl overflow-hidden transition-all duration-300 flex-1"
+        className="card-holo relative rounded-2xl overflow-hidden transition-all duration-300 flex-1"
         style={{
           background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
           border: `1.5px solid ${color}15`,
@@ -303,7 +303,7 @@ function FormationCard({ formation, index }) {
 
 export default function Parcours() {
   return (
-    <section id="parcours" className="relative" style={{ paddingTop: '8rem', paddingBottom: '12rem' }}>
+    <section id="parcours" className="relative dots-bg" style={{ paddingTop: '8rem', paddingBottom: '12rem' }}>
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
 
         {/* Header */}
@@ -582,7 +582,7 @@ export default function Parcours() {
               ].map(({ step, title, subtitle, desc, status, color }) => (
                 <div
                   key={step}
-                  className="relative rounded-2xl transition-all duration-300"
+                  className="card-holo relative rounded-2xl transition-all duration-300"
                   style={{
                     background: 'rgba(15,20,40,0.6)',
                     border: `1.5px solid ${color}18`,
@@ -731,7 +731,7 @@ export default function Parcours() {
             ].map(({ flagUrl, lang, level, percent, color, desc }) => (
               <div
                 key={lang}
-                className="relative rounded-3xl overflow-hidden transition-all duration-500"
+                className="card-holo relative rounded-3xl overflow-hidden transition-all duration-500"
                 style={{
                   background: 'linear-gradient(145deg, rgba(11,16,32,0.8), rgba(15,20,40,0.65))',
                   border: `1.5px solid ${color}20`,

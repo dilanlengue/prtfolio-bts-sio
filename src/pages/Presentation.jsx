@@ -159,6 +159,7 @@ export default function Presentation() {
               {TAG_COLORS.map(({ tag, color, bg, border }) => (
                 <span
                   key={tag}
+                  className="tag-glow"
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
                     fontSize: '11.5px',
@@ -356,7 +357,7 @@ export default function Presentation() {
       <section className="relative" style={{ paddingTop: '8rem', paddingBottom: '6rem' }}>
         <div className="w-full max-w-5xl mx-auto px-6 lg:px-10">
           <div
-            className="rounded-3xl shimmer-bar"
+            className="rounded-3xl shimmer-bar glass-refract card-holo"
             style={{
               background: 'linear-gradient(145deg, rgba(11,16,32,0.85), rgba(15,20,40,0.7))',
               border: '1px solid rgba(99,102,241,0.18)',
@@ -452,14 +453,14 @@ export default function Presentation() {
             <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(34,211,238,0.5), transparent)' }} />
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-7">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-7 stagger-grid">
             {stats.map((stat) => {
               const { value, label, color } = stat
               const StatIllustration = stat.Illustration
               return (
               <div
                 key={label}
-                className="group relative rounded-2xl text-center transition-all duration-500"
+                className="group relative rounded-2xl text-center transition-all duration-500 card-holo"
                 style={{
                   background: 'rgba(11,16,32,0.75)',
                   border: `1.5px solid ${color}18`,

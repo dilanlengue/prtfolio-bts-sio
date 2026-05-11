@@ -23,6 +23,7 @@ export default function Layout() {
     <div className="min-h-screen overflow-x-hidden" style={{ backgroundColor: '#080c1a' }}>
       <div className="cursor-glow" />
       <div className="aurora" />
+      <div className="mesh-gradient" />
       <CyberBackground />
       <SideNav />
       <TopNav />

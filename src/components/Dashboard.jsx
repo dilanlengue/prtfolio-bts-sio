@@ -47,7 +47,7 @@ const apports = [
 
 export default function Dashboard() {
   return (
-    <section id="dashboard" className="relative" style={{ paddingTop: '12rem', paddingBottom: '6rem' }}>
+    <section id="dashboard" className="relative dots-bg" style={{ paddingTop: '12rem', paddingBottom: '6rem' }}>
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* ══════ HERO — Photo + Infos côte à côte ══════ */}
@@ -222,13 +222,13 @@ export default function Dashboard() {
             <div style={{ height: '3px', flex: 1, background: 'linear-gradient(90deg, transparent, #22d3ee)', borderRadius: '2px' }} />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger-grid">
             {statsData.map((s) => {
               const Icon = s.icon
               return (
                 <div
                   key={s.label}
-                  className="flex flex-col items-center text-center rounded-2xl p-10 transition-all duration-300"
+                  className="card-holo flex flex-col items-center text-center rounded-2xl p-10 transition-all duration-300"
                   style={{ background: 'rgba(11,16,32,0.7)', border: `1px solid ${s.color}22` }}
                   onMouseEnter={e => {
                     e.currentTarget.style.transform = 'translateY(-6px)'
@@ -276,7 +276,7 @@ export default function Dashboard() {
             { label: 'Email', desc: 'Me contacter', href: 'mailto:lenguedilan@gmail.com', color: '#22d3ee', glow: 'rgba(34,211,238,0.3)', icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="32" height="32"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>) },
           ].map((net, i) => (
             <a key={i} href={net.href} target={net.href.startsWith('http') ? '_blank' : undefined} rel={net.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="group relative flex flex-col items-center gap-3 rounded-2xl transition-all duration-500"
+              className="card-holo group relative flex flex-col items-center gap-3 rounded-2xl transition-all duration-500"
               style={{
                 textDecoration: 'none',
                 padding: '2rem 1.5rem',

@@ -1121,6 +1121,106 @@ section:nth-child(even) {
   -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
 }
 
+/* === SIDENAV GLOW EFFECTS === */
+.sidenav-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 10%,
+    rgba(99,102,241,0.3) 30%,
+    rgba(34,211,238,0.5) 50%,
+    rgba(99,102,241,0.3) 70%,
+    transparent 90%
+  );
+  background-size: 100% 200%;
+  animation: sidenav-border-flow 4s linear infinite;
+}
+@keyframes sidenav-border-flow {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200%; }
+}
+.sidenav-active-bar {
+  animation: sidenav-pulse 2s ease-in-out infinite;
+}
+@keyframes sidenav-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(34,211,238,0.5); height: 24px; }
+  50% { box-shadow: 0 0 20px rgba(34,211,238,0.8), 0 0 40px rgba(99,102,241,0.3); height: 28px; }
+}
+.sidenav-icon {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* === MORPHING GRADIENT MESH === */
+.mesh-gradient {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.25;
+  background:
+    radial-gradient(ellipse 40% 30% at 10% 100%, rgba(99,102,241,0.15), transparent),
+    radial-gradient(ellipse 50% 40% at 90% 80%, rgba(0,255,136,0.08), transparent),
+    radial-gradient(ellipse 60% 50% at 50% 90%, rgba(34,211,238,0.1), transparent);
+  animation: mesh-morph 15s ease-in-out infinite alternate;
+}
+@keyframes mesh-morph {
+  0% { transform: translateY(0) scale(1); opacity: 0.2; }
+  33% { transform: translateY(-2%) scale(1.05); opacity: 0.3; }
+  66% { transform: translateY(1%) scale(0.98); opacity: 0.25; }
+  100% { transform: translateY(-1%) scale(1.02); opacity: 0.28; }
+}
+
+/* === MAGNETIC HOVER SCALE (for nav icons) === */
+@keyframes icon-magnetic {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.15) rotate(-3deg); }
+  50% { transform: scale(1.2) rotate(0deg); }
+  75% { transform: scale(1.15) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* === PULSE RING ON STAT NUMBERS === */
+.stat-pulse {
+  position: relative;
+}
+.stat-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation: stat-ring-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes stat-ring-pulse {
+  0%, 100% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 0.15; }
+}
+
+/* === FLOATING GRADIENT ORB === */
+.float-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: orb-float 10s ease-in-out infinite alternate;
+}
+@keyframes orb-float {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.1); }
+  66% { transform: translate(-20px, 10px) scale(0.9); }
+  100% { transform: translate(10px, -30px) scale(1.05); }
+}
+
 /* === ACCESSIBILITY === */
 @media (prefers-reduced-motion: reduce) {
   .glitch-text::before, .glitch-text::after,
@@ -1130,7 +1230,9 @@ section:nth-child(even) {
   .cursor-glow, .aurora, .card-holo::before,
   .glass-refract::after, .border-flow::before,
   .dots-bg::before, .glow-divider::before,
-  .glow-divider::after, .tag-glow::before { animation: none !important; }
+  .glow-divider::after, .tag-glow::before,
+  .sidenav-glow::after, .sidenav-active-bar,
+  .mesh-gradient, .float-orb, .stat-pulse::before { animation: none !important; }
   .crt-scanline::before, .crt-scanline::after, .floating-code,
   .cursor-glow, .aurora { display: none; }
   .animate-fade-up, .animate-fade-left, .animate-fade-right, .animate-scale {

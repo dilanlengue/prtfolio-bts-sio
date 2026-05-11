@@ -30,7 +30,7 @@ export default function SideNav() {
 
   return (
     <nav
-      className="hidden lg:flex flex-col gap-2 fixed left-0 top-0 bottom-0 z-40"
+      className="hidden lg:flex flex-col gap-2 fixed left-0 top-0 bottom-0 z-40 sidenav-glow"
       style={{
         width: '64px',
         background: 'rgba(8,12,26,0.92)',
@@ -75,12 +75,13 @@ export default function SideNav() {
               }
             }}
           >
-            <NavIcon size={20} />
+            <NavIcon size={20} className="sidenav-icon" />
 
             {/* Active indicator dot on left edge */}
             {isActive && (
               <span
                 aria-hidden="true"
+                className="sidenav-active-bar"
                 style={{
                   position: 'absolute',
                   left: '-12px',

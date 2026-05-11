@@ -288,7 +288,7 @@ export default function Veille() {
   const [openAi, setOpenAi] = useState(0)
 
   return (
-    <section id="veille" className="relative" style={{ paddingTop: '12rem', paddingBottom: '10rem' }}>
+    <section id="veille" className="relative dots-bg" style={{ paddingTop: '12rem', paddingBottom: '10rem' }}>
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* ═══════════ HEADER ═══════════ */}
@@ -363,9 +363,9 @@ export default function Veille() {
             <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.1rem', fontWeight: 800, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '2.5rem' }}>
               Plan de la Veille — 9 parties
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 stagger-grid">
               {sommaire.map((s) => (
-                <div key={s.num} className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ background: `${s.color}08`, border: `1px solid ${s.color}15` }}>
+                <div key={s.num} className="card-holo flex items-center gap-3 rounded-xl px-4 py-3" style={{ background: `${s.color}08`, border: `1px solid ${s.color}15` }}>
                   <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 800, color: s.color }}>{s.num}</span>
                   <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#cbd5e1' }}>{s.label}</span>
                 </div>
@@ -464,7 +464,7 @@ export default function Veille() {
 
         <div className="flex flex-col gap-10">
           {phishingTypes.map((t, i) => (
-            <div key={i} className="rounded-2xl overflow-hidden transition-all duration-300"
+            <div key={i} className="card-holo rounded-2xl overflow-hidden transition-all duration-300"
               style={{ background: 'rgba(10,15,30,0.9)', border: `1px solid ${t.color}25` }}
             >
               <div style={{ height: '4px', background: `linear-gradient(90deg, ${t.color}, ${t.color}60, transparent)` }} />
@@ -854,9 +854,9 @@ export default function Veille() {
           gradient="linear-gradient(135deg, #ffffff 0%, #06b6d4 60%, #10b981 100%)"
         />
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 stagger-grid">
           {statistics.map((stat, i) => (
-            <div key={i} className="rounded-2xl overflow-hidden transition-all duration-300"
+            <div key={i} className="card-holo rounded-2xl overflow-hidden transition-all duration-300"
               style={{ background: 'rgba(10,15,30,0.85)', border: `1px solid ${stat.color}20` }}
               onMouseEnter={e => e.currentTarget.style.borderColor = `${stat.color}40`}
               onMouseLeave={e => e.currentTarget.style.borderColor = `${stat.color}20`}
@@ -885,9 +885,9 @@ export default function Veille() {
           gradient="linear-gradient(135deg, #ef4444 0%, #f59e0b 40%, #10b981 100%)"
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 stagger-grid">
           {protections.map((p, i) => (
-            <div key={i} className="rounded-2xl overflow-hidden transition-all duration-300"
+            <div key={i} className="card-holo rounded-2xl overflow-hidden transition-all duration-300"
               style={{ background: 'rgba(10,15,30,0.85)', border: `1px solid ${p.color}20` }}
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = `${p.color}40` }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = `${p.color}20` }}
