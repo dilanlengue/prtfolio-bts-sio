@@ -322,9 +322,9 @@ export default function Veille() {
             <div className="flex flex-col gap-4 mb-5">
               {[
                 { etape: 'BTS SIO SISR', desc: 'Administration réseau, systèmes et sécurité', actuel: true },
-                { etape: 'Licence Pro MASI — Cybersécurité', desc: 'Administration et sécurité des systèmes, réponse à incident' },
-                { etape: 'Master Cybersécurité', desc: 'Tests d\'intrusion, audit de sécurité, certifications CEH / OSCP' },
-                { etape: 'Pentester', desc: 'Tester la sécurité des systèmes pour trouver les failles avant les attaquants' },
+                { etape: 'Licence Pro Métiers de l\'informatique — parcours Cybersécurité', desc: 'Ex : LP Réseaux et Cybersécurité (CY Cergy), LP Analyste en cybersécurité (CNAM)' },
+                { etape: 'Mastère Cybersécurité (Bac+5)', desc: 'Ex : Mastère Expert Cybersécurité (ESIEA), Master CyberSécurité (ENSICAEN)' },
+                { etape: 'Pentester', desc: 'Tests d\'intrusion, audit de sécurité, recherche de vulnérabilités' },
               ].map((e, i) => (
                 <div key={i} className="flex items-center gap-4">
                   <div style={{
