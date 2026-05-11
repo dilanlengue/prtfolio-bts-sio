@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Building2, MapPin, Users, Calendar, Phone, Globe, ExternalLink, CheckCircle2, Shield, Download, ChevronDown, ChevronUp, Image as ImageIcon, FileText, X, ChevronLeft, ChevronRight, ZoomIn, Maximize2 } from 'lucide-react'
+import { Building2, MapPin, Users, Calendar, Phone, Globe, ExternalLink, CheckCircle2, Shield, Download, ChevronDown, ChevronUp, Image as ImageIcon, FileText, X, ChevronLeft, ChevronRight, ZoomIn, Maximize2, Lightbulb, Award } from 'lucide-react'
 import SectionLabel from './SectionLabel'
 
 const stages = [
@@ -49,6 +49,18 @@ const stages = [
       { src: '/admin-procedure-config-appareils.pdf', label: 'Admin Procédure — Configuration des appareils' },
       { src: '/dossiers/dossier-esim-ba-conseil.pdf', label: 'Documentation eSIM — Activation & Configuration' },
     ],
+    resume: "Polyvalence technique, autonomie, gestion de flotte mobile et support client en environnement professionnel.",
+    competencesBase: [
+      { code: 'B1.1', label: 'Gérer le patrimoine informatique' },
+      { code: 'B1.2', label: 'Répondre aux incidents et demandes' },
+      { code: 'B1.4', label: 'Travailler en mode projet' },
+      { code: 'B1.5', label: 'Mettre à disposition un service IT' },
+    ],
+    competencesSISR: [
+      { code: 'B2.2', label: 'Installer, tester et déployer' },
+      { code: 'B2.3', label: 'Exploiter, dépanner et superviser' },
+      { code: 'B3.3', label: 'Sécuriser les équipements et usages' },
+    ],
     attestationPdf: '/attestation-stage-bna.pdf',
   },
   {
@@ -93,6 +105,17 @@ const stages = [
       { src: '/mac-reconditionnement.jpg', caption: 'Diagnostic carte mère et remplacement de composants (RAM, SSD, batterie)' },
       { src: '/mac-restauration.png', caption: 'Ordinateurs en attente de réparation et restauration en atelier' },
       { src: '/mac-sauvegarde-recuperation.jpg', caption: 'Sauvegarde et récupération de données sur disques durs endommagés' },
+    ],
+    resume: "Diagnostic méthodique, réparation matérielle, communication client et adaptabilité technique (Mac + PC toutes marques).",
+    competencesBase: [
+      { code: 'B1.1', label: 'Gérer le patrimoine informatique' },
+      { code: 'B1.2', label: 'Répondre aux incidents et demandes' },
+      { code: 'B1.4', label: 'Travailler en mode projet' },
+    ],
+    competencesSISR: [
+      { code: 'B2.3', label: 'Exploiter, dépanner et superviser' },
+      { code: 'B3.3', label: 'Sécuriser les équipements et usages' },
+      { code: 'B3.4', label: 'Garantir disponibilité et intégrité' },
     ],
     attestationPdf: '/attestation-stage-reparateurs.pdf',
   },
@@ -635,6 +658,65 @@ function StageCard({ stage }) {
             </div>
           )}
         </div>
+
+        {/* Bilan & Compétences */}
+        {stage.resume && (
+          <div className="mt-6 space-y-3">
+            <div className="rounded-xl p-4" style={{ background: '#f0fdf4', border: '1px solid #bbf7d0' }}>
+              <div className="flex items-center gap-2 mb-2">
+                <Lightbulb size={14} style={{ color: '#16a34a' }} />
+                <span style={{ fontSize: '13px', fontWeight: 700, color: '#166534' }}>Bilan</span>
+              </div>
+              <p style={{ fontSize: '13px', color: '#166534', lineHeight: 1.6, fontStyle: 'italic' }}>{stage.resume}</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {stage.competencesBase && (
+                <div className="rounded-xl p-4" style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Award size={14} style={{ color: stage.tagColor }} />
+                    <span style={{ fontSize: '12px', fontWeight: 700, color: '#1e293b' }}>Compétences de base</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {stage.competencesBase.map(c => (
+                      <span key={c.code} style={{
+                        fontSize: '11px', fontWeight: 600,
+                        color: stage.tagColor,
+                        background: `${stage.tagColor}10`,
+                        border: `1px solid ${stage.tagColor}25`,
+                        padding: '4px 10px', borderRadius: '6px',
+                      }}>
+                        {c.code} — {c.label}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {stage.competencesSISR && (
+                <div className="rounded-xl p-4" style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Shield size={14} style={{ color: '#a855f3' }} />
+                    <span style={{ fontSize: '12px', fontWeight: 700, color: '#1e293b' }}>Compétences SISR</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {stage.competencesSISR.map(c => (
+                      <span key={c.code} style={{
+                        fontSize: '11px', fontWeight: 600,
+                        color: '#a855f3',
+                        background: 'rgba(168,85,243,0.08)',
+                        border: '1px solid rgba(168,85,243,0.2)',
+                        padding: '4px 10px', borderRadius: '6px',
+                      }}>
+                        {c.code} — {c.label}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Galerie illustrations */}
         {stage.gallery && stage.gallery.length > 0 && (
