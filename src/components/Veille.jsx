@@ -310,13 +310,19 @@ export default function Veille() {
             fontSize: '1.1rem', fontWeight: 800, color: '#6ee7b7',
             marginBottom: '1rem',
           }}>
-            Mon objectif
+            Mon Objectif
           </h3>
+          <p style={{
+            fontFamily: "'Inter', sans-serif", fontSize: '18px',
+            fontWeight: 700, color: '#ffffff', marginBottom: '0.8rem',
+          }}>
+            Devenir Expert en Cybersécurité
+          </p>
           <p style={{
             fontFamily: "'Inter', sans-serif", fontSize: '16px',
             color: '#e2e8f0', lineHeight: 1.9,
           }}>
-            En tant qu'étudiant BTS SIO SISR, ma veille me permet de rester informé sur les menaces actuelles pour mieux protéger les systèmes et les utilisateurs. Le phishing étant la menace n°1 en France, je surveille les nouvelles techniques d'attaque et les bonnes pratiques de protection grâce à Google Alerts et aux sites officiels (ANSSI, Cybermalveillance, CERT-FR).
+            Ma veille sur le phishing me permet de comprendre les menaces actuelles et de développer les compétences nécessaires pour protéger les systèmes et les utilisateurs. C'est une première étape vers mon objectif : me spécialiser en cybersécurité après mon BTS SIO SISR.
           </p>
         </div>
 
