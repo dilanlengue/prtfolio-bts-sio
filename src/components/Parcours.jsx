@@ -39,6 +39,14 @@ const stages = [
 
 const formations = [
   {
+    date: '2026 — 2027',
+    title: 'Licence Pro ASUR / Cybersécurité',
+    org: 'En recherche d\'établissement',
+    place: 'Île-de-France',
+    next: true,
+    pills: ['Admin Systèmes', 'Sécurité SI', 'Pentesting', 'Alternance'],
+  },
+  {
     date: '2025 — 2026',
     title: 'BTS SIO Option SISR — 2ème année',
     org: 'Institut F2I',
@@ -202,7 +210,7 @@ function StageCard({ stage, index }) {
 }
 
 function FormationCard({ formation, index }) {
-  const color = formation.current ? '#22d3ee' : '#818cf8'
+  const color = formation.next ? '#00ff88' : formation.current ? '#22d3ee' : '#818cf8'
   return (
     <div className="flex gap-5">
       {/* Numéro + ligne */}
@@ -254,6 +262,14 @@ function FormationCard({ formation, index }) {
               }}>
                 {formation.date}
               </span>
+              {formation.next && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{
+                  background: 'rgba(0,255,136,0.06)',
+                  border: '1px solid rgba(0,255,136,0.2)',
+                }}>
+                  <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#00ff88', fontFamily: "'Inter', sans-serif" }}>Prochaine étape</span>
+                </span>
+              )}
               {formation.current && (
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{
                   background: 'rgba(0,255,136,0.06)',
@@ -566,26 +582,26 @@ export default function Parcours() {
               {[
                 {
                   step: '01',
-                  title: 'Licence Professionnelle',
-                  subtitle: 'Cybersécurité',
-                  desc: 'Poursuivre en Licence Pro spécialisée en cybersécurité pour acquérir les fondamentaux de la sécurité des systèmes d\'information.',
-                  status: 'Prochaine étape',
+                  title: 'Licence Pro ASUR',
+                  subtitle: 'Admin Systèmes & Réseaux',
+                  desc: 'Intégrer une Licence Pro ASUR ou Cybersécurité en alternance pour approfondir l\'administration d\'infrastructures et la sécurité des SI en conditions réelles.',
+                  status: '2026 — 2027',
                   color: '#00ff88',
                 },
                 {
                   step: '02',
-                  title: 'Master Cybersécurité',
-                  subtitle: 'Sécurité & Réseaux',
-                  desc: 'Intégrer un Master en cybersécurité pour approfondir l\'expertise en audit, sécurité offensive et défense des infrastructures.',
-                  status: 'Objectif moyen terme',
+                  title: 'Administrateur Systèmes & Réseaux',
+                  subtitle: 'Poste en entreprise',
+                  desc: 'Prendre un poste d\'administrateur systèmes et réseaux : gestion Active Directory, supervision Nagios/Zabbix, sécurisation d\'infrastructures, support niveau 2/3.',
+                  status: '2027 — 2029',
                   color: '#22d3ee',
                 },
                 {
                   step: '03',
                   title: 'Expert Cybersécurité',
-                  subtitle: '& Pen Tester',
-                  desc: 'Devenir expert en sécurité informatique et pentesting : tests d\'intrusion, analyse de vulnérabilités et protection des SI.',
-                  status: 'But final',
+                  subtitle: 'Pentester / Analyste SOC',
+                  desc: 'Évoluer vers la cybersécurité : tests d\'intrusion, analyse de vulnérabilités, réponse aux incidents, certifications CEH et OSCP.',
+                  status: 'Objectif long terme',
                   color: '#818cf8',
                 },
               ].map(({ step, title, subtitle, desc, status, color }) => (
@@ -657,7 +673,7 @@ export default function Parcours() {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-3">
-              {['Cybersécurité', 'Pen Testing', 'Sécurité Offensive', 'Audit & Conformité', 'Protection des SI'].map(tag => (
+              {['Administration Réseaux', 'Cybersécurité', 'Pen Testing', 'Supervision', 'Active Directory', 'Linux / Windows Server'].map(tag => (
                 <span key={tag} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl" style={{
                   background: 'rgba(0,255,136,0.05)',
                   border: '1px solid rgba(0,255,136,0.18)',
