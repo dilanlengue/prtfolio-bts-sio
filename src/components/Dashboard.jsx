@@ -122,7 +122,7 @@ export default function Dashboard() {
               </div>
 
               <div className="flex flex-wrap gap-2.5">
-                {['Windows Server', 'Linux', 'Cisco', 'OpenVPN', 'Nagios', 'Active Directory'].map((s, i) => (
+                {['Windows Server', 'Linux', 'Cisco', 'Nagios', 'Active Directory'].map((s, i) => (
                   <span key={i} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12.5px', fontWeight: 500, color: '#94a3b8', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '8px 14px' }}>{s}</span>
                 ))}
               </div>
