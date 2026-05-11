@@ -300,30 +300,38 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* OBJECTIF */}
-        <div className="rounded-xl" style={{
-          padding: '2rem', background: 'rgba(110,231,183,0.05)',
-          border: '1px solid rgba(110,231,183,0.15)',
-        }}>
+        {/* PROJET PROFESSIONNEL */}
+        <div style={{ marginBottom: '5rem' }}>
           <h3 style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
-            fontSize: '1.1rem', fontWeight: 800, color: '#6ee7b7',
-            marginBottom: '1rem',
+            fontSize: '1.3rem', fontWeight: 800, color: '#6ee7b7',
+            marginBottom: '1.5rem',
           }}>
-            Mon Objectif
+            Mon Projet Professionnel
           </h3>
-          <p style={{
-            fontFamily: "'Inter', sans-serif", fontSize: '18px',
-            fontWeight: 700, color: '#ffffff', marginBottom: '0.8rem',
+          <div className="rounded-xl" style={{
+            padding: '2rem', background: 'rgba(110,231,183,0.05)',
+            border: '1px solid rgba(110,231,183,0.15)',
           }}>
-            Devenir Expert en Cybersécurité
-          </p>
-          <p style={{
-            fontFamily: "'Inter', sans-serif", fontSize: '16px',
-            color: '#e2e8f0', lineHeight: 1.9,
-          }}>
-            Ma veille sur le phishing me permet de comprendre les menaces actuelles et de développer les compétences nécessaires pour protéger les systèmes et les utilisateurs. C'est une première étape vers mon objectif : me spécialiser en cybersécurité après mon BTS SIO SISR.
-          </p>
+            <p style={{
+              fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.2rem',
+              fontWeight: 800, color: '#ffffff', marginBottom: '1.2rem',
+            }}>
+              Devenir Expert en Cybersécurité
+            </p>
+            <p style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '16px',
+              color: '#e2e8f0', lineHeight: 1.9, marginBottom: '1rem',
+            }}>
+              Après mon BTS SIO SISR, je souhaite poursuivre en licence ou bachelor spécialisé en cybersécurité, puis évoluer vers un poste d'analyste SOC ou de pentester.
+            </p>
+            <p style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '16px',
+              color: '#cbd5e1', lineHeight: 1.9,
+            }}>
+              Ma veille sur le phishing, mes certifications (ANSSI, Cisco) et mes projets en infrastructure me permettent de construire les bases nécessaires pour atteindre cet objectif.
+            </p>
+          </div>
         </div>
 
       </div>
