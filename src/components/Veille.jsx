@@ -77,7 +77,7 @@ const phishingTypes = [
   },
   {
     num: '2', icon: Smartphone, title: 'SMS (Smishing)', color: '#6366f1',
-    desc: "\"Votre colis est en attente\" ou \"Vous avez une amende\". Le lien mène vers un faux site qui vole tes données bancaires. En 2025, ces arnaques ont explosé de +2 500%. Avec l'IA, les escrocs créent même de fausses photos de colis avec ton nom dessus.",
+    desc: "\"Votre colis est en attente\" ou \"Vous avez une amende\". Le lien mène vers un faux site qui vole tes données bancaires. En 2025, ces arnaques ont explosé de +2 500%. Avec l'IA, les attaquants créent même de fausses photos de colis avec ton nom dessus.",
     tip: "Transfère tout SMS suspect au 33700. Le vrai Chronopost ne t'envoie jamais de lien par SMS.",
     stat: '+2 500%', statLabel: "de hausse en 2025 — 36% de taux de clic (vs 4% par email)",
     examples: ['Faux colis La Poste', 'Fausse amende ANTAI', 'Faux message Ameli'],
@@ -104,7 +104,7 @@ const phishingTypes = [
   },
   {
     num: '5', icon: Users, title: 'Ciblé (Spear Phishing)', color: '#6366f1',
-    desc: "L'escroc ne vise pas tout le monde — il vise TOI. Il cherche ton nom, ton poste, tes collègues sur LinkedIn, puis crée un message personnalisé. En 2025, le groupe Lazarus a volé 1,5 milliard de dollars à la plateforme ByBit avec cette technique — le plus gros braquage crypto de l'histoire.",
+    desc: "L'attaquant ne vise pas tout le monde — il vise TOI. Il cherche ton nom, ton poste, tes collègues sur LinkedIn, puis crée un message personnalisé. En 2025, le groupe Lazarus a volé 1,5 milliard de dollars à la plateforme ByBit avec cette technique — le plus gros braquage crypto de l'histoire.",
     tip: "Méfie-toi des emails qui utilisent ton prénom et citent tes collègues. Vérifie toujours par un autre canal.",
     stat: '54%', statLabel: "de taux de clic quand c'est personnalisé (vs 12% en masse)",
     examples: ['Email au nom de ton chef', 'Fausse facture fournisseur', 'Faux mail de collègue'],
@@ -113,7 +113,7 @@ const phishingTypes = [
   },
   {
     num: '6', icon: Bot, title: 'Fraude au Président (Whaling)', color: '#6366f1',
-    desc: "L'escroc se fait passer pour le PDG et demande un virement urgent. Avec l'IA, il peut créer une fausse visioconférence avec le visage et la voix du patron (deepfake). En 2024, l'entreprise Arup a perdu 25 millions de dollars via une visio où TOUS les participants étaient des deepfakes.",
+    desc: "L'attaquant se fait passer pour le PDG et demande un virement urgent. Avec l'IA, il peut créer une fausse visioconférence avec le visage et la voix du patron (deepfake). En 2024, l'entreprise Arup a perdu 25 millions de dollars via une visio où TOUS les participants étaient des deepfakes.",
     tip: "Toute demande de virement urgente doit être confirmée par un appel direct sur le numéro habituel du dirigeant.",
     stat: '+131%', statLabel: "d'augmentation — 59% des entreprises ont eu un dirigeant ciblé",
     examples: ['Faux virement urgent du PDG', 'Visioconférence deepfake', 'Email du "directeur financier"'],
@@ -122,7 +122,7 @@ const phishingTypes = [
   },
   {
     num: '7', icon: Globe, title: 'Réseaux Sociaux (Angler)', color: '#6366f1',
-    desc: "L'escroc crée un faux compte de service client sur Twitter, Instagram ou Facebook. Il guette les clients mécontents et leur répond avec un lien piégé : \"Cliquez ici pour résoudre votre ticket\". En 2024, 23% des attaques de phishing passaient par les réseaux sociaux.",
+    desc: "L'attaquant crée un faux compte de service client sur Twitter, Instagram ou Facebook. Il guette les clients mécontents et leur répond avec un lien piégé : \"Cliquez ici pour résoudre votre ticket\". En 2024, 23% des attaques de phishing passaient par les réseaux sociaux.",
     tip: "Vérifie toujours que le compte du SAV a le badge officiel (coche bleue). Ne clique jamais sur un lien en DM.",
     stat: '23%', statLabel: 'des attaques passent par les réseaux sociaux',
     examples: ['Faux support PayPal sur Twitter', 'Faux SAV Instagram', 'Faux compte bancaire Facebook'],
@@ -131,7 +131,7 @@ const phishingTypes = [
   },
   {
     num: '8', icon: Lock, title: 'Faux Wi-Fi (Evil Twin)', color: '#6366f1',
-    desc: "L'escroc crée un Wi-Fi avec le même nom qu'un réseau public (café, aéroport, hôtel). Quand tu te connectes, il voit tout : mots de passe, emails, données bancaires. En 2024, un homme a été arrêté en Australie pour avoir installé des faux Wi-Fi dans 3 aéroports.",
+    desc: "L'attaquant crée un Wi-Fi avec le même nom qu'un réseau public (café, aéroport, hôtel). Quand tu te connectes, il voit tout : mots de passe, emails, données bancaires. En 2024, un homme a été arrêté en Australie pour avoir installé des faux Wi-Fi dans 3 aéroports.",
     tip: "N'utilise jamais un Wi-Fi public pour te connecter à ta banque ou tes emails. Utilise tes données mobiles (4G/5G).",
     stat: '15$', statLabel: "le prix d'un outil pour créer un faux Wi-Fi",
     examples: ['Faux Wi-Fi "Starbucks_Free"', 'Faux Wi-Fi aéroport', 'Faux Wi-Fi hôtel'],
@@ -152,7 +152,7 @@ const aiThreats = [
   {
     icon: Volume2, title: 'Clonage de voix en 3 secondes',
     color: '#6366f1',
-    desc: "Un numéro inconnu t'appelle. Tu décroches et tu dis juste \"Allô ?\" ou \"Bonjour\". En 3 secondes, l'escroc a enregistré ta voix. Grâce à l'IA (comme ElevenLabs), il copie ta voix avec 85% de précision (étude McAfee) et appelle tes proches en se faisant passer pour toi.",
+    desc: "Un numéro inconnu t'appelle. Tu décroches et tu dis juste \"Allô ?\" ou \"Bonjour\". En 3 secondes, l'attaquant a enregistré ta voix. Grâce à l'IA (comme ElevenLabs), il copie ta voix avec 85% de précision (étude McAfee) et appelle tes proches en se faisant passer pour toi.",
     example: "Cas réel : une mère américaine a reçu un appel de sa fille qui pleurait et demandait 1 million de dollars de rançon. C'était SA voix — mais c'était un faux créé par IA. Heureusement, elle a vérifié que sa fille allait bien avant de payer. En 2026, près de 50% des arnaques téléphoniques utilisent le clonage de voix par IA.",
     conseil: "Ne décroche jamais un numéro inconnu. Si c'est important, la personne laissera un message. Et crée un \"mot de passe familial\" — un mot secret que seuls tes proches connaissent. L'IA peut copier une voix mais pas deviner un mot secret.",
     stat: '3 sec', statLabel: "pour copier une voix",
@@ -335,7 +335,7 @@ export default function Veille() {
             fontSize: '17px', fontWeight: 500, color: '#94a3b8',
             lineHeight: 2, maxWidth: '700px', letterSpacing: '0.01em',
           }}>
-            Un escroc se fait passer pour quelqu'un de confiance — ta banque, La Poste, les impôts — pour te voler tes données. En 2025, <strong style={{ color: '#ef4444' }}>504 000 victimes</strong> en France. Avec <strong style={{ color: '#6366f1' }}>l'intelligence artificielle</strong>, ces arnaques sont devenues quasi indétectables.
+            Un attaquant se fait passer pour quelqu'un de confiance — ta banque, La Poste, les impôts — pour te voler tes données. En 2025, <strong style={{ color: '#ef4444' }}>504 000 victimes</strong> en France. Avec <strong style={{ color: '#6366f1' }}>l'intelligence artificielle</strong>, ces arnaques sont devenues quasi indétectables.
           </p>
         </div>
 
@@ -427,7 +427,7 @@ export default function Veille() {
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #6366f1, #818cf8)' }} />
           <div className="p-10 md:p-14">
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.2, marginBottom: '3rem' }}>
-              Le <strong style={{ color: '#6366f1' }}>phishing</strong> (hameçonnage en français), c'est quand un escroc <strong style={{ color: '#ef4444' }}>se fait passer pour un organisme de confiance</strong> — banque, impôts, Ameli, La Poste — pour te voler tes <strong style={{ color: '#ef4444' }}>mots de passe ou données bancaires</strong>. C'est la menace n°1 en France : <strong style={{ color: '#6366f1' }}>108 000 demandes d'aide</strong> rien qu'en 2025, soit +70% en un an.
+              Le <strong style={{ color: '#6366f1' }}>phishing</strong> (hameçonnage en français), c'est quand un attaquant <strong style={{ color: '#ef4444' }}>se fait passer pour un organisme de confiance</strong> — banque, impôts, Ameli, La Poste — pour te voler tes <strong style={{ color: '#ef4444' }}>mots de passe ou données bancaires</strong>. C'est la menace n°1 en France : <strong style={{ color: '#6366f1' }}>108 000 demandes d'aide</strong> rien qu'en 2025, soit +70% en un an.
             </p>
 
             <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1rem', fontWeight: 800, color: '#6366f1', letterSpacing: '0.08em', marginBottom: '2.5rem' }}>
@@ -436,7 +436,7 @@ export default function Veille() {
             <div className="grid sm:grid-cols-3 gap-6">
               <div className="rounded-xl p-6 text-center" style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)' }}>
                 <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.5rem', fontWeight: 900, color: '#6366f1', marginBottom: '0.5rem' }}>1</p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>L'escroc prépare le piège</p>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>L'attaquant prépare le piège</p>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.8 }}>Il crée un faux email, SMS ou site web qui ressemble au vrai</p>
               </div>
               <div className="rounded-xl p-6 text-center" style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)' }}>
@@ -446,7 +446,7 @@ export default function Veille() {
               </div>
               <div className="rounded-xl p-6 text-center" style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)' }}>
                 <p style={{ fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.5rem', fontWeight: 900, color: '#6366f1', marginBottom: '0.5rem' }}>3</p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>L'escroc vole tout</p>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>L'attaquant vole tout</p>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8', lineHeight: 1.8 }}>Il utilise les identifiants pour vider le compte ou revendre les données</p>
               </div>
             </div>
@@ -680,7 +680,7 @@ export default function Veille() {
         <SectionHeading
           num="05" icon={Brain}
           title="L'IA rend le Phishing plus dangereux"
-          subtitle="3 nouvelles techniques utilisées par les escrocs grâce à l'intelligence artificielle."
+          subtitle="3 nouvelles techniques utilisées par les attaquants grâce à l'intelligence artificielle."
           color="#6366f1"
           gradient="linear-gradient(135deg, #ffffff 0%, #6366f1 100%)"
         />
@@ -689,7 +689,7 @@ export default function Veille() {
           <div style={{ height: '3px', background: 'linear-gradient(90deg, #6366f1, #818cf8)' }} />
           <div className="p-10 md:p-14">
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 2.2, marginBottom: '3rem' }}>
-              Avant, on repérait un phishing grâce aux <strong style={{ color: '#64748b' }}>fautes d'orthographe</strong>. C'est fini. Aujourd'hui l'IA peut <strong style={{ color: '#6366f1' }}>écrire des messages parfaits</strong>, <strong style={{ color: '#ef4444' }}>copier ta voix en 3 secondes</strong>, et même <strong style={{ color: '#6366f1' }}>créer de fausses vidéos en direct</strong>. Voici les 3 nouvelles armes des escrocs.
+              Avant, on repérait un phishing grâce aux <strong style={{ color: '#64748b' }}>fautes d'orthographe</strong>. C'est fini. Aujourd'hui l'IA peut <strong style={{ color: '#6366f1' }}>écrire des messages parfaits</strong>, <strong style={{ color: '#ef4444' }}>copier ta voix en 3 secondes</strong>, et même <strong style={{ color: '#6366f1' }}>créer de fausses vidéos en direct</strong>. Voici les 3 nouvelles armes des attaquants.
             </p>
 
             {/* AI threat tabs */}
