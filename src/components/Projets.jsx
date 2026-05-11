@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {
   X, FileText, Lock, Target, Server, CheckCircle2,
   ListOrdered, Award, AlertTriangle, Monitor, Settings,
-  Shield, Network, Database, Globe, Cpu
+  Shield, Network, Database, Globe, Cpu, Lightbulb
 } from 'lucide-react'
 
 const projets = [
@@ -47,6 +47,7 @@ const projets = [
       { code: 'B3.2', label: "Préserver l'identité numérique de l'organisation" },
       { code: 'B3.3', label: "Sécuriser les équipements et les usages des utilisateurs" },
     ],
+    bilan: "Ce projet m'a appris l'importance cruciale du DNS dans une infrastructure Active Directory — sans résolution de noms correcte, aucun service ne fonctionne. J'ai compris que la planification de l'architecture (OU, groupes, nommage) est aussi importante que la configuration technique elle-même. En production, je veillerais à documenter chaque étape et à prévoir un plan de rollback.",
     difficulties: [
       {
         problem: "Après l'installation du rôle AD DS, la promotion en contrôleur de domaine échouait avec une erreur de prérequis DNS.",
@@ -100,6 +101,7 @@ const projets = [
       { code: 'B2.3', label: "Exploiter, dépanner et superviser une solution d'infrastructure réseau" },
       { code: 'B3.5', label: "Assurer la cybersécurité d'une infrastructure réseau" },
     ],
+    bilan: "Ce projet m'a fait comprendre l'importance de la segmentation réseau pour la sécurité et la performance. La méthode Router-on-a-Stick, bien que fonctionnelle en lab, montre ses limites en production (goulot d'étranglement). En entreprise, j'opterais pour un switch de couche 3. J'ai aussi appris à diagnostiquer méthodiquement les problèmes réseau couche par couche (modèle OSI).",
     difficulties: [
       {
         problem: "Le routage inter-VLAN ne fonctionnait pas : les sous-interfaces du routeur ne recevaient pas les trames taguées.",
@@ -155,6 +157,7 @@ const projets = [
       { code: 'B3.3', label: "Sécuriser les équipements et les usages des utilisateurs" },
       { code: 'B3.4', label: "Garantir la disponibilité, l'intégrité et la confidentialité" },
     ],
+    bilan: "Ce projet m'a montré la puissance des GPO pour sécuriser un parc à grande échelle, mais aussi les risques de restrictions trop agressives qui peuvent bloquer des outils légitimes. J'ai appris à toujours tester une GPO sur un groupe pilote avant de la déployer largement, et à utiliser gpresult /r pour diagnostiquer les problèmes d'application.",
     difficulties: [
       {
         problem: "La GPO ne s'appliquait pas sur le poste client malgré la liaison à l'OU Stagiaires.",
@@ -209,6 +212,7 @@ const projets = [
       { code: 'B2.3', label: "Exploiter, dépanner et superviser une solution d'infrastructure réseau" },
       { code: 'B3.4', label: "Garantir la disponibilité, l'intégrité et la confidentialité" },
     ],
+    bilan: "Ce projet m'a convaincu de l'importance de la supervision proactive — détecter un problème avant que l'utilisateur ne le signale. J'ai compris que l'installation depuis les sources offre plus de contrôle mais demande une bonne maîtrise de Linux. En entreprise, je combinerais Nagios avec des alertes automatisées (email, SMS) pour réduire le temps de réaction aux incidents.",
     difficulties: [
       {
         problem: "La compilation de Nagios échouait avec des erreurs de bibliothèques GD manquantes (libgd-dev).",
@@ -262,6 +266,7 @@ const projets = [
       { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
       { code: 'B2.3', label: "Exploiter, dépanner et superviser une solution d'infrastructure réseau" },
     ],
+    bilan: "Ce projet m'a fait découvrir la convergence voix/données et les contraintes spécifiques de la VOIP (qualité de service, latence). J'ai compris que la téléphonie IP nécessite une infrastructure réseau solide (DHCP fiable, VLAN voix dédié). L'intégration d'anciens téléphones analogiques m'a appris à gérer la cohabitation entre technologies anciennes et modernes.",
     difficulties: [
       {
         problem: "Les IP Phones ne s'enregistraient pas sur le CME : l'écran restait sur 'Configuring IP' en boucle.",
@@ -313,6 +318,7 @@ const projets = [
       { code: 'B1.3', label: "Développer la présence en ligne" },
       { code: 'B1.1', label: "Gérer le patrimoine informatique" },
     ],
+    bilan: "Ce projet m'a initié au développement web et à la manipulation du DOM. J'ai appris l'importance de la validation des entrées utilisateur pour éviter les comportements imprévus. Même sur un projet simple, la gestion des cas d'erreur (division par zéro, virgule flottante) représente une part significative du travail — c'est une leçon applicable à tous mes projets futurs.",
     difficulties: [
       {
         problem: "Les calculs avec des nombres décimaux produisaient des résultats incorrects (ex: 0.1 + 0.2 = 0.30000000000000004).",
@@ -367,6 +373,7 @@ const projets = [
       { code: 'B1.3', label: "Développer la présence en ligne" },
       { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
     ],
+    bilan: "Déployer GLPI en entreprise m'a montré la différence entre un exercice de lab et un besoin réel : il faut adapter l'outil aux processus existants de l'entreprise et former les utilisateurs. J'ai appris à configurer un outil ITSM complet (inventaire + ticketing) et à mesurer son impact sur la réactivité du support. Cette expérience a renforcé ma compréhension de la gestion de parc informatique en conditions réelles.",
     difficulties: [
       {
         problem: "L'installation de GLPI échouait à l'étape de connexion à la base de données avec une erreur d'accès refusé.",
@@ -422,6 +429,7 @@ const projets = [
       { code: 'B3.3', label: "Sécuriser les équipements et les usages des utilisateurs" },
       { code: 'B3.4', label: "Garantir la disponibilité, l'intégrité et la confidentialité" },
     ],
+    bilan: "Administrer un AD en production m'a confronté aux réalités du terrain : des utilisateurs qui oublient leurs mots de passe, des GPO qui entrent en conflit, des appareils non gérés qui verrouillent des comptes. J'ai développé une méthodologie de diagnostic (Event Viewer, gpresult, dcdiag) et compris l'importance de documenter chaque changement. La différence entre le lab et la production, c'est l'impact sur les vrais utilisateurs.",
     difficulties: [
       {
         problem: "Un compte utilisateur verrouillé empêchait un collaborateur d'accéder à son poste, sans que la source du verrouillage soit identifiable.",
@@ -474,6 +482,7 @@ const projets = [
       { code: 'B3.4', label: "Garantir la disponibilité, l'intégrité et la confidentialité" },
       { code: 'B3.5', label: "Assurer la cybersécurité d'une infrastructure réseau" },
     ],
+    bilan: "Ce projet m'a appris à lire et interpréter le trafic réseau, compétence essentielle pour tout administrateur SISR. Comprendre les couches OSI en pratique (pas seulement en théorie) m'a permis de mieux diagnostiquer les problèmes réseau. J'ai aussi pris conscience des enjeux légaux et éthiques de la capture de paquets — on ne peut analyser que le trafic pour lequel on a une autorisation explicite.",
     difficulties: [
       {
         problem: "Wireshark ne listait aucune interface réseau disponible pour la capture (liste vide).",
@@ -851,6 +860,28 @@ function ProjetModal({ projet, onClose }) {
               ))}
             </ul>
           </div>
+
+          {/* ANALYSE RÉFLEXIVE / BILAN */}
+          {projet.bilan && (
+            <div style={{ marginBottom: '1.75rem' }}>
+              <SectionTitle icon={Lightbulb} label="Analyse réflexive" color="#10b981" />
+              <div style={{
+                paddingLeft: '2.75rem',
+                background: 'rgba(16,185,129,0.06)',
+                border: '1px solid rgba(16,185,129,0.18)',
+                borderRadius: '12px',
+                padding: '1rem 1.25rem 1rem 2.75rem',
+              }}>
+                <p style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '13.5px', color: '#a7f3d0',
+                  lineHeight: 1.85, margin: 0, fontStyle: 'italic',
+                }}>
+                  {projet.bilan}
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* COMPETENCES SISR */}
           <div style={{ marginBottom: '1.75rem' }}>
