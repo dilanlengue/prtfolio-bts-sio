@@ -196,6 +196,42 @@ const liens = [
   { label: 'Cyclades', url: 'https://cyclades.education.fr/' },
 ]
 
+const syntheseData = [
+  {
+    bloc: 'B1',
+    title: 'Support et mise à disposition de services informatiques',
+    color: '#22d3ee',
+    competences: [
+      { code: 'B1.1', label: 'Gérer le patrimoine informatique', projets: ['GLPI & FusionInventory', 'Active Directory'] },
+      { code: 'B1.2', label: 'Répondre aux incidents et demandes', projets: ['GLPI & FusionInventory', 'Stage B&A Conseil'] },
+      { code: 'B1.3', label: 'Développer la présence en ligne', projets: ['Auth Sécurisée', 'Portfolio Web'] },
+      { code: 'B1.4', label: 'Travailler en mode projet', projets: ['Tous les projets'] },
+    ],
+  },
+  {
+    bloc: 'B2',
+    title: 'Administration des systèmes et des réseaux',
+    color: '#a855f3',
+    competences: [
+      { code: 'B2.1', label: 'Concevoir une solution d\'infrastructure', projets: ['VLAN Cisco', 'Active Directory', 'VPN OpenVPN'] },
+      { code: 'B2.2', label: 'Installer, tester et déployer', projets: ['Active Directory', 'DHCP', 'GPO', 'Nagios'] },
+      { code: 'B2.3', label: 'Exploiter, dépanner et superviser', projets: ['Supervision Nagios', 'DHCP', 'GLPI'] },
+    ],
+  },
+  {
+    bloc: 'B3',
+    title: 'Cybersécurité des services informatiques',
+    color: '#fb7185',
+    competences: [
+      { code: 'B3.1', label: 'Protéger les données personnelles', projets: ['Auth Sécurisée', 'GPO'] },
+      { code: 'B3.2', label: 'Préserver l\'identité numérique', projets: ['Active Directory', 'GPO'] },
+      { code: 'B3.3', label: 'Sécuriser les équipements et usages', projets: ['GPO', 'VPN OpenVPN', 'Pare-feu'] },
+      { code: 'B3.4', label: 'Garantir disponibilité et intégrité', projets: ['Supervision Nagios', 'VPN OpenVPN'] },
+      { code: 'B3.5', label: 'Assurer la cybersécurité réseau', projets: ['VPN OpenVPN', 'VLAN Cisco', 'Veille Phishing'] },
+    ],
+  },
+]
+
 /* ─── Dossier card with status + outline ─── */
 function statusMeta(status) {
   if (status === 'available') {
@@ -759,6 +795,95 @@ export default function BTS() {
               >
                 {lien.label} <ExternalLink size={12} />
               </a>
+            ))}
+          </div>
+        </div>
+
+        {/* ── TABLEAU DE SYNTHÈSE ── */}
+        <div style={{ marginBottom: '48px' }}>
+          <SectionLabel label="TABLEAU DE SYNTHÈSE" color="#d4af37" />
+          <p className="text-center" style={{
+            fontFamily: "'Orbitron', system-ui, sans-serif",
+            fontSize: '13px', fontWeight: 700, color: '#64748b',
+            textTransform: 'uppercase', letterSpacing: '0.2em',
+            marginBottom: '32px',
+          }}>
+            Compétences SISR mobilisées
+          </p>
+
+          <div className="space-y-8">
+            {syntheseData.map(bloc => (
+              <div key={bloc.bloc} className="rounded-2xl" style={{
+                background: 'rgba(11,16,32,0.62)',
+                border: `1px solid ${bloc.color}25`,
+                overflow: 'hidden',
+              }}>
+                {/* Bloc header */}
+                <div style={{
+                  padding: '16px 24px',
+                  background: `${bloc.color}08`,
+                  borderBottom: `1px solid ${bloc.color}20`,
+                  display: 'flex', alignItems: 'center', gap: '12px',
+                }}>
+                  <span style={{
+                    fontFamily: "'Orbitron', system-ui, sans-serif",
+                    fontSize: '1.1rem', fontWeight: 800, color: bloc.color,
+                  }}>
+                    {bloc.bloc}
+                  </span>
+                  <span style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '14px', fontWeight: 600, color: '#f1f5f9',
+                  }}>
+                    {bloc.title}
+                  </span>
+                </div>
+
+                {/* Competences rows */}
+                <div>
+                  {bloc.competences.map((comp, i) => (
+                    <div key={comp.code} style={{
+                      padding: '14px 24px',
+                      display: 'flex', alignItems: 'center', gap: '16px',
+                      flexWrap: 'wrap',
+                      borderBottom: i < bloc.competences.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
+                    }}>
+                      <span style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: '12px', fontWeight: 700,
+                        color: bloc.color,
+                        background: `${bloc.color}12`,
+                        border: `1px solid ${bloc.color}25`,
+                        padding: '3px 10px', borderRadius: '6px',
+                        flexShrink: 0,
+                      }}>
+                        {comp.code}
+                      </span>
+                      <span style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: '13px', fontWeight: 600, color: '#cbd5e1',
+                        flex: '1 1 200px', minWidth: '200px',
+                      }}>
+                        {comp.label}
+                      </span>
+                      <div className="flex flex-wrap gap-1.5" style={{ flex: '1 1 250px' }}>
+                        {comp.projets.map(p => (
+                          <span key={p} style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: '11px', fontWeight: 600,
+                            color: '#94a3b8',
+                            background: 'rgba(255,255,255,0.04)',
+                            border: '1px solid rgba(255,255,255,0.08)',
+                            padding: '3px 10px', borderRadius: '6px',
+                          }}>
+                            {p}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>

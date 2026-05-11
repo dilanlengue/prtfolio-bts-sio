@@ -2,7 +2,8 @@ import { Server, Shield, Activity, Network, Download, Mail, ExternalLink, Sparkl
 
 const categories = [
   {
-    title: 'Support & Mise à disposition des services informatiques',
+    title: 'B1 — Support & Mise à disposition des services informatiques',
+    bloc: 'B1',
     icon: Server,
     color: '#818cf8',
     tools: [
@@ -15,7 +16,8 @@ const categories = [
     ],
   },
   {
-    title: 'Administration des systèmes et des réseaux',
+    title: 'B2 — Administration des systèmes et des réseaux',
+    bloc: 'B2',
     icon: Network,
     color: '#22d3ee',
     tools: [
@@ -28,7 +30,8 @@ const categories = [
     ],
   },
   {
-    title: 'Cybersécurité des services informatiques',
+    title: 'B3 — Cybersécurité des services informatiques',
+    bloc: 'B3',
     icon: Shield,
     color: '#fb7185',
     tools: [
@@ -41,6 +44,7 @@ const categories = [
   },
   {
     title: 'Supervision et haute disponibilité',
+    bloc: 'B2',
     icon: Activity,
     color: '#34d399',
     tools: [
@@ -101,6 +105,20 @@ export default function Competences() {
                 }}>
                   <CatIcon size={22} style={{ color: cat.color }} />
                 </div>
+                {cat.bloc && (
+                  <span style={{
+                    fontFamily: "'Orbitron', system-ui, sans-serif",
+                    fontSize: '14px', fontWeight: 900,
+                    color: cat.color,
+                    background: `${cat.color}12`,
+                    border: `1px solid ${cat.color}30`,
+                    padding: '6px 14px',
+                    borderRadius: '10px',
+                    flexShrink: 0,
+                  }}>
+                    {cat.bloc}
+                  </span>
+                )}
                 <h3 style={{
                   fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
                   fontSize: '20px', fontWeight: 800,
