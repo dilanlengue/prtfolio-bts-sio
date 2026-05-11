@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { GraduationCap, Briefcase, MapPin, ChevronDown, ChevronUp, Target, Shield } from 'lucide-react'
+import { GraduationCap, Briefcase, MapPin, ChevronDown, ChevronUp, Target, Shield, FileText } from 'lucide-react'
 
 const stages = [
   {
@@ -7,6 +7,7 @@ const stages = [
     title: 'Technicien Support & Maintenance',
     org: 'B&A Conseil',
     place: 'Île-de-France',
+    docPdf: '/dossiers/dossier-esim-ba-conseil.pdf',
     pills: ['Support N1/N2', 'Windows 10/11', 'GLPI', 'ITIL', 'MDM', 'eSIM'],
     items: [
       'Diagnostic et résolution d\'incidents matériels et logiciels (support N1/N2)',
@@ -202,6 +203,25 @@ function StageCard({ stage, index }) {
                   <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', color: '#94a3b8', lineHeight: 1.8 }}>{it}</span>
                 </div>
               ))}
+              {stage.docPdf && (
+                <a
+                  href={stage.docPdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl transition-all duration-200"
+                  style={{
+                    marginTop: '1.2rem',
+                    background: '#fbbf24', color: '#0b1020',
+                    fontSize: '14px', fontWeight: 700,
+                    textDecoration: 'none',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                  onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)' }}
+                >
+                  <FileText size={16} />
+                  Voir la documentation
+                </a>
+              )}
             </div>
           )}
         </div>
