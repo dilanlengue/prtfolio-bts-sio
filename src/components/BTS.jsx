@@ -635,17 +635,14 @@ export default function BTS() {
         </div>
 
         {/* Section divider */}
-        <SectionLabel label="SISR vs SLAM" color="#22d3ee" />
+        <SectionLabel label="MON OPTION" color="#22d3ee" />
 
-        {/* ── SISR vs SLAM — layout cyber ── */}
-        <div className="grid md:grid-cols-2 gap-8" style={{ marginBottom: '48px' }}>
-
-          {/* SISR — MON OPTION (left, cyan = main) */}
+        {/* ── SISR — Mon option ── */}
+        <div style={{ marginBottom: '48px' }}>
           <div
             className="rounded-2xl"
             style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(34,211,238,0.25)', padding: '32px' }}
           >
-            {/* Header: icon + title + badge */}
             <div className="flex items-center gap-2.5 flex-wrap" style={{ marginBottom: '6px' }}>
               <span style={{ fontSize: '1.3rem' }}>🔧</span>
               <h3 style={{
@@ -675,12 +672,10 @@ export default function BTS() {
               </span>
             </div>
 
-            {/* Subtitle */}
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.5px', fontWeight: 500, color: '#c5d3e8', marginBottom: '12px' }}>
               Solutions d'Infrastructure, Systèmes et Réseaux
             </p>
 
-            {/* Pill tag with dot */}
             <div className="flex items-center gap-1.5 mb-4">
               <span style={{ color: '#22d3ee', fontSize: '8px' }}>●</span>
               <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 600, color: '#22d3ee' }}>
@@ -688,7 +683,6 @@ export default function BTS() {
               </span>
             </div>
 
-            {/* Bullet points */}
             <div className="space-y-2" style={{ marginBottom: '16px' }}>
               {[
                 'Administration systèmes & réseaux',
@@ -703,66 +697,8 @@ export default function BTS() {
               ))}
             </div>
 
-            {/* Tech tags */}
             <div className="flex flex-wrap gap-1.5">
               {['Linux', 'Windows Server', 'Active Directory', 'VMware', 'Cisco', 'Firewall'].map(t => (
-                <span key={t} className="rounded-md" style={{ fontFamily: "'Inter', sans-serif", fontSize: '11.5px', fontWeight: 500, color: '#22d3ee', background: 'rgba(34,211,238,0.07)', border: '1px solid rgba(34,211,238,0.125)', padding: '2px 8px' }}>{t}</span>
-              ))}
-            </div>
-          </div>
-
-          {/* SLAM (right, purple = secondary) */}
-          <div
-            className="rounded-2xl"
-            style={{ background: 'rgba(11,16,32,0.62)', border: '1px solid rgba(255,255,255,0.07)', padding: '32px' }}
-          >
-            {/* Header */}
-            <div className="flex items-center gap-2.5" style={{ marginBottom: '6px' }}>
-              <span style={{ fontSize: '1.3rem' }}>💻</span>
-              <h3 style={{
-                fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: '20px',
-                fontWeight: 800,
-                color: '#a855f3',
-                letterSpacing: '-0.5px',
-                textTransform: 'none',
-                margin: 0,
-              }}>
-                SLAM
-              </h3>
-            </div>
-
-            {/* Subtitle */}
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.5px', fontWeight: 500, color: '#c5d3e8', marginBottom: '12px' }}>
-              Solutions Logicielles et Applications Métiers
-            </p>
-
-            {/* Pill tag with dot */}
-            <div className="flex items-center gap-1.5 mb-4">
-              <span style={{ color: '#a855f3', fontSize: '8px' }}>●</span>
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 600, color: '#a855f3' }}>
-                Développement
-              </span>
-            </div>
-
-            {/* Bullet points */}
-            <div className="space-y-2" style={{ marginBottom: '16px' }}>
-              {[
-                'Conception & développement d\'applications web, mobile, API',
-                'Modélisation & gestion de bases de données',
-                'Intégration dans un SI existant (intranet, outils métiers)',
-                'Tests, qualité logicielle, documentation technique',
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <span style={{ color: '#a855f3', fontSize: '7px', flexShrink: 0, marginTop: '5px' }}>●</span>
-                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.2px', color: '#c5d3e8', lineHeight: 1.4 }}>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Tech tags */}
-            <div className="flex flex-wrap gap-1.5">
-              {['React', 'Python', 'PHP', 'SQL', 'Node.js', 'API REST'].map(t => (
                 <span key={t} className="rounded-md" style={{ fontFamily: "'Inter', sans-serif", fontSize: '11.5px', fontWeight: 500, color: '#22d3ee', background: 'rgba(34,211,238,0.07)', border: '1px solid rgba(34,211,238,0.125)', padding: '2px 8px' }}>{t}</span>
               ))}
             </div>
