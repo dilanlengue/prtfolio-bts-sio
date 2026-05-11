@@ -42,17 +42,6 @@ const categories = [
       { name: 'Pare-feu', desc: 'Vérification et configuration des règles de pare-feu (iptables)', color: '#EF4444', logo: '/logos/firewall.svg', url: 'https://netfilter.org/' },
     ],
   },
-  {
-    title: 'Supervision et haute disponibilité',
-    bloc: 'B2',
-    icon: Activity,
-    color: '#34d399',
-    tools: [
-      { name: 'Nagios', desc: 'Supervision et maintenance des infrastructures informatiques', color: '#4ADE80', logo: '/logos/nagios.svg', url: 'https://www.nagios.org/' },
-      { name: 'SNMP', desc: 'Protocole de supervision des équipements réseau', color: '#10B981', logo: '/logos/snmp.svg', url: 'https://fr.wikipedia.org/wiki/Simple_Network_Management_Protocol' },
-      { name: 'NRPE', desc: 'Exécution de plugins Nagios à distance', color: '#34D399', logo: '/logos/nrpe.svg', url: 'https://github.com/NagiosEnterprises/nrpe' },
-    ],
-  },
 ]
 
 export default function Competences() {
