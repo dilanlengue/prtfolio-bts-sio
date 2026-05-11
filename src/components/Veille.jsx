@@ -315,22 +315,45 @@ export default function Veille() {
           }}>
             <p style={{
               fontFamily: "'Orbitron', system-ui, sans-serif", fontSize: '1.2rem',
-              fontWeight: 800, color: '#ffffff', marginBottom: '1.2rem',
+              fontWeight: 800, color: '#ffffff', marginBottom: '1.5rem',
             }}>
-              Devenir Expert en Cybersécurité
+              Devenir Pentester
             </p>
-            <p style={{
-              fontFamily: "'Inter', sans-serif", fontSize: '16px',
-              color: '#e2e8f0', lineHeight: 1.9, marginBottom: '1rem',
-            }}>
-              Après mon BTS SIO SISR, je souhaite poursuivre en licence ou bachelor spécialisé en cybersécurité, puis évoluer vers un poste d'analyste SOC ou de pentester.
-            </p>
-            <p style={{
-              fontFamily: "'Inter', sans-serif", fontSize: '16px',
-              color: '#cbd5e1', lineHeight: 1.9,
-            }}>
-              Ma veille sur le phishing, mes certifications (ANSSI, Cisco) et mes projets en infrastructure me permettent de construire les bases nécessaires pour atteindre cet objectif.
-            </p>
+            <div className="flex flex-col gap-4 mb-5">
+              {[
+                { etape: 'BTS SIO SISR', desc: 'Bases en administration réseau, systèmes et sécurité', actuel: true },
+                { etape: 'Licence Pro Cybersécurité', desc: 'Spécialisation en sécurité des systèmes d\'information' },
+                { etape: 'Master Cybersécurité', desc: 'Expertise en tests d\'intrusion et audit de sécurité' },
+                { etape: 'Pentester', desc: 'Tester la sécurité des systèmes pour trouver les failles avant les attaquants' },
+              ].map((e, i) => (
+                <div key={i} className="flex items-center gap-4">
+                  <div style={{
+                    width: '36px', height: '36px', borderRadius: '50%',
+                    background: e.actuel ? 'rgba(110,231,183,0.15)' : 'rgba(165,180,252,0.08)',
+                    border: e.actuel ? '2px solid #6ee7b7' : '1px solid rgba(165,180,252,0.2)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                  }}>
+                    <span style={{
+                      fontFamily: "'JetBrains Mono', monospace", fontSize: '13px',
+                      fontWeight: 800, color: e.actuel ? '#6ee7b7' : '#a5b4fc',
+                    }}>{i + 1}</span>
+                  </div>
+                  <div>
+                    <p style={{
+                      fontFamily: "'Inter', sans-serif", fontSize: '16px',
+                      fontWeight: 700, color: e.actuel ? '#6ee7b7' : '#e2e8f0',
+                    }}>
+                      {e.etape} {e.actuel && '← en cours'}
+                    </p>
+                    <p style={{
+                      fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#94a3b8',
+                    }}>
+                      {e.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
