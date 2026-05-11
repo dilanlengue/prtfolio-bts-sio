@@ -8,37 +8,91 @@ import {
 const projets = [
   {
     id: 1,
-    title: 'Infrastructure Réseau VLAN',
+    title: 'Active Directory & DNS',
+    subtitle: 'Windows Server 2025',
+    logo: '/logos/activedirectory.svg',
+    color: '#00BEF2',
+    image: '/projects/ad.webp',
+    badge: 'E5',
+    badgeColor: '#a855f3',
+    description: "Déploiement d'un contrôleur de domaine AD DS avec DNS intégré sur Windows Server 2025 — forêt sio.lan.",
+    technologies: ['Windows Server 2025', 'AD DS', 'DNS', 'PowerShell', 'Hyper-V'],
+    docPdf: '/dossiers/dossier-adds-dns.pdf',
+    warning: "Ce projet a été réalisé dans un environnement virtualisé (Hyper-V) à des fins pédagogiques. Les configurations présentées (mot de passe administrateur, structure OU) doivent être adaptées et renforcées avant toute mise en production.",
+    context: "Dans le cadre de la formation BTS SIO SISR, il était nécessaire de mettre en place une infrastructure Active Directory centralisée pour gérer les utilisateurs, les postes et les ressources réseau. Le serveur SVR-WND (Windows Server 2025, IP 172.16.1.1) a été configuré comme contrôleur de domaine pour la forêt sio.lan, avec un service DNS intégré pour la résolution de noms interne.",
+    objectives: [
+      "Installer et configurer le rôle AD DS sur Windows Server 2025",
+      "Promouvoir le serveur en contrôleur de domaine pour une nouvelle forêt sio.lan",
+      "Configurer le service DNS intégré à Active Directory",
+      "Créer une structure d'Unités d'Organisation (OU) et des comptes utilisateurs"
+    ],
+    environment: ['Windows Server 2025 (SVR-WND)', 'Hyper-V (virtualisation)', 'AD DS (Active Directory Domain Services)', 'DNS intégré AD', 'IP statique 172.16.1.1', 'Forêt sio.lan'],
+    steps: [
+      "Installation de Windows Server 2025 sur Hyper-V et configuration de l'IP statique 172.16.1.1 sur le serveur SVR-WND",
+      "Installation du rôle AD DS via le Gestionnaire de serveur (Ajout de rôles et fonctionnalités)",
+      "Promotion du serveur en contrôleur de domaine : création d'une nouvelle forêt avec le domaine sio.lan",
+      "Vérification du service DNS : zone de recherche directe sio.lan créée automatiquement avec les enregistrements SRV",
+      "Création des Unités d'Organisation (OU) pour structurer l'annuaire selon les services de l'entreprise",
+      "Création des comptes utilisateurs dans les OU correspondantes avec attribution des droits appropriés"
+    ],
+    results: [
+      "Contrôleur de domaine opérationnel pour la forêt sio.lan sur Windows Server 2025",
+      "Service DNS intégré fonctionnel avec résolution de noms interne automatique",
+      "Structure OU organisée reflétant l'organigramme de l'entreprise",
+      "Comptes utilisateurs créés et fonctionnels avec authentification centralisée"
+    ],
+    competences: [
+      { code: 'B2.1', label: "Concevoir une solution d'infrastructure réseau" },
+      { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
+      { code: 'B3.2', label: "Préserver l'identité numérique de l'organisation" },
+      { code: 'B3.3', label: "Sécuriser les équipements et les usages des utilisateurs" },
+    ],
+    difficulties: [
+      {
+        problem: "Après l'installation du rôle AD DS, la promotion en contrôleur de domaine échouait avec une erreur de prérequis DNS.",
+        solution: "Le serveur n'avait pas de serveur DNS configuré dans ses paramètres réseau. Configuration du DNS préféré sur 127.0.0.1 (lui-même) avant la promotion, ce qui a permis l'installation automatique du DNS intégré."
+      },
+      {
+        problem: "Les enregistrements SRV (_ldap, _kerberos) n'apparaissaient pas dans la zone DNS après la promotion.",
+        solution: "Redémarrage du service Netlogon (net stop netlogon && net start netlogon) pour forcer la re-création des enregistrements SRV nécessaires à la localisation du contrôleur de domaine."
+      }
+    ],
+  },
+  {
+    id: 2,
+    title: 'Segmentation VLAN',
     subtitle: 'Cisco Packet Tracer',
     logo: '/logos/cisco.svg',
     color: '#049FD9',
     image: '/projects/vlan.webp',
     badge: 'E5',
     badgeColor: '#a855f3',
-    description: 'Segmentation VLAN et routage inter-VLAN via Router-on-a-Stick avec liens trunk 802.1Q.',
-    technologies: ['Cisco IOS', 'VLAN', '802.1Q', 'TCP/IP', 'Trunk'],
-    docPdf: null,
-    context: "Dans le cadre d'une entreprise multi-services, le réseau initial était un réseau plat (flat network) sans segmentation, exposant l'ensemble des flux de données de chaque service. Cette architecture entraînait des problèmes de performances (broadcast storms), des risques de sécurité (accès non cloisonnés) et une difficulté de gestion. L'objectif était de concevoir une infrastructure VLAN segmentée pour isoler les différents services (Direction, Comptabilité, Technique, Invités) tout en maintenant la communication inter-services via un routage contrôlé.",
+    description: "Segmentation réseau d'une PME en 4 VLAN avec routage inter-VLAN Router-on-a-Stick et DHCP.",
+    technologies: ['Cisco IOS', 'VLAN', '802.1Q', 'DHCP', 'Router-on-a-Stick'],
+    docPdf: '/dossiers/dossier-segmentation-vlan.pdf',
+    warning: "Ce projet a été réalisé sur Cisco Packet Tracer (simulateur) à des fins pédagogiques. Les adressages IP et configurations présentés sont adaptés à un environnement de lab et doivent être redimensionnés pour un déploiement en production.",
+    context: "Une PME dispose de plusieurs services (IT, Comptabilité, RH) partageant un réseau plat sans segmentation. Cette architecture expose les flux de chaque service aux autres, crée des problèmes de performance (broadcast) et empêche tout contrôle d'accès entre services. L'objectif est de segmenter le réseau en VLAN distincts pour isoler les flux tout en permettant la communication inter-services via un routage contrôlé.",
     objectives: [
-      "Segmenter le réseau en 4 VLAN distincts pour isoler les flux par service",
-      "Configurer le routage inter-VLAN via la méthode Router-on-a-Stick (sous-interfaces)",
-      "Mettre en place les liens trunk 802.1Q entre les switches et le routeur",
-      "Documenter l'adressage IP et les schémas réseau pour faciliter la maintenance"
+      "Créer 4 VLAN : VLAN 10 (IT, 192.168.10.0/24), VLAN 20 (Comptabilité, 192.168.20.0/24), VLAN 30 (RH, 192.168.30.0/24), VLAN 99 (Wi-Fi invité, 192.168.99.0/24)",
+      "Configurer le routage inter-VLAN via la méthode Router-on-a-Stick avec sous-interfaces",
+      "Mettre en place des pools DHCP sur le routeur pour chaque VLAN avec ip helper-address",
+      "Tester la connectivité intra-VLAN et inter-VLAN"
     ],
-    environment: ['Cisco Packet Tracer 8.2', 'Switch Cisco 2960 (IOS 15.0)', 'Routeur Cisco 2911 (IOS 15.4)', 'Protocole 802.1Q', 'TCP/IP v4', 'Câblage UTP Cat.6'],
+    environment: ['Cisco Packet Tracer', 'Switch Cisco 2960', 'Routeur Cisco (Router-on-a-Stick)', 'Protocole 802.1Q', 'DHCP pools', 'ip helper-address'],
     steps: [
-      "Analyse du réseau existant et définition du plan d'adressage IP par VLAN (10.0.10.0/24, 10.0.20.0/24, 10.0.30.0/24, 10.0.40.0/24)",
-      "Création des VLAN 10 (Direction), 20 (Comptabilité), 30 (Technique), 40 (Invités) sur les switches Cisco 2960",
-      "Affectation des ports d'accès aux VLAN correspondants et configuration des ports trunk en 802.1Q",
-      "Configuration des sous-interfaces sur le routeur 2911 (encapsulation dot1Q) pour le routage inter-VLAN",
-      "Tests de connectivité : ping intra-VLAN et inter-VLAN, vérification de l'isolation du VLAN Invités",
-      "Rédaction de la documentation technique : schéma Packet Tracer, tableau d'adressage, procédures"
+      "Création des VLAN 10 (IT), 20 (Comptabilité), 30 (RH) et 99 (Wi-Fi invité) sur le switch Cisco 2960",
+      "Affectation des ports d'accès aux VLAN correspondants (switchport mode access, switchport access vlan X)",
+      "Configuration du port trunk entre le switch et le routeur (switchport mode trunk, encapsulation dot1q)",
+      "Configuration des sous-interfaces sur le routeur avec encapsulation dot1Q pour chaque VLAN",
+      "Mise en place des pools DHCP sur le routeur pour attribution automatique des IP par VLAN",
+      "Configuration de ip helper-address sur les sous-interfaces pour relayer les requêtes DHCP",
+      "Tests de connectivité : ping intra-VLAN et inter-VLAN, vérification de l'isolation du VLAN 99 invité"
     ],
     results: [
-      "Isolation complète des flux réseau entre les 4 services de l'entreprise",
-      "Réduction du domaine de broadcast de 100% à 25% par segment",
-      "Communication inter-VLAN fonctionnelle via le routeur avec contrôle granulaire",
-      "Documentation technique complète (schéma réseau, plan d'adressage, configuration IOS)"
+      "4 VLAN fonctionnels avec isolation complète des flux entre les services",
+      "Routage inter-VLAN opérationnel via Router-on-a-Stick",
+      "Attribution automatique des adresses IP par DHCP pour chaque VLAN",
+      "VLAN 99 Wi-Fi invité isolé des réseaux internes de l'entreprise"
     ],
     competences: [
       { code: 'B2.1', label: "Concevoir une solution d'infrastructure réseau" },
@@ -48,252 +102,51 @@ const projets = [
     ],
     difficulties: [
       {
-        problem: "Les sous-interfaces du routeur ne recevaient pas les trames taguées 802.1Q, empêchant tout routage inter-VLAN.",
-        solution: "Le port du switch connecté au routeur était en mode access au lieu de trunk. Après passage en mode trunk avec autorisation de tous les VLAN, le routage a fonctionné immédiatement."
+        problem: "Le routage inter-VLAN ne fonctionnait pas : les sous-interfaces du routeur ne recevaient pas les trames taguées.",
+        solution: "Le port du switch connecté au routeur était en mode access au lieu de trunk. Passage en mode trunk avec autorisation de tous les VLAN (switchport mode trunk), le routage a fonctionné immédiatement."
       },
       {
-        problem: "Le VLAN Invités communiquait avec les autres VLAN malgré la segmentation souhaitée.",
-        solution: "Ajout d'une ACL sur la sous-interface du VLAN 40 pour bloquer le trafic vers les réseaux internes tout en autorisant l'accès Internet uniquement."
-      }
-    ],
-  },
-  {
-    id: 2,
-    title: 'Active Directory',
-    subtitle: 'Windows Server 2022',
-    logo: '/logos/activedirectory.svg',
-    color: '#00BEF2',
-    image: '/projects/ad.webp',
-    badge: 'E5',
-    badgeColor: '#a855f3',
-    description: "Déploiement d'un contrôleur de domaine AD DS & DNS intégré en environnement Windows Server.",
-    technologies: ['Windows Server 2022', 'AD DS', 'DNS', 'DHCP', 'GPO'],
-    docPdf: null,
-    context: "L'entreprise disposait de postes de travail gérés de manière indépendante (workgroup), sans annuaire centralisé. Chaque poste avait ses propres comptes utilisateurs locaux, rendant impossible toute gestion centralisée des droits, des mots de passe et des configurations. Le besoin était de déployer un domaine Active Directory pour centraliser l'administration de l'ensemble du parc informatique (utilisateurs, postes, politiques de sécurité).",
-    objectives: [
-      "Installer et configurer un contrôleur de domaine Active Directory sur Windows Server 2022",
-      "Intégrer les services DNS et DHCP au domaine pour une résolution de noms et attribution d'adresses automatisées",
-      "Créer une structure d'Unités d'Organisation (OU) reflétant l'organigramme de l'entreprise",
-      "Joindre les postes clients au domaine et déployer les premières stratégies de groupe (GPO)"
-    ],
-    environment: ['Windows Server 2022 Datacenter', 'Hyper-V (virtualisation)', 'AD DS (Active Directory Domain Services)', 'DNS intégré AD', 'DHCP Server', 'Windows 10/11 Pro (clients)', 'PowerShell 5.1'],
-    steps: [
-      "Installation de Windows Server 2022 sur hyperviseur Hyper-V, configuration IP statique et nom d'hôte (SRV-DC01)",
-      "Installation du rôle AD DS via Server Manager et promotion en contrôleur de domaine (dcpromo) pour le domaine lengue.local",
-      "Configuration du DNS intégré à Active Directory avec zone de recherche directe et inversée",
-      "Installation et configuration du rôle DHCP : étendue 10.0.0.100-200, options serveur (DNS, passerelle)",
-      "Création des OU (Direction, RH, Technique, Stagiaires) et des comptes utilisateurs avec groupes de sécurité associés",
-      "Jonction des postes Windows 10/11 au domaine et vérification de l'authentification centralisée"
-    ],
-    results: [
-      "Domaine Active Directory lengue.local opérationnel avec 1 contrôleur de domaine",
-      "Authentification centralisée pour tous les utilisateurs du parc (SSO Windows)",
-      "Attribution automatique des adresses IP via DHCP intégré au domaine",
-      "Structure OU et groupes de sécurité prêts pour l'application de GPO"
-    ],
-    competences: [
-      { code: 'B1.1', label: "Gérer le patrimoine informatique" },
-      { code: 'B2.1', label: "Concevoir une solution d'infrastructure réseau" },
-      { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
-      { code: 'B3.2', label: "Préserver l'identité numérique de l'organisation" },
-      { code: 'B3.3', label: "Sécuriser les équipements et les usages des utilisateurs" },
-    ],
-    difficulties: [
-      {
-        problem: "Après la promotion en contrôleur de domaine, le service DNS ne démarrait pas et les enregistrements SRV n'étaient pas créés.",
-        solution: "Le problème venait d'un conflit d'adresse IP. Après attribution d'une IP statique correcte et redémarrage du service Netlogon, les enregistrements DNS se sont créés automatiquement."
-      },
-      {
-        problem: "Les postes clients ne parvenaient pas à joindre le domaine (erreur 'Le domaine spécifié n'existe pas').",
-        solution: "La configuration DNS des postes clients pointait vers un DNS externe (8.8.8.8) au lieu du serveur AD. Correction du serveur DNS préféré vers l'IP du DC (10.0.0.1) dans les paramètres DHCP."
+        problem: "Les postes du VLAN 20 (Comptabilité) n'obtenaient pas d'adresse IP via DHCP malgré la configuration du pool.",
+        solution: "La commande ip helper-address manquait sur la sous-interface du VLAN 20. Ajout de ip helper-address pointant vers le routeur lui-même pour relayer les requêtes DHCP broadcast vers le pool DHCP."
       }
     ],
   },
   {
     id: 3,
-    title: 'Serveur DHCP',
-    subtitle: 'Windows Server',
-    logo: '/logos/windows.svg',
-    color: '#0078D4',
-    image: '/projects/ad.webp',
-    badge: 'E5',
-    badgeColor: '#a855f3',
-    description: "Configuration du rôle DHCP — étendues, réservations et options de serveur.",
-    technologies: ['Windows Server 2022', 'DHCP', 'TCP/IP', 'DNS', 'PowerShell'],
-    docPdf: null,
-    context: "L'attribution manuelle des adresses IP sur un parc de plus de 50 postes générait des erreurs récurrentes : conflits d'adresses, oublis de configuration DNS/passerelle, temps d'intervention élevé pour chaque nouveau poste. Le service informatique perdait un temps considérable à gérer l'adressage réseau manuellement. Il était nécessaire de mettre en place un service DHCP centralisé pour automatiser et fiabiliser l'attribution des paramètres réseau.",
-    objectives: [
-      "Installer et configurer le rôle DHCP sur Windows Server 2022",
-      "Créer des étendues adaptées à la topologie réseau avec plages d'exclusion",
-      "Configurer les réservations d'adresses pour les équipements critiques (serveurs, imprimantes)",
-      "Paramétrer les options de serveur (DNS, passerelle, nom de domaine) pour un déploiement automatisé"
-    ],
-    environment: ['Windows Server 2022', 'Console DHCP (dhcpmgmt.msc)', 'PowerShell (cmdlets DHCP)', 'TCP/IP v4', 'DNS intégré AD', 'Wireshark (analyse DORA)'],
-    steps: [
-      "Installation du rôle DHCP via Server Manager et autorisation du serveur dans Active Directory",
-      "Création de l'étendue principale : plage 10.0.0.100 à 10.0.0.250, masque /24, bail de 8 heures",
-      "Configuration des plages d'exclusion pour les adresses réservées aux serveurs (10.0.0.1-10.0.0.20)",
-      "Paramétrage des options d'étendue : passerelle (10.0.0.254), serveur DNS (10.0.0.1), suffixe DNS (lengue.local)",
-      "Création de réservations DHCP par adresse MAC pour les imprimantes réseau et serveurs d'impression",
-      "Validation avec Wireshark : capture du processus DORA (Discover, Offer, Request, Acknowledge)"
-    ],
-    results: [
-      "Attribution automatique des adresses IP pour l'ensemble du parc en moins de 3 secondes",
-      "Zéro conflit d'adresse IP depuis la mise en production du service DHCP",
-      "Réservations actives pour 8 équipements critiques (imprimantes, NAS, bornes Wi-Fi)",
-      "Temps de configuration d'un nouveau poste réduit de 15 minutes à 0 (plug & play)"
-    ],
-    competences: [
-      { code: 'B1.1', label: "Gérer le patrimoine informatique" },
-      { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
-      { code: 'B2.3', label: "Exploiter, dépanner et superviser une solution d'infrastructure réseau" },
-    ],
-    difficulties: [
-      {
-        problem: "Un serveur DHCP non autorisé (rogue DHCP) sur le réseau distribuait des adresses incorrectes, provoquant des conflits.",
-        solution: "Identification du serveur pirate via Wireshark (analyse des paquets DHCP Offer), puis autorisation exclusive du serveur DHCP légitime dans Active Directory et désactivation du service sur la machine non autorisée."
-      },
-      {
-        problem: "Les baux DHCP par défaut de 8 jours saturaient la plage d'adresses disponibles.",
-        solution: "Réduction de la durée de bail à 8 heures pour les postes standards et 4 heures pour le VLAN Invités, libérant ainsi les adresses plus rapidement."
-      }
-    ],
-  },
-  {
-    id: 4,
-    title: 'GLPI & FusionInventory',
-    subtitle: 'Gestion de parc ITSM',
-    logo: '/logos/glpi.svg',
-    color: '#8B5CF6',
-    image: '/projects/glpi.webp',
-    badge: 'E4',
-    badgeColor: '#22d3ee',
-    description: "Déploiement GLPI + FusionInventory : gestion de parc, ticketing et inventaire automatique.",
-    technologies: ['GLPI 10', 'FusionInventory', 'Apache', 'MySQL', 'PHP', 'ITIL'],
-    docPdf: null,
-    context: "Lors de mon stage chez B&A Conseil, la gestion du parc informatique reposait sur des fichiers Excel partagés, sans suivi centralisé des interventions ni historique des incidents. Les techniciens ne disposaient d'aucun outil de ticketing conforme aux bonnes pratiques ITIL. Le manque de visibilité sur le parc matériel et logiciel compliquait les opérations de maintenance préventive et la planification des renouvellements. Il fallait déployer une solution ITSM professionnelle.",
-    objectives: [
-      "Déployer GLPI sur un serveur LAMP pour centraliser la gestion du parc informatique",
-      "Installer et configurer le plugin FusionInventory pour l'inventaire automatique des postes",
-      "Mettre en place le module de ticketing ITIL (incidents, demandes, changements)",
-      "Former les utilisateurs à la création de tickets et les techniciens au traitement"
-    ],
-    environment: ['Debian 12 (serveur)', 'Apache 2.4', 'PHP 8.2', 'MariaDB 10.11', 'GLPI 10.0.10', 'FusionInventory Agent 2.6', 'Navigateur web (interface GLPI)'],
-    steps: [
-      "Installation du socle LAMP (Apache, MariaDB, PHP 8.2) sur Debian 12 et sécurisation de la base de données",
-      "Déploiement de GLPI 10 : téléchargement, extraction, configuration de la base de données, assistant d'installation web",
-      "Installation du plugin FusionInventory dans GLPI et configuration des règles d'import automatique",
-      "Déploiement de l'agent FusionInventory sur les postes Windows (GPO) et Linux (apt) du parc",
-      "Configuration du module de ticketing : catégories d'incidents, SLA, gabarits de tickets, notifications email",
-      "Formation des 5 techniciens et rédaction d'un guide utilisateur pour la création de tickets"
-    ],
-    results: [
-      "Inventaire automatique de 47 postes et 12 équipements réseau en moins de 24h",
-      "Réduction du temps moyen de résolution des incidents de 4h à 1h30 grâce au ticketing structuré",
-      "Traçabilité complète de chaque intervention avec historique et pièces jointes",
-      "Base de connaissances GLPI alimentée avec 15 procédures de résolution courantes"
-    ],
-    competences: [
-      { code: 'B1.1', label: "Gérer le patrimoine informatique" },
-      { code: 'B1.2', label: "Répondre aux incidents et aux demandes d'assistance" },
-      { code: 'B1.4', label: "Travailler en mode projet" },
-      { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
-    ],
-    difficulties: [
-      {
-        problem: "L'agent FusionInventory ne remontait pas les informations de certains postes Windows : l'inventaire restait incomplet.",
-        solution: "Le pare-feu Windows bloquait la communication sur le port 62354. Création d'une règle de pare-feu via GPO pour autoriser le trafic entrant/sortant de l'agent FusionInventory sur tous les postes du domaine."
-      },
-      {
-        problem: "Les doublons d'équipements dans GLPI après chaque inventaire faussaient les statistiques du parc.",
-        solution: "Configuration des règles de réconciliation dans FusionInventory basées sur le numéro de série et l'adresse MAC, permettant la fusion automatique des entrées en double."
-      }
-    ],
-  },
-  {
-    id: 5,
-    title: 'Authentification Sécurisée',
-    subtitle: 'PHP & MySQL',
-    logo: null,
-    color: '#10b981',
-    image: '/projects/marketplace.webp',
-    badge: 'E4',
-    badgeColor: '#22d3ee',
-    description: "Formulaires d'authentification sécurisés avec sessions PHP et protection SQL.",
-    technologies: ['PHP 8.2', 'MySQL 8', 'HTML5/CSS3', 'Sessions', 'PDO'],
-    docPdf: null,
-    context: "Dans le cadre d'un projet de développement web, il m'a été demandé de créer un système d'authentification sécurisé pour une application interne. L'ancien système stockait les mots de passe en clair dans la base de données et les formulaires étaient vulnérables aux injections SQL. Suite à un audit de sécurité interne, la refonte complète du module d'authentification était devenue prioritaire pour se conformer aux bonnes pratiques de sécurité applicative.",
-    objectives: [
-      "Développer un formulaire d'inscription et de connexion sécurisé (validation côté client et serveur)",
-      "Implémenter le hachage des mots de passe avec l'algorithme bcrypt (password_hash / password_verify)",
-      "Protéger les requêtes SQL contre les injections via les requêtes préparées PDO",
-      "Gérer les sessions PHP de manière sécurisée (régénération d'ID, expiration, protection CSRF)"
-    ],
-    environment: ['PHP 8.2', 'MySQL 8.0', 'Apache 2.4 (XAMPP)', 'HTML5 / CSS3', 'PDO (PHP Data Objects)', 'phpMyAdmin', 'Navigateur DevTools (tests)'],
-    steps: [
-      "Conception de la base de données : table users (id, email, password_hash, role, created_at) avec contraintes d'unicité",
-      "Développement du formulaire d'inscription avec validation côté serveur (regex email, longueur mot de passe, confirmation)",
-      "Implémentation du hachage bcrypt avec password_hash() et vérification avec password_verify()",
-      "Sécurisation des requêtes SQL : remplacement de toutes les concaténations par des requêtes préparées PDO (bindParam)",
-      "Gestion des sessions sécurisées : session_regenerate_id() à chaque connexion, token CSRF dans les formulaires, cookie HttpOnly",
-      "Tests de sécurité : tentatives d'injection SQL, tests XSS, vérification de la robustesse du hachage"
-    ],
-    results: [
-      "Zéro vulnérabilité d'injection SQL détectée lors des tests de pénétration manuels",
-      "Mots de passe stockés sous forme de hash bcrypt (coût 12), irréversibles même en cas de fuite de BDD",
-      "Sessions sécurisées avec expiration automatique après 30 minutes d'inactivité",
-      "Protection CSRF opérationnelle sur tous les formulaires de l'application"
-    ],
-    competences: [
-      { code: 'B1.3', label: "Développer la présence en ligne" },
-      { code: 'B3.1', label: "Protéger les données à caractère personnel" },
-      { code: 'B3.2', label: "Préserver l'identité numérique de l'organisation" },
-      { code: 'B3.4', label: "Garantir la disponibilité, l'intégrité et la confidentialité" },
-    ],
-    difficulties: [
-      {
-        problem: "Le formulaire de connexion acceptait les caractères spéciaux dans le champ email, permettant des tentatives d'injection XSS.",
-        solution: "Mise en place d'une double validation : filtre FILTER_VALIDATE_EMAIL côté PHP et attribut type='email' côté HTML, plus échappement systématique avec htmlspecialchars() en sortie."
-      },
-      {
-        problem: "Les sessions étaient fixées (session fixation) : un attaquant pouvait forcer un ID de session connu.",
-        solution: "Appel systématique de session_regenerate_id(true) après chaque authentification réussie, et configuration de session.cookie_httponly et session.cookie_secure dans php.ini."
-      }
-    ],
-  },
-  {
-    id: 6,
-    title: 'GPO — Stratégies de groupe',
+    title: 'Stratégies de Groupe (GPO)',
     subtitle: 'Active Directory',
-    logo: '/logos/gpo.svg',
+    logo: '/logos/activedirectory.svg',
     color: '#3B82F6',
     image: '/projects/ad.webp',
     badge: 'E5',
     badgeColor: '#a855f3',
-    description: "Configuration de GPO pour sécuriser et administrer les postes du domaine AD.",
-    technologies: ['GPO', 'Active Directory', 'Windows Server 2022', 'GPMC', 'Sécurité'],
-    docPdf: null,
-    context: "Après le déploiement du domaine Active Directory, les postes clients ne disposaient d'aucune politique de sécurité unifiée : les utilisateurs pouvaient installer des logiciels librement, les mots de passe n'avaient aucune exigence de complexité, le pare-feu Windows était désactivé sur certains postes, et le bureau pouvait être modifié sans restriction. Il fallait déployer des stratégies de groupe (GPO) pour homogénéiser et sécuriser la configuration de l'ensemble du parc.",
+    description: "Sécurisation des comptes stagiaires via GPO : restriction du CMD et du Panneau de configuration.",
+    technologies: ['GPO', 'Active Directory', 'Windows Server', 'GPMC', 'Sécurité'],
+    docPdf: '/dossiers/dossier-gpo.pdf',
+    warning: "Ce projet a été réalisé dans un environnement Active Directory de test. Les restrictions GPO appliquées aux stagiaires sont un exemple pédagogique. En production, une analyse des besoins métier et une politique de sécurité globale doivent être définies avant déploiement.",
+    context: "Dans le cadre de la gestion des stagiaires au sein du domaine Active Directory, il est nécessaire de restreindre certains accès pour des raisons de sécurité. Les stagiaires ne doivent pas pouvoir accéder à l'invite de commandes (CMD) ni au Panneau de configuration, afin d'éviter toute modification non autorisée de la configuration des postes de travail. Une stratégie de groupe (GPO) doit être mise en place et liée à l'OU Stagiaires.",
     objectives: [
-      "Définir et appliquer une politique de mots de passe robuste (complexité, expiration, historique)",
-      "Restreindre l'accès au Panneau de configuration et l'installation de logiciels non autorisés",
-      "Déployer des logiciels automatiquement via GPO (navigateur, antivirus, outils bureautiques)",
-      "Configurer le pare-feu Windows et les règles d'audit de sécurité via stratégie de groupe"
+      "Créer une Unité d'Organisation (OU) dédiée aux stagiaires dans Active Directory",
+      "Créer un groupe de sécurité global 'Groupe Stagiaires' et y ajouter les utilisateurs concernés",
+      "Configurer une GPO pour bloquer l'accès à l'invite de commandes (CMD)",
+      "Configurer une GPO pour interdire l'accès au Panneau de configuration",
+      "Tester l'application des restrictions sur un poste client joint au domaine"
     ],
-    environment: ['Windows Server 2022 (DC)', 'Console GPMC (gpmc.msc)', 'Active Directory Users & Computers', 'Éditeur de stratégie de groupe (gpedit.msc)', 'Rsop.msc (jeu de résultats)', 'gpresult /r (diagnostic)'],
+    environment: ['Windows Server (contrôleur de domaine)', 'Console GPMC (gpmc.msc)', 'Active Directory Users & Computers', 'Éditeur de stratégie de groupe', 'Windows 10/11 (poste client)', 'gpresult /r (diagnostic)'],
     steps: [
-      "Audit de l'existant : analyse des configurations postes avec gpresult /r et identification des failles de sécurité",
-      "Création de la GPO 'Politique de mots de passe' : longueur minimale 12 caractères, complexité activée, expiration 90 jours, historique 5",
-      "Création de la GPO 'Restrictions utilisateurs' : blocage du Panneau de configuration, interdiction de modifier le fond d'écran, masquage des lecteurs système",
-      "Création de la GPO 'Pare-feu & Sécurité' : activation du pare-feu Windows, blocage des ports non essentiels, activation de l'audit des connexions",
-      "Création de la GPO 'Déploiement logiciels' : installation automatique de Firefox et LibreOffice via packages MSI",
-      "Tests et validation : gpresult /r sur les postes cibles, vérification de l'application avec Rsop.msc, documentation des GPO"
+      "Création de l'OU 'Stagiaires' dans Active Directory Users and Computers",
+      "Création du groupe de sécurité 'Groupe Stagiaires' (type Global) dans l'OU Stagiaires",
+      "Création des comptes utilisateurs stagiaires et ajout au groupe 'Groupe Stagiaires'",
+      "Ouverture de la console GPMC et création d'une nouvelle GPO liée à l'OU Stagiaires",
+      "Configuration de la GPO : User Configuration → Administrative Templates → System → Empêcher l'accès à l'invite de commandes (Activé)",
+      "Configuration de la GPO : User Configuration → Administrative Templates → Control Panel → Interdire l'accès au Panneau de configuration et aux paramètres PC (Activé)",
+      "Test sur un poste Windows 10/11 joint au domaine : connexion avec un compte stagiaire et vérification que CMD et Panneau de configuration sont bien bloqués"
     ],
     results: [
-      "5 GPO déployées et liées aux OU appropriées, appliquées sur 100% des postes du domaine",
-      "Conformité de tous les mots de passe aux exigences ANSSI (12 caractères, complexité, expiration)",
-      "Déploiement silencieux de Firefox et LibreOffice sur 30 postes en moins de 2 heures",
-      "Pare-feu Windows activé et configuré de manière uniforme sur l'ensemble du parc"
+      "OU Stagiaires créée avec groupe de sécurité global associé",
+      "GPO appliquée : invite de commandes (CMD) bloquée pour tous les stagiaires",
+      "GPO appliquée : Panneau de configuration inaccessible pour les comptes stagiaires",
+      "Tests validés sur poste client : les restrictions s'appliquent correctement à la connexion"
     ],
     competences: [
       { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
@@ -304,99 +157,51 @@ const projets = [
     ],
     difficulties: [
       {
-        problem: "La GPO de déploiement de logiciels ne s'appliquait pas : les postes ne recevaient pas les packages MSI au redémarrage.",
-        solution: "Le partage réseau contenant les MSI n'avait pas les droits de lecture pour le groupe 'Ordinateurs du domaine'. Correction des ACL NTFS et des permissions de partage, puis gpupdate /force."
+        problem: "La GPO ne s'appliquait pas sur le poste client malgré la liaison à l'OU Stagiaires.",
+        solution: "Le compte utilisateur était dans l'OU Users par défaut et non dans l'OU Stagiaires. Déplacement du compte dans la bonne OU, puis gpupdate /force sur le poste client pour forcer l'application."
       },
       {
-        problem: "Un conflit entre deux GPO provoquait l'écrasement de la politique de mots de passe par les paramètres par défaut du domaine.",
-        solution: "Utilisation de l'onglet 'Héritage de stratégie de groupe' dans GPMC pour identifier le conflit, puis réorganisation de la priorité des GPO (order of precedence) et blocage de l'héritage sur l'OU concernée."
+        problem: "La restriction CMD bloquait également PowerShell, ce qui n'était pas souhaité pour certains scripts automatisés.",
+        solution: "La politique 'Empêcher l'accès à l'invite de commandes' possède une option pour désactiver aussi le traitement des scripts. Configuration de cette option sur 'Non' pour autoriser l'exécution des scripts batch tout en bloquant l'accès interactif à CMD."
       }
     ],
   },
   {
-    id: 7,
-    title: 'VPN OpenVPN',
-    subtitle: 'Debian 12 · SSL/TLS',
-    logo: '/logos/openvpn.svg',
-    color: '#EA7E20',
-    image: '/projects/vpn.webp',
-    badge: 'E5',
-    badgeColor: '#a855f3',
-    description: "Tunnel VPN SSL/TLS client-serveur avec PKI, certificats et routage sécurisé.",
-    technologies: ['OpenVPN 2.6', 'PKI / Easy-RSA', 'iptables', 'Debian 12', 'SSL/TLS'],
-    docPdf: null,
-    context: "Des collaborateurs en télétravail avaient besoin d'un accès sécurisé aux ressources internes de l'entreprise (serveurs de fichiers, intranet, applications métier). L'utilisation de solutions de bureau à distance sans chiffrement exposait les données à des risques d'interception (attaque man-in-the-middle). La mise en place d'un tunnel VPN SSL/TLS permettait de créer un canal de communication chiffré entre les postes distants et le réseau interne de l'entreprise.",
-    objectives: [
-      "Déployer un serveur OpenVPN sur Debian 12 avec authentification par certificats X.509",
-      "Créer une infrastructure PKI complète (CA, certificats serveur et clients) avec Easy-RSA",
-      "Configurer le routage et les règles iptables (NAT/FORWARD) pour l'accès aux ressources internes",
-      "Sécuriser les connexions avec TLS 1.3, clé tls-crypt et chiffrement AES-256-GCM"
-    ],
-    environment: ['Debian 12 (serveur VPN)', 'OpenVPN 2.6', 'Easy-RSA 3.1 (PKI)', 'iptables / nftables', 'TLS 1.3', 'AES-256-GCM', 'OpenVPN Connect (clients Windows/macOS)', 'Wireshark (analyse)'],
-    steps: [
-      "Installation d'OpenVPN et Easy-RSA sur Debian 12, initialisation de la PKI (init-pki, build-ca)",
-      "Génération des certificats : CA racine, certificat serveur (build-server-full), certificats clients nominatifs (build-client-full)",
-      "Configuration du serveur OpenVPN : port 1194/UDP, protocole TLS 1.3, chiffrement AES-256-GCM, sous-réseau VPN 10.8.0.0/24",
-      "Configuration des règles iptables : MASQUERADE (NAT) pour le trafic VPN, FORWARD entre tun0 et eth0, journalisation",
-      "Création des fichiers .ovpn clients embarquant les certificats, déploiement et test sur Windows et macOS",
-      "Tests de sécurité : vérification du chiffrement avec Wireshark (trafic illisible), test de déconnexion/reconnexion automatique"
-    ],
-    results: [
-      "Tunnel VPN opérationnel avec chiffrement AES-256-GCM et authentification par certificats X.509",
-      "5 profils clients .ovpn générés et distribués de manière sécurisée aux télétravailleurs",
-      "Accès sécurisé aux ressources internes (serveur de fichiers, intranet) depuis l'extérieur",
-      "Aucune donnée lisible capturée par Wireshark sur le trafic VPN — chiffrement validé"
-    ],
-    competences: [
-      { code: 'B2.1', label: "Concevoir une solution d'infrastructure réseau" },
-      { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
-      { code: 'B3.4', label: "Garantir la disponibilité, l'intégrité et la confidentialité" },
-      { code: 'B3.5', label: "Assurer la cybersécurité d'une infrastructure réseau" },
-    ],
-    difficulties: [
-      {
-        problem: "Les clients VPN se connectaient au serveur mais ne pouvaient pas atteindre les ressources du réseau interne (pas de réponse ping).",
-        solution: "L'IP forwarding n'était pas activé sur le serveur Debian (net.ipv4.ip_forward=0). Activation via sysctl.conf et ajout des règles iptables FORWARD et MASQUERADE pour le sous-réseau VPN."
-      },
-      {
-        problem: "Le certificat du CA expirait après 1 an par défaut, ce qui invaliderait tous les certificats clients.",
-        solution: "Reconfiguration d'Easy-RSA avec des durées de validité adaptées : CA = 10 ans, serveur = 5 ans, clients = 2 ans. Documentation de la procédure de renouvellement et de la CRL."
-      }
-    ],
-  },
-  {
-    id: 8,
+    id: 4,
     title: 'Supervision Nagios',
-    subtitle: 'Monitoring réseau',
+    subtitle: 'Ubuntu Server',
     logo: '/logos/nagios.svg',
     color: '#00B050',
     image: '/projects/nagios.webp',
     badge: 'E5',
     badgeColor: '#a855f3',
-    description: "Supervision d'infrastructure avec Nagios Core, NRPE et alertes email.",
-    technologies: ['Nagios Core 4.5', 'NRPE', 'SNMP', 'Debian 12', 'Apache'],
-    docPdf: null,
-    context: "L'infrastructure réseau de l'entreprise ne disposait d'aucun outil de supervision : les pannes étaient détectées uniquement lorsque les utilisateurs signalaient un dysfonctionnement, parfois plusieurs heures après l'incident. L'absence de monitoring proactif entraînait des temps d'indisponibilité élevés et un impact direct sur la productivité. Il fallait déployer une solution de supervision capable de surveiller en temps réel l'état des serveurs, services et équipements réseau, et d'alerter automatiquement en cas d'anomalie.",
+    description: "Installation et configuration de Nagios Core sur Ubuntu pour la supervision d'infrastructure réseau.",
+    technologies: ['Nagios Core', 'Ubuntu', 'Apache', 'Perl', 'Monitoring'],
+    docPdf: '/dossiers/dossier-nagios.pdf',
+    warning: "Ce projet a été réalisé sur une machine virtuelle Ubuntu à des fins de formation. Le mot de passe nagiosadmin utilisé est un mot de passe de test. En production, il est impératif d'utiliser HTTPS, des mots de passe robustes et de restreindre l'accès à l'interface web.",
+    context: "Pour assurer la disponibilité et la performance de l'infrastructure réseau, il est essentiel de disposer d'un outil de supervision. Nagios Core est une solution open source de référence permettant de surveiller en temps réel l'état des serveurs, services et équipements réseau. Ce projet consiste à installer Nagios Core depuis les sources sur une VM Ubuntu et à configurer l'interface web de supervision.",
     objectives: [
-      "Installer et configurer Nagios Core sur Debian 12 pour la supervision de l'infrastructure",
-      "Déployer l'agent NRPE sur les serveurs Linux et Windows pour la collecte de métriques système",
-      "Configurer la supervision SNMP pour les équipements réseau (switches, routeurs, bornes Wi-Fi)",
-      "Mettre en place les notifications email et les seuils d'alerte (warning, critical) pour chaque service"
+      "Installer les dépendances nécessaires (Apache, Perl, bibliothèques graphiques) sur Ubuntu",
+      "Compiler et installer Nagios Core depuis les sources",
+      "Créer l'utilisateur nagios et le groupe nagcmd pour la gestion des droits",
+      "Configurer Apache avec les modules nécessaires (mod_rewrite, mod_cgi)",
+      "Accéder à l'interface web Nagios via le navigateur"
     ],
-    environment: ['Debian 12 (serveur Nagios)', 'Nagios Core 4.5', 'NRPE 4.1 (agents)', 'SNMP v2c/v3', 'Apache 2.4 (interface web)', 'Postfix (envoi email)', 'Nagios Plugins 2.4', 'NSClient++ (agent Windows)'],
+    environment: ['Ubuntu Server (VM)', 'Nagios Core (compilation sources)', 'Apache 2.4', 'Perl', 'Bibliothèques GD (graphiques)', 'IP : 192.168.56.102', 'htpasswd (authentification web)'],
     steps: [
-      "Installation de Nagios Core depuis les sources sur Debian 12 : compilation, configuration Apache, création de l'utilisateur nagiosadmin",
-      "Installation des plugins Nagios (check_ping, check_http, check_disk, check_load, check_ssh) et du démon NRPE",
-      "Déploiement de l'agent NRPE sur les serveurs Linux : configuration des checks locaux (CPU, RAM, disque, swap, processus)",
-      "Configuration SNMP v2c sur les switches et routeurs Cisco : surveillance de l'état des interfaces, du trafic et de l'uptime",
-      "Définition des hôtes, services et seuils dans les fichiers de configuration Nagios (hosts.cfg, services.cfg) avec templates",
-      "Configuration de Postfix et des contacts Nagios pour les notifications email en cas d'alerte WARNING ou CRITICAL"
+      "Mise à jour du système Ubuntu et installation des dépendances : apache2, php, perl, libgd-dev, build-essential, unzip",
+      "Création de l'utilisateur nagios et du groupe nagcmd : useradd nagios, groupadd nagcmd, usermod -aG nagcmd nagios",
+      "Téléchargement des sources Nagios Core, extraction et compilation (./configure, make all, make install)",
+      "Installation des fichiers de configuration (make install-config), du script de démarrage (make install-daemoninit) et de la configuration web (make install-webconf)",
+      "Création du compte d'accès web nagiosadmin via htpasswd pour l'authentification à l'interface",
+      "Activation des modules Apache mod_rewrite et mod_cgi, puis redémarrage d'Apache",
+      "Démarrage du service Nagios et accès à l'interface web : https://192.168.56.102/nagios"
     ],
     results: [
-      "Supervision en temps réel de 12 hôtes et 48 services avec rafraîchissement toutes les 5 minutes",
-      "Détection automatique des pannes avec notification email en moins de 10 minutes (vs plusieurs heures auparavant)",
-      "Dashboard Nagios accessible en temps réel via l'interface web pour l'équipe technique",
-      "Temps moyen de détection des incidents réduit de 3 heures à 8 minutes grâce aux alertes proactives"
+      "Nagios Core installé et opérationnel sur Ubuntu Server (VM)",
+      "Interface web accessible à https://192.168.56.102/nagios avec authentification nagiosadmin",
+      "Tableau de bord de supervision affichant l'état des hôtes et services en temps réel",
+      "Service Nagios configuré pour démarrage automatique au boot du serveur"
     ],
     competences: [
       { code: 'B1.2', label: "Répondre aux incidents et aux demandes d'assistance" },
@@ -406,18 +211,173 @@ const projets = [
     ],
     difficulties: [
       {
-        problem: "Le plugin check_nrpe renvoyait 'Connection refused' sur les serveurs Linux distants malgré l'installation de l'agent.",
-        solution: "Le fichier nrpe.cfg ne contenait pas l'adresse IP du serveur Nagios dans la directive allowed_hosts. Ajout de l'IP du serveur Nagios et redémarrage du service NRPE."
+        problem: "La compilation de Nagios échouait avec des erreurs de bibliothèques GD manquantes (libgd-dev).",
+        solution: "Installation des paquets manquants (apt install libgd-dev libpng-dev libjpeg-dev) puis relance de ./configure et make all. La compilation s'est terminée sans erreur."
       },
       {
-        problem: "Les notifications email n'arrivaient pas : Nagios détectait les alertes mais n'envoyait aucun mail.",
-        solution: "Postfix n'était pas configuré comme relais SMTP. Configuration de relayhost avec le serveur SMTP de l'entreprise et test avec la commande mail. Les notifications ont fonctionné immédiatement après."
+        problem: "L'interface web Nagios affichait une erreur 403 Forbidden après l'installation.",
+        solution: "Les modules Apache mod_cgi et mod_rewrite n'étaient pas activés. Activation avec a2enmod cgi rewrite puis redémarrage d'Apache (systemctl restart apache2). L'interface est devenue accessible."
+      }
+    ],
+  },
+  {
+    id: 5,
+    title: 'Téléphonie VOIP Cisco',
+    subtitle: 'Cisco CME · Packet Tracer',
+    logo: '/logos/cisco.svg',
+    color: '#EA7E20',
+    image: '/projects/vpn.webp',
+    badge: 'E5',
+    badgeColor: '#a855f3',
+    description: "Mise en place d'une infrastructure VOIP Cisco avec CME, IP Phones et téléphones analogiques.",
+    technologies: ['Cisco CME', 'VOIP', 'DHCP', 'Switch 2960', 'Routeur 2811'],
+    docPdf: '/dossiers/dossier-voip.pdf',
+    warning: "Ce projet a été réalisé sur Cisco Packet Tracer (simulateur) dans un cadre pédagogique. Les numéros de téléphone et configurations sont fictifs. En production, des considérations de QoS, de sécurité SIP et de dimensionnement doivent être prises en compte.",
+    context: "Une entreprise souhaite déployer une solution de téléphonie IP pour remplacer son infrastructure téléphonique analogique vieillissante. Le projet consiste à configurer une infrastructure VOIP complète utilisant Cisco Call Manager Express (CME) sur des routeurs 2811, avec des téléphones IP 7960 et des téléphones analogiques connectés via un switch 2960.",
+    objectives: [
+      "Configurer 2 routeurs Cisco 2811 avec le service CME (Call Manager Express)",
+      "Mettre en place un switch Cisco 2960 pour connecter 3 téléphones IP 7960",
+      "Configurer le DHCP sur le routeur pour l'attribution automatique des adresses aux IP Phones",
+      "Intégrer 2 téléphones analogiques à l'infrastructure VOIP",
+      "Tester les appels entre les différents postes téléphoniques"
+    ],
+    environment: ['Cisco Packet Tracer', '2 Routeurs Cisco 2811', 'Switch Cisco 2960', '3 IP Phones Cisco 7960', '2 Téléphones analogiques', 'Cisco CME (Call Manager Express)', 'DHCP', 'Réseau 192.168.10.0/24'],
+    steps: [
+      "Configuration de l'adressage IP sur les routeurs 2811 et le switch 2960 (réseau 192.168.10.0/24)",
+      "Configuration du DHCP sur le routeur principal pour l'attribution des IP aux téléphones (option 150 pour TFTP)",
+      "Configuration du switch 2960 : activation des ports pour les IP Phones avec alimentation PoE",
+      "Configuration CME sur le routeur : max-ephones 10, max-dn 10, ip source-address 192.168.10.100 port 2000",
+      "Configuration de l'auto-assignation des numéros (auto assign 1 to 10) et création des fichiers CNF (create cnf)",
+      "Connexion et enregistrement des 3 IP Phones 7960 et des 2 téléphones analogiques",
+      "Tests d'appels : vérification de la communication entre tous les postes téléphoniques"
+    ],
+    results: [
+      "Infrastructure VOIP fonctionnelle avec 3 IP Phones Cisco 7960 enregistrés sur CME",
+      "2 téléphones analogiques intégrés à l'infrastructure VOIP via les ports FXS",
+      "DHCP opérationnel avec attribution automatique des adresses et de l'option TFTP (150)",
+      "Appels internes fonctionnels entre tous les postes téléphoniques (IP et analogiques)"
+    ],
+    competences: [
+      { code: 'B2.1', label: "Concevoir une solution d'infrastructure réseau" },
+      { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
+      { code: 'B2.3', label: "Exploiter, dépanner et superviser une solution d'infrastructure réseau" },
+    ],
+    difficulties: [
+      {
+        problem: "Les IP Phones ne s'enregistraient pas sur le CME : l'écran restait sur 'Configuring IP' en boucle.",
+        solution: "L'option 150 (adresse du serveur TFTP) n'était pas configurée dans le pool DHCP. Ajout de 'option 150 ip 192.168.10.100' dans la configuration du pool DHCP, les téléphones se sont enregistrés après redémarrage."
+      },
+      {
+        problem: "Les téléphones analogiques n'émettaient aucune tonalité malgré leur connexion physique au routeur.",
+        solution: "Les interfaces FXS (Foreign Exchange Station) du routeur n'étaient pas configurées avec les dial-peers correspondants. Création des dial-peers POTS et association aux numéros de directory pour les ports analogiques."
+      }
+    ],
+  },
+  {
+    id: 6,
+    title: 'Calculatrice Web Interactive',
+    subtitle: 'HTML5 / CSS3 / JavaScript',
+    logo: null,
+    color: '#10b981',
+    image: '/projects/marketplace.webp',
+    badge: 'E4',
+    badgeColor: '#22d3ee',
+    description: "Développement d'une calculatrice web interactive avec manipulation du DOM et validation des entrées.",
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'DOM', 'Responsive'],
+    docPdf: '/dossiers/dossier-calculatrice.pdf',
+    warning: "Ce projet est un exercice pédagogique de développement web. Le code JavaScript présenté utilise des fonctions de base (parseFloat, switch) à des fins d'apprentissage. En production, des bibliothèques de calcul précis (ex: decimal.js) seraient recommandées pour éviter les erreurs d'arrondi en virgule flottante.",
+    context: "Dans le cadre du bloc de compétences B1 (Support et mise à disposition de services informatiques), ce projet consiste à développer une calculatrice web fonctionnelle en utilisant les technologies front-end HTML5, CSS3 et JavaScript. L'application permet d'effectuer les 4 opérations arithmétiques de base avec une interface utilisateur intuitive et une validation des entrées.",
+    objectives: [
+      "Créer une interface de calculatrice responsive en HTML5 et CSS3",
+      "Implémenter les 4 opérations arithmétiques (addition, soustraction, multiplication, division)",
+      "Utiliser la manipulation du DOM (getElementById, innerText) pour l'interaction utilisateur",
+      "Valider les entrées utilisateur (parseFloat, isNaN) et gérer les cas d'erreur (division par zéro)"
+    ],
+    environment: ['HTML5', 'CSS3', 'JavaScript (vanilla)', 'Manipulation DOM (getElementById)', 'parseFloat / isNaN', 'Structure switch/case', 'Navigateur web moderne'],
+    steps: [
+      "Création de la structure HTML : champs de saisie pour les deux opérandes, boutons pour les 4 opérations, zone d'affichage du résultat",
+      "Mise en forme CSS3 : design responsive, boutons stylisés, zone de résultat mise en évidence",
+      "Récupération des valeurs utilisateur via getElementById et conversion avec parseFloat",
+      "Implémentation de la logique de calcul avec une structure switch/case pour les 4 opérations",
+      "Validation des entrées : vérification avec isNaN pour détecter les saisies non numériques",
+      "Gestion de la division par zéro : affichage d'un message d'erreur explicite",
+      "Affichage du résultat via innerText dans la zone dédiée"
+    ],
+    results: [
+      "Calculatrice web fonctionnelle avec les 4 opérations de base (+ - × ÷)",
+      "Validation des entrées opérationnelle : détection des valeurs non numériques avec message d'erreur",
+      "Gestion de la division par zéro avec message d'avertissement clair",
+      "Interface responsive et ergonomique adaptée aux écrans desktop et mobile"
+    ],
+    competences: [
+      { code: 'B1.3', label: "Développer la présence en ligne" },
+      { code: 'B1.1', label: "Gérer le patrimoine informatique" },
+    ],
+    difficulties: [
+      {
+        problem: "Les calculs avec des nombres décimaux produisaient des résultats incorrects (ex: 0.1 + 0.2 = 0.30000000000000004).",
+        solution: "Utilisation de la méthode toFixed(2) pour arrondir les résultats à 2 décimales, éliminant les erreurs de virgule flottante IEEE 754 dans l'affichage."
+      },
+      {
+        problem: "Le champ de saisie acceptait des caractères non numériques (lettres, symboles) sans avertissement.",
+        solution: "Ajout d'une validation avec isNaN(parseFloat(valeur)) avant chaque calcul, avec affichage d'un message 'Veuillez entrer des nombres valides' en cas de saisie incorrecte."
+      }
+    ],
+  },
+  {
+    id: 7,
+    title: 'Analyse Réseau Wireshark',
+    subtitle: 'Linux · Capture & Analyse',
+    logo: '/logos/wireshark.svg',
+    color: '#1679A7',
+    image: '/projects/nagios.webp',
+    badge: 'E5',
+    badgeColor: '#a855f3',
+    description: "Installation de Wireshark sur Linux, capture de trafic réseau et analyse détaillée d'un paquet DNS.",
+    technologies: ['Wireshark', 'Linux', 'DNS', 'UDP', 'TCP/IP'],
+    docPdf: '/dossiers/dossier-wireshark.pdf',
+    warning: "L'analyse de trafic réseau doit être effectuée uniquement sur des réseaux dont vous avez l'autorisation explicite. La capture de paquets sur un réseau tiers sans autorisation constitue une infraction pénale. Ce projet a été réalisé dans un environnement contrôlé à des fins éducatives.",
+    context: "La maîtrise de l'analyse réseau est une compétence essentielle pour un technicien SISR. Wireshark est l'outil de référence pour la capture et l'analyse de trames réseau. Ce projet consiste à installer Wireshark sur une machine Linux, configurer les permissions nécessaires, capturer du trafic réseau et analyser en détail un paquet DNS pour comprendre les mécanismes de résolution de noms.",
+    objectives: [
+      "Installer Wireshark sur une distribution Linux et configurer les permissions utilisateur",
+      "Capturer du trafic réseau en temps réel sur l'interface active",
+      "Filtrer et identifier les paquets DNS dans la capture",
+      "Analyser en détail la structure d'un paquet DNS (couches 2, 3, 4 et 7 du modèle OSI)"
+    ],
+    environment: ['Linux (distribution)', 'Wireshark', 'usermod (gestion permissions)', 'Protocole DNS (port 53)', 'UDP', 'IP source : 192.168.84.152', 'IP destination : 8.8.8.8 (Google DNS)', 'Port source : 53433'],
+    steps: [
+      "Installation de Wireshark via le gestionnaire de paquets (apt install wireshark)",
+      "Configuration des permissions : ajout de l'utilisateur au groupe wireshark (usermod -aG wireshark $USER)",
+      "Déconnexion/reconnexion pour appliquer les permissions du groupe",
+      "Lancement de Wireshark et sélection de l'interface réseau active pour la capture",
+      "Capture du trafic réseau pendant une navigation web pour générer des requêtes DNS",
+      "Application du filtre 'dns' pour isoler les paquets de résolution de noms",
+      "Analyse détaillée d'un paquet DNS : IP source 192.168.84.152 → IP destination 8.8.8.8, port source 53433 → port destination 53 (DNS), protocole UDP, requête DNS de type A"
+    ],
+    results: [
+      "Wireshark installé et fonctionnel sur Linux avec permissions correctes (sans sudo)",
+      "Capture de trafic réseau réussie sur l'interface active",
+      "Paquet DNS identifié et analysé : requête UDP du poste (192.168.84.152:53433) vers Google DNS (8.8.8.8:53)",
+      "Compréhension des couches OSI validée : Ethernet (L2) → IP (L3) → UDP (L4) → DNS (L7)"
+    ],
+    competences: [
+      { code: 'B2.3', label: "Exploiter, dépanner et superviser une solution d'infrastructure réseau" },
+      { code: 'B3.4', label: "Garantir la disponibilité, l'intégrité et la confidentialité" },
+      { code: 'B3.5', label: "Assurer la cybersécurité d'une infrastructure réseau" },
+    ],
+    difficulties: [
+      {
+        problem: "Wireshark ne listait aucune interface réseau disponible pour la capture (liste vide).",
+        solution: "L'utilisateur n'avait pas été ajouté au groupe wireshark. Exécution de 'sudo usermod -aG wireshark $USER' puis déconnexion/reconnexion de la session Linux pour appliquer les nouvelles permissions de groupe."
+      },
+      {
+        problem: "La capture contenait des milliers de paquets rendant l'analyse impossible sans filtrage.",
+        solution: "Utilisation du filtre d'affichage 'dns' dans la barre de filtre Wireshark pour isoler uniquement les paquets DNS, réduisant le nombre de paquets affichés aux seules requêtes et réponses de résolution de noms."
       }
     ],
   },
 ]
 
-/* ═══ ICONS MAP FOR MODAL SECTIONS ═══ */
 const SectionIcon = ({ icon: Icon, color }) => (
   <div style={{
     width: '32px', height: '32px', borderRadius: '10px',
@@ -444,7 +404,6 @@ const SectionTitle = ({ icon: Icon, label, color }) => (
   </div>
 )
 
-/* ═══ PROJET CARD (unchanged) ═══ */
 function ProjetCard({ projet, onClick }) {
   return (
     <div
@@ -466,7 +425,6 @@ function ProjetCard({ projet, onClick }) {
         e.currentTarget.style.boxShadow = 'none'
       }}
     >
-      {/* Image */}
       <div style={{ height: '170px', overflow: 'hidden', position: 'relative' }}>
         {projet.image && (
           <img
@@ -501,7 +459,6 @@ function ProjetCard({ projet, onClick }) {
         )}
       </div>
 
-      {/* Logo badge */}
       <div style={{
         display: 'flex', justifyContent: 'center',
         marginTop: '-28px', position: 'relative', zIndex: 2,
@@ -517,12 +474,11 @@ function ProjetCard({ projet, onClick }) {
           {projet.logo ? (
             <img src={projet.logo} alt="" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
           ) : (
-            <Lock size={24} style={{ color: projet.color }} />
+            <Cpu size={24} style={{ color: projet.color }} />
           )}
         </div>
       </div>
 
-      {/* Content */}
       <div style={{ padding: '0.7rem 1.4rem 1.4rem', textAlign: 'center' }}>
         <h3 style={{
           fontFamily: "'Inter', sans-serif",
@@ -564,7 +520,6 @@ function ProjetCard({ projet, onClick }) {
   )
 }
 
-/* ═══ ENRICHED PROJET MODAL ═══ */
 function ProjetModal({ projet, onClose }) {
   if (!projet) return null
 
@@ -590,7 +545,7 @@ function ProjetModal({ projet, onClose }) {
         }}
         onClick={e => e.stopPropagation()}
       >
-        {/* ── 1. HEADER ── */}
+        {/* HEADER */}
         <div style={{
           background: `linear-gradient(135deg, #0f172a 0%, #1e293b 50%, ${projet.color}25 100%)`,
           padding: '1.75rem 2rem',
@@ -620,7 +575,7 @@ function ProjetModal({ projet, onClose }) {
               {projet.logo ? (
                 <img src={projet.logo} alt="" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
               ) : (
-                <Lock size={24} style={{ color: '#fff' }} />
+                <Cpu size={24} style={{ color: '#fff' }} />
               )}
             </div>
             <div style={{ flex: 1, minWidth: 0 }}>
@@ -654,7 +609,26 @@ function ProjetModal({ projet, onClose }) {
           </div>
         </div>
 
-        {/* ── 2. SCREENSHOT ── */}
+        {/* WARNING BANNER */}
+        {projet.warning && (
+          <div style={{
+            background: 'rgba(245,158,11,0.08)',
+            borderBottom: '1px solid rgba(245,158,11,0.2)',
+            padding: '1rem 2rem',
+            display: 'flex', alignItems: 'flex-start', gap: '12px',
+          }}>
+            <Shield size={18} style={{ color: '#f59e0b', flexShrink: 0, marginTop: '2px' }} />
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '12.5px', color: '#fbbf24',
+              lineHeight: 1.7, margin: 0, fontStyle: 'italic',
+            }}>
+              <strong>Mise en garde :</strong> {projet.warning}
+            </p>
+          </div>
+        )}
+
+        {/* SCREENSHOT */}
         {projet.image && (
           <div style={{ height: '200px', overflow: 'hidden', position: 'relative' }}>
             <img src={projet.image} alt={projet.title}
@@ -666,10 +640,10 @@ function ProjetModal({ projet, onClose }) {
           </div>
         )}
 
-        {/* ── CONTENT ── */}
+        {/* CONTENT */}
         <div style={{ padding: '1.75rem 2rem 2rem' }}>
 
-          {/* ── 3. CONTEXTE ── */}
+          {/* CONTEXTE */}
           <div style={{ marginBottom: '1.75rem' }}>
             <SectionTitle icon={Globe} label="Contexte" color={projet.color} />
             <p style={{
@@ -681,7 +655,7 @@ function ProjetModal({ projet, onClose }) {
             </p>
           </div>
 
-          {/* ── 4. OBJECTIFS ── */}
+          {/* OBJECTIFS */}
           <div style={{ marginBottom: '1.75rem' }}>
             <SectionTitle icon={Target} label="Objectifs" color={projet.color} />
             <ul style={{ paddingLeft: '2.75rem', margin: 0, listStyle: 'none' }}>
@@ -703,7 +677,7 @@ function ProjetModal({ projet, onClose }) {
             </ul>
           </div>
 
-          {/* ── 5. ENVIRONNEMENT TECHNIQUE ── */}
+          {/* ENVIRONNEMENT TECHNIQUE */}
           <div style={{ marginBottom: '1.75rem' }}>
             <SectionTitle icon={Monitor} label="Environnement technique" color={projet.color} />
             <div className="flex flex-wrap gap-2" style={{ paddingLeft: '2.75rem' }}>
@@ -722,7 +696,7 @@ function ProjetModal({ projet, onClose }) {
             </div>
           </div>
 
-          {/* ── 6. ETAPES DE REALISATION ── */}
+          {/* ETAPES */}
           <div style={{ marginBottom: '1.75rem' }}>
             <SectionTitle icon={ListOrdered} label="Etapes de realisation" color={projet.color} />
             <ol style={{ paddingLeft: '2.75rem', margin: 0, listStyle: 'none', counterReset: 'step' }}>
@@ -750,7 +724,7 @@ function ProjetModal({ projet, onClose }) {
             </ol>
           </div>
 
-          {/* ── 7. RESULTATS ── */}
+          {/* RESULTATS */}
           <div style={{ marginBottom: '1.75rem' }}>
             <SectionTitle icon={CheckCircle2} label="Resultats" color={projet.color} />
             <ul style={{ paddingLeft: '2.75rem', margin: 0, listStyle: 'none' }}>
@@ -769,7 +743,7 @@ function ProjetModal({ projet, onClose }) {
             </ul>
           </div>
 
-          {/* ── 8. COMPETENCES SISR ── */}
+          {/* COMPETENCES SISR */}
           <div style={{ marginBottom: '1.75rem' }}>
             <SectionTitle icon={Award} label="Competences SISR couvertes" color={projet.color} />
             <div className="flex flex-wrap gap-2" style={{ paddingLeft: '2.75rem' }}>
@@ -803,7 +777,7 @@ function ProjetModal({ projet, onClose }) {
             </div>
           </div>
 
-          {/* ── 9. DIFFICULTES RENCONTREES ── */}
+          {/* DIFFICULTES */}
           <div style={{ marginBottom: '1.75rem' }}>
             <SectionTitle icon={AlertTriangle} label="Difficultes rencontrees" color="#f59e0b" />
             <div style={{ paddingLeft: '2.75rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -848,7 +822,7 @@ function ProjetModal({ projet, onClose }) {
             </div>
           </div>
 
-          {/* ── 10. PDF BUTTON ── */}
+          {/* PDF BUTTON */}
           {projet.docPdf && (
             <a
               href={projet.docPdf}

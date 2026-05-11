@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Active Directory Domain Services & DNS intégré — Dilan Lengue</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #1e293b;
+    line-height: 1.7;
+    font-size: 11pt;
+    background: #fff;
+  }
+
+  @media print {
+    body { font-size: 10pt; }
+    .page-break { page-break-before: always; }
+    @page { margin: 2cm 2.5cm; }
+  }
+
+  .cover {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 100vh; text-align: center; padding: 4rem 2rem;
+    background: linear-gradient(135deg, #0c1929 0%, #1e3a5f 40%, #1e40af 100%);
+    color: #fff;
+  }
+  .cover h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+  .cover .subtitle { font-size: 1.1rem; color: #93c5fd; margin-bottom: 2rem; font-weight: 500; }
+  .cover .tags { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; }
+  .cover .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 18px; border-radius: 99px; font-size: 0.85rem; font-weight: 600; }
+  .cover .author { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .cover .meta { font-size: 0.95rem; color: #93c5fd; }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+
+  .header-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 2rem;
+    font-size: 0.8rem; color: #64748b; font-weight: 600;
+  }
+
+  h2 { font-size: 1.5rem; font-weight: 800; color: #0f172a; margin: 2rem 0 1rem; border-left: 4px solid #3b82f6; padding-left: 1rem; }
+  h3 { font-size: 1.15rem; font-weight: 700; color: #1e40af; margin: 1.5rem 0 0.75rem; }
+
+  p { margin-bottom: 1rem; }
+
+  .info-box {
+    background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 10px;
+    padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+  }
+  .info-box strong { color: #0369a1; }
+
+  .warning-box {
+    background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px;
+    padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+  }
+  .warning-box strong { color: #b45309; }
+
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9rem; }
+  th { background: #1e40af; color: #fff; padding: 10px 14px; text-align: left; font-weight: 700; }
+  td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  td:first-child { font-weight: 600; color: #1e40af; white-space: nowrap; }
+
+  ol, ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .step { display: flex; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-start; }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 8px; background: #3b82f6; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.85rem; flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .step-content { flex: 1; }
+  .step-content strong { display: block; margin-bottom: 0.25rem; }
+
+  .check { color: #16a34a; font-weight: 700; }
+
+  .recap-section { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem 2rem; margin: 1.5rem 0; }
+  .recap-section h3 { color: #0f172a; margin-top: 0; }
+
+  .sommaire { list-style: none; padding: 0; }
+  .sommaire li { padding: 8px 0; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; }
+  .sommaire li span:first-child { font-weight: 600; }
+  .sommaire li span:last-child { color: #64748b; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+
+  .footer-bar { text-align: center; padding: 2rem 0 1rem; border-top: 2px solid #e2e8f0; margin-top: 3rem; font-size: 0.85rem; color: #64748b; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <h1>Active Directory Domain Services<br>& DNS intégré</h1>
+  <p class="subtitle">Définition &mdash; Installation &mdash; Configuration &mdash; Promotion</p>
+  <div class="tags">
+    <span class="tag">Windows Server 2025</span>
+    <span class="tag">AD DS</span>
+    <span class="tag">DNS</span>
+    <span class="tag">sio.lan</span>
+  </div>
+  <p class="author">Dilan Lengue</p>
+  <p class="meta">BTS SIO &mdash; Option SISR &nbsp;|&nbsp; Institut F2I &nbsp;|&nbsp; Session 2026</p>
+  <p class="meta" style="margin-top: 0.5rem;">Projet : Infrastructure Active Directory &mdash; TechNova Solutions</p>
+</div>
+
+<!-- SOMMAIRE -->
+<div class="container page-break">
+  <div class="header-bar">
+    <span>BTS SIO SISR &mdash; AD DS & DNS</span>
+    <span>Dilan Lengue &nbsp;|&nbsp; 2026</span>
+  </div>
+
+  <h2>Sommaire</h2>
+  <ul class="sommaire">
+    <li><span>I. Définition — Active Directory Domain Services (AD DS)</span><span>3</span></li>
+    <li><span>II. Définition — DNS intégré à l'Active Directory</span><span>4</span></li>
+    <li><span>III. Installation du rôle AD DS</span><span>5</span></li>
+    <li><span>IV. Promotion du serveur en contrôleur de domaine</span><span>7</span></li>
+    <li><span>&emsp;IV.1 Configuration du déploiement</span><span>7</span></li>
+    <li><span>&emsp;IV.2 Options du contrôleur de domaine</span><span>8</span></li>
+    <li><span>&emsp;IV.3 Création du domaine</span><span>9</span></li>
+    <li><span>&emsp;IV.4 Vérification de la configuration</span><span>10</span></li>
+    <li><span>V. Installation du rôle DNS</span><span>11</span></li>
+    <li><span>VI. Configuration de l'Active Directory</span><span>12</span></li>
+    <li><span>&emsp;VI.1 Création des Unités d'Organisation (OU)</span><span>12</span></li>
+    <li><span>&emsp;VI.2 Création des utilisateurs</span><span>13</span></li>
+    <li><span>VII. Récapitulatif</span><span>14</span></li>
+  </ul>
+
+  <div class="warning-box">
+    <strong>Mise en garde :</strong> Ce document a été réalisé dans un environnement virtualisé (Hyper-V) à des fins pédagogiques. Les configurations présentées (mot de passe administrateur, structure OU, adressage IP) doivent être adaptées et renforcées avant toute mise en production. Ne jamais utiliser les mots de passe de test en environnement réel.
+  </div>
+</div>
+
+<!-- I. DEFINITION AD DS -->
+<div class="container page-break">
+  <div class="header-bar">
+    <span>BTS SIO SISR &mdash; AD DS & DNS</span>
+    <span>Dilan Lengue &nbsp;|&nbsp; 2026</span>
+  </div>
+
+  <h2>I. Définition — Active Directory Domain Services (AD DS)</h2>
+
+  <h3>Qu'est-ce que l'AD DS ?</h3>
+  <p>L'Active Directory Domain Services (AD DS) est un service d'annuaire développé par Microsoft, intégré à Windows Server. Il centralise la gestion des identités, des accès et des ressources d'un réseau informatique au sein d'un domaine.</p>
+
+  <p><strong>Rôle principal :</strong> L'AD DS est le cœur de l'infrastructure Windows. Il stocke les informations sur tous les objets du réseau (utilisateurs, ordinateurs, groupes) et contrôle qui peut accéder à quoi.</p>
+
+  <h3>Les objets gérés par l'AD DS</h3>
+  <table>
+    <tr><th>Objet</th><th>Description</th></tr>
+    <tr><td>Utilisateurs</td><td>Comptes de connexion avec identifiant, mot de passe et droits d'accès</td></tr>
+    <tr><td>Ordinateurs</td><td>Postes clients et serveurs intégrés au domaine</td></tr>
+    <tr><td>Groupes</td><td>Regroupement d'utilisateurs pour simplifier la gestion des droits</td></tr>
+    <tr><td>Unités d'Organisation</td><td>Conteneurs logiques pour organiser les objets du domaine</td></tr>
+    <tr><td>Stratégies (GPO)</td><td>Règles appliquées automatiquement aux utilisateurs et ordinateurs</td></tr>
+    <tr><td>Contrôleur de domaine</td><td>Serveur qui héberge l'AD DS et authentifie les connexions</td></tr>
+  </table>
+
+  <h3>Avantages de l'AD DS</h3>
+  <ul>
+    <li><strong>Authentification centralisée</strong> — Un seul compte par utilisateur pour accéder à toutes les ressources du réseau.</li>
+    <li><strong>Gestion simplifiée</strong> — L'administrateur gère tous les utilisateurs et ordinateurs depuis une console unique.</li>
+    <li><strong>Sécurité renforcée</strong> — Les droits d'accès sont contrôlés et traçables pour chaque utilisateur.</li>
+    <li><strong>Scalabilité</strong> — L'AD DS peut gérer des milliers d'utilisateurs et d'objets sans perte de performance.</li>
+  </ul>
+
+  <div class="info-box">
+    <strong>Dans notre projet :</strong> L'AD DS a été installé sur le serveur SRV-DC01 (Windows Server 2025, IP fixe 172.16.1.1) et promu en contrôleur de domaine pour le domaine sio.lan.
+  </div>
+</div>
+
+<!-- II. DEFINITION DNS -->
+<div class="container page-break">
+  <div class="header-bar">
+    <span>BTS SIO SISR &mdash; AD DS & DNS</span>
+    <span>Dilan Lengue &nbsp;|&nbsp; 2026</span>
+  </div>
+
+  <h2>II. Définition — DNS intégré à l'Active Directory</h2>
+
+  <h3>Qu'est-ce que le DNS ?</h3>
+  <p>Le DNS (Domain Name System) est le service qui traduit les noms de domaine en adresses IP. Sans DNS, les équipements du réseau ne peuvent pas se retrouver par leur nom — ils ne communiqueraient qu'en adresses IP brutes.</p>
+
+  <p><strong>Exemple :</strong> Quand un poste client veut rejoindre le domaine sio.lan, il interroge le serveur DNS pour trouver l'adresse IP du contrôleur de domaine. Sans DNS fonctionnel, l'AD DS ne peut pas fonctionner.</p>
+
+  <h3>Pourquoi intégrer le DNS à l'AD DS ?</h3>
+  <table>
+    <tr><th>Fonctionnalité</th><th>Description</th></tr>
+    <tr><td>Résolution de noms interne</td><td>Les postes du domaine se retrouvent par leur nom (ex : SRV-DC01.sio.lan)</td></tr>
+    <tr><td>Réplication automatique</td><td>Les enregistrements DNS sont répliqués entre tous les contrôleurs de domaine</td></tr>
+    <tr><td>Sécurité (DNSSEC)</td><td>Les mises à jour DNS sont sécurisées et authentifiées via l'AD</td></tr>
+    <tr><td>Enregistrements dynamiques</td><td>Les postes s'enregistrent automatiquement dans le DNS au démarrage</td></tr>
+    <tr><td>Zone de recherche directe</td><td>Traduit un nom (sio.lan) en adresse IP (172.16.1.1)</td></tr>
+    <tr><td>Zone de recherche inversée</td><td>Traduit une adresse IP en nom — utile pour les audits et journaux</td></tr>
+  </table>
+
+  <h3>Les enregistrements DNS essentiels</h3>
+  <table>
+    <tr><th>Type</th><th>Description</th></tr>
+    <tr><td>Enregistrement A</td><td>Associe un nom d'hôte à une adresse IPv4 (ex : SRV-DC01 → 172.16.1.1)</td></tr>
+    <tr><td>Enregistrement PTR</td><td>Enregistrement inverse — IP vers nom (zone de recherche inversée)</td></tr>
+    <tr><td>Enregistrement SRV</td><td>Localise les services AD (LDAP, Kerberos) — créé automatiquement</td></tr>
+    <tr><td>Enregistrement NS</td><td>Indique quel serveur fait autorité pour la zone DNS</td></tr>
+    <tr><td>Enregistrement SOA</td><td>Start of Authority — informations générales sur la zone DNS</td></tr>
+  </table>
+
+  <div class="info-box">
+    <strong>Dans notre projet :</strong> Le DNS a été installé en même temps que l'AD DS et intégré à la zone sio.lan. Le serveur DNS préféré de tous les postes clients pointe vers 172.16.1.1 (SRV-DC01).
+  </div>
+</div>
+
+<!-- III. INSTALLATION DU ROLE AD DS -->
+<div class="container page-break">
+  <div class="header-bar">
+    <span>BTS SIO SISR &mdash; AD DS & DNS</span>
+    <span>Dilan Lengue &nbsp;|&nbsp; 2026</span>
+  </div>
+
+  <h2>III. Installation du rôle AD DS</h2>
+
+  <h3>Prérequis</h3>
+  <ul>
+    <li>Le serveur dispose d'une adresse IP statique (172.16.1.1)</li>
+    <li>Windows Server 2025 est installé avec l'interface graphique</li>
+    <li>Le nom du serveur est défini (SVR-WND)</li>
+    <li>Un compte Administrateur local est disponible</li>
+  </ul>
+
+  <h3>Procédure d'installation</h3>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Ouvrir le Gestionnaire de serveur</strong>
+      Depuis le bureau, ouvrir le Gestionnaire de serveur puis cliquer sur « Ajouter des rôles et fonctionnalités ».
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Sélectionner le type d'installation</strong>
+      Choisir « Installation basée sur un rôle ou une fonctionnalité », puis sélectionner le serveur de destination dans le pool.
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Sélectionner le rôle AD DS</strong>
+      Cocher « Services de domaine Active Directory », cliquer sur « Ajouter des fonctionnalités » puis sur « Suivant » jusqu'à « Installer ».
+    </div>
+  </div>
+
+  <p class="check">&#10004; Le rôle AD DS est installé. Une notification jaune apparaît dans le Gestionnaire de serveur pour lancer la promotion en contrôleur de domaine.</p>
+</div>
+
+<!-- IV. PROMOTION EN CONTROLEUR DE DOMAINE -->
+<div class="container page-break">
+  <div class="header-bar">
+    <span>BTS SIO SISR &mdash; AD DS & DNS</span>
+    <span>Dilan Lengue &nbsp;|&nbsp; 2026</span>
+  </div>
+
+  <h2>IV. Promotion du serveur en contrôleur de domaine</h2>
+  <p>Après l'installation du rôle, il faut promouvoir le serveur en contrôleur de domaine. Cliquer sur la notification jaune dans le Gestionnaire de serveur puis sur « Promouvoir ce serveur en contrôleur de domaine ».</p>
+
+  <h3>IV.1 — Configuration du déploiement</h3>
+  <p>Sélectionner « Ajouter une nouvelle forêt » et saisir le nom du domaine racine. Dans notre cas : <strong>sio.lan</strong>. C'est le nom qui sera utilisé pour tous les objets du domaine.</p>
+
+  <h3>IV.2 — Options du contrôleur de domaine</h3>
+  <p>Configurer le niveau fonctionnel de la forêt et du domaine sur <strong>Windows Server 2025</strong>. Activer les options <strong>Serveur DNS</strong> et <strong>Catalogue global (GC)</strong>. Définir le mot de passe DSRM (mode de restauration des services d'annuaire).</p>
+
+  <h3>IV.3 — Création du domaine</h3>
+  <p>L'assistant propose automatiquement le nom NetBIOS du domaine (<strong>SIO</strong>). Les chemins des dossiers NTDS (base de données AD), des journaux et du dossier SYSVOL sont conservés par défaut.</p>
+
+  <h3>IV.4 — Vérification et installation</h3>
+  <p>L'assistant vérifie la configuration. Si tout est correct, cliquer sur « Installer ». Le serveur redémarre automatiquement après la promotion.</p>
+
+  <p class="check">&#10004; Le serveur a redémarré en tant que contrôleur de domaine du domaine sio.lan. La connexion se fait désormais avec le compte DOMAINE\Administrateur.</p>
+</div>
+
+<!-- V. INSTALLATION DU ROLE DNS -->
+<div class="container page-break">
+  <div class="header-bar">
+    <span>BTS SIO SISR &mdash; AD DS & DNS</span>
+    <span>Dilan Lengue &nbsp;|&nbsp; 2026</span>
+  </div>
+
+  <h2>V. Installation du rôle DNS</h2>
+  <p>Le rôle Serveur DNS est installé automatiquement lors de la promotion en contrôleur de domaine (option cochée à l'étape IV.2). Il peut également être ajouté manuellement via l'assistant « Ajouter des rôles et fonctionnalités ».</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Ajouter le rôle Serveur DNS</strong>
+      Dans le Gestionnaire de serveur, aller dans « Ajouter des rôles », sélectionner « Serveur DNS », puis cliquer sur Installer. Cocher « Redémarrer automatiquement si nécessaire ».
+    </div>
+  </div>
+
+  <h3>Vérification du DNS</h3>
+  <p>Après l'installation, ouvrir la console DNS depuis le menu Outils du Gestionnaire de serveur. Vérifier que la zone de recherche directe sio.lan a bien été créée et contient les enregistrements du contrôleur de domaine.</p>
+
+  <table>
+    <tr><th>Élément</th><th>Valeur</th></tr>
+    <tr><td>Zone directe</td><td>sio.lan — contient les enregistrements A du contrôleur de domaine</td></tr>
+    <tr><td>Enregistrement A</td><td>SRV-DC01 → 172.16.1.1</td></tr>
+    <tr><td>Enregistrements SRV</td><td>Créés automatiquement pour les services Kerberos et LDAP</td></tr>
+    <tr><td>Serveur DNS préféré clients</td><td>172.16.1.1 (à configurer sur tous les postes clients)</td></tr>
+  </table>
+
+  <div class="warning-box">
+    <strong>Important :</strong> Pour que les postes clients rejoignent le domaine, leur serveur DNS préféré doit obligatoirement pointer vers l'adresse IP du contrôleur de domaine (172.16.1.1).
+  </div>
+</div>
+
+<!-- VI. CONFIGURATION AD -->
+<div class="container page-break">
+  <div class="header-bar">
+    <span>BTS SIO SISR &mdash; AD DS & DNS</span>
+    <span>Dilan Lengue &nbsp;|&nbsp; 2026</span>
+  </div>
+
+  <h2>VI. Configuration de l'Active Directory</h2>
+
+  <h3>VI.1 — Création des Unités d'Organisation (OU)</h3>
+  <p>Les Unités d'Organisation (OU) sont des conteneurs dans l'AD DS qui permettent d'organiser les objets du domaine de façon logique (par service, par site, par rôle). Elles facilitent la gestion des utilisateurs et des ordinateurs.</p>
+  <p>Depuis <strong>Outils → Utilisateurs et ordinateurs Active Directory</strong>, faire un clic droit sur le domaine, sélectionner <strong>Nouveau → Unité d'organisation</strong>.</p>
+
+  <h3>VI.2 — Création des utilisateurs</h3>
+  <p>Les comptes utilisateurs sont créés dans les OU correspondantes. Chaque compte dispose d'un identifiant de connexion, d'un mot de passe et de paramètres de sécurité configurables.</p>
+  <p>Dans la console AD, faire un clic droit sur l'OU cible, sélectionner <strong>Nouveau → Utilisateur</strong>, renseigner les informations du compte puis définir le mot de passe.</p>
+
+  <table>
+    <tr><th>Paramètre</th><th>Description</th></tr>
+    <tr><td>Prénom / Nom</td><td>Identité complète de l'utilisateur</td></tr>
+    <tr><td>Nom de connexion</td><td>Identifiant utilisé pour se connecter au domaine</td></tr>
+    <tr><td>Mot de passe</td><td>Doit respecter la politique de complexité du domaine</td></tr>
+    <tr><td>Le mot de passe n'expire jamais</td><td>Option activée pour les comptes de service</td></tr>
+    <tr><td>L'utilisateur ne peut pas changer</td><td>Option activée pour les comptes gérés par l'admin</td></tr>
+  </table>
+
+  <p class="check">&#10004; Les utilisateurs créés peuvent désormais se connecter depuis n'importe quel poste intégré au domaine sio.lan avec leur compte Active Directory.</p>
+</div>
+
+<!-- VII. RECAPITULATIF -->
+<div class="container page-break">
+  <div class="header-bar">
+    <span>BTS SIO SISR &mdash; AD DS & DNS</span>
+    <span>Dilan Lengue &nbsp;|&nbsp; 2026</span>
+  </div>
+
+  <h2>VII. Récapitulatif de la configuration</h2>
+
+  <div class="recap-section">
+    <h3>Active Directory Domain Services</h3>
+    <table>
+      <tr><td>Système</td><td>Windows Server 2025</td></tr>
+      <tr><td>Nom du serveur</td><td>SRV-DC01</td></tr>
+      <tr><td>Adresse IP</td><td>172.16.1.1 (IP fixe)</td></tr>
+      <tr><td>Nom du domaine</td><td>sio.lan</td></tr>
+      <tr><td>Niveau fonctionnel</td><td>Windows Server 2025</td></tr>
+      <tr><td>Catalogue global (GC)</td><td>Activé</td></tr>
+      <tr><td>NetBIOS</td><td>SIO</td></tr>
+    </table>
+  </div>
+
+  <div class="recap-section">
+    <h3>DNS intégré</h3>
+    <table>
+      <tr><td>Zone de recherche directe</td><td>sio.lan</td></tr>
+      <tr><td>Zone de recherche inversée</td><td>172.16.1.x</td></tr>
+      <tr><td>Enregistrement principal</td><td>SRV-DC01 → 172.16.1.1</td></tr>
+      <tr><td>Serveur DNS préféré clients</td><td>172.16.1.1</td></tr>
+      <tr><td>Enregistrements SRV</td><td>Kerberos, LDAP — créés automatiquement</td></tr>
+    </table>
+  </div>
+
+  <div class="recap-section">
+    <h3>Structure Active Directory</h3>
+    <table>
+      <tr><td>Unités d'Organisation</td><td>Créées par service/département</td></tr>
+      <tr><td>Comptes utilisateurs</td><td>Créés dans les OU correspondantes</td></tr>
+      <tr><td>Authentification</td><td>Centralisée via le contrôleur de domaine</td></tr>
+    </table>
+  </div>
+
+  <div class="footer-bar">
+    Dilan Lengue &mdash; BTS SIO SISR &mdash; Institut F2I &mdash; Session 2026
+  </div>
+</div>
+
+</body>
+</html>
