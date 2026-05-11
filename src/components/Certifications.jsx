@@ -83,16 +83,19 @@ export default function Certifications() {
               key={i}
               className="card-holo rounded-2xl overflow-hidden transition-all duration-300"
               style={{
-                background: '#ffffff',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+                background: 'rgba(11,16,32,0.75)',
+                border: `1px solid ${cert.color}20`,
+                boxShadow: `0 4px 24px rgba(0,0,0,0.3)`,
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)'
-                e.currentTarget.style.boxShadow = `0 16px 40px rgba(0,0,0,0.12), 0 0 0 1px ${cert.color}20`
+                e.currentTarget.style.borderColor = `${cert.color}50`
+                e.currentTarget.style.boxShadow = `0 16px 40px rgba(0,0,0,0.4), 0 0 30px ${cert.color}15`
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)'
+                e.currentTarget.style.borderColor = `${cert.color}20`
+                e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.3)'
               }}
             >
               {/* Banner */}
@@ -184,7 +187,7 @@ export default function Certifications() {
                 </div>
 
                 <p style={{
-                  fontSize: '16px', fontWeight: 600, color: '#475569',
+                  fontSize: '16px', fontWeight: 600, color: '#94a3b8',
                   marginBottom: '1.5rem',
                 }}>
                   {cert.modules}
@@ -195,7 +198,8 @@ export default function Certifications() {
                   {cert.details.map((d, j) => (
                     <div key={j} className="flex items-center gap-4" style={{
                       padding: '12px 16px', borderRadius: '12px',
-                      background: '#f8fafc',
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(255,255,255,0.06)',
                     }}>
                       <div style={{
                         width: '28px', height: '28px', borderRadius: '8px',
@@ -208,7 +212,7 @@ export default function Certifications() {
                           {j + 1}
                         </span>
                       </div>
-                      <span style={{ fontSize: '15px', fontWeight: 500, color: '#475569' }}>{d}</span>
+                      <span style={{ fontSize: '15px', fontWeight: 500, color: '#cbd5e1' }}>{d}</span>
                     </div>
                   ))}
                 </div>

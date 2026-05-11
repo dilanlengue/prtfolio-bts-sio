@@ -32,15 +32,15 @@ function CountUp({ target, suffix = '', prefix = '' }) {
 
 /* ─── Data ─── */
 const statsData = [
-  { value: 6,  suffix: '',  label: 'PROJETS RÉALISÉS',     desc: 'Infrastructure, support & développement',  color: '#22d3ee', icon: FolderKanban },
-  { value: 2,  suffix: '',  label: 'CERTIFICATIONS',       desc: 'Obtenues et validées',                     color: '#a78bfa', icon: Award },
-  { value: 2,  suffix: '',  label: 'EN COURS',             desc: 'Certifications en préparation',            color: '#22c55e', icon: ShieldCheck },
+  { value: 8,  suffix: '',  label: 'PROJETS RÉALISÉS',     desc: 'Infrastructure, support & développement',  color: '#22d3ee', icon: FolderKanban },
+  { value: 2,  suffix: '',  label: 'CERTIFICATIONS',       desc: 'ANSSI SecNumacadémie + Cisco Cybersecurity',color: '#a78bfa', icon: Award },
+  { value: 2,  suffix: '',  label: 'EN PRÉPARATION',       desc: 'CCNA & CompTIA Security+',                 color: '#22c55e', icon: ShieldCheck },
   { value: 2,  suffix: '',  label: 'ANNÉES D\'EXPÉRIENCE',  desc: 'Formation + stages en entreprise',         color: '#f59e0b', icon: CalendarDays },
 ]
 
 const apports = [
   { color: '#22d3ee', icon: Server, title: 'Administration opérationnelle',  desc: 'Gestion de serveurs, postes et équipements réseau' },
-  { color: '#22c55e', icon: BarChart3, title: 'Impact mesurable',               desc: '6 projets livrés · supervision active · 2 stages pro' },
+  { color: '#22c55e', icon: BarChart3, title: 'Impact mesurable',               desc: '8 projets livrés · supervision active · 2 stages pro' },
   { color: '#a78bfa', icon: Lock, title: 'Sécurité by design',             desc: 'VPN, audit de vulnérabilités, pare-feu, conformité ANSSI' },
   { color: '#fbbf24', icon: FileText, title: 'Livraison documentée',           desc: 'Guides techniques, rapports de stage, documentation réseau' },
 ]
