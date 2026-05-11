@@ -326,6 +326,115 @@ const projets = [
   },
   {
     id: 7,
+    title: 'GLPI — Gestion de Parc & Ticketing',
+    subtitle: 'Debian · Apache · MariaDB',
+    logo: null,
+    color: '#f97316',
+    image: '/projects/nagios.webp',
+    badge: 'E6',
+    badgeColor: '#f59e0b',
+    description: "Déploiement de GLPI sur serveur Debian pour la gestion du parc informatique et le suivi des incidents en entreprise.",
+    technologies: ['GLPI', 'Debian', 'Apache', 'MariaDB', 'PHP', 'FusionInventory'],
+    docPdf: null,
+    warning: "Ce projet a été réalisé dans le cadre d'un stage en entreprise. Certaines captures d'écran ont été anonymisées pour protéger les données clients. L'infrastructure présentée a été adaptée aux besoins spécifiques de l'entreprise.",
+    context: "Dans le cadre du stage de 2ème année chez B&A Conseil, l'entreprise avait besoin d'un outil centralisé pour gérer son parc informatique (smartphones, PC, tablettes) et suivre les tickets d'incidents des clients. GLPI (Gestionnaire Libre de Parc Informatique) a été choisi comme solution open source pour sa flexibilité et sa compatibilité avec l'agent d'inventaire FusionInventory, permettant une remontée automatique du matériel.",
+    objectives: [
+      "Installer et configurer GLPI sur un serveur Debian avec Apache et MariaDB",
+      "Configurer la base de données MariaDB dédiée à GLPI avec les droits appropriés",
+      "Déployer l'agent FusionInventory pour l'inventaire automatique du parc informatique",
+      "Mettre en place le module Helpdesk pour la gestion des tickets d'incidents",
+      "Créer les catégories de tickets, les profils utilisateurs et les règles d'attribution"
+    ],
+    environment: ['Debian Server', 'Apache 2.4', 'MariaDB', 'PHP 8.x', 'GLPI 10.x', 'FusionInventory Agent', 'Navigateur web (interface)'],
+    steps: [
+      "Installation de Debian Server et mise à jour du système (apt update && apt upgrade)",
+      "Installation de la pile LAMP : Apache, MariaDB et PHP avec les extensions requises (php-xml, php-curl, php-gd, php-intl, php-ldap)",
+      "Création de la base de données GLPI dans MariaDB et attribution des droits à l'utilisateur dédié",
+      "Téléchargement et extraction de GLPI dans /var/www/html/, configuration des permissions Apache",
+      "Lancement de l'assistant d'installation GLPI via le navigateur : connexion à la base de données et initialisation",
+      "Installation et configuration de l'agent FusionInventory sur les postes clients pour la remontée automatique d'inventaire",
+      "Configuration du module Helpdesk : création des catégories de tickets (Matériel, Logiciel, Réseau, MDM), profils techniciens et règles d'attribution automatique"
+    ],
+    results: [
+      "GLPI opérationnel avec interface web accessible pour l'équipe technique de B&A Conseil",
+      "Inventaire automatique du parc via FusionInventory : remontée des PC, smartphones et tablettes",
+      "Module Helpdesk fonctionnel : création, suivi et clôture des tickets d'incidents",
+      "Tableaux de bord de suivi du parc informatique et des interventions en temps réel"
+    ],
+    competences: [
+      { code: 'B1.1', label: "Gérer le patrimoine informatique" },
+      { code: 'B1.2', label: "Répondre aux incidents et aux demandes d'assistance" },
+      { code: 'B1.3', label: "Développer la présence en ligne" },
+      { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
+    ],
+    difficulties: [
+      {
+        problem: "L'installation de GLPI échouait à l'étape de connexion à la base de données avec une erreur d'accès refusé.",
+        solution: "L'utilisateur MariaDB n'avait pas les droits sur la base GLPI. Exécution de GRANT ALL PRIVILEGES ON glpi.* TO 'glpi_user'@'localhost'; puis FLUSH PRIVILEGES pour appliquer les permissions."
+      },
+      {
+        problem: "FusionInventory ne remontait pas les inventaires : les postes clients n'apparaissaient pas dans GLPI.",
+        solution: "L'URL du serveur GLPI n'était pas correctement configurée dans l'agent FusionInventory. Modification du fichier agent.cfg avec l'URL complète du plugin (http://serveur/glpi/plugins/fusioninventory/) et redémarrage de l'agent."
+      }
+    ],
+  },
+  {
+    id: 8,
+    title: 'Active Directory — Gestion en Entreprise',
+    subtitle: 'Windows Server · Stage',
+    logo: '/logos/activedirectory.svg',
+    color: '#0ea5e9',
+    image: '/projects/ad.webp',
+    badge: 'E6',
+    badgeColor: '#f59e0b',
+    description: "Administration d'un domaine Active Directory en entreprise : gestion des utilisateurs, OU et stratégies de sécurité.",
+    technologies: ['AD DS', 'Windows Server', 'DNS', 'GPO', 'PowerShell', 'DHCP'],
+    docPdf: null,
+    warning: "Ce projet a été réalisé dans le cadre d'un stage en entreprise. Les noms de domaine, adresses IP et comptes utilisateurs présentés ont été modifiés pour des raisons de confidentialité.",
+    context: "Durant le stage, j'ai été amené à administrer l'infrastructure Active Directory existante de l'entreprise. Contrairement au projet E5 réalisé en lab, cette expérience m'a confronté à un environnement de production avec de vrais utilisateurs, des contraintes de disponibilité et des politiques de sécurité strictes. J'ai géré les comptes utilisateurs, les groupes de sécurité, les unités d'organisation et le déploiement de stratégies de groupe (GPO) sur le domaine de l'entreprise.",
+    objectives: [
+      "Administrer les comptes utilisateurs Active Directory (création, modification, désactivation, réinitialisation de mots de passe)",
+      "Organiser l'annuaire avec des Unités d'Organisation (OU) reflétant la structure de l'entreprise",
+      "Déployer des GPO de sécurité : politique de mots de passe, verrouillage de comptes, restrictions logicielles",
+      "Gérer les groupes de sécurité pour le contrôle d'accès aux ressources partagées (dossiers, imprimantes)",
+      "Joindre de nouveaux postes au domaine et vérifier la bonne application des stratégies"
+    ],
+    environment: ['Windows Server (contrôleur de domaine)', 'Active Directory Users & Computers', 'Console GPMC (gpmc.msc)', 'PowerShell (scripts AD)', 'DNS intégré AD', 'DHCP', 'Postes Windows 10/11'],
+    steps: [
+      "Audit de l'infrastructure AD existante : recensement des OU, groupes de sécurité et GPO en place",
+      "Création et gestion des comptes utilisateurs dans les OU appropriées selon les services (IT, Commercial, Direction)",
+      "Configuration des groupes de sécurité globaux pour l'accès aux partages réseau et aux imprimantes",
+      "Déploiement de GPO de sécurité : politique de complexité des mots de passe (12 caractères, expiration 90 jours), verrouillage après 5 tentatives",
+      "Création de GPO de déploiement logiciel pour l'installation automatique des applications métier sur les postes",
+      "Jonction de nouveaux postes Windows au domaine : vérification DNS, jonction, test d'authentification avec compte du domaine",
+      "Documentation des procédures d'administration AD pour assurer la continuité de service"
+    ],
+    results: [
+      "Annuaire AD structuré et à jour avec les comptes de tous les collaborateurs et stagiaires",
+      "GPO de sécurité appliquées sur l'ensemble du domaine : politique de mots de passe renforcée, verrouillage automatique",
+      "Accès aux ressources partagées contrôlé via les groupes de sécurité avec le principe du moindre privilège",
+      "Nouveaux postes intégrés au domaine avec application automatique des stratégies de sécurité et des logiciels métier"
+    ],
+    competences: [
+      { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
+      { code: 'B2.3', label: "Exploiter, dépanner et superviser une solution d'infrastructure réseau" },
+      { code: 'B3.2', label: "Préserver l'identité numérique de l'organisation" },
+      { code: 'B3.3', label: "Sécuriser les équipements et les usages des utilisateurs" },
+      { code: 'B3.4', label: "Garantir la disponibilité, l'intégrité et la confidentialité" },
+    ],
+    difficulties: [
+      {
+        problem: "Un compte utilisateur verrouillé empêchait un collaborateur d'accéder à son poste, sans que la source du verrouillage soit identifiable.",
+        solution: "Utilisation de l'outil Event Viewer sur le contrôleur de domaine pour analyser les journaux de sécurité (Event ID 4740). Identification de la source : un ancien appareil mobile tentait de s'authentifier avec l'ancien mot de passe. Suppression de la connexion sur l'appareil et déverrouillage du compte."
+      },
+      {
+        problem: "Une GPO de restriction logicielle bloquait une application métier légitime sur les postes du service Commercial.",
+        solution: "Création d'une exception dans la GPO via une règle de chemin d'accès (Path Rule) pour autoriser l'exécutable de l'application métier. Application de la GPO uniquement à l'OU Commercial avec filtrage de sécurité sur le groupe concerné."
+      }
+    ],
+  },
+  {
+    id: 9,
     title: 'Analyse Réseau Wireshark',
     subtitle: 'Linux · Capture & Analyse',
     logo: '/logos/wireshark.svg',
@@ -898,11 +1007,88 @@ export default function Projets() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 stagger-grid">
-          {projets.map(projet => (
-            <ProjetCard key={projet.id} projet={projet} onClick={setSelected} />
-          ))}
+        {/* E5 — Administration des systèmes et réseaux */}
+        <div className="animate-fade-up" style={{ marginBottom: '3rem' }}>
+          <div className="flex items-center gap-3" style={{ marginBottom: '1.5rem' }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '12px', fontWeight: 800,
+              padding: '5px 14px', borderRadius: '8px',
+              background: 'rgba(168,85,243,0.15)',
+              color: '#a855f3',
+              border: '1px solid rgba(168,85,243,0.3)',
+            }}>
+              E5
+            </span>
+            <h3 style={{
+              fontFamily: "'Orbitron', system-ui, sans-serif",
+              fontSize: '1.1rem', fontWeight: 700, color: '#e2e8f0',
+              margin: 0,
+            }}>
+              Administration des systèmes et réseaux
+            </h3>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 stagger-grid">
+            {projets.filter(p => p.badge === 'E5').map(projet => (
+              <ProjetCard key={projet.id} projet={projet} onClick={setSelected} />
+            ))}
+          </div>
+        </div>
+
+        {/* E4 — Support et mise à disposition */}
+        <div className="animate-fade-up" style={{ marginBottom: '3rem' }}>
+          <div className="flex items-center gap-3" style={{ marginBottom: '1.5rem' }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '12px', fontWeight: 800,
+              padding: '5px 14px', borderRadius: '8px',
+              background: 'rgba(34,211,238,0.15)',
+              color: '#22d3ee',
+              border: '1px solid rgba(34,211,238,0.3)',
+            }}>
+              E4
+            </span>
+            <h3 style={{
+              fontFamily: "'Orbitron', system-ui, sans-serif",
+              fontSize: '1.1rem', fontWeight: 700, color: '#e2e8f0',
+              margin: 0,
+            }}>
+              Support et mise à disposition de services
+            </h3>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 stagger-grid">
+            {projets.filter(p => p.badge === 'E4').map(projet => (
+              <ProjetCard key={projet.id} projet={projet} onClick={setSelected} />
+            ))}
+          </div>
+        </div>
+
+        {/* E6 — Parcours de professionnalisation */}
+        <div className="animate-fade-up">
+          <div className="flex items-center gap-3" style={{ marginBottom: '1.5rem' }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '12px', fontWeight: 800,
+              padding: '5px 14px', borderRadius: '8px',
+              background: 'rgba(245,158,11,0.15)',
+              color: '#f59e0b',
+              border: '1px solid rgba(245,158,11,0.3)',
+            }}>
+              E6
+            </span>
+            <h3 style={{
+              fontFamily: "'Orbitron', system-ui, sans-serif",
+              fontSize: '1.1rem', fontWeight: 700, color: '#e2e8f0',
+              margin: 0,
+            }}>
+              Parcours de professionnalisation
+            </h3>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 stagger-grid">
+            {projets.filter(p => p.badge === 'E6').map(projet => (
+              <ProjetCard key={projet.id} projet={projet} onClick={setSelected} />
+            ))}
+          </div>
         </div>
 
       </div>
