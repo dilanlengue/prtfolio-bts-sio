@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Building2, MapPin, Users, Calendar, Phone, Globe, ExternalLink, CheckCircle2, Shield, Download, ChevronDown, ChevronUp, Image as ImageIcon, FileText, X, ChevronLeft, ChevronRight, ZoomIn, Maximize2 } from 'lucide-react'
+import { Building2, MapPin, Users, Calendar, Phone, Globe, ExternalLink, CheckCircle2, Shield, Download, ChevronDown, ChevronUp, Image as ImageIcon, FileText, X, ChevronLeft, ChevronRight, ZoomIn, Maximize2, Lightbulb, Award } from 'lucide-react'
 import SectionLabel from './SectionLabel'
 
 const stages = [
@@ -50,6 +50,18 @@ const stages = [
       { src: '/admin-procedure-config-appareils.pdf', label: 'Admin Procédure — Configuration des appareils' },
       { src: '/dossiers/dossier-esim-ba-conseil.pdf', label: 'Documentation eSIM — Activation & Configuration' },
     ],
+    resume: "Ce stage m'a permis de développer une polyvalence technique forte : administration MDM, déploiement de postes, maintenance IT et support utilisateur. J'ai appris à travailler en autonomie sur des missions concrètes pour des clients variés (Galeries Lafayette, Hyundai, ministères). La gestion des appareils mobiles via Miradore m'a sensibilisé aux enjeux de sécurité des flottes professionnelles. Cette expérience a confirmé mon orientation vers l'administration systèmes et réseaux.",
+    competencesBase: [
+      { code: 'B1.1', label: 'Gérer le patrimoine informatique', exemple: 'Inventaire et suivi du parc via GLPI, gestion des appareils MDM' },
+      { code: 'B1.2', label: 'Répondre aux incidents et demandes', exemple: 'Support N1/N2, gestion des tickets, assistance on-site et à distance' },
+      { code: 'B1.4', label: 'Travailler en mode projet', exemple: 'Déploiement de la solution MDM Miradore pour les flottes clients' },
+      { code: 'B1.5', label: 'Mettre à disposition un service IT', exemple: 'Configuration eSIM, MDM, paramétrage smartphones professionnels' },
+    ],
+    competencesSISR: [
+      { code: 'B2.2', label: 'Installer, tester et déployer', exemple: 'Masterisation de postes Windows, jonction au domaine AD' },
+      { code: 'B2.3', label: 'Exploiter, dépanner et superviser', exemple: 'Maintenance préventive/corrective, mises à jour système' },
+      { code: 'B3.3', label: 'Sécuriser les équipements et usages', exemple: 'Politiques MDM (chiffrement, restrictions), GPO, Defender' },
+    ],
     attestationPdf: '/attestation-stage-bna.pdf',
   },
   {
@@ -94,6 +106,17 @@ const stages = [
       { src: '/mac-reconditionnement.jpg', caption: 'Diagnostic carte mère et remplacement de composants (RAM, SSD, batterie)' },
       { src: '/mac-restauration.png', caption: 'Ordinateurs en attente de réparation et restauration en atelier' },
       { src: '/mac-sauvegarde-recuperation.jpg', caption: 'Sauvegarde et récupération de données sur disques durs endommagés' },
+    ],
+    resume: "Ce premier stage m'a donné une solide base en diagnostic matériel et logiciel. Travailler directement avec les clients m'a appris à communiquer clairement sur des sujets techniques et à gérer les priorités. Le contact avec des machines variées (Mac, PC toutes marques) m'a permis de développer une adaptabilité technique indispensable. J'ai compris l'importance du diagnostic méthodique avant toute intervention.",
+    competencesBase: [
+      { code: 'B1.1', label: 'Gérer le patrimoine informatique', exemple: 'Diagnostic matériel, identification des composants, suivi des réparations' },
+      { code: 'B1.2', label: 'Répondre aux incidents et demandes', exemple: 'Accueil clients, diagnostic de pannes, réparation sous 48-96h' },
+      { code: 'B1.4', label: 'Travailler en mode projet', exemple: 'Organisation de l\'atelier, gestion des priorités de réparation' },
+    ],
+    competencesSISR: [
+      { code: 'B2.3', label: 'Exploiter, dépanner et superviser', exemple: 'Diagnostic cartes mères, GPU, remplacement composants' },
+      { code: 'B3.3', label: 'Sécuriser les équipements et usages', exemple: 'Récupération de données, déblocage sécurisé sans perte' },
+      { code: 'B3.4', label: 'Garantir disponibilité et intégrité', exemple: 'Sauvegarde de données, restauration système, migration utilisateur' },
     ],
     attestationPdf: '/attestation-stage-reparateurs.pdf',
   },
@@ -636,6 +659,84 @@ function StageCard({ stage }) {
             </div>
           )}
         </div>
+
+        {/* Résumé & Compétences */}
+        {stage.resume && (
+          <div className="mt-6 space-y-4">
+            {/* Bilan du stage */}
+            <div className="rounded-xl overflow-hidden" style={{ background: '#f0fdf4', border: '1px solid #bbf7d0' }}>
+              <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: '1px solid #bbf7d0' }}>
+                <Lightbulb size={15} style={{ color: '#16a34a' }} />
+                <span style={{ fontSize: '13px', fontWeight: 700, color: '#166534' }}>Bilan & Analyse réflexive</span>
+              </div>
+              <div className="px-4 py-3">
+                <p style={{ fontSize: '13px', color: '#166534', lineHeight: 1.75, fontStyle: 'italic' }}>{stage.resume}</p>
+              </div>
+            </div>
+
+            {/* Compétences de base */}
+            {stage.competencesBase && (
+              <div className="rounded-xl overflow-hidden" style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}>
+                <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: '1px solid #e2e8f0', background: `${stage.tagColor}08` }}>
+                  <Award size={15} style={{ color: stage.tagColor }} />
+                  <span style={{ fontSize: '13px', fontWeight: 700, color: '#1e293b' }}>Compétences de base mobilisées</span>
+                </div>
+                <div className="px-4 py-3 space-y-3">
+                  {stage.competencesBase.map(c => (
+                    <div key={c.code} className="flex items-start gap-3">
+                      <span style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: '11px', fontWeight: 800,
+                        color: stage.tagColor,
+                        background: `${stage.tagColor}12`,
+                        border: `1px solid ${stage.tagColor}25`,
+                        padding: '3px 8px', borderRadius: '6px',
+                        flexShrink: 0, marginTop: '1px',
+                      }}>
+                        {c.code}
+                      </span>
+                      <div>
+                        <p style={{ fontSize: '13px', fontWeight: 600, color: '#1e293b', lineHeight: 1.4 }}>{c.label}</p>
+                        <p style={{ fontSize: '12px', color: '#64748b', lineHeight: 1.5, marginTop: '2px' }}>{c.exemple}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Compétences spécifiques SISR */}
+            {stage.competencesSISR && (
+              <div className="rounded-xl overflow-hidden" style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}>
+                <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: '1px solid #e2e8f0', background: 'rgba(168,85,243,0.05)' }}>
+                  <Shield size={15} style={{ color: '#a855f3' }} />
+                  <span style={{ fontSize: '13px', fontWeight: 700, color: '#1e293b' }}>Compétences spécifiques SISR</span>
+                </div>
+                <div className="px-4 py-3 space-y-3">
+                  {stage.competencesSISR.map(c => (
+                    <div key={c.code} className="flex items-start gap-3">
+                      <span style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: '11px', fontWeight: 800,
+                        color: '#a855f3',
+                        background: 'rgba(168,85,243,0.1)',
+                        border: '1px solid rgba(168,85,243,0.25)',
+                        padding: '3px 8px', borderRadius: '6px',
+                        flexShrink: 0, marginTop: '1px',
+                      }}>
+                        {c.code}
+                      </span>
+                      <div>
+                        <p style={{ fontSize: '13px', fontWeight: 600, color: '#1e293b', lineHeight: 1.4 }}>{c.label}</p>
+                        <p style={{ fontSize: '12px', color: '#64748b', lineHeight: 1.5, marginTop: '2px' }}>{c.exemple}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Galerie illustrations */}
         {stage.gallery && stage.gallery.length > 0 && (
