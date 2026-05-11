@@ -25,7 +25,7 @@ const stages = [
     specialisations: [
       'MDM/UEM', 'Infogérance', 'Télécoms', 'Internet & Lignes Mobiles',
       'Maintenance IT', 'Déploiement poste', 'Solutions Software',
-      'Matériel & Print', 'Techniciens Réseau', 'Sécurité mobile',
+      'Matériel & Print', 'Techniciens Réseau', 'Sécurité mobile', 'eSIM',
     ],
     poste: 'Technicien Support & Administration IT',
     missions: [
@@ -37,6 +37,7 @@ const stages = [
       'Installation et paramétrage d\'applications professionnelles selon les besoins spécifiques de chaque client',
       'Assistance technique on-site et à distance pour les utilisateurs finaux (support niveau 1 et 2)',
       'Gestion des tickets d\'incidents et suivi des interventions dans l\'outil de ticketing interne',
+      'Activation et configuration de cartes eSIM sur smartphones professionnels (génération QR code, saisie PIN/PUK, paramétrage Android & iOS)',
     ],
     gallery: [
       { src: '/ba-smartphone-config.jpg', caption: 'Configuration et enrôlement de smartphones professionnels via MDM' },
@@ -47,6 +48,7 @@ const stages = [
     ],
     documents: [
       { src: '/admin-procedure-config-appareils.pdf', label: 'Admin Procédure — Configuration des appareils' },
+      { src: '/dossiers/dossier-esim-ba-conseil.pdf', label: 'Documentation eSIM — Activation & Configuration' },
     ],
     attestationPdf: '/attestation-stage-bna.pdf',
   },
