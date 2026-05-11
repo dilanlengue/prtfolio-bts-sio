@@ -211,6 +211,47 @@ export default function Veille() {
           </div>
         </div>
 
+        {/* OUTILS DE VEILLE */}
+        <div style={{ marginBottom: '5rem' }}>
+          <h3 style={{
+            fontFamily: "'Orbitron', system-ui, sans-serif",
+            fontSize: '1.3rem', fontWeight: 800, color: '#a5b4fc',
+            marginBottom: '1.5rem',
+          }}>
+            Mes outils de veille
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <a href="https://www.google.fr/alerts" target="_blank" rel="noopener noreferrer"
+              className="rounded-xl" style={{
+                padding: '1.5rem', textDecoration: 'none',
+                background: 'rgba(165,180,252,0.05)', border: '1px solid rgba(165,180,252,0.12)',
+                display: 'block',
+              }}
+            >
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#ffffff', marginBottom: '0.5rem' }}>
+                Google Alerts
+              </p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 1.8 }}>
+                Je reçois des alertes email automatiques dès qu'un nouvel article parle de "phishing", "cyberattaque France" ou "hameçonnage".
+              </p>
+            </a>
+            <a href="https://www.it-connect.fr/" target="_blank" rel="noopener noreferrer"
+              className="rounded-xl" style={{
+                padding: '1.5rem', textDecoration: 'none',
+                background: 'rgba(165,180,252,0.05)', border: '1px solid rgba(165,180,252,0.12)',
+                display: 'block',
+              }}
+            >
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', fontWeight: 700, color: '#ffffff', marginBottom: '0.5rem' }}>
+                IT-Connect
+              </p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#cbd5e1', lineHeight: 1.8 }}>
+                Site français d'actualité IT et cybersécurité. Je consulte leurs articles sur les nouvelles menaces et les bonnes pratiques.
+              </p>
+            </a>
+          </div>
+        </div>
+
         {/* ARTICLES */}
         <div style={{ marginBottom: '5rem' }}>
           <h3 style={{
