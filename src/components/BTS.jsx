@@ -53,7 +53,7 @@ const epreuves = [
     docs: [
       {
         label: 'Dossier E5 — Active Directory & DNS',
-        url: '/dossiers/dossier-adds-dns.pdf',
+        url: '/dossiers/dossier-adds-dns-dilan.pdf',
         status: 'available',
         outline: [
           'Domaine sio.lan, Windows Server 2025',

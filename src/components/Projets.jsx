@@ -17,7 +17,7 @@ const projets = [
     badgeColor: '#a855f3',
     description: "Déploiement d'un contrôleur de domaine AD DS avec DNS intégré sur Windows Server 2025 — forêt sio.lan.",
     technologies: ['Windows Server 2025', 'AD DS', 'DNS', 'PowerShell', 'Hyper-V'],
-    docPdf: '/dossiers/dossier-adds-dns.pdf',
+    docPdf: '/dossiers/dossier-adds-dns-dilan.pdf',
     warning: "Ce projet a été réalisé dans un environnement virtualisé (Hyper-V) à des fins pédagogiques. Les configurations présentées (mot de passe administrateur, structure OU) doivent être adaptées et renforcées avant toute mise en production.",
     context: "Dans le cadre de la formation BTS SIO SISR, il était nécessaire de mettre en place une infrastructure Active Directory centralisée pour gérer les utilisateurs, les postes et les ressources réseau. Le serveur SVR-WND (Windows Server 2025, IP 172.16.1.1) a été configuré comme contrôleur de domaine pour la forêt sio.lan, avec un service DNS intégré pour la résolution de noms interne.",
     objectives: [
