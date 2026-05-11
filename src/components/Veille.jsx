@@ -300,6 +300,26 @@ export default function Veille() {
           </div>
         </div>
 
+        {/* OBJECTIF */}
+        <div className="rounded-xl" style={{
+          padding: '2rem', background: 'rgba(110,231,183,0.05)',
+          border: '1px solid rgba(110,231,183,0.15)',
+        }}>
+          <h3 style={{
+            fontFamily: "'Orbitron', system-ui, sans-serif",
+            fontSize: '1.1rem', fontWeight: 800, color: '#6ee7b7',
+            marginBottom: '1rem',
+          }}>
+            Mon objectif
+          </h3>
+          <p style={{
+            fontFamily: "'Inter', sans-serif", fontSize: '16px',
+            color: '#e2e8f0', lineHeight: 1.9,
+          }}>
+            En tant qu'étudiant BTS SIO SISR, ma veille me permet de rester informé sur les menaces actuelles pour mieux protéger les systèmes et les utilisateurs. Le phishing étant la menace n°1 en France, je surveille les nouvelles techniques d'attaque et les bonnes pratiques de protection grâce à Google Alerts et aux sites officiels (ANSSI, Cybermalveillance, CERT-FR).
+          </p>
+        </div>
+
       </div>
     </section>
   )
