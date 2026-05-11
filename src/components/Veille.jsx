@@ -211,21 +211,52 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* SOURCES */}
-        <div className="rounded-xl" style={{
-          padding: '1.5rem 2rem', background: 'rgba(165,180,252,0.04)',
-          border: '1px solid rgba(165,180,252,0.1)',
-        }}>
-          <p style={{
-            fontFamily: "'Inter', sans-serif", fontSize: '14px',
-            color: '#94a3b8', lineHeight: 1.8,
+        {/* ARTICLES */}
+        <div style={{ marginBottom: '5rem' }}>
+          <h3 style={{
+            fontFamily: "'Orbitron', system-ui, sans-serif",
+            fontSize: '1.3rem', fontWeight: 800, color: '#a5b4fc',
+            marginBottom: '1.5rem',
           }}>
-            <strong style={{ color: '#a5b4fc' }}>Sources :</strong>{' '}
-            <a href="https://www.cybermalveillance.gouv.fr/" target="_blank" rel="noopener noreferrer" style={{ color: '#cbd5e1', textDecoration: 'underline' }}>Cybermalveillance.gouv.fr</a> · {' '}
-            <a href="https://cyber.gouv.fr/" target="_blank" rel="noopener noreferrer" style={{ color: '#cbd5e1', textDecoration: 'underline' }}>ANSSI</a> · {' '}
-            <a href="https://www.cnil.fr/" target="_blank" rel="noopener noreferrer" style={{ color: '#cbd5e1', textDecoration: 'underline' }}>CNIL</a> · {' '}
-            <a href="https://www.cert.ssi.gouv.fr/" target="_blank" rel="noopener noreferrer" style={{ color: '#cbd5e1', textDecoration: 'underline' }}>CERT-FR</a>
-          </p>
+            Articles et sources
+          </h3>
+          <div className="flex flex-col gap-4">
+            {[
+              {
+                titre: "Qu'est-ce que le phishing ou hameçonnage ?",
+                source: 'Cybermalveillance.gouv.fr',
+                url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/dossier-phishing',
+              },
+              {
+                titre: 'Que faire en cas de phishing ? — Fiche réflexe',
+                source: 'Cybermalveillance.gouv.fr',
+                url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing',
+              },
+              {
+                titre: 'Panorama de la cybermenace 2025',
+                source: 'ANSSI / CERT-FR',
+                url: 'https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2025/',
+              },
+            ].map((art, i) => (
+              <a key={i} href={art.url} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-4 rounded-xl transition-all"
+                style={{
+                  padding: '1.2rem 1.5rem', textDecoration: 'none',
+                  background: 'rgba(165,180,252,0.05)', border: '1px solid rgba(165,180,252,0.12)',
+                }}
+              >
+                <ExternalLink size={18} style={{ color: '#a5b4fc', flexShrink: 0 }} />
+                <div className="flex-1">
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 700, color: '#e2e8f0' }}>
+                    {art.titre}
+                  </p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: '#94a3b8', marginTop: '0.3rem' }}>
+                    {art.source}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
 
       </div>
