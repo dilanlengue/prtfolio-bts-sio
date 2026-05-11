@@ -321,9 +321,9 @@ export default function Veille() {
             </p>
             <div className="flex flex-col gap-4 mb-5">
               {[
-                { etape: 'BTS SIO SISR — Institut F2I', desc: 'Administration réseau, systèmes et sécurité', actuel: true },
-                { etape: 'Licence Pro MASI — Cybersécurité (CNAM)', desc: 'Administration et sécurité des systèmes, réponse à incident' },
-                { etape: 'Master / Mastère Cybersécurité (ESIEA, Télécom Paris, Guardia)', desc: 'Tests d\'intrusion, audit de sécurité, certifications (CEH, OSCP)' },
+                { etape: 'BTS SIO SISR', desc: 'Administration réseau, systèmes et sécurité', actuel: true },
+                { etape: 'Licence Pro MASI — Cybersécurité', desc: 'Administration et sécurité des systèmes, réponse à incident' },
+                { etape: 'Master Cybersécurité', desc: 'Tests d\'intrusion, audit de sécurité, certifications CEH / OSCP' },
                 { etape: 'Pentester', desc: 'Tester la sécurité des systèmes pour trouver les failles avant les attaquants' },
               ].map((e, i) => (
                 <div key={i} className="flex items-center gap-4">
