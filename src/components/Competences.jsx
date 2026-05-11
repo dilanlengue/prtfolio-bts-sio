@@ -11,7 +11,6 @@ const categories = [
       { name: 'Windows 10/11', desc: 'Déploiement, configuration et maintenance des postes clients', color: '#0078D4', logo: '/logos/windows.png', url: 'https://www.microsoft.com/fr-fr/windows' },
       { name: 'Linux', desc: 'Installation et administration de serveurs Linux', color: '#A81D33', logo: '/logos/debian.png', url: 'https://www.linux.org/' },
       { name: 'Active Directory', desc: 'Gestion des utilisateurs, groupes et droits d\'accès centralisée', color: '#0078D4', logo: '/logos/activedirectory.svg', url: 'https://learn.microsoft.com/fr-fr/windows-server/identity/ad-ds/' },
-      { name: 'GPO', desc: 'Configuration et déploiement de stratégies de groupe', color: '#2563EB', logo: '/logos/gpo.svg', url: 'https://learn.microsoft.com/fr-fr/windows-server/identity/ad-ds/' },
     ],
   },
   {
