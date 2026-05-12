@@ -73,41 +73,41 @@ const phishingTypes = [
 
 const casReelsFrance = [
   {
-    date: 'Janvier 2025',
-    titre: 'Chronopost — Fuite de données de 210 000 clients',
-    icon: Mail,
-    color: '#fbbf24',
-    desc: "Chronopost (filiale La Poste) a subi une intrusion le 29 janvier 2025. Les noms, adresses, téléphones et signatures des clients ont été volés. Les données ont immédiatement été exploitées pour des campagnes de smishing imitant Chronopost.",
+    date: 'Avril 2026',
+    titre: 'ANTS (France Titres) — Fuite de 12 à 19 millions de comptes',
+    icon: ShieldAlert,
+    color: '#f87171',
+    desc: "Le 15 avril 2026, une faille IDOR sur le portail ANTS a permis d'accéder aux données de 12 à 19 millions de comptes : noms, dates de naissance, emails, adresses. Un adolescent a été interpellé le 25 avril.",
     impact: [
-      '210 000 clients touchés (le pirate revendiquait 7 millions)',
-      'Noms, adresses, téléphones et signatures volés',
-      'Campagnes de smishing immédiates : faux SMS "frais de livraison"',
-      'Déclaration CNIL obligatoire (RGPD)',
+      '12 à 19 millions de comptes exposés',
+      'Noms, dates de naissance, emails, adresses volés',
+      'Faille IDOR (modification d\'identifiant dans l\'URL)',
+      'Enquête confiée à l\'OFAC — pirate interpellé',
     ],
-    source: 'L\'Usine Digitale',
-    url: 'https://www.usine-digitale.fr/article/cybersecurite-chronopost-victime-d-une-fuite-de-donnees-des-signatures-de-clients-exposees.N2227405',
+    source: 'franceinfo',
+    url: 'https://www.franceinfo.fr/internet/securite-sur-internet/cyberattaques/fuite-de-donnees-sur-le-portail-de-l-ants-pres-de-12-millions-de-comptes-concernes-annonce-le-ministere-de-l-interieur_7954181.html',
   },
   {
-    date: 'Mars 2025',
-    titre: 'Intersport — Fuite de données de 3 millions de clients',
+    date: 'Février 2026',
+    titre: 'Cegedim Santé — Fuite de données de 15 millions de patients',
     icon: Users,
-    color: '#f472b6',
-    desc: "Le 16 mars 2025, les données de près de 3 millions de clients Intersport France ont été volées et mises en vente sur BreachForums. Les victimes sont exposées à des campagnes de phishing personnalisées reproduisant l'identité visuelle d'Intersport.",
+    color: '#fb923c',
+    desc: "Le logiciel médical MonLogicielMédical (Cegedim) a été piraté par le groupe DumpSec. Données de 15 millions de patients volées : identité, coordonnées, et parfois des informations médicales sensibles. Plus grande fuite médicale en France.",
     impact: [
-      '3 millions de clients touchés',
-      'Noms, emails, adresses, téléphones, cartes de fidélité volés',
-      'Données en vente sur BreachForums dès le 19 mars 2025',
-      'Risque de phishing ciblé (fausses promotions Intersport)',
+      '15 millions de patients touchés',
+      'Données médicales sensibles volées (pathologies)',
+      '1 500 médecins concernés',
+      'Plus grande fuite de données médicales en France',
     ],
-    source: 'L\'Usine Digitale',
-    url: 'https://www.usine-digitale.fr/article/cybersecurite-intersport-previent-ses-clients-d-une-fuite-de-donnees.N2229602',
+    source: 'franceinfo',
+    url: 'https://www.franceinfo.fr/internet/securite-sur-internet/cyberattaques/quinze-millions-de-patients-concernes-1-500-medecins-vises-une-enquete-ouverte-ce-que-l-on-sait-de-la-cyberattaque-qui-a-cible-un-logiciel-medical_7833611.html',
   },
   {
     date: 'Mars 2024',
     titre: 'France Travail — Vol de données de 43 millions de Français',
     icon: Building2,
     color: '#fca5a5',
-    desc: "Des hackers ont piraté la base de données de France Travail (ex-Pôle Emploi) et volé les noms, prénoms, numéros de sécurité sociale de 43 millions de personnes inscrites depuis 20 ans.",
+    desc: "Des hackers ont piraté France Travail (ex-Pôle Emploi) et volé les noms, prénoms, numéros de sécurité sociale de 43 millions de personnes inscrites depuis 20 ans.",
     impact: [
       '43 millions de personnes touchées',
       'Numéros de sécurité sociale volés',
@@ -336,10 +336,10 @@ export default function Veille() {
           {/* Stats chiffrées */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" style={{ marginBottom: '2rem' }}>
             {[
-              { stat: '108 000', label: 'demandes d\'aide en France (2024)', icon: Users, color: '#fca5a5' },
-              { stat: '+70%', label: 'd\'augmentation en 2 ans', icon: TrendingUp, color: '#fb923c' },
-              { stat: '1,2 Md€', label: 'de pertes estimées en France / an', icon: CreditCard, color: '#fbbf24' },
-              { stat: '#1', label: 'menace cyber en France', icon: AlertTriangle, color: '#f472b6' },
+              { stat: '504 000', label: 'demandes d\'assistance en 2025', icon: Users, color: '#fca5a5' },
+              { stat: '+45%', label: 'de phishing vs 2025', icon: TrendingUp, color: '#fb923c' },
+              { stat: '2ème', label: 'pays le plus touché au monde', icon: CreditCard, color: '#fbbf24' },
+              { stat: '86%', label: 'des attaques phishing par IA', icon: AlertTriangle, color: '#f472b6' },
             ].map((s, i) => {
               const StatIcon = s.icon
               return (
@@ -545,7 +545,7 @@ export default function Veille() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
               {[
-                { icon: Mail, stat: '82%', title: 'Emails générés par IA', desc: 'Des emails de phishing sont maintenant créés par des IA, avec un langage parfait et personnalisé', color: '#818cf8' },
+                { icon: Mail, stat: '86%', title: 'Emails générés par IA', desc: 'Des emails de phishing sont maintenant créés par des IA, avec un langage parfait et personnalisé', color: '#818cf8' },
                 { icon: Phone, stat: '3 sec', title: 'Clone vocal par IA', desc: 'Il suffit de 3 secondes d\'audio pour cloner une voix et passer de faux appels téléphoniques', color: '#a78bfa' },
                 { icon: Bot, stat: 'Deepfakes', title: 'Vidéos truquées', desc: 'L\'IA crée de fausses vidéos de dirigeants pour lancer des fraudes au président', color: '#c4b5fd' },
                 { icon: Search, stat: 'OSINT + IA', title: 'Ciblage automatisé', desc: 'L\'IA analyse les réseaux sociaux pour personnaliser automatiquement les attaques', color: '#e9d5ff' },
@@ -598,22 +598,22 @@ export default function Veille() {
           <div className="flex flex-col gap-3">
             {[
               {
+                titre: 'Rapport d\'activité 2025 — 504 000 demandes d\'assistance',
+                source: 'Cybermalveillance.gouv.fr', date: 'Mars 2026',
+                desc: 'Bilan annuel : 504 000 demandes (+20%), phishing toujours menace n°1',
+                url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/rapport-activite-2025',
+              },
+              {
+                titre: 'Panorama de la cybermenace 2025',
+                source: 'ANSSI / CERT-FR', date: 'Mars 2026',
+                desc: 'Synthèse officielle — usage dual de l\'IA générative dans les cyberattaques',
+                url: 'https://cyber.gouv.fr/actualites/publication-du-rapport-dactivite-2025-de-lanssi/',
+              },
+              {
                 titre: "Qu'est-ce que le phishing ou hameçonnage ?",
                 source: 'Cybermalveillance.gouv.fr', date: '2024',
                 desc: 'Définition complète, exemples et conseils de prévention par le gouvernement',
                 url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/dossier-phishing',
-              },
-              {
-                titre: 'Rapport d\'activité 2024 — +70% de phishing',
-                source: 'Cybermalveillance.gouv.fr', date: '2025',
-                desc: 'Bilan annuel : 108 000 demandes d\'aide pour phishing, hausse de 70%',
-                url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/rapport-activite-2024',
-              },
-              {
-                titre: 'Panorama de la cybermenace 2025',
-                source: 'ANSSI / CERT-FR', date: '2025',
-                desc: 'Rapport officiel de l\'État sur les principales menaces cyber en France',
-                url: 'https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2025/',
               },
               {
                 titre: "L'IA générative et le phishing — état des lieux",
