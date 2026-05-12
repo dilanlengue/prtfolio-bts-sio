@@ -73,21 +73,6 @@ const phishingTypes = [
 
 const casReelsFrance = [
   {
-    date: 'Juillet 2025',
-    titre: 'France Travail (Kairos) — 340 000 demandeurs d\'emploi exposés',
-    icon: Building2,
-    color: '#f87171',
-    desc: "Le 12 juillet 2025, une intrusion est détectée via un compte compromis d'un organisme de formation en Isère, infecté par un infostealer. L'attaquant a accédé à l'application Kairos de suivi des formations, exposant les données de 340 000 demandeurs d'emploi.",
-    impact: [
-      '340 000 demandeurs d\'emploi concernés',
-      'Noms, prénoms, dates de naissance, identifiants exposés',
-      'Accès initial via un infostealer (vol de mot de passe)',
-      '2ème attaque majeure contre France Travail en 18 mois',
-    ],
-    source: 'Banque des Territoires',
-    url: 'https://www.banquedesterritoires.fr/france-travail-victime-dune-cyberattaque-340000-demandeurs-demploi-potentiellement-concernes',
-  },
-  {
     date: 'Août 2025',
     titre: 'Bouygues Telecom — Fuite de données de 6,4 millions de clients',
     icon: Users,
@@ -667,7 +652,7 @@ export default function Veille() {
               Ma veille technologique sur le phishing m'a permis de comprendre que cette menace est en <strong style={{ color: '#fca5a5' }}>constante {'é'}volution</strong>. Avec l'arriv{'é'}e de l'intelligence artificielle, les attaques deviennent plus sophistiqu{'é'}es, plus personnalis{'é'}es et plus difficiles {'à'} d{'é'}tecter.
             </p>
             <p style={{ ...bodyText, fontSize: '17px', color: '#e2e8f0', marginBottom: '1.5rem' }}>
-              Les cas r{'é'}cents en France en 2025 (France Travail, Bouygues Telecom, H{'ô'}pital de Pontarlier, Minist{'è'}re de l'Int{'é'}rieur) montrent que <strong style={{ color: '#fca5a5' }}>personne n'est {'à'} l'abri</strong> : ni les particuliers, ni les entreprises, ni m{'ê'}me les administrations publiques. La France est le <strong style={{ color: '#22d3ee' }}>2{'è'}me pays le plus touch{'é'} au monde</strong> par les fuites de donn{'é'}es avec 40,3 millions de comptes compromis en 2025.
+              Les cas r{'é'}cents en France en 2025 (Bouygues Telecom, H{'ô'}pital de Pontarlier, Minist{'è'}re de l'Int{'é'}rieur) montrent que <strong style={{ color: '#fca5a5' }}>personne n'est {'à'} l'abri</strong> : ni les particuliers, ni les entreprises, ni m{'ê'}me les administrations publiques. La France est le <strong style={{ color: '#22d3ee' }}>2{'è'}me pays le plus touch{'é'} au monde</strong> par les fuites de donn{'é'}es avec 40,3 millions de comptes compromis en 2025.
             </p>
             <p style={{ ...bodyText, fontSize: '17px', color: '#e2e8f0' }}>
               Cette veille m'a convaincu que la <strong style={{ color: '#6ee7b7' }}>sensibilisation</strong> et la <strong style={{ color: '#6ee7b7' }}>formation</strong> restent les meilleures d{'é'}fenses. En tant que futur professionnel de la cybers{'é'}curit{'é'}, je continuerai {'à'} me tenir inform{'é'} des nouvelles menaces pour mieux prot{'é'}ger les syst{'è'}mes et les utilisateurs.
