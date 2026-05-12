@@ -1,4 +1,4 @@
-import { Shield, Mail, Phone, Smartphone, Globe, Lock, Eye, ShieldCheck, AlertTriangle, ExternalLink, QrCode } from 'lucide-react'
+import { Shield, Mail, Phone, Smartphone, Globe, Lock, Eye, ShieldCheck, AlertTriangle, ExternalLink, QrCode, Search, Bot, Sparkles } from 'lucide-react'
 
 const phishingTypes = [
   {
@@ -38,10 +38,10 @@ const protections = [
 ]
 
 const actualites = [
-  { date: '2024', titre: 'France Travail', desc: '43 millions de personnes touchées par un vol de données.' },
-  { date: '2024', titre: 'Free', desc: '19 millions de clients touchés, 42M€ d\'amende CNIL.' },
-  { date: '2025', titre: 'Phishing +70%', desc: '108 000 demandes d\'aide pour phishing en France.' },
-  { date: '2025', titre: 'IA et Phishing', desc: '82% des emails de phishing sont générés par l\'IA.' },
+  { date: '2024', titre: 'France Travail', desc: '43 millions de personnes touchées par un vol de données.', url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/violation-donnees-personnelles-france-travail' },
+  { date: '2024', titre: 'Free', desc: '19 millions de clients touchés, 42M€ d\'amende CNIL.', url: 'https://www.cnil.fr/fr/fuite-de-donnees-de-free-la-cnil-a-sanctionne-loperateur-dune-amende-de-42-millions-deuros' },
+  { date: '2025', titre: 'Phishing +70%', desc: '108 000 demandes d\'aide pour phishing en France.', url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/rapport-activite-2024' },
+  { date: '2025', titre: 'IA et Phishing', desc: '82% des emails de phishing sont générés par l\'IA.', url: 'https://www.it-connect.fr/intelligence-artificielle-ia-phishing/' },
 ]
 
 export default function Veille() {
@@ -65,7 +65,7 @@ export default function Veille() {
             fontSize: 'clamp(2rem, 5vw, 2.8rem)',
             fontWeight: 900, color: '#ffffff', marginTop: '2rem', marginBottom: '1rem',
           }}>
-            Le Phishing
+            Veille Technologique : Le Phishing
           </h2>
           <p style={{
             fontFamily: "'Inter', sans-serif", fontSize: '18px',
@@ -75,7 +75,35 @@ export default function Veille() {
           </p>
         </div>
 
-        {/* 1 — DÉFINITION */}
+        {/* 1 — DÉFINITION VEILLE TECHNOLOGIQUE */}
+        <div style={{ marginBottom: '5rem' }}>
+          <h3 style={{
+            fontFamily: "'Orbitron', system-ui, sans-serif",
+            fontSize: '1.3rem', fontWeight: 800, color: '#a5b4fc',
+            marginBottom: '1.5rem',
+          }}>
+            C'est quoi la Veille Technologique ?
+          </h3>
+          <div className="rounded-xl" style={{
+            padding: '2rem', background: 'rgba(165,180,252,0.06)',
+            border: '1px solid rgba(165,180,252,0.15)',
+          }}>
+            <p style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '17px',
+              color: '#e2e8f0', lineHeight: 2,
+            }}>
+              La <strong style={{ color: '#a5b4fc' }}>veille technologique</strong>, c'est le fait de se tenir informé en permanence des nouvelles technologies, des menaces et des évolutions dans son domaine. En cybersécurité, c'est essentiel pour anticiper les nouvelles attaques et protéger les systèmes.
+            </p>
+            <p style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '16px',
+              color: '#cbd5e1', lineHeight: 1.9, marginTop: '1rem',
+            }}>
+              Pour mon BTS SIO, j'ai choisi de faire ma veille sur <strong style={{ color: '#fca5a5' }}>le phishing</strong>, car c'est la cyberattaque la plus courante en France et celle qui touche le plus de personnes.
+            </p>
+          </div>
+        </div>
+
+        {/* 2 — DÉFINITION PHISHING */}
         <div style={{ marginBottom: '5rem' }}>
           <h3 style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
@@ -97,7 +125,7 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* 2 — LES 5 TYPES */}
+        {/* 3 — LES 5 TYPES */}
         <div style={{ marginBottom: '5rem' }}>
           <h3 style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
@@ -144,7 +172,73 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* 3 — SE PROTÉGER */}
+        {/* 4 — IMPACT DE L'IA */}
+        <div style={{ marginBottom: '5rem' }}>
+          <h3 style={{
+            fontFamily: "'Orbitron', system-ui, sans-serif",
+            fontSize: '1.3rem', fontWeight: 800, color: '#c4b5fd',
+            marginBottom: '1.5rem',
+          }}>
+            <span className="flex items-center gap-3">
+              <Bot size={24} style={{ color: '#c4b5fd' }} />
+              L'impact de l'IA sur le Phishing
+            </span>
+          </h3>
+          <div className="rounded-xl" style={{
+            padding: '2rem', background: 'rgba(196,181,253,0.06)',
+            border: '1px solid rgba(196,181,253,0.15)',
+          }}>
+            <p style={{
+              fontFamily: "'Inter', sans-serif", fontSize: '17px',
+              color: '#e2e8f0', lineHeight: 2, marginBottom: '1.5rem',
+            }}>
+              L'intelligence artificielle a rendu le phishing beaucoup plus dangereux. Aujourd'hui, les attaquants utilisent l'IA pour :
+            </p>
+            <div className="flex flex-col gap-4 mb-5">
+              {[
+                { stat: '82%', text: "des emails de phishing sont maintenant générés par l'IA, avec zéro faute d'orthographe" },
+                { stat: '3 sec', text: "suffisent à l'IA pour cloner une voix et passer de faux appels (vishing)" },
+                { stat: 'Deepfakes', text: "l'IA peut créer de fausses vidéos de dirigeants pour arnaquer des entreprises" },
+                { stat: '+70%', text: "d'augmentation des attaques de phishing en France entre 2023 et 2025" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-4">
+                  <span style={{
+                    fontFamily: "'JetBrains Mono', monospace", fontSize: '14px',
+                    fontWeight: 800, color: '#c4b5fd',
+                    background: 'rgba(196,181,253,0.1)', border: '1px solid rgba(196,181,253,0.2)',
+                    padding: '6px 12px', borderRadius: '8px', flexShrink: 0, minWidth: '80px', textAlign: 'center',
+                  }}>
+                    {item.stat}
+                  </span>
+                  <p style={{
+                    fontFamily: "'Inter', sans-serif", fontSize: '16px',
+                    color: '#cbd5e1', lineHeight: 1.8,
+                  }}>
+                    {item.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col gap-3">
+              <a href="https://www.it-connect.fr/intelligence-artificielle-ia-phishing/" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3" style={{ textDecoration: 'none' }}>
+                <ExternalLink size={14} style={{ color: '#c4b5fd', flexShrink: 0 }} />
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#c4b5fd' }}>
+                  IT-Connect — L'IA et le phishing (2025)
+                </span>
+              </a>
+              <a href="https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2025/" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3" style={{ textDecoration: 'none' }}>
+                <ExternalLink size={14} style={{ color: '#c4b5fd', flexShrink: 0 }} />
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#c4b5fd' }}>
+                  ANSSI — Panorama de la cybermenace 2025
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* 5 — SE PROTÉGER */}
         <div style={{ marginBottom: '5rem' }}>
           <h3 style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
@@ -173,7 +267,7 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* 4 — ACTUALITÉS */}
+        {/* 6 — ACTUALITÉS avec liens */}
         <div style={{ marginBottom: '5rem' }}>
           <h3 style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
@@ -184,19 +278,24 @@ export default function Veille() {
           </h3>
           <div className="grid sm:grid-cols-2 gap-5">
             {actualites.map((a, i) => (
-              <div key={i} className="rounded-xl" style={{
-                padding: '1.5rem', background: 'rgba(252,165,165,0.05)',
-                border: '1px solid rgba(252,165,165,0.12)',
-              }}>
-                <span style={{
-                  fontFamily: "'JetBrains Mono', monospace", fontSize: '12px',
-                  fontWeight: 700, color: '#fca5a5',
-                }}>
-                  {a.date}
-                </span>
+              <a key={i} href={a.url} target="_blank" rel="noopener noreferrer"
+                className="rounded-xl" style={{
+                  padding: '1.5rem', background: 'rgba(252,165,165,0.05)',
+                  border: '1px solid rgba(252,165,165,0.12)', textDecoration: 'none', display: 'block',
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span style={{
+                    fontFamily: "'JetBrains Mono', monospace", fontSize: '12px',
+                    fontWeight: 700, color: '#fca5a5',
+                  }}>
+                    {a.date}
+                  </span>
+                  <ExternalLink size={14} style={{ color: '#fca5a5', opacity: 0.5 }} />
+                </div>
                 <p style={{
                   fontFamily: "'Inter', sans-serif", fontSize: '16px',
-                  fontWeight: 700, color: '#ffffff', margin: '0.5rem 0',
+                  fontWeight: 700, color: '#ffffff', marginBottom: '0.5rem',
                 }}>
                   {a.titre}
                 </p>
@@ -206,19 +305,22 @@ export default function Veille() {
                 }}>
                   {a.desc}
                 </p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
 
-        {/* OUTILS DE VEILLE */}
+        {/* 7 — OUTILS DE VEILLE */}
         <div style={{ marginBottom: '5rem' }}>
           <h3 style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
             fontSize: '1.3rem', fontWeight: 800, color: '#a5b4fc',
             marginBottom: '1.5rem',
           }}>
-            Mes outils de veille
+            <span className="flex items-center gap-3">
+              <Search size={22} style={{ color: '#a5b4fc' }} />
+              Mes outils de veille
+            </span>
           </h3>
           <div className="grid sm:grid-cols-2 gap-5">
             <a href="https://www.google.fr/alerts" target="_blank" rel="noopener noreferrer"
@@ -252,14 +354,14 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* ARTICLES */}
+        {/* 8 — SOURCES */}
         <div style={{ marginBottom: '5rem' }}>
           <h3 style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
             fontSize: '1.3rem', fontWeight: 800, color: '#a5b4fc',
             marginBottom: '1.5rem',
           }}>
-            Articles et sources
+            Sources et articles
           </h3>
           <div className="flex flex-col gap-4">
             {[
@@ -277,6 +379,16 @@ export default function Veille() {
                 titre: 'Panorama de la cybermenace 2025',
                 source: 'ANSSI / CERT-FR',
                 url: 'https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2025/',
+              },
+              {
+                titre: "L'IA générative et le phishing — état des lieux",
+                source: 'IT-Connect',
+                url: 'https://www.it-connect.fr/intelligence-artificielle-ia-phishing/',
+              },
+              {
+                titre: 'Les menaces liées au phishing en 2025',
+                source: 'CERT-FR / ANSSI',
+                url: 'https://cyber.gouv.fr/publications',
               },
             ].map((art, i) => (
               <a key={i} href={art.url} target="_blank" rel="noopener noreferrer"
@@ -300,7 +412,7 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* PROJET PROFESSIONNEL */}
+        {/* 9 — PROJET PROFESSIONNEL */}
         <div style={{ marginBottom: '5rem' }}>
           <h3 style={{
             fontFamily: "'Orbitron', system-ui, sans-serif",
