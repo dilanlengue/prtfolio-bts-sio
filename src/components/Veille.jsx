@@ -73,64 +73,64 @@ const phishingTypes = [
 
 const casReelsFrance = [
   {
-    date: 'Avril 2026',
-    titre: 'ANTS (France Titres) — Fuite de 12 à 19 millions de comptes',
-    icon: ShieldAlert,
+    date: 'Juillet 2025',
+    titre: 'France Travail (Kairos) — 340 000 demandeurs d\'emploi exposés',
+    icon: Building2,
     color: '#f87171',
-    desc: "Le 15 avril 2026, une faille IDOR sur le portail ANTS a permis d'accéder aux données de 12 à 19 millions de comptes : noms, dates de naissance, emails, adresses. Un adolescent a été interpellé le 25 avril.",
+    desc: "Le 12 juillet 2025, une intrusion est détectée via un compte compromis d'un organisme de formation en Isère, infecté par un infostealer. L'attaquant a accédé à l'application Kairos de suivi des formations, exposant les données de 340 000 demandeurs d'emploi.",
     impact: [
-      '12 à 19 millions de comptes exposés',
-      'Noms, dates de naissance, emails, adresses volés',
-      'Faille IDOR (modification d\'identifiant dans l\'URL)',
-      'Enquête confiée à l\'OFAC — pirate interpellé',
+      '340 000 demandeurs d\'emploi concernés',
+      'Noms, prénoms, dates de naissance, identifiants exposés',
+      'Accès initial via un infostealer (vol de mot de passe)',
+      '2ème attaque majeure contre France Travail en 18 mois',
     ],
-    source: 'franceinfo',
-    url: 'https://www.franceinfo.fr/internet/securite-sur-internet/cyberattaques/fuite-de-donnees-sur-le-portail-de-l-ants-pres-de-12-millions-de-comptes-concernes-annonce-le-ministere-de-l-interieur_7954181.html',
+    source: 'Banque des Territoires',
+    url: 'https://www.banquedesterritoires.fr/france-travail-victime-dune-cyberattaque-340000-demandeurs-demploi-potentiellement-concernes',
   },
   {
-    date: 'Février 2026',
-    titre: 'Cegedim Santé — Fuite de données de 15 millions de patients',
+    date: 'Août 2025',
+    titre: 'Bouygues Telecom — Fuite de données de 6,4 millions de clients',
     icon: Users,
     color: '#fb923c',
-    desc: "Le logiciel médical MonLogicielMédical (Cegedim) a été piraté par le groupe DumpSec. Données de 15 millions de patients volées : identité, coordonnées, et parfois des informations médicales sensibles. Plus grande fuite médicale en France.",
+    desc: "Le 6 août 2025, Bouygues Telecom annonce une intrusion détectée deux jours plus tôt. Les données personnelles de 6,4 millions de clients (40% de la base abonnés) ont été exposées, y compris des IBAN.",
     impact: [
-      '15 millions de patients touchés',
-      'Données médicales sensibles volées (pathologies)',
-      '1 500 médecins concernés',
-      'Plus grande fuite de données médicales en France',
+      '6,4 millions de comptes clients exposés',
+      'IBAN, coordonnées et état civil volés',
+      '40% de la base abonnés concernée',
+      'Risque de phishing ciblé avec les données volées',
     ],
-    source: 'franceinfo',
-    url: 'https://www.franceinfo.fr/internet/securite-sur-internet/cyberattaques/quinze-millions-de-patients-concernes-1-500-medecins-vises-une-enquete-ouverte-ce-que-l-on-sait-de-la-cyberattaque-qui-a-cible-un-logiciel-medical_7833611.html',
+    source: 'ZATAZ',
+    url: 'https://www.zataz.com/bouygues-telecom-cyberattaque-fuite-donnees-2025/',
   },
   {
-    date: 'Mars 2024',
-    titre: 'France Travail — Vol de données de 43 millions de Français',
-    icon: Building2,
+    date: 'Octobre 2025',
+    titre: 'Hôpital de Pontarlier — Ransomware Cryptolocker',
+    icon: ShieldAlert,
     color: '#fca5a5',
-    desc: "Des hackers ont piraté France Travail (ex-Pôle Emploi) et volé les noms, prénoms, numéros de sécurité sociale de 43 millions de personnes inscrites depuis 20 ans.",
+    desc: "Les 18-19 octobre 2025, le Centre Hospitalier de Pontarlier (Doubs) est paralysé par un ransomware de type Cryptolocker. Les données informatiques sont chiffrées, l'hôpital revient au papier et au fax pendant plusieurs semaines. Une rançon est demandée.",
     impact: [
-      '43 millions de personnes touchées',
-      'Numéros de sécurité sociale volés',
-      'Risque majeur d\'usurpation d\'identité',
-      'Données revendues sur le dark web',
+      'Système informatique totalement paralysé',
+      'Retour au papier et au fax pendant des semaines',
+      'Données patients chiffrées par le ransomware',
+      'Rançon demandée pour débloquer les données',
     ],
-    source: 'Cybermalveillance.gouv.fr',
-    url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/violation-donnees-personnelles-france-travail',
+    source: 'France 3 Régions',
+    url: 'https://france3-regions.franceinfo.fr/bourgogne-franche-comte/doubs/haut-doubs/cyberattaque-dans-un-hopital-nous-sommes-revenus-au-papier-au-fax-une-rancon-attendue-pour-debloquer-les-donnees-numeriques-3236537.html',
   },
   {
-    date: 'Octobre 2024',
-    titre: 'Free — Fuite de données de 19 millions de clients',
+    date: 'Décembre 2025',
+    titre: 'Ministère de l\'Intérieur — Piratage de fichiers sensibles',
     icon: Globe,
     color: '#93c5fd',
-    desc: "L'opérateur Free a été piraté : données de 19 millions d'abonnés exposées, dont 5 millions d'IBAN. La CNIL a infligé une amende de 42 millions d'euros.",
+    desc: "En décembre 2025, un hacker de 22 ans pirate des boîtes mails de la police nationale pour récupérer des codes d'accès. Il consulte des fichiers sensibles dont le TAJ (antécédents judiciaires) et le FPR (personnes recherchées). Interpellé le 17 décembre, il risque 10 ans de prison.",
     impact: [
-      '19 millions de clients touchés',
-      '5 millions d\'IBAN volés',
-      '42 millions d\'euros d\'amende CNIL',
-      'Campagnes de phishing ciblées avec les données volées',
+      'Accès aux fichiers TAJ et FPR (fichiers sensibles)',
+      'Piratage via compromission de boîtes mails de la police',
+      'Hacker de 22 ans interpellé et mis en examen',
+      'Failles de sécurité exposées au sein du ministère',
     ],
-    source: 'CNIL',
-    url: 'https://www.cnil.fr/fr/fuite-de-donnees-de-free-la-cnil-a-sanctionne-loperateur-dune-amende-de-42-millions-deuros',
+    source: 'franceinfo',
+    url: 'https://www.franceinfo.fr/internet/securite-sur-internet/cyberattaques/ce-que-l-on-sait-de-la-cyberattaque-qui-a-touche-des-serveurs-du-ministere-de-l-interieur_7683346.html',
   },
 ]
 
@@ -247,7 +247,7 @@ export default function Veille() {
                   Le <strong style={{ color: '#fca5a5' }}>phishing</strong> (ou hame{'ç'}onnage) est une technique de <strong style={{ color: '#fca5a5' }}>cyberattaque par ingénierie sociale</strong>. L'attaquant se fait passer pour un organisme de confiance (banque, imp{'ô'}ts, s{'é'}curit{'é'} sociale, La Poste) pour tromper la victime et lui voler ses informations personnelles.
                 </p>
                 <p style={{ ...bodyText, marginBottom: '1.5rem' }}>
-                  C'est l'attaque <strong style={{ color: '#fca5a5' }}>la plus r{'é'}pandue en France</strong> avec plus de 108 000 demandes d'aide enregistr{'é'}es en 2024 sur Cybermalveillance.gouv.fr. J'ai choisi ce sujet car il touche aussi bien les particuliers que les entreprises et qu'il est au c{'œ'}ur de la cybersécurité.
+                  C'est l'attaque <strong style={{ color: '#fca5a5' }}>la plus r{'é'}pandue en France</strong> : menace n°1 avec 34% des 420 000 demandes d'assistance enregistr{'é'}es en 2024 sur Cybermalveillance.gouv.fr (+49,9% vs 2023). J'ai choisi ce sujet car il touche aussi bien les particuliers que les entreprises et qu'il est au c{'œ'}ur de la cybersécurité.
                 </p>
 
                 <div className="flex flex-wrap gap-3">
@@ -336,10 +336,10 @@ export default function Veille() {
           {/* Stats chiffrées */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" style={{ marginBottom: '2rem' }}>
             {[
-              { stat: '504 000', label: 'demandes d\'assistance en 2025', icon: Users, color: '#fca5a5' },
-              { stat: '+45%', label: 'de phishing vs 2025', icon: TrendingUp, color: '#fb923c' },
-              { stat: '2ème', label: 'pays le plus touché au monde', icon: CreditCard, color: '#fbbf24' },
-              { stat: '86%', label: 'des attaques phishing par IA', icon: AlertTriangle, color: '#f472b6' },
+              { stat: '420 000', label: 'demandes d\'assistance en 2024', icon: Users, color: '#fca5a5' },
+              { stat: '+49,9%', label: 'de hausse vs 2023', icon: TrendingUp, color: '#fb923c' },
+              { stat: '17 500+', label: 'cyberattaques en France en 2025', icon: CreditCard, color: '#fbbf24' },
+              { stat: '2ème', label: 'pays le plus touché au monde', icon: AlertTriangle, color: '#f472b6' },
             ].map((s, i) => {
               const StatIcon = s.icon
               return (
@@ -545,10 +545,10 @@ export default function Veille() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
               {[
-                { icon: Mail, stat: '86%', title: 'Emails générés par IA', desc: 'Des emails de phishing sont maintenant créés par des IA, avec un langage parfait et personnalisé', color: '#818cf8' },
+                { icon: Mail, stat: '+400%', title: 'Attaques ClickFix', desc: 'Explosion des liens piégés dans les boutons et pièces jointes, générés par IA avec un langage parfait', color: '#818cf8' },
                 { icon: Phone, stat: '3 sec', title: 'Clone vocal par IA', desc: 'Il suffit de 3 secondes d\'audio pour cloner une voix et passer de faux appels téléphoniques', color: '#a78bfa' },
-                { icon: Bot, stat: 'Deepfakes', title: 'Vidéos truquées', desc: 'L\'IA crée de fausses vidéos de dirigeants pour lancer des fraudes au président', color: '#c4b5fd' },
-                { icon: Search, stat: 'OSINT + IA', title: 'Ciblage automatisé', desc: 'L\'IA analyse les réseaux sociaux pour personnaliser automatiquement les attaques', color: '#e9d5ff' },
+                { icon: Bot, stat: '+113%', title: 'Phishing réseaux sociaux', desc: 'Facebook, Instagram, WhatsApp : le phishing sur les réseaux sociaux a plus que doublé en 2025', color: '#c4b5fd' },
+                { icon: Search, stat: '+85%', title: 'Smishing en hausse', desc: 'Le phishing par SMS (smishing) a explosé en 2025 grâce à l\'automatisation par IA', color: '#e9d5ff' },
               ].map((item, i) => {
                 const ItemIcon = item.icon
                 return (
@@ -573,15 +573,15 @@ export default function Veille() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <a href="https://www.it-connect.fr/intelligence-artificielle-ia-phishing/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.jedha.co/financement-formations/chiffres-sur-le-phishing-en-2025" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2" style={{ textDecoration: 'none' }}>
                 <ExternalLink size={14} style={{ color: '#c4b5fd' }} />
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#c4b5fd' }}>IT-Connect — L'IA et le phishing (2025)</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#c4b5fd' }}>Jedha — Chiffres phishing 2025 (smishing +85%, ClickFix +400%)</span>
               </a>
-              <a href="https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2025/" target="_blank" rel="noopener noreferrer"
+              <a href="https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2024-mobilisation-et-vigilance-face-aux-attaquants/" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2" style={{ textDecoration: 'none' }}>
                 <ExternalLink size={14} style={{ color: '#c4b5fd' }} />
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#c4b5fd' }}>ANSSI — Panorama de la cybermenace 2025</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#c4b5fd' }}>ANSSI — Panorama de la cybermenace 2024</span>
               </a>
             </div>
           </div>
@@ -598,16 +598,16 @@ export default function Veille() {
           <div className="flex flex-col gap-3">
             {[
               {
-                titre: 'Rapport d\'activité 2025 — 504 000 demandes d\'assistance',
-                source: 'Cybermalveillance.gouv.fr', date: 'Mars 2026',
-                desc: 'Bilan annuel : 504 000 demandes (+20%), phishing toujours menace n°1',
-                url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/rapport-activite-2025',
+                titre: 'Rapport d\'activité 2024 — 420 000 demandes d\'assistance',
+                source: 'Cybermalveillance.gouv.fr', date: 'Mars 2025',
+                desc: 'Bilan annuel : 420 000 demandes (+49,9%), phishing menace n°1 pour les particuliers (34%)',
+                url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/rapport-activite-2024',
               },
               {
-                titre: 'Panorama de la cybermenace 2025',
-                source: 'ANSSI / CERT-FR', date: 'Mars 2026',
-                desc: 'Synthèse officielle — usage dual de l\'IA générative dans les cyberattaques',
-                url: 'https://cyber.gouv.fr/actualites/publication-du-rapport-dactivite-2025-de-lanssi/',
+                titre: 'Panorama de la cybermenace 2024',
+                source: 'ANSSI / CERT-FR', date: 'Mars 2025',
+                desc: '4 386 événements de sécurité traités (+15%), ransomware et espionnage en hausse',
+                url: 'https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2024-mobilisation-et-vigilance-face-aux-attaquants/',
               },
               {
                 titre: "Qu'est-ce que le phishing ou hameçonnage ?",
@@ -616,10 +616,10 @@ export default function Veille() {
                 url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/dossier-phishing',
               },
               {
-                titre: "L'IA générative et le phishing — état des lieux",
-                source: 'IT-Connect', date: '2025',
-                desc: 'Analyse détaillée de l\'utilisation de l\'IA dans les attaques de phishing',
-                url: 'https://www.it-connect.fr/intelligence-artificielle-ia-phishing/',
+                titre: 'Chiffres et statistiques du phishing en 2025',
+                source: 'Jedha', date: '2025',
+                desc: 'Smishing +85%, phishing QR code 4M+ tentatives, réseaux sociaux +113%',
+                url: 'https://www.jedha.co/financement-formations/chiffres-sur-le-phishing-en-2025',
               },
             ].map((art, i) => (
               <a key={i} href={art.url} target="_blank" rel="noopener noreferrer"
@@ -667,7 +667,7 @@ export default function Veille() {
               Ma veille technologique sur le phishing m'a permis de comprendre que cette menace est en <strong style={{ color: '#fca5a5' }}>constante {'é'}volution</strong>. Avec l'arriv{'é'}e de l'intelligence artificielle, les attaques deviennent plus sophistiqu{'é'}es, plus personnalis{'é'}es et plus difficiles {'à'} d{'é'}tecter.
             </p>
             <p style={{ ...bodyText, fontSize: '17px', color: '#e2e8f0', marginBottom: '1.5rem' }}>
-              Les cas r{'é'}cents en France (ANTS, Cegedim, France Travail, Free) montrent que <strong style={{ color: '#fca5a5' }}>personne n'est {'à'} l'abri</strong> : ni les particuliers, ni les entreprises, ni m{'ê'}me les administrations publiques. La France est le <strong style={{ color: '#22d3ee' }}>2{'è'}me pays le plus touch{'é'} au monde</strong> par les fuites de donn{'é'}es en 2026.
+              Les cas r{'é'}cents en France en 2025 (France Travail, Bouygues Telecom, H{'ô'}pital de Pontarlier, Minist{'è'}re de l'Int{'é'}rieur) montrent que <strong style={{ color: '#fca5a5' }}>personne n'est {'à'} l'abri</strong> : ni les particuliers, ni les entreprises, ni m{'ê'}me les administrations publiques. La France est le <strong style={{ color: '#22d3ee' }}>2{'è'}me pays le plus touch{'é'} au monde</strong> par les fuites de donn{'é'}es avec 40,3 millions de comptes compromis en 2025.
             </p>
             <p style={{ ...bodyText, fontSize: '17px', color: '#e2e8f0' }}>
               Cette veille m'a convaincu que la <strong style={{ color: '#6ee7b7' }}>sensibilisation</strong> et la <strong style={{ color: '#6ee7b7' }}>formation</strong> restent les meilleures d{'é'}fenses. En tant que futur professionnel de la cybers{'é'}curit{'é'}, je continuerai {'à'} me tenir inform{'é'} des nouvelles menaces pour mieux prot{'é'}ger les syst{'è'}mes et les utilisateurs.
