@@ -17,10 +17,9 @@ function CountUp({ target, suffix = '' }) {
 }
 
 const TAG_COLORS = [
-  { tag: 'PORTFOLIO', color: '#818cf8', bg: 'rgba(129,140,248,0.12)', border: 'rgba(129,140,248,0.3)' },
-  { tag: 'SISR', color: '#22d3ee', bg: 'rgba(34,211,238,0.12)', border: 'rgba(34,211,238,0.3)' },
-  { tag: 'RÉSEAUX', color: '#00ff88', bg: 'rgba(0,255,136,0.1)', border: 'rgba(0,255,136,0.25)' },
-  { tag: 'CYBERSÉCURITÉ', color: '#f59e0b', bg: 'rgba(245,158,11,0.1)', border: 'rgba(245,158,11,0.25)' },
+  { tag: 'BTS SIO', color: '#818cf8', bg: 'rgba(129,140,248,0.12)', border: 'rgba(129,140,248,0.3)' },
+  { tag: 'OPTION SISR', color: '#22d3ee', bg: 'rgba(34,211,238,0.12)', border: 'rgba(34,211,238,0.3)' },
+  { tag: 'SESSION 2026', color: '#00ff88', bg: 'rgba(0,255,136,0.1)', border: 'rgba(0,255,136,0.25)' },
 ]
 
 function ProjectIllustration() {
@@ -180,23 +179,22 @@ export default function Presentation() {
             </div>
           )}
 
-          {/* Titre "Bienvenue dans mon univers" avec glitch */}
+          {/* Titre principal */}
           {loaded && (
             <h1
-              className="glitch-text hero-reveal hero-reveal-d2"
-              data-text="Bienvenue dans mon univers"
+              className="hero-reveal hero-reveal-d2"
               style={{
                 fontFamily: "'Orbitron', system-ui, sans-serif",
-                fontSize: 'clamp(2.2rem, 6vw, 4.2rem)',
+                fontSize: 'clamp(1.6rem, 4.5vw, 2.8rem)',
                 fontWeight: 900,
-                letterSpacing: '-0.025em',
-                lineHeight: 1.1,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.2,
                 marginBottom: '4rem',
                 color: '#f1f5f9',
                 textShadow: '0 0 80px rgba(34,211,238,0.15), 0 2px 4px rgba(0,0,0,0.3)',
               }}
             >
-              Bienvenue dans{' '}
+              Administrateur{' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #818cf8 0%, #22d3ee 40%, #00ff88 80%, #818cf8 100%)',
@@ -207,7 +205,7 @@ export default function Presentation() {
                   animation: 'gradient-shift 5s linear infinite',
                 }}
               >
-                mon univers
+                Systèmes & Réseaux
               </span>
             </h1>
           )}
@@ -292,31 +290,26 @@ export default function Presentation() {
             </h2>
           )}
 
-          {/* Tagline cyber */}
+          {/* Sous-titre */}
           {loaded && (
             <div className="hero-reveal hero-reveal-d5 mb-6">
               <p
-                className="cyber-typewriter"
                 style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 'clamp(0.9rem, 1.8vw, 1.1rem)',
-                  fontWeight: 600,
-                  letterSpacing: '0.05em',
-                  background: 'linear-gradient(90deg, #22d3ee, #00ff88, #a78bfa, #22d3ee)',
-                  backgroundSize: '200% 100%',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  animation: 'gradient-shift 4s linear infinite, blink-cursor 0.8s step-end infinite',
-                  padding: '8px 0',
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
+                  fontWeight: 500,
+                  color: '#94a3b8',
+                  lineHeight: 1.7,
+                  maxWidth: '520px',
+                  margin: '0 auto',
                 }}
               >
-                {'>'} Là où la rigueur rencontre l'infrastructure_
+                Active Directory · DHCP · VLAN · GPO · Wireshark · Support N1/N2
               </p>
             </div>
           )}
 
-          {/* Sys · Net · Sec */}
+          {/* Centre de formation */}
           {loaded && (
             <p
               className="hero-reveal hero-reveal-d6"
@@ -325,11 +318,11 @@ export default function Presentation() {
                 fontSize: '13px',
                 fontWeight: 600,
                 color: '#475569',
-                letterSpacing: '0.25em',
+                letterSpacing: '0.15em',
                 marginBottom: '3.5rem',
               }}
             >
-              {'{'} Sys {'·'} Net {'·'} Sec {'}'}
+              Centre de formation : IEF2I
             </p>
           )}
 
@@ -368,16 +361,8 @@ export default function Presentation() {
           >
             <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
               <div className="flex items-center gap-3" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: '#00ff88' }} />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5" style={{ background: '#00ff88' }} />
-                </span>
-                <span style={{ fontSize: '11px', color: '#00ff88', letterSpacing: '0.18em', fontWeight: 700 }}>
-                  SYSTEM ONLINE
-                </span>
-                <span style={{ color: '#334155' }}>│</span>
-                <span style={{ fontSize: '11px', color: '#475569', letterSpacing: '0.12em' }}>
-                  PORTFOLIO_v2.0
+                <span style={{ fontSize: '11px', color: '#818cf8', letterSpacing: '0.15em', fontWeight: 700 }}>
+                  N° CANDIDAT : 02545812811
                 </span>
               </div>
               <div
@@ -412,19 +397,15 @@ export default function Presentation() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 1.9 }}>
-                {'É'}tudiant en <strong style={{ color: '#f1f5f9' }}>BTS SIO option SISR</strong> {'à'}
-                l'<strong style={{ color: '#f1f5f9' }}>Institut F2I</strong>, passionn{'é'} par l'informatique.
-                Je d{'é'}veloppe mes comp{'é'}tences en administration r{'é'}seau, syst{'è'}mes et cybers{'é'}curit{'é'}.
+                {'É'}tudiant en <strong style={{ color: '#f1f5f9' }}>BTS SIO option SISR</strong> au centre de formation <strong style={{ color: '#f1f5f9' }}>IEF2I</strong>. J'ai r{'é'}alis{'é'} <strong style={{ color: '#22d3ee' }}>7 projets techniques</strong> en formation (Active Directory, DHCP, VLAN, GPO, Wireshark, GLPI) et <strong style={{ color: '#22d3ee' }}>2 stages en entreprise</strong>.
               </p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 1.9 }}>
-                <span style={{ color: '#22d3ee', fontWeight: 700 }}>Bilingue français-anglais</span>,
-                j'ai réalisé deux stages en support informatique N1/N2 qui m'ont permis de mettre
-                en pratique mes compétences techniques sur le terrain.
+                <strong style={{ color: '#f1f5f9' }}>Stage 1{'è'}re ann{'é'}e</strong> chez <span style={{ color: '#8b5cf6', fontWeight: 700 }}>Les R{'é'}parateurs Mac & PC</span> (Montreuil) — diagnostic de pannes, r{'é'}paration mat{'é'}rielle, support client.
+                <br />
+                <strong style={{ color: '#f1f5f9' }}>Stage 2{'è'}me ann{'é'}e</strong> chez <span style={{ color: '#06b6d4', fontWeight: 700 }}>B&A Conseil</span> (Coigni{'è'}res) — gestion de flotte mobile MDM Miradore, configuration de smartphones, support N1/N2.
               </p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '17px', color: '#cbd5e1', lineHeight: 1.9 }}>
-                Certifi{'é'} <span style={{ color: '#00ff88', fontWeight: 700 }}>ANSSI SecNumacad{'é'}mie</span>,
-                je recherche une alternance {'à'} partir de septembre 2026 pour continuer {'à'} progresser
-                dans le domaine de l'infrastructure et de la cybers{'é'}curit{'é'}.
+                Certifi{'é'} <span style={{ color: '#00ff88', fontWeight: 700 }}>ANSSI SecNumacad{'é'}mie</span> et <span style={{ color: '#00ff88', fontWeight: 700 }}>Cisco Introduction to Cybersecurity</span>. Mon objectif est de poursuivre en <strong style={{ color: '#f1f5f9' }}>licence pro cybers{'é'}curit{'é'}</strong> puis devenir <strong style={{ color: '#f1f5f9' }}>pentester</strong>.
               </p>
             </div>
           </div>
