@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Dilan LENGUE — Alternance Bac+3 Systèmes, Réseaux &amp; Cybersécurité</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    background: #fff;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 12mm 14mm;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Header ── */
+  .header { text-align: center; margin-bottom: 10px; }
+  .header h1 {
+    font-size: 22pt; font-weight: 900; letter-spacing: 0.04em;
+    color: #0f172a; margin-bottom: 3px;
+  }
+  .header .subtitle {
+    font-size: 11pt; font-weight: 700; color: #1e40af;
+    letter-spacing: 0.02em; margin-bottom: 6px;
+  }
+  .header .contact {
+    font-size: 9pt; color: #475569; line-height: 1.6;
+  }
+  .header .contact a { color: #1e40af; text-decoration: none; }
+
+  /* ── Bandeau alternance ── */
+  .alternance-bar {
+    background: #1e40af; color: #fff; text-align: center;
+    padding: 6px 0; font-size: 10pt; font-weight: 800;
+    letter-spacing: 0.08em; margin-bottom: 14px;
+    border-radius: 3px;
+  }
+
+  /* ── Sections ── */
+  .section { margin-bottom: 13px; }
+  .section-title {
+    font-size: 10pt; font-weight: 900; color: #1e40af;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    border-bottom: 2px solid #1e40af;
+    padding-bottom: 3px; margin-bottom: 8px;
+  }
+
+  /* ── Profil ── */
+  .profil p {
+    font-size: 10pt; color: #334155; line-height: 1.65;
+    text-align: justify;
+  }
+  .profil strong { color: #0f172a; }
+
+  /* ── Compétences ── */
+  .competences ul { list-style: none; padding: 0; }
+  .competences li {
+    font-size: 10pt; color: #334155; margin-bottom: 4px;
+    padding-left: 12px; position: relative; line-height: 1.55;
+  }
+  .competences li::before {
+    content: "\2022"; color: #1e40af; font-weight: 900;
+    position: absolute; left: 0;
+  }
+  .competences .cat {
+    font-weight: 800; color: #0f172a;
+  }
+
+  /* ── Expériences ── */
+  .experience { margin-bottom: 11px; }
+  .experience:last-child { margin-bottom: 0; }
+  .exp-header { margin-bottom: 4px; }
+  .exp-title {
+    font-size: 10pt; font-weight: 800; color: #0f172a;
+    text-decoration: underline; text-underline-offset: 2px;
+  }
+  .exp-company {
+    font-size: 9pt; color: #475569; font-style: italic;
+  }
+  .exp-bullets { list-style: none; padding: 0; }
+  .exp-bullets li {
+    font-size: 10pt; color: #334155; margin-bottom: 3px;
+    padding-left: 12px; position: relative; line-height: 1.55;
+  }
+  .exp-bullets li::before {
+    content: "\2022"; color: #1e40af; font-weight: 900;
+    position: absolute; left: 0;
+  }
+  .exp-bullets strong { color: #0f172a; }
+
+  /* ── Projets ── */
+  .projets ul { list-style: none; padding: 0; }
+  .projets li {
+    font-size: 10pt; color: #334155; margin-bottom: 4px;
+    padding-left: 12px; position: relative; line-height: 1.55;
+  }
+  .projets li::before {
+    content: "\2022"; color: #1e40af; font-weight: 900;
+    position: absolute; left: 0;
+  }
+  .projets strong { color: #0f172a; }
+
+  /* ── Formation ── */
+  .formation ul { list-style: none; padding: 0; }
+  .formation li {
+    font-size: 10pt; color: #334155; margin-bottom: 4px;
+    padding-left: 12px; position: relative;
+  }
+  .formation li::before {
+    content: "\2022"; color: #1e40af; font-weight: 900;
+    position: absolute; left: 0;
+  }
+  .formation strong { color: #0f172a; }
+
+  /* ── Certifications & bas de page ── */
+  .certifs ul { list-style: none; padding: 0; }
+  .certifs li {
+    font-size: 10pt; color: #334155; margin-bottom: 3px;
+    padding-left: 12px; position: relative;
+  }
+  .certifs li::before {
+    content: "\2022"; color: #1e40af; font-weight: 900;
+    position: absolute; left: 0;
+  }
+  .certifs strong { color: #0f172a; }
+
+  @media print {
+    .alternance-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════ HEADER ════════════ -->
+<div class="header">
+  <h1>DILAN LENGUE</h1>
+  <div class="subtitle">Administrateur Systèmes, Réseaux &amp; Cybersécurité — Alternance Bac+3</div>
+  <div class="contact">
+    Paris, Île-de-France &nbsp;·&nbsp; +33 7 44 20 38 70 &nbsp;·&nbsp; lenguedilan@gmail.com<br>
+    <a href="https://linkedin.com/in/dilan-lengue">linkedin.com/in/dilan-lengue</a> &nbsp;·&nbsp;
+    <a href="https://l-dilan.vercel.app">l-dilan.vercel.app</a>
+  </div>
+</div>
+
+<div class="alternance-bar">
+  RECHERCHE ALTERNANCE BAC+3 &nbsp;·&nbsp; RENTRÉE SEPTEMBRE 2026 &nbsp;·&nbsp; RYTHME 3 J ENTREPRISE / 2 J ÉCOLE
+</div>
+
+<!-- ════════════ PROFIL ════════════ -->
+<div class="section profil">
+  <div class="section-title">Profil professionnel</div>
+  <p>
+    Étudiant en 2<sup>e</sup> année de <strong>BTS SIO option SISR</strong> à l'Institut F2I (Vincennes), spécialisé en <strong>administration systèmes, réseaux et cybersécurité</strong>. J'ai acquis une expérience de terrain via deux stages en support informatique et maintenance, ainsi qu'un stage long de 9 mois en sécurité réseau, le tout complété par une activité de micro-entrepreneur depuis 2024. Je travaille sur <strong>Windows Server, Active Directory, Linux</strong> et les fondamentaux réseau (<strong>TCP/IP, VLAN, VPN, pare-feu</strong>). Formé aux bonnes pratiques de cybersécurité (<strong>ANSSI SecNumacadémie</strong>, <strong>Cisco Introduction to Cybersecurity</strong>), je suis <strong>bilingue anglais (C2)</strong> et mobile en Île-de-France. Je recherche une alternance à partir de <strong>septembre 2026</strong>.
+  </p>
+</div>
+
+<!-- ════════════ COMPÉTENCES ════════════ -->
+<div class="section competences">
+  <div class="section-title">Compétences techniques</div>
+  <ul>
+    <li><span class="cat">Systèmes :</span> Windows Server 2019/2022, Active Directory (AD), GPO (Group Policy Object), WSUS, Windows 10/11, Linux (Debian, Ubuntu), macOS, PowerShell, Bash, scripting d'automatisation, patch management, hardening, sauvegarde/restauration</li>
+    <li><span class="cat">Réseaux :</span> TCP/IP, modèle OSI, IPv4/IPv6, VLAN, routage inter-VLAN, ACL (Access Control List), DHCP, DNS, VPN (OpenVPN, IPsec), switchs managés, Wi-Fi, Wireshark, Cisco Packet Tracer</li>
+    <li><span class="cat">Cybersécurité :</span> Pare-feu / Firewall (pfSense, iptables, ufw), Nmap, SIEM (notions), analyse de vulnérabilités, durcissement, gestion des incidents, PRA/PCA (notions), bonnes pratiques ANSSI, RGPD</li>
+    <li><span class="cat">Cloud, Virtualisation &amp; ITSM :</span> Proxmox, VMware, Hyper-V, VirtualBox, Microsoft Azure, Entra ID, GLPI (gestion de parc, ticketing), Nagios, SNMP, Veeam, ITIL (notions), Microsoft 365</li>
+  </ul>
+</div>
+
+<!-- ════════════ EXPÉRIENCES ════════════ -->
+<div class="section">
+  <div class="section-title">Expériences professionnelles</div>
+
+  <div class="experience">
+    <div class="exp-header">
+      <div class="exp-title">Technicien Support &amp; Maintenance — Stage BTS 2<sup>e</sup> année (6 semaines)</div>
+      <div class="exp-company">B&amp;A Conseil · Coignières (78) &nbsp;|&nbsp; Janvier – Février 2026</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Assuré le <strong>support de proximité N1/N2</strong> sur un parc d'environ 50 postes Windows 10/11 via <strong>GLPI</strong> : ticketing, gestion des incidents matériels, logiciels, réseau et télécoms.</li>
+      <li>Configuré <strong>DNS, DHCP, adressage IP</strong> ; géré l'<strong>onboarding/offboarding</strong> utilisateurs (comptes AD, droits, postes) et appliqué les <strong>bonnes pratiques ANSSI</strong> (patch management, hardening).</li>
+      <li>Rédigé la <strong>documentation technique</strong> (procédures, checklists), alimenté la base de connaissances interne, accélérant la résolution des tickets récurrents.</li>
+    </ul>
+  </div>
+
+  <div class="experience">
+    <div class="exp-header">
+      <div class="exp-title">Technicien Support Informatique — Stage BTS 1<sup>re</sup> année (10 semaines)</div>
+      <div class="exp-company">Les Réparateurs Mac &amp; PC · Montreuil (93) &nbsp;|&nbsp; Mai – Juillet 2025</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Diagnostiqué et réparé <strong>10 à 15 machines/semaine</strong> (Windows, macOS) : réinstallation système, suppression de malwares, sécurisation des postes.</li>
+      <li>Remplacé des composants matériels (<strong>RAM, SSD, écrans</strong>) et assuré l'accueil et l'assistance client.</li>
+    </ul>
+  </div>
+
+  <div class="experience">
+    <div class="exp-header">
+      <div class="exp-title">Développeur Web &amp; Technicien IT — Micro-entrepreneur</div>
+      <div class="exp-company">Activité indépendante · Île-de-France &nbsp;|&nbsp; Depuis 2024</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Développé <strong>plus de 5 sites web</strong> (HTML, CSS, PHP, MySQL, WordPress) : e-commerce, portfolios, landing pages — portfolio : <strong>l-dilan.vercel.app</strong>.</li>
+      <li>Diagnostiqué et réparé des ordinateurs/smartphones pour une clientèle locale (devis, relation client, SAV).</li>
+    </ul>
+  </div>
+
+  <div class="experience">
+    <div class="exp-header">
+      <div class="exp-title">Technicien Réseau &amp; Support — Stage long (9 mois)</div>
+      <div class="exp-company">ISNOV SARL · Douala, Cameroun &nbsp;|&nbsp; Janvier – Septembre 2023</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Sécurisé les réseaux : <strong>segmentation VLAN, ACL, règles de pare-feu</strong> (iptables) ; durcissement Linux/Windows.</li>
+      <li>Participé à l'<strong>analyse de vulnérabilités</strong> et à la gestion des risques informatiques.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════ PROJETS ════════════ -->
+<div class="section projets">
+  <div class="section-title">Projets techniques</div>
+  <ul>
+    <li><strong>Infrastructure réseau multi-sites (Cisco Packet Tracer)</strong> | Projet BTS SIO — Conception d'un réseau de 3 sites avec VLAN, routage inter-VLAN, DHCP, DNS, ACL et règles de sécurité sur switchs managés.</li>
+    <li><strong>Domaine Active Directory (Windows Server 2022)</strong> | Projet BTS SIO — Déploiement complet pour 50 utilisateurs : OU, groupes, GPO, WSUS, supervision Nagios ; réduction du temps de configuration des postes.</li>
+    <li><strong>VPN site-à-site (OpenVPN) &amp; Serveur Debian durci</strong> | Projet BTS SIO — Tunnel chiffré inter-sites + serveur web Apache, SSH, pare-feu iptables/ufw, hardening ANSSI, journalisation centralisée.</li>
+  </ul>
+</div>
+
+<!-- ════════════ FORMATION ════════════ -->
+<div class="section formation">
+  <div class="section-title">Formation</div>
+  <ul>
+    <li><strong>BTS SIO — option SISR</strong> · Institut F2I, Vincennes (94) · 2024 – 2026</li>
+    <li><strong>HND — Software Engineering</strong> · IUG, Douala, Cameroun · 2024</li>
+    <li><strong>Baccalauréat Scientifique — Série C</strong> · Collège La Perfection, Douala · 2021</li>
+  </ul>
+</div>
+
+<!-- ════════════ CERTIFICATIONS ════════════ -->
+<div class="section certifs">
+  <div class="section-title">Certifications</div>
+  <ul>
+    <li><strong>ANSSI SecNumacadémie</strong> — Fondamentaux de la cybersécurité (88-94 %, 4 modules validés) · Janvier 2026</li>
+    <li><strong>Cisco Networking Academy</strong> — Introduction to Cybersecurity · 2026</li>
+  </ul>
+</div>
+
+<!-- ════════════ LANGUES, QUALITÉS & CENTRES D'INTÉRÊT ════════════ -->
+<div class="section certifs">
+  <div class="section-title">Langues, Qualités &amp; Centres d'intérêt</div>
+  <ul>
+    <li><span class="cat">Langues :</span> Anglais — bilingue (C2) · Français — courant (C1) · Portugais — notions</li>
+    <li><span class="cat">Qualités :</span> Rigueur, autonomie, adaptabilité, apprentissage continu, esprit d'équipe, communication technique</li>
+    <li><span class="cat">Centres d'intérêt :</span> Veille cybersécurité (ANSSI, CERT-FR, Cybermalveillance) · Administration de mon home-lab · Natation · Course à pied</li>
+  </ul>
+</div>
+
+</body>
+</html>
