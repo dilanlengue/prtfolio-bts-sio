@@ -24,8 +24,8 @@ const stages = [
     ],
     chiffresCles: [
       { value: 'SAS', label: 'Forme juridique', color: '#06b6d4' },
-      { value: '2 000 €', label: 'Capital social', color: '#8b5cf6' },
-      { value: '1-2', label: 'Salariés', color: '#f59e0b' },
+      { value: '10 000 €', label: 'Capital social', color: '#8b5cf6' },
+      { value: '5-10', label: 'Salariés', color: '#f59e0b' },
       { value: 'Coignières (78)', label: 'Siège : 8 rue du Mesnil-Saint-Denis, 78310', color: '#10b981' },
     ],
     specialisations: [
@@ -91,7 +91,7 @@ const stages = [
     chiffresCles: [
       { value: 'EI', label: 'Entrepreneur individuel', color: '#8b5cf6' },
       { value: '2014', label: 'Année de création', color: '#06b6d4' },
-      { value: '1', label: 'Dirigeant-réparateur', color: '#f59e0b' },
+      { value: '3-5', label: 'Salariés', color: '#f59e0b' },
       { value: 'Bagnolet (93)', label: 'Siège : 7 rue Pierre Brossolette, 93170', color: '#10b981' },
     ],
     specialisations: [
