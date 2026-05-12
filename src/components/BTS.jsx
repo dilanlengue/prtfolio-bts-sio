@@ -48,7 +48,7 @@ const epreuves = [
       'Projection professionnelle : identifier ses axes de progression et se projeter dans sa future carrière',
       'Communication professionnelle : aptitude à communiquer clairement et efficacement sur son parcours et ses réalisations',
     ],
-    monProjet: 'AD DS + VLAN + GPO + Nagios + VOIP + Wireshark + Calculatrice Web (lab) · GLPI + Active Directory en entreprise (stages) — 9 projets documentés.',
+    monProjet: 'AD DS + VLAN + GPO + Wireshark (lab) · GLPI + Active Directory en entreprise (stages) — 6 projets documentés.',
     color: '#a855f3',
     docs: [
       {
@@ -88,30 +88,6 @@ const epreuves = [
         ],
       },
       {
-        label: 'Dossier E5 — Supervision Nagios',
-        url: '/dossiers/dossier-nagios.pdf',
-        status: 'available',
-        outline: [
-          'Ubuntu, interface web',
-          'Installation Nagios Core',
-          'Définition des hôtes / services à monitorer',
-          'Plugins NRPE pour métriques Linux / Windows',
-          'Configuration des alertes email',
-        ],
-      },
-      {
-        label: 'Dossier E5 — Configuration VOIP Cisco',
-        url: '/dossiers/dossier-voip.pdf',
-        status: 'available',
-        outline: [
-          'CME, IP phones',
-          'Configuration Cisco Unified CME',
-          'Attribution des numéros de poste',
-          'Plan de numérotation et dial-peers',
-          'Tests d\'appels internes et qualité audio',
-        ],
-      },
-      {
         label: 'Dossier E5 — Analyse Réseau Wireshark',
         url: '/dossiers/dossier-wireshark.pdf',
         status: 'available',
@@ -139,7 +115,7 @@ const epreuves = [
       'Analyse réflexive sur sa posture professionnelle',
       'Projection et projet professionnel post-diplôme',
     ],
-    monProjet: 'Mon parcours : 2 stages (B&A Conseil + Les Réparateurs Mac & PC), veille cybersécurité (CERT-FR, ANSSI, NVD), projets infrastructure SISR.',
+    monProjet: 'Mon parcours : 2 stages (B&A Conseil + Les Réparateurs Mac & PC), veille technologique sur le Phishing, projets infrastructure SISR.',
     color: '#d4af37',
     docs: [
       {
@@ -159,11 +135,11 @@ const epreuves = [
         url: null,
         status: 'available',
         outline: [
-          'Sujet : Sécurisation d\'une infrastructure réseau',
-          'Sources : ANSSI, CERT-FR, NVD, OWASP',
-          'Démarche : Collecter → Trier → Tester → Documenter',
-          'Synthèse comparative VLAN / VPN / Nagios',
-          'Bonnes pratiques ANSSI 2025 et bibliographie',
+          'Sujet : Le Phishing — menace n°1 en cybersécurité',
+          'Sources : Cybermalveillance.gouv.fr, ANSSI, CERT-FR, IT-Connect',
+          '5 types : Email, Smishing, Vishing, Quishing, Spear Phishing',
+          'Cas récents : France Travail (43M), Free (19M, 42M€ amende)',
+          'Impact de l\'IA sur le phishing et solutions de protection',
         ],
       },
     ],
