@@ -23,10 +23,10 @@ const stages = [
       { icon: Globe, label: 'Site web', value: 'ba-conseil.fr', link: 'https://ba-conseil.fr' },
     ],
     chiffresCles: [
-      { value: '2018', label: 'Année de création', color: '#06b6d4' },
-      { value: '100%', label: 'Couverture nationale', color: '#8b5cf6' },
-      { value: '3+', label: 'Grands comptes (Galeries Lafayette, Hyundai, Ministères)', color: '#f59e0b' },
-      { value: '6', label: 'Services IT (MDM, Télécoms, Infogérance, Déploiement, Maintenance, Sécurité)', color: '#10b981' },
+      { value: 'SAS', label: 'Forme juridique', color: '#06b6d4' },
+      { value: '2 000 €', label: 'Capital social', color: '#8b5cf6' },
+      { value: '1-2', label: 'Salariés', color: '#f59e0b' },
+      { value: 'Coignières (78)', label: 'Siège : 8 rue du Mesnil-Saint-Denis, 78310', color: '#10b981' },
     ],
     specialisations: [
       'MDM/UEM', 'Infogérance', 'Télécoms', 'Internet & Lignes Mobiles',
@@ -89,10 +89,10 @@ const stages = [
       { icon: Globe, label: 'Site web', value: 'lesreparateursmacetpc.com', link: 'https://lesreparateursmacetpc.com' },
     ],
     chiffresCles: [
-      { value: 'Gratuit', label: 'Diagnostic sans engagement', color: '#10b981' },
-      { value: '48-96h', label: 'Délai de réparation', color: '#06b6d4' },
-      { value: '6 mois', label: 'Garantie pièces et main-d\'œuvre', color: '#f59e0b' },
-      { value: '10+', label: 'Marques prises en charge (Apple, Asus, Lenovo, HP, Samsung…)', color: '#8b5cf6' },
+      { value: 'EI', label: 'Entrepreneur individuel', color: '#8b5cf6' },
+      { value: '2014', label: 'Année de création', color: '#06b6d4' },
+      { value: '1', label: 'Dirigeant-réparateur', color: '#f59e0b' },
+      { value: 'Bagnolet (93)', label: 'Siège : 7 rue Pierre Brossolette, 93170', color: '#10b981' },
     ],
     specialisations: [
       'Réparation Mac', 'Réparation PC', 'Diagnostic matériel', 'Récupération de données',
