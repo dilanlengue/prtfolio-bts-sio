@@ -655,10 +655,31 @@ export default function Veille() {
         </div>
 
 
-        {/* ═══════════ 09 — PROJET PROFESSIONNEL ═══════════ */}
-        <div className="animate-fade-up" style={{ marginBottom: '3rem' }}>
+        {/* ═══════════ 09 — CONCLUSION ═══════════ */}
+        <div className="animate-fade-up" style={{ marginBottom: '5rem' }}>
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span style={sectionNum()}>09</span>
+            <h3 style={sectionTitle('#22d3ee')}>Conclusion</h3>
+          </div>
+
+          <div style={card('#22d3ee')}>
+            <p style={{ ...bodyText, fontSize: '17px', color: '#e2e8f0', marginBottom: '1.5rem' }}>
+              Ma veille technologique sur le phishing m'a permis de comprendre que cette menace est en <strong style={{ color: '#fca5a5' }}>constante {'é'}volution</strong>. Avec l'arriv{'é'}e de l'intelligence artificielle, les attaques deviennent plus sophistiqu{'é'}es, plus personnalis{'é'}es et plus difficiles {'à'} d{'é'}tecter.
+            </p>
+            <p style={{ ...bodyText, fontSize: '17px', color: '#e2e8f0', marginBottom: '1.5rem' }}>
+              Les cas r{'é'}cents en France (ANTS, Cegedim, France Travail, Free) montrent que <strong style={{ color: '#fca5a5' }}>personne n'est {'à'} l'abri</strong> : ni les particuliers, ni les entreprises, ni m{'ê'}me les administrations publiques. La France est le <strong style={{ color: '#22d3ee' }}>2{'è'}me pays le plus touch{'é'} au monde</strong> par les fuites de donn{'é'}es en 2026.
+            </p>
+            <p style={{ ...bodyText, fontSize: '17px', color: '#e2e8f0' }}>
+              Cette veille m'a convaincu que la <strong style={{ color: '#6ee7b7' }}>sensibilisation</strong> et la <strong style={{ color: '#6ee7b7' }}>formation</strong> restent les meilleures d{'é'}fenses. En tant que futur professionnel de la cybers{'é'}curit{'é'}, je continuerai {'à'} me tenir inform{'é'} des nouvelles menaces pour mieux prot{'é'}ger les syst{'è'}mes et les utilisateurs.
+            </p>
+          </div>
+        </div>
+
+
+        {/* ═══════════ 10 — PROJET PROFESSIONNEL ═══════════ */}
+        <div className="animate-fade-up" style={{ marginBottom: '3rem' }}>
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <span style={sectionNum()}>10</span>
             <h3 style={sectionTitle('#6ee7b7')}>Mon Projet Professionnel</h3>
           </div>
 
