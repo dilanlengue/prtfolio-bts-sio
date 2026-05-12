@@ -116,7 +116,7 @@ const epreuves = [
         url: null,
         status: 'available',
         outline: [
-          'Sujet : Le Phishing — menace n°1 en cybersécurité',
+          'Sujet : Le Phishing — une des cybermenaces les plus répandues',
           'Sources : Cybermalveillance.gouv.fr, ANSSI, CERT-FR, IT-Connect',
           '5 types : Email, SMS, Téléphone, QR Code, Phishing ciblé',
           'Cas récents : France Travail (43M), Free (19M, 42M€ amende)',

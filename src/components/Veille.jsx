@@ -146,7 +146,7 @@ export default function Veille() {
             fontFamily: "'Inter', sans-serif", fontSize: '18px',
             color: '#94a3b8', lineHeight: 1.8, maxWidth: '550px', margin: '0 auto',
           }}>
-            Sujet de veille : <strong style={{ color: '#fca5a5' }}>Le Phishing</strong> — la menace n°1 en cybersécurité en France
+            Sujet de veille : <strong style={{ color: '#fca5a5' }}>Le Phishing</strong> — une des cybermenaces les plus répandues en France
           </p>
         </div>
 
@@ -232,7 +232,7 @@ export default function Veille() {
                   Le <strong style={{ color: '#fca5a5' }}>phishing</strong> (ou hame{'ç'}onnage) est une technique de <strong style={{ color: '#fca5a5' }}>cyberattaque par ingénierie sociale</strong>. L'attaquant se fait passer pour un organisme de confiance (banque, imp{'ô'}ts, s{'é'}curit{'é'} sociale, La Poste) pour tromper la victime et lui voler ses informations personnelles.
                 </p>
                 <p style={{ ...bodyText, marginBottom: '1.5rem' }}>
-                  C'est l'attaque <strong style={{ color: '#fca5a5' }}>la plus r{'é'}pandue en France</strong> : menace n°1 avec 34% des 420 000 demandes d'assistance enregistr{'é'}es en 2024 sur Cybermalveillance.gouv.fr (+49,9% vs 2023). J'ai choisi ce sujet car il touche aussi bien les particuliers que les entreprises et qu'il est au c{'œ'}ur de la cybersécurité.
+                  C'est l'une des <strong style={{ color: '#fca5a5' }}>cybermenaces les plus r{'é'}pandues en France</strong> : 34% des 420 000 demandes d'assistance enregistr{'é'}es en 2024 sur Cybermalveillance.gouv.fr (+49,9% vs 2023). J'ai choisi ce sujet car il touche aussi bien les particuliers que les entreprises et qu'il est au c{'œ'}ur de la cybersécurité.
                 </p>
 
                 <div className="flex flex-wrap gap-3">
@@ -585,7 +585,7 @@ export default function Veille() {
               {
                 titre: 'Rapport d\'activité 2024 — 420 000 demandes d\'assistance',
                 source: 'Cybermalveillance.gouv.fr', date: 'Mars 2025',
-                desc: 'Bilan annuel : 420 000 demandes (+49,9%), phishing menace n°1 pour les particuliers (34%)',
+                desc: 'Bilan annuel : 420 000 demandes (+49,9%), phishing 34% des demandes pour les particuliers',
                 url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/rapport-activite-2024',
               },
               {
