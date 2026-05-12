@@ -576,12 +576,6 @@ export default function Veille() {
                 url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/dossier-phishing',
               },
               {
-                titre: 'Que faire en cas de phishing ? — Fiche réflexe',
-                source: 'Cybermalveillance.gouv.fr', date: '2024',
-                desc: 'Guide étape par étape pour réagir en cas d\'hameçonnage',
-                url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing',
-              },
-              {
                 titre: 'Rapport d\'activité 2024 — +70% de phishing',
                 source: 'Cybermalveillance.gouv.fr', date: '2025',
                 desc: 'Bilan annuel : 108 000 demandes d\'aide pour phishing, hausse de 70%',
@@ -598,18 +592,6 @@ export default function Veille() {
                 source: 'IT-Connect', date: '2025',
                 desc: 'Analyse détaillée de l\'utilisation de l\'IA dans les attaques de phishing',
                 url: 'https://www.it-connect.fr/intelligence-artificielle-ia-phishing/',
-              },
-              {
-                titre: 'Violation de données France Travail',
-                source: 'Cybermalveillance.gouv.fr', date: '2024',
-                desc: 'Détails sur la fuite de données de 43 millions de personnes',
-                url: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/violation-donnees-personnelles-france-travail',
-              },
-              {
-                titre: 'Sanction CNIL — Free (42 millions d\'euros)',
-                source: 'CNIL', date: '2024',
-                desc: 'Décision de la CNIL après la fuite de données de 19 millions de clients',
-                url: 'https://www.cnil.fr/fr/fuite-de-donnees-de-free-la-cnil-a-sanctionne-loperateur-dune-amende-de-42-millions-deuros',
               },
             ].map((art, i) => (
               <a key={i} href={art.url} target="_blank" rel="noopener noreferrer"
