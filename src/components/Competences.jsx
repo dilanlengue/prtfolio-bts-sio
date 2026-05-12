@@ -7,10 +7,10 @@ const categories = [
     icon: Server,
     color: '#818cf8',
     tools: [
-      { name: 'Windows Server', desc: 'Administration et gestion de serveurs Windows Server 2022/2025', color: '#0078D4', logo: '/logos/windows.png', url: 'https://www.microsoft.com/fr-fr/windows-server' },
-      { name: 'Windows 10/11', desc: 'Déploiement, configuration et maintenance des postes clients', color: '#0078D4', logo: '/logos/windows.png', url: 'https://www.microsoft.com/fr-fr/windows' },
-      { name: 'Linux', desc: 'Installation et administration de serveurs Linux', color: '#A81D33', logo: '/logos/debian.png', url: 'https://www.linux.org/' },
-      { name: 'Active Directory', desc: 'Gestion des utilisateurs, groupes et droits d\'accès centralisée', color: '#0078D4', logo: '/logos/activedirectory.svg', url: 'https://learn.microsoft.com/fr-fr/windows-server/identity/ad-ds/' },
+      { name: 'Windows Server', desc: 'Installation et configuration de serveurs Windows Server', color: '#0078D4', logo: '/logos/windows.png', url: 'https://www.microsoft.com/fr-fr/windows-server' },
+      { name: 'Windows 10/11', desc: 'Installation, configuration et maintenance des postes clients', color: '#0078D4', logo: '/logos/windows.png', url: 'https://www.microsoft.com/fr-fr/windows' },
+      { name: 'Linux', desc: 'Installation et configuration de serveurs Linux', color: '#A81D33', logo: '/logos/debian.png', url: 'https://www.linux.org/' },
+      { name: 'Active Directory', desc: 'Installation et configuration des utilisateurs, groupes et GPO', color: '#0078D4', logo: '/logos/activedirectory.svg', url: 'https://learn.microsoft.com/fr-fr/windows-server/identity/ad-ds/' },
     ],
   },
   {
@@ -19,11 +19,11 @@ const categories = [
     icon: Network,
     color: '#22d3ee',
     tools: [
-      { name: 'Proxmox', desc: 'Création et gestion de machines virtuelles', color: '#E57000', logo: '/logos/proxmox.png', url: 'https://www.proxmox.com/' },
-      { name: 'VirtualBox', desc: 'Création et gestion de machines virtuelles', color: '#183A61', logo: '/logos/virtualbox.png', url: 'https://www.virtualbox.org/' },
-      { name: 'DNS / DHCP', desc: 'Configuration et gestion des services réseau', color: '#0891B2', logo: '/logos/dns.svg', url: 'https://learn.microsoft.com/fr-fr/windows-server/networking/dns/dns-top' },
-      { name: 'pfSense', desc: 'Configuration de pare-feu et routage réseau', color: '#e2e8f0', logo: '/logos/pfsense.svg', url: 'https://www.pfsense.org/' },
-      { name: 'VMware', desc: 'Création et gestion de machines virtuelles', color: '#607078', logo: '/logos/vmware.png', url: 'https://www.vmware.com/' },
+      { name: 'Proxmox', desc: 'Installation et création de machines virtuelles', color: '#E57000', logo: '/logos/proxmox.png', url: 'https://www.proxmox.com/' },
+      { name: 'VirtualBox', desc: 'Installation et création de machines virtuelles', color: '#183A61', logo: '/logos/virtualbox.png', url: 'https://www.virtualbox.org/' },
+      { name: 'DNS / DHCP', desc: 'Installation et configuration des services réseau', color: '#0891B2', logo: '/logos/dns.svg', url: 'https://learn.microsoft.com/fr-fr/windows-server/networking/dns/dns-top' },
+      { name: 'pfSense', desc: 'Installation et configuration de pare-feu', color: '#e2e8f0', logo: '/logos/pfsense.svg', url: 'https://www.pfsense.org/' },
+      { name: 'VMware', desc: 'Installation et création de machines virtuelles', color: '#607078', logo: '/logos/vmware.png', url: 'https://www.vmware.com/' },
     ],
   },
   {
@@ -32,8 +32,8 @@ const categories = [
     icon: Shield,
     color: '#fb7185',
     tools: [
-      { name: 'Wireshark', desc: 'Analyse du trafic réseau et détection d\'anomalies', color: '#4FC3F7', logo: '/logos/wireshark.svg', url: 'https://www.wireshark.org/' },
-      { name: 'Pare-feu', desc: 'Vérification et configuration des règles de pare-feu (iptables)', color: '#EF4444', logo: '/logos/firewall.svg', url: 'https://netfilter.org/' },
+      { name: 'Wireshark', desc: 'Installation et analyse du trafic réseau', color: '#4FC3F7', logo: '/logos/wireshark.svg', url: 'https://www.wireshark.org/' },
+      { name: 'Pare-feu', desc: 'Installation et configuration des règles de pare-feu', color: '#EF4444', logo: '/logos/firewall.svg', url: 'https://netfilter.org/' },
     ],
   },
 ]
