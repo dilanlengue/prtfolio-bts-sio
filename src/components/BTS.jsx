@@ -17,7 +17,7 @@ const epreuves = [
       'Projection professionnelle : identifier ses axes de progression et se projeter dans sa future carrière',
       'Communication professionnelle : aptitude à communiquer clairement et efficacement sur son parcours et ses réalisations',
     ],
-    monProjet: 'AD DS + VLAN + GPO + Wireshark — 4 projets réalisés en lab, documentés avec dossiers techniques.',
+    monProjet: 'AD DS + DHCP + VLAN + GPO + Wireshark — 5 projets réalisés en lab, documentés avec dossiers techniques.',
     color: '#a855f3',
     docs: [
       {
@@ -30,6 +30,18 @@ const epreuves = [
           'Création OUs, utilisateurs, groupes de sécurité',
           'DNS intégré + DHCP avec scopes',
           'Tests de validation et plan de rollback',
+        ],
+      },
+      {
+        label: 'Dossier E5 — Serveur DHCP',
+        url: '/dossiers/dossier-dhcp-dilan.pdf',
+        status: 'available',
+        outline: [
+          'Windows Server 2025, rôle DHCP',
+          'Autorisation DHCP dans Active Directory',
+          'Création étendue : plage IP, masque, bail',
+          'Options : passerelle, DNS, nom de domaine',
+          'Tests ipconfig /all et /renew sur clients',
         ],
       },
       {

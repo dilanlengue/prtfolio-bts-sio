@@ -333,6 +333,60 @@ const projets = [
       }
     ],
   },
+  {
+    id: 10,
+    title: 'Serveur DHCP',
+    subtitle: 'Windows Server 2025',
+    logo: '/logos/windows.png',
+    color: '#0891B2',
+    image: '/projects/ad.webp',
+    badge: 'E5',
+    badgeColor: '#a855f3',
+    description: "Installation et configuration du rôle DHCP sur Windows Server 2025 pour l'attribution automatique d'adresses IP.",
+    technologies: ['Windows Server 2025', 'DHCP', 'DNS', 'Active Directory', 'PowerShell'],
+    docPdf: '/dossiers/dossier-dhcp-dilan.pdf',
+    warning: "Ce projet a été réalisé dans un environnement virtualisé à des fins pédagogiques. Les plages d'adresses et options DHCP présentées doivent être adaptées avant toute mise en production.",
+    context: "Dans une infrastructure réseau, l'attribution manuelle des adresses IP est fastidieuse et source d'erreurs, surtout avec un nombre croissant de postes. Le protocole DHCP permet d'automatiser cette attribution en fournissant aux machines une adresse IP, un masque de sous-réseau, une passerelle par défaut et les serveurs DNS. Ce projet consiste à installer et configurer le rôle DHCP sur Windows Server 2025 au sein du domaine Active Directory existant.",
+    objectives: [
+      "Installer le rôle Serveur DHCP sur Windows Server 2025",
+      "Autoriser le serveur DHCP dans Active Directory",
+      "Créer et configurer une étendue (scope) avec plage d'adresses, masque et durée de bail",
+      "Configurer les options DHCP : passerelle par défaut, serveurs DNS, nom de domaine",
+      "Tester l'attribution automatique d'adresses IP sur les postes clients"
+    ],
+    environment: ['Windows Server 2025', 'Rôle DHCP', 'Active Directory (domaine sio.lan)', 'Console DHCP (dhcpmgmt.msc)', 'PowerShell', 'Postes clients Windows'],
+    steps: [
+      "Installation du rôle Serveur DHCP via le Gestionnaire de serveur (Ajout de rôles et fonctionnalités)",
+      "Autorisation du serveur DHCP dans Active Directory pour qu'il puisse distribuer des adresses sur le domaine",
+      "Création d'une nouvelle étendue (scope) : définition de la plage d'adresses IP, du masque de sous-réseau et de la durée du bail",
+      "Configuration des exclusions : réservation des adresses IP statiques (serveurs, imprimantes, équipements réseau)",
+      "Configuration des options de l'étendue : passerelle par défaut (option 003), serveurs DNS (option 006), nom de domaine (option 015)",
+      "Activation de l'étendue et vérification du bon fonctionnement",
+      "Test sur un poste client : vérification de l'obtention automatique d'une adresse IP via ipconfig /all et ipconfig /renew"
+    ],
+    results: [
+      "Serveur DHCP opérationnel et autorisé dans Active Directory",
+      "Étendue configurée avec plage d'adresses, exclusions et options réseau",
+      "Postes clients obtenant automatiquement une adresse IP, un masque, une passerelle et les serveurs DNS",
+      "Réduction du temps de configuration réseau des postes et élimination des conflits d'adresses IP"
+    ],
+    competences: [
+      { code: 'B2.1', label: "Concevoir une solution d'infrastructure réseau" },
+      { code: 'B2.2', label: "Installer, tester et déployer une solution d'infrastructure réseau" },
+      { code: 'B3.4', label: "Garantir la disponibilité, l'intégrité et la confidentialité" },
+    ],
+    bilan: "Ce projet m'a fait comprendre le rôle central du DHCP dans une infrastructure réseau d'entreprise. L'autorisation dans Active Directory est une étape de sécurité essentielle pour éviter les serveurs DHCP non autorisés (rogue DHCP). J'ai aussi appris l'importance des exclusions et des réservations pour garantir que les équipements critiques conservent toujours la même adresse IP.",
+    difficulties: [
+      {
+        problem: "Le serveur DHCP ne distribuait pas d'adresses malgré la création de l'étendue.",
+        solution: "Le serveur DHCP n'avait pas été autorisé dans Active Directory. Autorisation via la console DHCP (clic droit sur le serveur → Autoriser) pour permettre la distribution d'adresses sur le domaine."
+      },
+      {
+        problem: "Un poste client obtenait une adresse APIPA (169.254.x.x) au lieu d'une adresse du scope DHCP.",
+        solution: "L'étendue n'était pas activée après sa création. Activation de l'étendue dans la console DHCP, puis exécution de ipconfig /release et ipconfig /renew sur le poste client pour forcer une nouvelle demande DHCP."
+      }
+    ],
+  },
 ]
 
 const SectionIcon = ({ icon: Icon, color }) => (

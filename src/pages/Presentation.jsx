@@ -88,7 +88,7 @@ function StageIllustration() {
 }
 
 const stats = [
-  { value: 6, label: 'Projets', color: '#22d3ee', Illustration: ProjectIllustration },
+  { value: 7, label: 'Projets', color: '#22d3ee', Illustration: ProjectIllustration },
   { value: 2, label: 'Certifications', color: '#22c55e', Illustration: CertificationIllustration },
   { value: 2, label: 'Ans d\'expérience', color: '#f59e0b', Illustration: ExperienceIllustration },
   { value: 2, label: 'Stages effectués', color: '#a78bfa', Illustration: StageIllustration },
