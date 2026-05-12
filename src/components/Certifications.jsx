@@ -154,7 +154,7 @@ export default function Certifications() {
               </div>
 
               {/* Content */}
-              <div style={{ padding: '2.5rem 2.5rem 2.5rem' }}>
+              <div style={{ padding: 'clamp(1.2rem, 4vw, 2.5rem)' }}>
                 {/* Date + status badges */}
                 <div className="flex items-center justify-between flex-wrap gap-3" style={{ marginBottom: '2rem' }}>
                   <span style={{

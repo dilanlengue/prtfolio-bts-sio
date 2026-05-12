@@ -79,23 +79,23 @@ export default function Competences() {
             <div key={catIdx} className="animate-fade-up" style={{ marginBottom: catIdx < categories.length - 1 ? '4.5rem' : '3rem' }}>
 
               {/* Titre catégorie */}
-              <div className="flex items-center gap-4 mb-8">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
                 <div className="flex items-center justify-center rounded-xl flex-shrink-0" style={{
-                  width: '44px', height: '44px',
+                  width: '40px', height: '40px',
                   background: `${cat.color}12`,
                   border: `1px solid ${cat.color}30`,
                   boxShadow: `0 0 20px ${cat.color}08`,
                 }}>
-                  <CatIcon size={22} style={{ color: cat.color }} />
+                  <CatIcon size={20} style={{ color: cat.color }} />
                 </div>
                 {cat.bloc && (
                   <span style={{
                     fontFamily: "'Orbitron', system-ui, sans-serif",
-                    fontSize: '14px', fontWeight: 900,
+                    fontSize: '13px', fontWeight: 900,
                     color: cat.color,
                     background: `${cat.color}12`,
                     border: `1px solid ${cat.color}30`,
-                    padding: '6px 14px',
+                    padding: '5px 12px',
                     borderRadius: '10px',
                     flexShrink: 0,
                   }}>
@@ -104,12 +104,12 @@ export default function Competences() {
                 )}
                 <h3 style={{
                   fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
-                  fontSize: '20px', fontWeight: 800,
-                  color: '#f1f5f9', letterSpacing: '-0.01em', flex: 'none',
+                  fontSize: 'clamp(15px, 3.5vw, 20px)', fontWeight: 800,
+                  color: '#f1f5f9', letterSpacing: '-0.01em',
                 }}>
                   {cat.title}
                 </h3>
-                <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, ${cat.color}30, transparent)`, marginLeft: '0.5rem' }} />
+                <div className="hidden sm:block" style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, ${cat.color}30, transparent)`, marginLeft: '0.5rem' }} />
               </div>
 
               {/* Grille de cartes outils */}

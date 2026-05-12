@@ -119,7 +119,7 @@ function ContactForm() {
     padding: '12px 14px',
     color: '#1e293b',
     fontFamily: "'Inter', sans-serif",
-    fontSize: '14px',
+    fontSize: '16px',
     transition: 'all 0.2s',
     outline: 'none',
   }

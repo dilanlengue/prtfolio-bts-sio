@@ -56,7 +56,7 @@ export default function Dashboard() {
           <div className="flex flex-col lg:flex-row gap-16 items-center lg:items-start">
 
             {/* Colonne gauche — Photo + Nom */}
-            <div className="flex flex-col items-center lg:items-center flex-shrink-0" style={{ minWidth: '280px' }}>
+            <div className="flex flex-col items-center lg:items-center flex-shrink-0" style={{ minWidth: 'min(280px, 100%)' }}>
               <div style={{ width: '180px', height: '180px', borderRadius: '50%', padding: '4px', background: 'linear-gradient(135deg, #6366f1, #22d3ee, #a78bfa)', boxShadow: '0 0 50px rgba(99,102,241,0.25), 0 0 100px rgba(34,211,238,0.1)', marginBottom: '2rem' }}>
                 <img src="/photo-dilan.png" alt="Dilan Lengue" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', display: 'block', border: '3px solid rgba(8,12,26,1)' }} />
               </div>
@@ -104,7 +104,7 @@ export default function Dashboard() {
                 et les infrastructures IT.
               </h3>
 
-              <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
                 {[
                   { icon: CalendarDays, label: `${new Date().getFullYear() - 2003} ans`, color: '#22d3ee' },
                   { icon: Globe, label: 'Bilingue FR / EN', color: '#34d399' },
