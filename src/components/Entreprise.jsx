@@ -44,6 +44,8 @@ const stages = [
       { src: '/ba-deploy-windows.jpg', caption: 'Intervention technicien réseau — câblage et infrastructure serveur' },
       { src: '/ba-deploiement.jpg', caption: 'Déploiement et sécurisation de postes Windows (Defender, GPO)' },
       { src: '/ba-telecom.webp', caption: 'Infrastructure télécoms et connectivité professionnelle' },
+      { src: '/ba-mdm-enrollment.jpg', caption: 'Enrôlement MDM de smartphones Samsung Galaxy — configuration initiale' },
+      { src: '/ba-mdm-fleet.jpg', caption: 'Préparation en série d\'une flotte de smartphones via QR code MDM' },
     ],
     documents: [
       { src: '/admin-procedure-config-appareils.pdf', label: 'Admin Procédure — Configuration des appareils' },
