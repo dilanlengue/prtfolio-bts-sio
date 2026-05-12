@@ -22,6 +22,12 @@ const stages = [
       { icon: Phone, label: 'Téléphone', value: '01 84 80 19 18' },
       { icon: Globe, label: 'Site web', value: 'ba-conseil.fr', link: 'https://ba-conseil.fr' },
     ],
+    chiffresCles: [
+      { value: '2018', label: 'Année de création', color: '#06b6d4' },
+      { value: '100%', label: 'Couverture nationale', color: '#8b5cf6' },
+      { value: '3+', label: 'Grands comptes (Galeries Lafayette, Hyundai, Ministères)', color: '#f59e0b' },
+      { value: '6', label: 'Services IT (MDM, Télécoms, Infogérance, Déploiement, Maintenance, Sécurité)', color: '#10b981' },
+    ],
     specialisations: [
       'MDM/UEM', 'Infogérance', 'Télécoms', 'Internet & Lignes Mobiles',
       'Maintenance IT', 'Déploiement poste', 'Solutions Software',
@@ -81,6 +87,12 @@ const stages = [
       { icon: Calendar, label: 'Période de stage', value: '12/05/2025 – 21/06/2025 (7 semaines)' },
       { icon: Phone, label: 'Téléphone', value: '06 65 01 86 53' },
       { icon: Globe, label: 'Site web', value: 'lesreparateursmacetpc.com', link: 'https://lesreparateursmacetpc.com' },
+    ],
+    chiffresCles: [
+      { value: 'Gratuit', label: 'Diagnostic sans engagement', color: '#10b981' },
+      { value: '48-96h', label: 'Délai de réparation', color: '#06b6d4' },
+      { value: '6 mois', label: 'Garantie pièces et main-d\'œuvre', color: '#f59e0b' },
+      { value: '10+', label: 'Marques prises en charge (Apple, Asus, Lenovo, HP, Samsung…)', color: '#8b5cf6' },
     ],
     specialisations: [
       'Réparation Mac', 'Réparation PC', 'Diagnostic matériel', 'Récupération de données',
@@ -589,6 +601,35 @@ function StageCard({ stage }) {
         }}>
           {stage.description}
         </p>
+
+        {/* Chiffres clés */}
+        {stage.chiffresCles && (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" style={{ marginBottom: '1.5rem' }}>
+            {stage.chiffresCles.map((c, i) => (
+              <div key={i} className="text-center rounded-xl" style={{
+                padding: '1.2rem 0.8rem',
+                background: `${c.color}08`,
+                border: `1px solid ${c.color}20`,
+              }}>
+                <p style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 'clamp(1.1rem, 3vw, 1.4rem)',
+                  fontWeight: 900, color: c.color,
+                  marginBottom: '0.3rem',
+                }}>
+                  {c.value}
+                </p>
+                <p style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '11px', fontWeight: 600, color: '#64748b',
+                  lineHeight: 1.4,
+                }}>
+                  {c.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Infos en grille */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" style={{ marginBottom: '1.5rem' }}>
