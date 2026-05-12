@@ -1,39 +1,8 @@
 import { useState } from 'react'
-import { ChevronDown, ExternalLink, Settings, Rocket, ClipboardList, GraduationCap, FileText, Download, Lock, Loader2, CheckCircle2 } from 'lucide-react'
+import { ChevronDown, ExternalLink, Rocket, ClipboardList, GraduationCap, FileText, Download, Lock, Loader2, CheckCircle2 } from 'lucide-react'
 import SectionLabel from './SectionLabel'
 
 const epreuves = [
-  {
-    code: 'E4',
-    emoji: '⚙️',
-    icon: Settings,
-    title: 'Support et mise à disposition de services informatiques',
-    coef: 'Coef. 4',
-    oral: 'Écrit (4h) + Pratique (40 min)',
-    description: 'Gérer le patrimoine informatique, répondre aux incidents et aux demandes d\'assistance, développer la présence en ligne de l\'organisation.',
-    details: [
-      'Gestion du patrimoine informatique (inventaire, maintenance)',
-      'Réponse aux incidents et demandes d\'assistance et de support',
-      'Développement de la présence en ligne de l\'organisation',
-      'Travail en mode projet (planification, suivi, documentation)',
-    ],
-    monProjet: 'Développement d\'une calculatrice web interactive en HTML5/CSS3/JavaScript avec manipulation du DOM, validation des entrées et gestion des erreurs.',
-    color: '#22d3ee',
-    docs: [
-      {
-        label: 'Dossier E4 — Calculatrice Web Interactive',
-        url: '/dossiers/dossier-calculatrice.pdf',
-        status: 'available',
-        outline: [
-          'Interface HTML5/CSS3',
-          'Manipulation du DOM JavaScript',
-          'Gestion des opérations (+, -, *, /)',
-          'Validation des entrées et gestion des erreurs',
-          'Protection division par zéro',
-        ],
-      },
-    ],
-  },
   {
     code: 'E5',
     emoji: '🚀',
@@ -48,7 +17,7 @@ const epreuves = [
       'Projection professionnelle : identifier ses axes de progression et se projeter dans sa future carrière',
       'Communication professionnelle : aptitude à communiquer clairement et efficacement sur son parcours et ses réalisations',
     ],
-    monProjet: 'AD DS + VLAN + GPO + Wireshark (lab) · GLPI + Active Directory en entreprise (stages) — 6 projets documentés.',
+    monProjet: 'AD DS + VLAN + GPO + Wireshark — 4 projets réalisés en lab, documentés avec dossiers techniques.',
     color: '#a855f3',
     docs: [
       {
@@ -137,7 +106,7 @@ const epreuves = [
         outline: [
           'Sujet : Le Phishing — menace n°1 en cybersécurité',
           'Sources : Cybermalveillance.gouv.fr, ANSSI, CERT-FR, IT-Connect',
-          '5 types : Email, Smishing, Vishing, Quishing, Spear Phishing',
+          '5 types : Email, SMS, Téléphone, QR Code, Phishing ciblé',
           'Cas récents : France Travail (43M), Free (19M, 42M€ amende)',
           'Impact de l\'IA sur le phishing et solutions de protection',
         ],
@@ -660,7 +629,7 @@ export default function BTS() {
             Épreuves professionnelles
           </p>
 
-          <div className="grid sm:grid-cols-3 gap-8 mb-12">
+          <div className="grid sm:grid-cols-2 gap-8 mb-12 max-w-3xl mx-auto">
             {epreuves.map(ep => (
               <EpreuveCard key={ep.code} ep={ep} />
             ))}

@@ -40,7 +40,7 @@ const statsData = [
 
 const apports = [
   { color: '#22d3ee', icon: Server, title: 'Administration opérationnelle',  desc: 'Gestion de serveurs, postes et équipements réseau' },
-  { color: '#22c55e', icon: BarChart3, title: 'Impact mesurable',               desc: '9 projets livrés · supervision active · 2 stages pro' },
+  { color: '#22c55e', icon: BarChart3, title: 'Impact mesurable',               desc: '6 projets livrés · analyse réseau · 2 stages pro' },
   { color: '#a78bfa', icon: Lock, title: 'Sécurité by design',             desc: 'VPN, audit de vulnérabilités, pare-feu, conformité ANSSI' },
   { color: '#fbbf24', icon: FileText, title: 'Livraison documentée',           desc: 'Guides techniques, rapports de stage, documentation réseau' },
 ]

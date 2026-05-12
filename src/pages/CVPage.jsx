@@ -95,7 +95,7 @@ const sections = [
       { icon: Shield, label: 'Cybersécurité', tags: ['OpenVPN', 'Nessus', 'Kali Linux', 'iptables', 'OWASP', 'SSL/TLS'] },
       { icon: Wifi, label: 'Réseaux', tags: ['Cisco IOS', 'VLAN 802.1Q', 'TCP/IP', 'Wireshark', 'pfSense'] },
       { icon: Server, label: 'Systèmes', tags: ['Windows Server', 'Active Directory', 'GPO', 'DNS/DHCP', 'Linux Debian'] },
-      { icon: Activity, label: 'Supervision', tags: ['Nagios', 'GLPI', 'SNMP/NRPE', 'Zabbix'] },
+      { icon: Activity, label: 'Supervision', tags: ['Wireshark', 'GLPI', 'Zabbix', 'SNMP'] },
       { icon: Monitor, label: 'Virtualisation', tags: ['Proxmox', 'VMware ESXi', 'VirtualBox', 'Hyper-V'] },
       { icon: Terminal, label: 'OS & Scripting', tags: ['Bash', 'PowerShell', 'Linux', 'Windows 10/11'] },
     ],

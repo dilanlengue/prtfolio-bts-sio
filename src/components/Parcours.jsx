@@ -54,7 +54,7 @@ const formations = [
     org: 'Institut F2I',
     place: 'Vincennes',
     current: true,
-    pills: ['Active Directory', 'Cisco', 'OpenVPN', 'Nagios'],
+    pills: ['Active Directory', 'Cisco', 'Wireshark', 'GPO'],
   },
   {
     date: '2024 — 2025',
@@ -613,7 +613,7 @@ export default function Parcours() {
                   step: '02',
                   title: 'Administrateur Systèmes & Réseaux',
                   subtitle: 'Poste en entreprise',
-                  desc: 'Prendre un poste d\'administrateur systèmes et réseaux : gestion Active Directory, supervision Nagios/Zabbix, sécurisation d\'infrastructures, support niveau 2/3.',
+                  desc: 'Prendre un poste d\'administrateur systèmes et réseaux : gestion Active Directory, supervision Zabbix, sécurisation d\'infrastructures, support niveau 2/3.',
                   status: '2027 — 2029',
                   color: '#22d3ee',
                 },
