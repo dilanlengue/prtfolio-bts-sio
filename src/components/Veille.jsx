@@ -38,7 +38,7 @@ const phishingTypes = [
     risque: 'Vol de mots de passe, données bancaires, usurpation d\'identité',
   },
   {
-    icon: Smartphone, title: 'Smishing (par SMS)',
+    icon: Smartphone, title: 'Phishing par SMS',
     color: '#22d3ee',
     image: '/veille-smishing.svg',
     desc: "Un SMS frauduleux prétexte une livraison de colis, un remboursement ou une alerte de sécurité pour rediriger la victime vers un faux site.",
@@ -46,7 +46,7 @@ const phishingTypes = [
     risque: 'Vol de données bancaires via de faux formulaires de paiement',
   },
   {
-    icon: Phone, title: 'Vishing (par Téléphone)',
+    icon: Phone, title: 'Phishing par Téléphone',
     color: '#a78bfa',
     image: '/veille-vishing.svg',
     desc: "L'attaquant appelle la victime en se faisant passer pour un conseiller bancaire ou un agent de l'État. Il crée un sentiment d'urgence pour obtenir des codes confidentiels.",
@@ -54,7 +54,7 @@ const phishingTypes = [
     risque: 'Transferts bancaires frauduleux, vol de codes de validation',
   },
   {
-    icon: QrCode, title: 'Quishing (par QR Code)',
+    icon: QrCode, title: 'Phishing par QR Code',
     color: '#f472b6',
     image: '/veille-quishing.svg',
     desc: "De faux QR codes sont collés sur des parcmètres, bornes de recharge ou contraventions. Le scan redirige vers un site de paiement frauduleux.",
@@ -62,7 +62,7 @@ const phishingTypes = [
     risque: 'Paiement détourné, vol de coordonnées bancaires',
   },
   {
-    icon: Target, title: 'Spear Phishing (ciblé)',
+    icon: Target, title: 'Phishing ciblé',
     color: '#fb923c',
     image: '/veille-spear.svg',
     desc: "Attaque personnalisée ciblant une personne précise. L'attaquant utilise des informations personnelles (nom, poste, entreprise) pour créer un message très crédible.",
