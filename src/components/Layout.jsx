@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import TopNav from './TopNav'
-import SideNav from './SideNav'
 import CyberBackground from './CyberBackground'
 import Footer from './Footer'
 
@@ -25,9 +24,8 @@ export default function Layout() {
       <div className="aurora" />
       <div className="mesh-gradient" />
       <CyberBackground />
-      <SideNav />
       <TopNav />
-      <div className="relative z-10 pt-20 lg:pt-0 lg:pl-16">
+      <div className="relative z-10" style={{ paddingTop: '80px' }}>
         <Outlet />
         <Footer />
       </div>

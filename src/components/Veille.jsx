@@ -117,6 +117,66 @@ const casReelsFrance = [
     source: 'franceinfo',
     url: 'https://www.franceinfo.fr/internet/securite-sur-internet/cyberattaques/ce-que-l-on-sait-de-la-cyberattaque-qui-a-touche-des-serveurs-du-ministere-de-l-interieur_7683346.html',
   },
+  {
+    date: 'Février 2026',
+    titre: 'FICOBA (DGFiP) : 1,2 million de comptes bancaires consultés',
+    icon: KeyRound,
+    color: '#fbbf24',
+    desc: "Le 18 février 2026, la DGFiP révèle des accès illégitimes au fichier national des comptes bancaires (FICOBA). Du 28 janvier au 13 février, un attaquant a utilisé les identifiants usurpés d'un fonctionnaire pour consulter et extraire des données. Ces informations (IBAN réels, identité, adresse) servent ensuite à des phishings bancaires très crédibles.",
+    impact: [
+      '1,2 million de comptes bancaires concernés',
+      'RIB/IBAN, identité, adresse et parfois identifiant fiscal',
+      "Point d'entrée : identifiants d'un agent usurpés",
+      'Risque fort de faux conseillers bancaires et de prélèvements frauduleux',
+    ],
+    source: 'Siècle Digital',
+    url: 'https://siecledigital.fr/2026/02/20/fuite-ficoba-comment-bloquer-les-prelevements-frauduleux/',
+  },
+  {
+    date: 'Octobre 2026',
+    titre: "Engie : fuite de données clients via l'outil d'un partenaire",
+    icon: Building2,
+    color: '#38bdf8',
+    desc: "Fin octobre 2026, Engie prévient une partie de ses clients d'une fuite de données. L'attaque ne vient pas de ses propres serveurs mais d'un outil commercial utilisé par des partenaires chargés de la prospection. Aucune donnée bancaire n'est touchée, mais Engie alerte sur des messages frauduleux imitant ses conseillers.",
+    impact: [
+      'Nom, adresse, email, téléphone et numéro de contrat exposés',
+      "Attaque passée par un sous-traitant, pas par le SI d'Engie",
+      'CNIL notifiée, nombre de clients non communiqué',
+      'Risque de faux mails « facture impayée » ou « anomalie de contrat »',
+    ],
+    source: 'GNT',
+    url: 'https://www.generation-nt.com/actualites/engie-cyberattaque-fuite-donnees-clients-france-2083572',
+  },
+  {
+    date: 'Octobre 2026',
+    titre: 'WhatsApp : le piège du faux vote pour un concours',
+    icon: Smartphone,
+    color: '#4ade80',
+    desc: "Le 27 octobre 2026, Cybermalveillance.gouv.fr alerte sur une arnaque virale : un contact demande de voter pour un enfant dans un concours. Le faux site réclame le code à 6 chiffres reçu par SMS, ce qui permet au pirate de prendre le compte WhatsApp, puis d'envoyer le même message à tous les contacts.",
+    impact: [
+      'Prise de contrôle du compte WhatsApp de la victime',
+      'Propagation en chaîne via la liste de contacts',
+      "Demandes d'argent envoyées au nom de la victime",
+      'Le message vient d\'un proche, donc la méfiance baisse',
+    ],
+    source: 'Cybermalveillance.gouv.fr',
+    url: 'https://www.cybermalveillance.gouv.fr/blog',
+  },
+  {
+    date: 'Novembre 2026',
+    titre: "Fausse ARS : phishing ciblant les chirurgiens-dentistes",
+    icon: Mail,
+    color: '#f472b6',
+    desc: "Le 16 novembre 2026, l'ARS Occitanie alerte sur des mails envoyés le 9 novembre au nom de l'« Agence régionale de santé » depuis une fausse adresse (controle@ars-idf.com). Sous prétexte d'un « contrôle de conformité », ils exigent pièce d'identité, diplômes, extrait Kbis et numéros professionnels. C'est un phishing ciblé sur une profession précise.",
+    impact: [
+      'Vol de documents d\'identité et de données professionnelles',
+      "Usurpation de l'identité visuelle d'une autorité de santé",
+      'Signalement à la CNIL, à la police et au procureur',
+      "Professionnels libéraux exposés, souvent sans service informatique",
+    ],
+    source: 'ARS Occitanie',
+    url: 'https://www.occitanie.ars.sante.fr/alerte-campagne-de-mails-frauduleux-phishing-ciblant-plus-particulierement-les-chirurgiens-1',
+  },
 ]
 
 export default function Veille() {
@@ -232,7 +292,7 @@ export default function Veille() {
                   Le <strong style={{ color: '#fca5a5' }}>phishing</strong> (ou hame{'ç'}onnage) est une technique de <strong style={{ color: '#fca5a5' }}>cyberattaque par ingénierie sociale</strong>. L'attaquant se fait passer pour un organisme de confiance (banque, imp{'ô'}ts, s{'é'}curit{'é'} sociale, La Poste) pour tromper la victime et lui voler ses informations personnelles.
                 </p>
                 <p style={{ ...bodyText, marginBottom: '1.5rem' }}>
-                  C'est l'une des <strong style={{ color: '#fca5a5' }}>cybermenaces les plus r{'é'}pandues en France</strong> : 34% des 420 000 demandes d'assistance enregistr{'é'}es en 2024 sur Cybermalveillance.gouv.fr (+49,9% vs 2023). J'ai choisi ce sujet car il touche aussi bien les particuliers que les entreprises et qu'il est au c{'œ'}ur de la cybersécurité.
+                  C'est l'une des <strong style={{ color: '#fca5a5' }}>cybermenaces les plus r{'é'}pandues en France</strong> : selon le rapport 2025 de Cybermalveillance.gouv.fr (publi{'é'} en mars 2026), l'hame{'ç'}onnage est la menace n{'°'}1 tous publics confondus, en hausse de 70%, avec plus de 500 000 victimes assist{'é'}es. J'ai choisi ce sujet car il touche aussi bien les particuliers que les entreprises et qu'il est au c{'œ'}ur de la cybersécurité.
                 </p>
 
                 <div className="flex flex-wrap gap-3">
@@ -321,9 +381,9 @@ export default function Veille() {
           {/* Stats chiffrées */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" style={{ marginBottom: '2rem' }}>
             {[
-              { stat: '420 000', label: 'demandes d\'assistance en 2024', icon: Users, color: '#fca5a5' },
-              { stat: '+49,9%', label: 'de hausse vs 2023', icon: TrendingUp, color: '#fb923c' },
-              { stat: '17 500+', label: 'cyberattaques en France en 2025', icon: CreditCard, color: '#fbbf24' },
+              { stat: '500 000+', label: 'victimes assistées en 2025', icon: Users, color: '#fca5a5' },
+              { stat: '+20%', label: 'de hausse vs 2024', icon: TrendingUp, color: '#fb923c' },
+              { stat: '+70%', label: 'd\'hameçonnage en 2025 (menace n°1)', icon: CreditCard, color: '#fbbf24' },
               { stat: '2ème', label: 'pays le plus touché au monde', icon: AlertTriangle, color: '#f472b6' },
             ].map((s, i) => {
               const StatIcon = s.icon
@@ -563,10 +623,10 @@ export default function Veille() {
                 <ExternalLink size={14} style={{ color: '#c4b5fd' }} />
                 <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#c4b5fd' }}>Jedha — Chiffres phishing 2025 (smishing +85%, ClickFix +400%)</span>
               </a>
-              <a href="https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2024-mobilisation-et-vigilance-face-aux-attaquants/" target="_blank" rel="noopener noreferrer"
+              <a href="https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2025/" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2" style={{ textDecoration: 'none' }}>
                 <ExternalLink size={14} style={{ color: '#c4b5fd' }} />
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#c4b5fd' }}>ANSSI — Panorama de la cybermenace 2024</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#c4b5fd' }}>ANSSI : Panorama de la cybermenace 2025</span>
               </a>
             </div>
           </div>
@@ -582,6 +642,18 @@ export default function Veille() {
 
           <div className="flex flex-col gap-3">
             {[
+              {
+                titre: 'Rapport d\'activité 2025 : plus de 500 000 victimes assistées',
+                source: 'Cybermalveillance.gouv.fr', date: 'Mars 2026',
+                desc: 'Hameçonnage menace n°1 (+70%), victimes assistées +20%, arnaque au faux conseiller bancaire +159%',
+                url: 'https://www.cybermalveillance.gouv.fr/medias/2026/03/CP-RA2026.pdf',
+              },
+              {
+                titre: 'Panorama de la cybermenace 2025',
+                source: 'ANSSI / CERT-FR', date: 'Mars 2026',
+                desc: '3 586 événements de sécurité traités (-18%), 1 366 incidents, éducation, collectivités et santé en première ligne',
+                url: 'https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2025/',
+              },
               {
                 titre: 'Rapport d\'activité 2024 — 420 000 demandes d\'assistance',
                 source: 'Cybermalveillance.gouv.fr', date: 'Mars 2025',
@@ -652,7 +724,7 @@ export default function Veille() {
               Ma veille technologique sur le phishing m'a permis de comprendre que cette menace est en <strong style={{ color: '#fca5a5' }}>constante {'é'}volution</strong>. Avec l'arriv{'é'}e de l'intelligence artificielle, les attaques deviennent plus sophistiqu{'é'}es, plus personnalis{'é'}es et plus difficiles {'à'} d{'é'}tecter.
             </p>
             <p style={{ ...bodyText, fontSize: '17px', color: '#e2e8f0', marginBottom: '1.5rem' }}>
-              Les cas r{'é'}cents en France en 2025 (Bouygues Telecom, H{'ô'}pital de Pontarlier, Minist{'è'}re de l'Int{'é'}rieur) montrent que <strong style={{ color: '#fca5a5' }}>personne n'est {'à'} l'abri</strong> : ni les particuliers, ni les entreprises, ni m{'ê'}me les administrations publiques. La France est le <strong style={{ color: '#22d3ee' }}>2{'è'}me pays le plus touch{'é'} au monde</strong> par les fuites de donn{'é'}es avec 40,3 millions de comptes compromis en 2025.
+              Les cas r{'é'}cents en France en 2025 et 2026 (Bouygues Telecom, Minist{'è'}re de l'Int{'é'}rieur, FICOBA, Engie, fausse ARS) montrent que <strong style={{ color: '#fca5a5' }}>personne n'est {'à'} l'abri</strong> : ni les particuliers, ni les entreprises, ni m{'ê'}me les administrations publiques. La France est le <strong style={{ color: '#22d3ee' }}>2{'è'}me pays le plus touch{'é'} au monde</strong> par les fuites de donn{'é'}es avec 40,3 millions de comptes compromis en 2025.
             </p>
             <p style={{ ...bodyText, fontSize: '17px', color: '#e2e8f0' }}>
               Cette veille m'a convaincu que la <strong style={{ color: '#6ee7b7' }}>sensibilisation</strong> et la <strong style={{ color: '#6ee7b7' }}>formation</strong> restent les meilleures d{'é'}fenses. En tant que futur professionnel de la cybers{'é'}curit{'é'}, je continuerai {'à'} me tenir inform{'é'} des nouvelles menaces pour mieux prot{'é'}ger les syst{'è'}mes et les utilisateurs.

@@ -38,7 +38,7 @@ export default function TopNav() {
   return (
     <>
       <nav
-        className="lg:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
           height: '80px',
           background: scrolled ? 'rgba(8,12,26,0.95)' : 'rgba(8,12,26,0.8)',
@@ -49,8 +49,8 @@ export default function TopNav() {
         }}
       >
         <div
-          className="h-full flex items-center justify-between mx-auto px-6 lg:px-10"
-          style={{ maxWidth: '1500px' }}
+          className="h-full flex items-center justify-between mx-auto"
+          style={{ maxWidth: '1500px', paddingLeft: 'clamp(1.25rem, 3vw, 2.5rem)', paddingRight: 'clamp(1.25rem, 3vw, 2.5rem)' }}
         >
           {/* Logo / Name */}
           <Link to="/" className="flex items-center gap-3 group flex-shrink-0" style={{ textDecoration: 'none' }}>
@@ -105,7 +105,7 @@ export default function TopNav() {
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden xl:flex items-center gap-2">
+          <div className="hidden xl:flex items-center gap-1" style={{ marginLeft: 'auto', marginRight: '1rem' }}>
             {navLinks.map(({ path, label }) => {
               const isActive = location.pathname === path
               const isHovered = hoveredPath === path
@@ -113,10 +113,11 @@ export default function TopNav() {
                 <Link
                   key={path}
                   to={path}
-                  className="relative px-5 py-2.5 rounded-xl transition-all duration-300"
+                  className="relative px-3 py-2 rounded-xl transition-all duration-300 whitespace-nowrap"
                   style={{
+                    padding: '8px 12px',
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: '15px',
+                    fontSize: '14px',
                     fontWeight: isActive ? 700 : 500,
                     color: isActive ? '#fff' : isHovered ? '#e2e8f0' : '#8494ab',
                     textDecoration: 'none',
@@ -154,9 +155,9 @@ export default function TopNav() {
           </div>
 
           {/* Right side: status + CV */}
-          <div className="hidden xl:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-3 flex-shrink-0">
             {/* Disponibilité badge */}
-            <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl"
+            <div className="hidden 2xl:flex items-center gap-2.5 px-4 py-2 rounded-xl"
               style={{
                 background: 'rgba(0,255,136,0.06)',
                 border: '1px solid rgba(0,255,136,0.2)',
